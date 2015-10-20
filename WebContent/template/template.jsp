@@ -4,6 +4,12 @@
 <head>
 <meta charset="utf-8">
 <title>Bin's Berger Mall</title>
+<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css.map">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 </head>
 <body>
 
