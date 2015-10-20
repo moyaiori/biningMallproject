@@ -70,7 +70,6 @@ public class JdbcDaoFactory extends DaoFactory {
 		
 		try {
 			dao = Class.forName(className).newInstance();
-			System.out.println("dao : " + dao.getClass());
 			Method m = dao.getClass().getMethod("setDataSource", DataSource.class);
 			m.invoke(dao, dataSource);
 		} catch (Exception e) {

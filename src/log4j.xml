@@ -13,7 +13,7 @@
 	<!-- DailyRollingFileAppender -->
 	<!-- i:/KOSTA100/logs/someProjec.log 파일을 매일 하나의 로그 파일 발생 -->
 	<appender name="rolling" class="org.apache.log4j.DailyRollingFileAppender">
-		<param name="File" value="i:/KOSTA100/logs/someProject" />
+		<param name="File" value="D:/AS/logs/" />
 		<param name="encoding" value="utf-8" />
 		<param name="DatePattern" value="'-'yyyy-MM-dd-HH-mm'.log'" /><!-- 매일 자정에 날짜가 붙은 로그파일 생성 -->
 		<layout class="org.apache.log4j.PatternLayout">
