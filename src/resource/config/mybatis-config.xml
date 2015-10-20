@@ -4,14 +4,8 @@
 
 <!-- MyBatis Framework 전역 설정 파일 -->
 <configuration>
-	
 	<!-- DB연결 설정 파일 패스 설정 -->
 	<properties resource="resource/config/db-config.properties"/>
-	
-	<!--  MyBatis에서 사용할 사용자 정의 JavaBean 별칭 등록 -->
-	<typeAliases>
-		<typeAlias type="kr.or.kosta.employee.domain.Employee" alias="employee"/>
-	</typeAliases>
 	
 	<!-- 다중 DB 환경 설정 가능 -->
 	<environments default="development">
@@ -48,12 +42,8 @@
 	<!-- SQL 매핑 파일 패스 설정 -->
 	<mappers>
 		<!-- 클래스패스 경로 사용 -->
-		<mapper resource="resource/mapper/EmployeeMapper.xml" />
-		<mapper resource="kr/or/kosta/ems/employee/dao/EmployeeDao.xml" />
-		<!-- <mapper resource="" /> -->
-		
-		<!-- 파일시스템 경로 사용 -->
-		<!-- <mapper url="file:///c:/someProject/mapper/SomeMapper.xml" />	 -->
+		<mapper resource="kr/or/kosta/shopping/member/dao/MemberDao.xml" />
+		<mapper resource="kr/or/kosta/shopping/topping/dao/ToppingDao.xml" />
 	</mappers>
 
 </configuration>
