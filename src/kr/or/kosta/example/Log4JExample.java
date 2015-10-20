@@ -1,7 +1,6 @@
 package kr.or.kosta.example;
 
 import java.io.IOException;
-
 import org.apache.log4j.Logger;
 
 /**
