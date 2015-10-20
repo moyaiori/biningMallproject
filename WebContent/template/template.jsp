@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<div class="wrapper">
+<div>
 	<%--header include --%>
 	<jsp:include page="../menus/header.jsp"></jsp:include>
 
