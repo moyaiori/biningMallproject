@@ -47,6 +47,7 @@
 .logoTop{
 	text-align: center;
 	padding-top:4em;
+	padding-bottom: 2em;
 }
 
 .logoRight{
