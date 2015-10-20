@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 
+
 	<div class="container">
 		<div class="col-md-10 col-md-offset-1">
 		<table class="table">
