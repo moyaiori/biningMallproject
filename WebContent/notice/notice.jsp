@@ -71,7 +71,7 @@
 					<option value="wr_content">SUBJECT</option>
 				</select>
 				<input type="text"  class="" style="width:620px;" name="stx" value="" required id="stx" />
-				<input type="image" src="/images/board/btn_search.gif" alt="검색" />
+				<input type="button" src="" value="검색"/>
 			</div>
 		</form>
 	</div>
