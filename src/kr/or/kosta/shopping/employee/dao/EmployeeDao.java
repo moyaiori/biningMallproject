@@ -1,9 +1,5 @@
 package kr.or.kosta.shopping.employee.dao;
 
-import java.util.List;
-
-import kr.or.kosta.employee.domain.Employee;
-
 /**
  * 사원 관련 영속성 처리 표준 규약
  * @author 김기정
