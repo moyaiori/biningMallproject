@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=utf-8"%>
 <div id="container">
 	<div class="content">
 		<p class="total">TOTAL <span>52</span></p>
@@ -20,34 +21,35 @@
 							<th>SUBJECT</th>
 							<th>WRITER</th>
 							<th>DATE</th>
+							<th>COUNT</th>
 						</tr>
 							<tr>
 							<td>52</td>
-							<td class="title">
-								<a href="">¿‘±›»Æ¿Œ</a>
+							<td class="">
+								<a href="">ÏûÖÍ∏àÌôïÏù∏</a>
 							</td>
-							<td><span class="sv_member">≥™πÃ¡§</span></td>
+							<td><span class="">ÎÇòÎØ∏Ï†ï</span></td>
 							<td>14:47</td>
-						
+							<td>5</td>
 							</tr>
 							
 							<tr>
 							<td>
 							43		</td>
-							<td class="title">
+							<td class="">
 								
-								<a href="http://goraesa.co.kr/shop/bbs/board.php?bo_table=inquiry&amp;wr_id=83">
-									¡÷πÆªÛ≈¬ »Æ¿Œ ∫Œ≈πµÂ∏≥¥œ¥Ÿ.	</a>
+								<a href="">
+									Íµ¨Îß§ Ï†Ñ ÌïÑÎèÖ!! </a>
 					
 										</td>
-							<td><span class="sv_member">≥Î¥Î»∆</span></td>
+							<td><span class="">ÎÖ∏ÎåÄÌõà</span></td>
 							<td>10-09</td>
-							
+							<td>5</td>
 							</tr>
 					</table>
 		</form>
 
-		<nav class="pg_wrap">
+		<nav class="">
 			<a href="" >&lt;</a>
 			<a href="" >&lt;&lt;</a>
 			<a href="">1</a>
@@ -63,14 +65,13 @@
 			<input type="hidden" name="bo_table" value="inquiry">
 			<input type="hidden" name="sca" value="">
 			<input type="hidden" name="sop" value="and">
-			<div class="search mt45">
-				<select class="select01" style="width:160px;" name="sfl" id="">
-					<option value="wr_subject">WRITER</option>
+			<div class="">
+				<select class="" style="width:160px;" name="sfl" id="">
+					<option value="wr_subject">DATE</option>
 					<option value="wr_content">SUBJECT</option>
-					<option value="wr_subject||wr_content">TITLE</option>
 				</select>
-				<input type="text"  class="input01 required" style="width:620px;" name="stx" value="" required id="stx" />
-				<input type="image" src="/images/board/btn_search.gif" alt="∞Àªˆ" />
+				<input type="text"  class="" style="width:620px;" name="stx" value="" required id="stx" />
+				<input type="image" src="/images/board/btn_search.gif" alt="Í≤ÄÏÉâ" />
 			</div>
 		</form>
 	</div>
