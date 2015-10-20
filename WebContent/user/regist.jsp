@@ -60,8 +60,11 @@
 		<td>주소</td>
 		<td><input type="text" placeholder="우편번호"></td><td><input type="button" onclick="sample2_execDaumPostcode()" value="우편번호 찾기"></td>
 		</tr>
-		<tr><td></td><td colspan="2"><input type="text" id="sample2_address" size="35px" placeholder="한글주소"></td></tr>
+		<tr><td></td>
+		<td colspan="2"><input type="text" id="sample2_address" size="35px" placeholder="한글주소"></td></tr>
 		
+		<tr><td></td>
+		<td colspan="2"><input type="submit" value="회원가입"> <input type="reset" value="홈으로"></td></tr>
 
 	</table>
 

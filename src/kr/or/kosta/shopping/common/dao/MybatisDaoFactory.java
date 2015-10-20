@@ -8,7 +8,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import kr.or.kosta.shopping.employee.dao.MybatisEmployeeDao;
+import kr.or.kosta.shopping.member.dao.MybatisMemberDao;
 
 /**
  * Mybatis 기술을 사용하는 각각의 DAO를 생성하고 
