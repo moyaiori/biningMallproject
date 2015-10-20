@@ -1,14 +1,15 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-<div id="container">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css.map">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
+
+<div class="container">
 	<div class="content">
-		<p class="total">TOTAL <span>52</span></p>
-		<form name=""  id="" action="" onsubmit="" method="post">
-			<!-- 
-			<input type="hidden" name="bo_table" value="inquiry">
-			<input type="hidden" name="sfl" value="">
-			<input type="hidden" name="stx" value="">
-			 -->
-				<table cellpadding="0" cellspacing="0" border="0" class="">
+		<form action="" method="post">
+				<table class="table">
 						<colgroup>
 							<col width="75" />
 							<col width="600" />
@@ -16,12 +17,12 @@
 							<col width="130" />
 							<col width="85" />
 						</colgroup>
-						<tr>
-							<th>NUM</th>
-							<th>SUBJECT</th>
-							<th>WRITER</th>
-							<th>DATE</th>
-							<th>COUNT</th>
+						<tr class="active">
+							<th>번호</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>작성일</th>
+							<th>조회수</th>
 						</tr>
 							<tr>
 							<td>52</td>
@@ -34,8 +35,7 @@
 							</tr>
 							
 							<tr>
-							<td>
-							43		</td>
+							<td>43</td>
 							<td class="">
 								
 								<a href="">
@@ -47,31 +47,33 @@
 							<td>5</td>
 							</tr>
 					</table>
-		</form>
-
-		<nav class="">
-			<a href="" >&lt;</a>
-			<a href="" >&lt;&lt;</a>
-			<a href="">1</a>
-			<a href="">2</a>
-			<a href="">3</a>
-			<a href="">4</a>
-			<a href="">5</a>
-			<a href="">6</a>
-			<a href="" >&gt;</a>
-			<a href="" >&gt;&gt;</a>
-		</div></span></nav>
-		<form name="fsearch" method="get">
-			<input type="hidden" name="bo_table" value="inquiry">
-			<input type="hidden" name="sca" value="">
-			<input type="hidden" name="sop" value="and">
-			<div class="">
-				<select class="" style="width:160px;" name="sfl" id="">
-					<option value="wr_subject">DATE</option>
-					<option value="wr_content">SUBJECT</option>
+			</form>
+		</div>
+		
+		<form class="form-inline" method="get">
+			<div class="form-group">
+				<select class="form-control" style="width:95px;" name="sfl" id="">
+					<option value="subject">제목</option>
+					<option value="content">내용</option>
+					<option value="writer">글쓴이</option>
 				</select>
-				<input type="text"  class="" style="width:620px;" name="stx" value="" required id="stx" />
-				<input type="button" src="" value="검색"/>
+				<input class="form-control" type="text"  class="" style="width:220;" name="stx" value="" required id="stx" />
+				<input class="form-control" type="button" src="" value="검색"/>
 			</div>
 		</form>
+		
+		
+		<div class="text-center">
+			<ul class="pagination">
+				<li><a href="" >&lt;&lt;</a></li>
+				<li><a href="" >&lt;</a></li>
+				<li><a href="">1</a></li>
+				<li><a href="">2</a></li>
+				<li><a href="">3</a></li>
+				<li><a href="">4</a></li>
+				<li><a href="">5</a></li>
+				<li><a href="" >&gt;</a></li>
+				<li><a href="" >&gt;&gt;</a></li>
+			</ul>
+		</div>
 	</div>

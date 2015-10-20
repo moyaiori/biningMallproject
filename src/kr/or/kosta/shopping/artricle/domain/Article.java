@@ -8,7 +8,6 @@ public class Article {
 	private String content; // 글 내용
 	private String regdate; // 글 작성일
 	private int hitcount;   // 조회수 
-	private String passwd;  // 비밀번호
 	private int groupNum; // 그룹 번호(댓글과 게시글을 같은 번호로 관리한다)
 	private int stepNum;  // 계층의 깊이(들여쓰기 level) = 댓글을 위해서 필요하다
 	private int orderNum; // 그룹내 게시글 순서(댓글과 함께 그룹화 된다)
@@ -16,7 +15,7 @@ public class Article {
 	/** 생성자 오버로딩 */
 	public Article(){} // Java Bean을 위한 디폴트 생성자
 	public Article(int articleId, int boardId, String memberId, String subject, String content, String regdate,
-			int hitcount, String passwd, int groupNum, int stepNum, int orderNum) {
+			int hitcount, int groupNum, int stepNum, int orderNum) {
 		super();
 		this.articleId = articleId;
 		this.boardId = boardId;
@@ -25,7 +24,6 @@ public class Article {
 		this.content = content;
 		this.regdate = regdate;
 		this.hitcount = hitcount;
-		this.passwd = passwd;
 		this.groupNum = groupNum;
 		this.stepNum = stepNum;
 		this.orderNum = orderNum;
@@ -75,12 +73,6 @@ public class Article {
 	public void setHitcount(int hitcount) {
 		this.hitcount = hitcount;
 	}
-	public String getPasswd() {
-		return passwd;
-	}
-	public void setPasswd(String passwd) {
-		this.passwd = passwd;
-	}
 	public int getGroupNum() {
 		return groupNum;
 	}
@@ -102,8 +94,7 @@ public class Article {
 	@Override
 	public String toString() {
 		return "Article [articleId=" + articleId + ", boardId=" + boardId + ", memberId=" + memberId + ", subject="
-				+ subject + ", content=" + content + ", regdate=" + regdate + ", hitcount=" + hitcount + ", passwd="
-				+ passwd + ", groupNum=" + groupNum + ", stepNum=" + stepNum + ", orderNum=" + orderNum + "]";
+				+ subject + ", content=" + content + ", regdate=" + regdate + ", hitcount=" + hitcount + ", groupNum=" + groupNum + ", stepNum=" + stepNum + ", orderNum=" + orderNum + "]";
 	}
 
 	
