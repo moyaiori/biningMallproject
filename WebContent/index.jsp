@@ -8,8 +8,7 @@
 </head>
 <body>
 
-	<jsp:include page="template/template.jsp"></jsp:include>
-
+임시 메인 페이지 입니다.
 
 </body>
 </html>
