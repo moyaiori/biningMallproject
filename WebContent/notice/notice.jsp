@@ -1,12 +1,16 @@
+<!-- 
+	레이아웃 작성자 : 조현빈 
+	레이아웃 수정최종 날짜 : 2015 -10 -20 : 8시 30분
+ -->
 <%@ page contentType="text/html; charset=utf-8"%>
 <div id="container">
 	<div class="content">
 		<p class="total">TOTAL <span>52</span></p>
 		<form name=""  id="" action="" onsubmit="" method="post">
 			<!-- 
-			<input type="hidden" name="bo_table" value="inquiry">
-			<input type="hidden" name="sfl" value="">
-			<input type="hidden" name="stx" value="">
+				<input type="hidden" name="bo_table" value="inquiry">
+				<input type="hidden" name="sfl" value="">
+				<input type="hidden" name="stx" value="">
 			 -->
 				<table cellpadding="0" cellspacing="0" border="0" class="">
 						<colgroup>
