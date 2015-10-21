@@ -1,7 +1,7 @@
 package kr.or.kosta.shopping.topping.domain;
 
 public class Topping {
-	private int topping_id;
+	private int toppingId;
 	private String name;
 	private String picture;
 	private String description;
@@ -10,10 +10,10 @@ public class Topping {
 	private int price;
 	
 	public Topping(){}
-	public Topping(int topping_id, String name, String picture, String description, String country, int calorie,
+	public Topping(int toppingId, String name, String picture, String description, String country, int calorie,
 			int price) {
 		super();
-		this.topping_id = topping_id;
+		this.toppingId = toppingId;
 		this.name = name;
 		this.picture = picture;
 		this.description = description;
@@ -21,11 +21,11 @@ public class Topping {
 		this.calorie = calorie;
 		this.price = price;
 	}
-	public int getTopping_id() {
-		return topping_id;
+	public int getToppingId() {
+		return toppingId;
 	}
-	public void setTopping_id(int topping_id) {
-		this.topping_id = topping_id;
+	public void setToppingId(int toppingId) {
+		this.toppingId = toppingId;
 	}
 	public String getName() {
 		return name;
@@ -65,7 +65,7 @@ public class Topping {
 	}
 	@Override
 	public String toString() {
-		return "Topping [topping_id=" + topping_id + ", name=" + name + ", picture=" + picture + ", description="
+		return "Topping [toppingId=" + toppingId + ", name=" + name + ", picture=" + picture + ", description="
 				+ description + ", country=" + country + ", calorie=" + calorie + ", price=" + price + "]";
 	}
 }

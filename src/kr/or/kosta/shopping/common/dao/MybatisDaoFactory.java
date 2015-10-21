@@ -38,7 +38,6 @@ public class MybatisDaoFactory extends DaoFactory {
 		
 		try {
 			dao = Class.forName(className).newInstance();
-			System.out.println("dao : " + dao.getClass());
 			Method m = dao.getClass().getMethod("setSqlSessionFactory", SqlSessionFactory.class);
 			m.invoke(dao, sqlSessionFactory);
 		} catch (Exception e) {
