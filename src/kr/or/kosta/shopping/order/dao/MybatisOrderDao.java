@@ -11,7 +11,8 @@ import kr.or.kosta.shopping.common.dao.DaoFactory.DaoFactoryType;
 
 /**
  * Mybatis를 이용한 디비 연동
- * @author AS
+ * @author 가승호
+ * @작성일 : 2015/10/21
  */
 public class MybatisOrderDao  {
 	
