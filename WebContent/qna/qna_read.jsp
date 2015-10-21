@@ -37,5 +37,5 @@
 						</table>
 			
 					</form>
-						<input type="button" src="" value="목록"/>
+						<input onclick="location.href='../qna/qna_view.bins'" type="button"  value="목록"/>
 </body>
