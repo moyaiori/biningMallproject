@@ -2,6 +2,7 @@ package kr.or.kosta.shopping.article.service;
 
 import kr.or.kosta.shopping.article.dao.ArticleDao;
 import kr.or.kosta.shopping.article.dao.MybatisArticleDao;
+import kr.or.kosta.shopping.article.domain.Article;
 import kr.or.kosta.shopping.common.dao.DaoFactory;
 import kr.or.kosta.shopping.common.dao.DaoFactory.DaoFactoryType;
 
@@ -33,13 +34,13 @@ public class ArticleService {
 		return instance;	
 	}
 	
-	/**회원 등록*//*
-	public void add(User user)throws RuntimeException{
+	/**게시글 등록*/
+	public void add(Article article)throws RuntimeException{
 		
-		*//**비즈니스 로직 처리...*//*
+		/**비즈니스 로직 처리...*/
 		try {
+			articleDao.insert(article);
 
-			userDao.add(user);
 		} catch (Exception e) {
 			
 			throw new RuntimeException(e);
@@ -47,7 +48,7 @@ public class ArticleService {
 		}
 	}
 	
-	*//**회원 목록*//*
+	/**회원 목록*//*
 	public List<User> list()throws RuntimeException{
 		
 		List<User> list= null;

@@ -1,0 +1,41 @@
+@CHARSET "EUC-KR";
+img {
+	width: 100px;
+}
+
+.table tbody>tr>td{
+    vertical-align: middle;
+}
+
+.table td {
+   text-align: center;   
+}
+
+.table th {
+   text-align: center;   
+}
+
+
+.order tbody>tr>td{
+    vertical-align: top;
+    text-align: left;
+}
+
+.phoneFile{
+	width: 100px;
+	display: inline;
+}
+
+.postFile{
+	width: 100px;
+	display: inline;
+}
+
+.TagTd{
+	line-height: 30px;
+	padding-right: 10px;
+}
+
+.inputTd{
+	padding-bottom: 10px;
+}

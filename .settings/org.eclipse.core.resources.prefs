@@ -3,6 +3,7 @@ encoding//WebContent/WEB-INF/controllerMapping.properties=UTF-8
 encoding//WebContent/cart/cart.jsp=UTF-8
 encoding//WebContent/menus/intro.jsp=UTF-8
 encoding//WebContent/notice/notice_list.jsp=UTF-8
+encoding//WebContent/order/order.jsp=UTF-8
 encoding//src/kr/or/kosta/example/Log4JExample.java=UTF-8
 encoding/WebContent=UTF-8
 encoding/src=UTF-8

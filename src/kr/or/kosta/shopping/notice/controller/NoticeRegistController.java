@@ -19,14 +19,18 @@ public class NoticeRegistController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response){
 		
 		ModelAndView mav = new ModelAndView();
-		String id = request.getParameter("id");
-		String  name	= request.getParameter("name");
-		String passwd= request.getParameter("passwd");
-			
-		Article article = new Article();
+		String subject = request.getParameter("subject");
+		String  id	= request.getParameter("memberId");
+		id ="kahlman"; //임시
+	//	String email= request.getParameter("memberEmail");
 		
+		String content= request.getParameter("content");	
+		
+		Article article = new Article(1,id,subject,content);
+
 		ArticleService service =ArticleService.getInstance();
-	//	service.add(article);
+		
+		service.add(article);
 		
 	//	mav.addObject("user", user);
 	//	mav.setView("/user/registResult.jsp");

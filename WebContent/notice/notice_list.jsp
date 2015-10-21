@@ -62,6 +62,7 @@
             </select>
             <input type="text"  class="form-control" style="width:200px;" name="stx" value="" required id="stx" />
             <input onclick="location.href='../notice/notice_list.bins'" type="button" class="btn btn-default" value="검색"/>
+            <input onclick="location.href='../notice/notice_write.bins'" type="button" class="btn btn-default" value="글쓰기"/>
          </div>
       </form>
 	  
