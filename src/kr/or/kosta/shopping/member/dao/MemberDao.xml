@@ -39,10 +39,10 @@
 	<!-- isMember 추가(email로 검색) -->
 	
 	<!-- login 추가(id, passwd) -->
-	<select id="login" resultType="kr.or.kosta.shopping.member.domain.Member" >
-		 SELECT  member_id AS "memberId", passwd AS "passwd"
+	<select id="login" resultType="kr.or.kosta.shopping.member.domain.Member" parameterType="java.util.HashMap">
+		 SELECT member_id AS "memberId", passwd AS "passwd", birth AS "birth", phone_number AS "phoneNumber", address AS "address", address2 AS "address2", name AS "name", email AS "email", grade AS "grade", point AS "point"  
 		 FROM members
-		 WHERE member_id = #{value} AND passwd = #{value}
+		 WHERE member_id = #{memberId} AND passwd = #{passwd}
 	</select>	
 	
 </mapper>

@@ -16,16 +16,17 @@ import kr.or.kosta.shopping.order.service.OrderService;
  * @author 가승호
  * @작성일 : 2015/10/21
  */
-public class OrderSetOrderController implements Controller{
+public class OrderGetOrderController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		
 		ModelAndView mav = new ModelAndView();
 		OrderService service = OrderService.getInstance();
-		System.out.println("OrderSetOrderController 진입");
+		System.out.println("OrderGetOrderController 진입");
 		
 		/*
 		String orderNum = request.getParameter("orderNum");
+		int orderN = Integer.parseInt(orderNum);
 		String memberId = request.getParameter("memberId");
 		String address = request.getParameter("address");
 		String address2 = request.getParameter("address2");
@@ -33,16 +34,16 @@ public class OrderSetOrderController implements Controller{
 		String payment = request.getParameter("payment");
 		String recipient = request.getParameter("recipient");
 		String totalPrice = request.getParameter("totalPrice");
-		*/
-		//System.out.println(orderNum + memberId + address + address2 + orderDate);
+		
+		System.out.println(orderNum + memberId + address + address2 + orderDate);
 		
 		
-		//Order order = new Order(Integer.parseInt(orderNum), memberId,  address,  address2, orderDate,  payment, recipient, Integer.parseInt(totalPrice));
+		Order order = new Order(orderN, memberId,  address,  address2, orderDate,  payment, recipient, Integer.parseInt(totalPrice));
+		service.get(orderN);
+		mav.addObject("order", order);*/
 		
-		//service.insert(order);
+		mav.addObject("contentFile", "/order/orderCheck.jsp");
 		
-	//	mav.addObject("order", order);
-		mav.addObject("contentFile", "/order/order.jsp");
 		
 		return mav;
 	}

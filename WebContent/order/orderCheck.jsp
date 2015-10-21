@@ -1,3 +1,4 @@
+<%@ page contentType="text/html; charset=utf-8"%>
 <!-- 
 	작성일 : 2015/10/20
 	작성자 : 가승호
