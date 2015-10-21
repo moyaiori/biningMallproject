@@ -19,9 +19,9 @@
 	
 			<tr>
 				<td>작성자</td>
-				<td><input class="form-control" type="text" name="writer" disabled size="30" value=""/></td>
+				<td><input class="form-control" type="text" name="memberId" disabled size="30" value=""/></td>
 				<td>이메일</td>
-				<td><input class="form-control" type="text" disabled size="30" value=""/></td>
+				<td><input class="form-control" type="text" name="memberEmail" disabled size="30" value=""/></td>
 			</tr>
 	
 			<tr>

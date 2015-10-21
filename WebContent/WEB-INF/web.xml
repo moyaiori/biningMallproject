@@ -26,7 +26,8 @@
 		<init-param>
 			<param-name>controllerMapping</param-name>
 			<!-- <param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
-			<param-value>C:/Users/kosta3-20/Documents/git/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value>
+			<!-- <param-value>C:/Users/kosta3-20/Documents/git/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
+				<param-value>C:/Users/JHB-PC/Desktop/KOSTA/project/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value>
 		</init-param>
 	</servlet>
 
