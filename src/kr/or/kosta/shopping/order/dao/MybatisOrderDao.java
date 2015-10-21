@@ -6,8 +6,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-import kr.or.kosta.shopping.common.dao.DaoFactory;
-import kr.or.kosta.shopping.common.dao.DaoFactory.DaoFactoryType;
+import kr.or.kosta.shopping.order.domain.Order;
 
 /**
  * Mybatis를 이용한 디비 연동
@@ -25,11 +24,11 @@ public class MybatisOrderDao  {
 	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
-	/*
-	@Override
-	public List<Topping> getAll() throws RuntimeException {
+	
+	//전체 주문 목록
+	public List<Order> getAll() throws RuntimeException{
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		List<Topping> list = new ArrayList<Topping>();
+		List<Order> list = new ArrayList<Order>();
 		try {
 			OrderDao dao = (OrderDao) sqlSession.getMapper(OrderDao.class);
 			list = dao.getAll();
@@ -39,16 +38,16 @@ public class MybatisOrderDao  {
 		return list;
 	}
 	
-	@Override
-	public Topping get(int toppingId) throws RuntimeException {
+	//한개의 주문 가져오기
+	public Order get(int orderNum) throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		Topping topping = new Topping();
+		Order order = new Order();
 		try {
 			OrderDao dao = (OrderDao) sqlSession.getMapper(OrderDao.class);
-			topping = dao.get(toppingId);
+			order = dao.get(orderNum);
 		} finally {
 			sqlSession.close();
 		}
-		return topping;
-	}*/
+		return order;
+	}
 }

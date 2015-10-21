@@ -21,7 +21,6 @@ public class FrontControllerServlet extends HttpServlet {
 
 	public void init() throws ServletException {
 		// 컨트롤러 설정 파일 패스
-//		String configPath = "I:/KOSTA100/workspace/Model2Study/WebContent/WEB-INF/controllerMapping.properties";
 		String configPath = getInitParameter("controllerMapping");
 		controllerFactory = ControllerFactory.getInstance(configPath);
 	}
@@ -49,8 +48,7 @@ public class FrontControllerServlet extends HttpServlet {
 		// /appName/board/list.do -> /board/list
 		String applicationName = request.getContextPath();
 		uri = uri.substring(applicationName.length(), uri.lastIndexOf("."));
-		System.out.println("[Debug] : 요청 URI: " + uri);
-
+		
 		Controller controller = null;
 		ModelAndView mav = null;
 

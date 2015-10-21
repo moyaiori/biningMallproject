@@ -29,7 +29,6 @@ public class ControllerFactory {
 		Properties prop = new Properties();
 		FileInputStream fis = null;
 		try{
-			
 			fis = new FileInputStream(configFilePath);
 			prop.load(fis);
 			Iterator keyIter = prop.keySet().iterator();
@@ -39,8 +38,6 @@ public class ControllerFactory {
 				// 컨트롤러 생성
 				Controller controllerObject = (Controller)Class.forName(controllerClass).newInstance();
 				controllerMap.put(controllerName, controllerObject);
-				System.out.println("[Debug] controllerName(ControllerFactory) : " + controllerName);
-				System.out.println("[Debug] controllerClass(ControllerFactory) : " + controllerClass);
 			}
 		}catch(Exception ex){}		
 	}
