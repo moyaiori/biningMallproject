@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 네임스페이스(사용영역) 설정 -->
+<mapper namespace="kr.or.kosta.shopping.product.dao.ProductDao">
+	
+	<!-- 전체회원 조회를 위한 SQL 매핑 -->
+	<select id="getAll" resultType="kr.or.kosta.shopping.product.domain.Product" >
+		SELECT product_id AS "productId", name, picture, price, calorie, description, sales_count
+		FROM product
+	</select>
+	
+	<select id="get" parameterType="java.lang.Integer" resultType="kr.or.kosta.shopping.product.domain.Product" >
+		SELECT product_id AS "productId", name, picture, price, calorie, description, sales_count
+		FROM product
+		WHERE product_id = #{value}
+	</select>
+		
+	
+</mapper>

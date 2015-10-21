@@ -8,21 +8,23 @@ package kr.or.kosta.shopping.product.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.kosta.shopping.article.domain.Article;
-import kr.or.kosta.shopping.article.service.ArticleService;
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
+import kr.or.kosta.shopping.product.domain.Product;
+import kr.or.kosta.shopping.product.service.ProductService;
 
 public class ProductViewController implements Controller {
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response){
 		
+		String productId = request.getParameter("productId");
 		ModelAndView mav = new ModelAndView();
-
-		ArticleService service =ArticleService.getInstance();
-	//	service.add(article);
+		
+		ProductService service = ProductService.getInstance();
+		Product product = service.get(Integer.parseInt(productId));
 	
+		mav.addObject("product", product);
 		mav.addObject("contentFile", "../product/product_view.jsp");
 
 		return mav;
