@@ -12,6 +12,23 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../style/product_view.css">
 
+<script>
+	window.onload = function(){
+		var count = document.getElementById("count");
+		var price = document.getElementById("price");
+		var realPrice = ${product.price};
+		
+		count.onchange = function(){
+			price.innerHTML = ": " + realPrice * count.value;
+		}
+		
+		var select = document.getElementById("select");
+		var toppingBox = document.getElementById("topping");
+		
+		select.onchange = function(){
+		}
+	}
+</script>
 
 <body>
 	<div>
@@ -24,7 +41,7 @@
 						<table class="innerTable">
 							<tr>
 								<td>가격</td>
-								<td>: ${product.price}</td>
+								<td id="price">: ${product.price}</td>
 							</tr>
 							<tr>
 								<td>칼로리</td>
@@ -36,16 +53,16 @@
 							</tr>
 							<tr>
 								<td>갯수</td>
-								<td><input type="number" style="width: 50px" min="1" max="10" value="1"></td>
+								<td><input id="count" type="number" style="width: 50px" min="1" max="10" value="1"></td>
 							</tr>
 						</table>
 						<div class="selectedTopping">
-							<select multiple class="form-control" id="sel2">
+							<select multiple class="form-control" id="topping">
 						        <option>토핑을 추가해 주세요</option>
      						 </select>
 						</div>
 						<div class="selectTopping">
-							<select class="form-control" id="sel2" style="display: inline;">
+							<select class="form-control" id="select" style="display: inline;">
 								<option value="">== 토핑 선택 ==
 								<c:forEach items="${toppingList}" var="topping">
 								<option value="${topping.toppingId}">${topping.toppingId}.${topping.name} : ${topping.price}원
