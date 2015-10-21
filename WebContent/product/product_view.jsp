@@ -56,7 +56,7 @@
 
 						<div class="orderBtnSet">
 							<input type="button" class="btn btn-default" value="장바구니 추가"/>
-							<input type="button" class="btn btn-default" value="바로 구매"/>
+							<input onclick="location.href='../order/order.bins'" type="button" class="btn btn-default" value="바로 구매"/>
 						</div>
 					</td>
 				</tr>

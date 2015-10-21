@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//WebContent/WEB-INF/controllerMapping.properties=UTF-8
 encoding//WebContent/cart/cart.jsp=UTF-8
 encoding//WebContent/menus/intro.jsp=UTF-8
 encoding//WebContent/notice/notice_list.jsp=UTF-8
