@@ -25,17 +25,13 @@
 		<servlet-class>kr.or.kosta.shopping.common.controller.FrontControllerServlet</servlet-class>
 		<init-param>
 			<param-name>controllerMapping</param-name>
-			<param-value>I:/KOSTA100/workspace/Model2Study/WebContent/WEB-INF/controllerMapping.properties</param-value>
+			<param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value>
 		</init-param>
 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>frontController</servlet-name>
-		<!-- 단일진입점을 위한 서블릿 매핑 -->
-		<!-- 확장자 형식의 서블릿 매핑 -->
-		<url-pattern>*.mall</url-pattern>
-		<!-- URI PATH 형식의 서블릿 매핑 -->
-		<!--<url-pattern>/app/*</url-pattern> -->
+		<url-pattern>*.bins</url-pattern>
 	</servlet-mapping>
 
 </web-app>

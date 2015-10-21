@@ -59,71 +59,70 @@
 </script>
 <div class="container">
 	<h1>회원가입</h1>
+	<form action="registProc.bins" method="post">
+		<table class="table">
+			<tr>
+				<td>아이디</td>
+				<td><input type="text" class="form-control" name="id"></td>
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="password" class="form-control" name="passwd"></td>
+			</tr>
+			<tr>
+				<td>비밀번호확인</td>
+				<td><input type="password" class="form-control"></td>
+			</tr>
+			<tr>
+				<td>이름</td>
+				<td><input type="text" class="form-control" name="name"></td>
+			</tr>
+			<tr>
+				<td>생년월일</td>
+				<td><input type="date" class="form-control" name="birth">	</td>
+			</tr>
+			<tr>
+				<td>성별</td>
+				<td><select class="form-control" name="gender">
+						<option value="남">남자</option>
+						<option value="여">여자</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td>이메일주소</td>
+				<td><input type="text" class="form-control" name="email"></td>
+			</tr>
 	
-	<form>
-	<table class="table">
-		<tr>
-			<td>아이디</td>
-			<td><input type="text" class="form-control"></td>
-		</tr>
-		<tr>
-			<td>비밀번호</td>
-			<td><input type="password" class="form-control"></td>
-		</tr>
-		<tr>
-			<td>비밀번호확인</td>
-			<td><input type="password" class="form-control"></td>
-		</tr>
-		<tr>
-			<td>이름</td>
-			<td><input type="text" class="form-control"></td>
-		</tr>
-		<tr>
-			<td>생년월일</td>
-			<td><input type="date" class="form-control">	</td>
-		</tr>
-		<tr>
-			<td>성별</td>
-			<td><select class="form-control">
-					<option>남자</option>
-					<option>여자</option>
-			</select></td>
-		</tr>
-		<tr>
-			<td>이메일주소</td>
-			<td><input type="text" class="form-control"></td>
-		</tr>
-
-		<tr>
-			<td>연락처</td>
-			<td class="form-inline">
-				<div class="form-group">
-				<select class="form-control">
-					<option>010</option>
-					<option>011</option>
-					<option>017</option>
-					<option>019</option>
-					<option>070</option>
-				</select>
-			<input type="text" size="4" class="form-control">
-			<input type="text"  size="4" class="form-control">
-			</div>
-			</td>
-		</tr>
-
-		<tr>
-		<td>주소</td>
-		<td><input id="post" type="text" placeholder="우편번호" class="form-control"></td><td><input type="button" onclick="searchPost()" value="우편번호 찾기" class="btn btn-default"></td>
-		</tr>
-		<tr>
-		<td></td>
-		<td colspan="2"><input type="text" id="address" size="35px" placeholder="기본주소" class="form-control"></td>
-		</tr>
-		<tr><td></td><td colspan="2"><input type="text" id="address2" size="35px" placeholder="상세주소" class="form-control"></td></tr>
-		
-		<tr><td></td>
-		<td colspan="2"><input type="submit" value="회원가입" class="btn btn-default">
-		<input type="button" value="홈으로" class="btn btn-default"></td></tr>
-	</table>
+			<tr>
+				<td>연락처</td>
+				<td class="form-inline">
+					<div class="form-group">
+					<select class="form-control" name="phone">
+						<option>010</option>
+						<option>011</option>
+						<option>017</option>
+						<option>019</option>
+						<option>070</option>
+					</select>
+				<input type="text"  size="4" class="form-control" name="phone2">
+				<input type="text"  size="4" class="form-control" name="phone3">
+				</div>
+				</td>
+			</tr>
+	
+			<tr>
+			<td>주소</td>
+			<td><input id="post" type="text" placeholder="우편번호" class="form-control"></td><td><input type="button" onclick="searchPost()" value="우편번호 찾기" class="btn btn-default"></td>
+			</tr>
+			<tr>
+			<td></td>
+			<td colspan="2"><input type="text" id="address"  name="address" size="35px" placeholder="기본주소" class="form-control"></td>
+			</tr>
+			<tr><td></td><td colspan="2"><input type="text" id="address2" name="address2" size="35px" placeholder="상세주소" class="form-control"></td></tr>
+			
+			<tr><td></td>
+			<td colspan="2"><input type="submit" value="회원가입" class="btn btn-default">
+			<input type="button" value="홈으로" class="btn btn-default"></td></tr>
+		</table>
 	</form>
 </div>
