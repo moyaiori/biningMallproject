@@ -118,8 +118,7 @@
 					<td>Very Good</td>
 				</tr>
 			</table>
-			<input type="button" class="btn btn-default" value="글쓰기"
-				style="float: right;" />
+			<input onclick="location.href='../product/product_write.bins'" type="button" class="btn btn-default" value="글쓰기" style="float: right;" />
 		</div>
 	</div>
 </body>
