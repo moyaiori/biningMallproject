@@ -22,4 +22,10 @@
 		DELETE FROM cart
 		WHERE member_id = #{memberId} AND product_id = #{productId}
 	</delete>
+	
+	<delete id="deleteAll" parameterType="java.lang.String">
+		DELETE FROM cart
+		WHERE member_id = #{memberId}
+	</delete>
+	
 </mapper>

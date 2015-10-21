@@ -19,6 +19,9 @@ public interface CartDao {
 	
 	/** 카트에 목록 삭제 */
 	public void delete(HashMap<String, Object> data) throws RuntimeException;
+	
+	/** 카트 목록 전체 삭제 */
+	public void deleteAll(String memberId) throws RuntimeException;
 }
 
 
