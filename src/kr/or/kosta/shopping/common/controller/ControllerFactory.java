@@ -29,15 +29,12 @@ public class ControllerFactory {
 		Properties prop = new Properties();
 		FileInputStream fis = null;
 		try{
-			
 			fis = new FileInputStream(configFilePath);
 			prop.load(fis);
 			Iterator keyIter = prop.keySet().iterator();
 			while(keyIter.hasNext()){
 				String controllerName = (String)keyIter.next();
 				String controllerClass = prop.getProperty(controllerName);
-				System.out.println("controllerName : " + controllerName);
-				System.out.println("controllerClass : " + controllerClass);
 				// 컨트롤러 생성
 				Controller controllerObject = (Controller)Class.forName(controllerClass).newInstance();
 				controllerMap.put(controllerName, controllerObject);

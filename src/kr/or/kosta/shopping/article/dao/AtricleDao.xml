@@ -12,8 +12,8 @@
 		
 	<!-- 회원 등록 -->
 	<insert id="insert" parameterType="kr.or.kosta.shopping.member.domain.Member">
-		INSERT INTO members(member_id, passwd, birth, phone_number, phone_number2, phone_number3, address, address2, name, email, grade, gender)
-		VALUES(#{memberId}, #{passwd}, #{birth}, #{phoneNumber}, #{phoneNumber2}, #{phoneNumber3}, #{address}, #{address2}, #{name}, #{email}, '일반', #{gender})
+		INSERT INTO members(member_id, passwd, birth, phone_number, address, address2, name, email, grade, gender)
+		VALUES(#{memberId}, #{passwd}, #{birth}, #{phoneNumber}, #{address}, #{address2}, #{name}, #{email}, '일반', #{gender}); 
 	</insert>
 	
 	<!-- 회원 정보 수정(JSTL set, if 태그를 이용한 동적 SQL) -->

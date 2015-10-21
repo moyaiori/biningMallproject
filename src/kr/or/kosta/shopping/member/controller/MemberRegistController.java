@@ -23,12 +23,12 @@ public class MemberRegistController implements Controller{
 		String gender = request.getParameter("gender");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
-		String phone1 = request.getParameter("phone1");
 		String phone2 = request.getParameter("phone2");
+		String phone3 = request.getParameter("phone3");
 		String address = request.getParameter("address");
 		String address2 = request.getParameter("address2");
 		
-		Member member = new Member(id, passwd, birth, phone, phone1, phone2, address, address2, name, email, "일반", 0);
+		Member member = new Member(id, passwd, birth, gender, phone, phone2, phone3, address, address2, name, email, "일반", 0);
 		
 		MemberService service = MemberService.getInstance();
 		service.insert(member);
@@ -36,7 +36,7 @@ public class MemberRegistController implements Controller{
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("member", member);
-		mav.setView("/index.jsp"); // forward
+		mav.setView("registResult.jsp"); // forward
 		
 		return mav;
 	}
