@@ -6,11 +6,18 @@
 	
 		<!-- 주문 등록 -->
 	<insert id="insert" parameterType="kr.or.kosta.shopping.order.domain.Order">
-		INSERT INTO members(member_id, passwd, birth, phone_number, phone_number2, phone_number3, address, address2, name, email, grade, gender)
-		VALUES(#{memberId}, #{passwd}, #{birth}, #{phoneNumber}, #{phoneNumber2}, #[phoneNumber3], #{address}, #{address2}, #{name}, #{email}, '일반', #{gender}); 
+		INSERT INTO order(member_id, address, order_date, payment, recipient, price)
+		VALUES(#{memberId}, #{address},  #{order_date}, #{payment}, #{recipient}, #{price}); 
 	</insert>
 	
-	<!-- 전체회원 조회를 위한 SQL 매핑 -->
+	<!--  배송지 정보 가져오기 -->
+	<select id="getInfo" parameterType="kr.or.kosta.shopping.member.domain.Member">
+		SELECT members 
+	
+	</select>
+	
+	
+	<!-- 전체주문 조회 SQL 매핑 -->
 	<select id="getAll" resultType="kr.or.kosta.shopping.order.domain.Order" >
 		SELECT topping_id AS "toppingId", name, picture, description, calorie, country, price
 		FROM order

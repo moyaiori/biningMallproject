@@ -49,6 +49,19 @@ public class OrderService {
 		}
 	}
 	
+	
+	/** 배송지 정보 가져오기 */
+	public Member getInfo(String memberId) throws RuntimeException{
+		Member member = null;
+		try{
+			member = orderDao.getInfo(memberId);	
+		}catch(Exception e){
+			throw new RuntimeException(e.toString());
+		}
+		return member;
+	}
+	
+	
 	/** 주문목록 */
 	public List<Order> list() throws RuntimeException{
 		List<Order> list = null;

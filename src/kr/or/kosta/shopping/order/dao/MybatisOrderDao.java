@@ -64,7 +64,7 @@ public class MybatisOrderDao implements OrderDao{
 	}
 
 	//배송지 정보 가져오기
-	public Member getAddress(String memberId) throws RuntimeException{
+	public Member getInfo(String memberId) throws RuntimeException{
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		Member member = new Member();
 		
