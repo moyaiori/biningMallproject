@@ -22,11 +22,11 @@
 			<tr>
 				<td>만족도	</td>
 				<td colspan="3">
-					<label class="radio-inline"><input type="radio" name="optradio">Very Good</label>
-					<label class="radio-inline"><input type="radio" name="optradio">Good</label>
-					<label class="radio-inline"><input type="radio" name="optradio">Not bad</label>
-					<label class="radio-inline"><input type="radio" name="optradio">Bad</label>
-					<label class="radio-inline"><input type="radio" name="optradio">No Good</label>
+					<label class="radio-inline"><input type="radio" name="optradio">매우 만족</label>
+					<label class="radio-inline"><input type="radio" name="optradio">만족</label>
+					<label class="radio-inline"><input type="radio" name="optradio">보통</label>
+					<label class="radio-inline"><input type="radio" name="optradio">불만족</label>
+					<label class="radio-inline"><input type="radio" name="optradio">매우 불만족</label>
 				</td>
 			</tr>
 	
