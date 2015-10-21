@@ -24,7 +24,6 @@ public class ProductListController implements Controller {
 
 		ProductService service = ProductService.getInstance();
 		List<Product> list = service.getAll();
-		
 		mav.addObject("productList", list);
 		mav.addObject("contentFile", "/product/product_list_berger.jsp");
 
