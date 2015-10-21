@@ -61,6 +61,7 @@ public class FrontControllerServlet extends HttpServlet {
 		if (controller == null) {
 			//response.sendError(HttpServletResponse.SC_NOT_FOUND);
 			//return;
+
 			viewResolver.execute(request, response, uri+".jsp");
 			return;
 		}
