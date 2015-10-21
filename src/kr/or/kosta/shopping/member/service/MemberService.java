@@ -50,4 +50,10 @@ public class MemberService {
 		}
 		return list;
 	}
+	
+	/** 회원 여부 반환*/
+	public Member login() throws RuntimeException{
+		
+		return null; 
+	}
 }

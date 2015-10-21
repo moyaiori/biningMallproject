@@ -37,4 +37,12 @@
 	</delete>
 	
 	<!-- isMember 추가(email로 검색) -->
+	
+	<!-- login 추가(id, passwd) -->
+	<select id="login" resultType="kr.or.kosta.shopping.member.domain.Member" >
+		 SELECT  member_id AS "memberId", passwd AS "passwd"
+		 FROM members
+		 WHERE member_id = #{value} AND passwd = #{value}
+	</select>	
+	
 </mapper>

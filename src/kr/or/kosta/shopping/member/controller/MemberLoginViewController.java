@@ -17,9 +17,10 @@ public class MemberLoginViewController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		
-		
 		MemberService service = MemberService.getInstance();
 		ModelAndView mav = new ModelAndView();
+		
+		
 		
 		mav.addObject("contentFile", "/user/login.jsp");
 		return mav;
