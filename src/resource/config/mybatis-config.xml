@@ -44,6 +44,9 @@
 		<!-- 클래스패스 경로 사용 -->
 		<mapper resource="kr/or/kosta/shopping/member/dao/MemberDao.xml" />
 		<mapper resource="kr/or/kosta/shopping/topping/dao/ToppingDao.xml" />
+		<mapper resource="kr/or/kosta/shopping/cart/dao/CartDao.xml" />
+		<mapper resource="kr/or/kosta/shopping/article/dao/ArticleDao.xml" />
+		
 	</mappers>
 
 </configuration>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 네임스페이스(사용영역) 설정 -->
+<mapper namespace="kr.or.kosta.shopping.cart.dao.CartDao">
+	
+	<!-- 전체회원 조회를 위한 SQL 매핑 -->
+	<select id="getAll" parameterType="java.lang.String" resultType="kr.or.kosta.shopping.cart.domain.Cart" >
+		SELECT member_id AS "memberId", product_id AS "productId", name, price, picture, order_count
+		FROM cart
+		WHERE member_id = #{memberId}
+	</select>
+		
+	<!-- 회원 등록 -->
+	<insert id="insert" parameterType="java.util.HashMap">
+		INSERT INTO cart(member_id, product_id, name, price, picture, order_count)
+		VALUES(#{memberId}, #{product.productId}, #{product.name}, #{product.price}, #{product.picture}, 1)
+	</insert>
+	
+	<!-- 회원 삭제 -->
+	<delete id="delete" parameterType="java.util.HashMap">
+		DELETE FROM cart
+		WHERE member_id = #{memberId} AND product_id = #{productId}
+	</delete>
+</mapper>
