@@ -25,8 +25,8 @@
 	font-size: 20px;
 }
 
-.innerTable tr td{
-	wid
+.innerTable{
+	width: 100%;
 }
 
 
