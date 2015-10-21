@@ -65,7 +65,6 @@
          </div>
       </form>
 	  
-	  
 	  <div class="text-center">
 	      <ul class="pagination">
 	      	 <li><a href="" >&lt;&lt;</a></li>

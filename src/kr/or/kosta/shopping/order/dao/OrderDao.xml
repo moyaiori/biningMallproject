@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 네임스페이스(사용영역) 설정 -->
+<mapper namespace="kr.or.kosta.shopping.order.dao.OrderDao">
+	
+	<!-- 전체회원 조회를 위한 SQL 매핑 -->
+	<select id="getAll" resultType="kr.or.kosta.shopping.topping.domain.Order" >
+		SELECT topping_id AS "toppingId", name, picture, description, calorie, country, price
+		FROM order
+	</select>
+		
+	<select id="get" resultType="kr.or.kosta.shopping.topping.domain.Topping" parameterType="int">
+		SELECT topping_id AS "toppingId", name, picture, description, calorie, country, price
+		FROM order
+		WHERE topping_id = #{value}
+	</select>
+</mapper>
