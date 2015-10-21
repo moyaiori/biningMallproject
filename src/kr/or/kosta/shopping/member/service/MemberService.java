@@ -1,5 +1,6 @@
 package kr.or.kosta.shopping.member.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import kr.or.kosta.shopping.common.dao.DaoFactory;
@@ -49,5 +50,19 @@ public class MemberService {
 			throw new RuntimeException(e);
 		}
 		return list;
+	}
+	
+	/** 회원 여부 반환*/
+	public Member login(String id, String passwd) throws RuntimeException{
+		Member member = null;
+		HashMap<String, Object> data = new HashMap<String, Object>();
+		data.put("memberId", id);
+		data.put("passwd", passwd);
+		try {
+			member = memberDao.login(data);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return member;
 	}
 }

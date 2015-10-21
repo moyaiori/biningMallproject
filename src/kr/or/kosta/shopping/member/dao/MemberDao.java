@@ -1,5 +1,6 @@
 package kr.or.kosta.shopping.member.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import kr.or.kosta.shopping.member.domain.Member;
@@ -24,6 +25,9 @@ public interface MemberDao {
 	
 	/** 회원 확인 */
 	public Member isMember(String email) throws Exception;
+	
+	/** 회원 로그인 */
+	public Member login(HashMap<String, Object> data) throws Exception;
 }
 
 
