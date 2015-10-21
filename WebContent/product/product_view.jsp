@@ -18,25 +18,25 @@
 		<div style="padding-top: 5px; padding-bottom: 10px;">
 			<table class="detailMainDiv">
 				<tr>
-					<td><img src='../images/완_스페셜2밥버거.jpg' /></td>
+					<td><img src='../images/${product.picture}' /></td>
 					<td valign="top">
-						<div><h3>스페셜 2 밥버거</h3></div>
+						<div><h3>${product.name}</h3></div>
 						<table class="innerTable">
 							<tr>
 								<td>가격</td>
-								<td>: 1000원</td>
+								<td>: ${product.price}</td>
 							</tr>
 							<tr>
 								<td>칼로리</td>
-								<td>: 1000cal</td>
+								<td>: ${product.calorie}cal</td>
 							</tr>
 							<tr>
 								<td>판매량</td>
-								<td>: 100개</td>
+								<td>: ${product.salesCount}</td>
 							</tr>
 							<tr>
 								<td>갯수</td>
-								<td>: <input type="number" style="width: 50px" min="1" max="10"></td>
+								<td><input type="number" style="width: 50px" min="1" max="10" value="1"></td>
 							</tr>
 						</table>
 						<div class="selectedTopping">
@@ -71,8 +71,7 @@
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading">메뉴 상세 설명</div>
-			<div class="panel-body">상세 설명을 적어주세요<br> 스페셜 2 밥 버거 입니다.<br> 매우매우 맛있죠<br> 딱 봐도
-		알겟죠?<br></div>
+			<div class="panel-body">${product.description }</div>
 		</div>
 	</div>
 
