@@ -65,8 +65,7 @@
 			<tbody><tr>
 				
 				<td align="right">상품합계금액</td>
-				<td align="right" style="font-weight:bold; padding-left:30px"><span>0</span>원&nbsp;</td>
-			
+				<td align="right" style="font-weight:bold; padding-left:30px"><span>0</span>원&nbsp;</td>			
 				<td align="right">받으실적립금</td>
 				<td align="right" style="font-weight:bold;padding-left:25px"><span>0</span>원&nbsp;</td>
 				<td align="right">&nbsp;&nbsp;&nbsp;<input type="button" value="선택삭제"></td>
