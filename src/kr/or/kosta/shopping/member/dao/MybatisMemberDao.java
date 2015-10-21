@@ -1,6 +1,7 @@
 package kr.or.kosta.shopping.member.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -8,8 +9,6 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
 
 import kr.or.kosta.example.Log4JExample;
-import kr.or.kosta.shopping.common.dao.DaoFactory;
-import kr.or.kosta.shopping.common.dao.DaoFactory.DaoFactoryType;
 import kr.or.kosta.shopping.member.domain.Member;
 
 /**
@@ -83,5 +82,23 @@ public class MybatisMemberDao implements MemberDao {
 	@Override
 	public Member isMember(String email) throws Exception {
 		return null;
+	}
+
+	@Override
+	public Member login(HashMap<String, Object> data) throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		Member member = null;
+		try {
+			MemberDao dao = sqlSession.getMapper(MemberDao.class);
+			member = dao.login(data);
+			logger.debug("[DEBUG] : login()에서 발생");
+		} catch (Exception e) {
+			logger.warn("[WARN] : login()에서 발생");
+			sqlSession.rollback();
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return member;
 	}
 }
