@@ -2,7 +2,7 @@ package kr.or.kosta.shopping.article.dao;
 
 import java.util.List;
 
-import kr.or.kosta.shopping.artricle.domain.Article;
+import kr.or.kosta.shopping.article.domain.Article;
 import kr.or.kosta.shopping.member.domain.Member;
 
 /**

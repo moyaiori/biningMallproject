@@ -18,7 +18,7 @@
 	<jsp:include page="../menus/header.jsp"></jsp:include>
 
     <section>
-    	<jsp:include page="${contentFile}"/>
+    	<jsp:include page="${contentFile}" flush="false"/>
     </section>
     
     <%-- footer inclue --%>

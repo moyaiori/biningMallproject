@@ -1,9 +1,9 @@
 package kr.or.kosta.shopping.article.service;
 
 import kr.or.kosta.shopping.article.dao.ArticleDao;
+import kr.or.kosta.shopping.article.dao.MybatisArticleDao;
 import kr.or.kosta.shopping.common.dao.DaoFactory;
 import kr.or.kosta.shopping.common.dao.DaoFactory.DaoFactoryType;
-import kr.or.kosta.shopping.common.dao.MybatisDaoFactory;
 
 /**
  *  
@@ -17,7 +17,7 @@ public class ArticleService {
 	private ArticleService() throws Exception{
 		
 		DaoFactory daoFactory = DaoFactory.getInstance(DaoFactoryType.MYBATIS);
-		articleDao  = (ArticleDao) daoFactory.getDao(MybatisDaoFactory.class);
+		articleDao  = (ArticleDao) daoFactory.getDao(MybatisArticleDao.class);
 	}
 	
 	public static ArticleService getInstance(){

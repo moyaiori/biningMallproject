@@ -20,10 +20,13 @@ public class ControllerFactory {
 	
 	private static ControllerFactory controllerFactory;
 	
-	private ControllerFactory(){}
+	private ControllerFactory(){
+		
+	}
 	
 	private ControllerFactory(String configFilePath){
 		this.controllerMappingPath = configFilePath;
+
 		controllerMap = new HashMap<String, Controller>();
 		// 매핑정보를 저장할 Properties 객체 생성
 		Properties prop = new Properties();
@@ -35,11 +38,13 @@ public class ControllerFactory {
 			while(keyIter.hasNext()){
 				String controllerName = (String)keyIter.next();
 				String controllerClass = prop.getProperty(controllerName);
+
 				// 컨트롤러 생성
 				Controller controllerObject = (Controller)Class.forName(controllerClass).newInstance();
 				controllerMap.put(controllerName, controllerObject);
+				
 			}
-		}catch(Exception ex){}		
+		}catch(Exception ex){}
 	}
 	
 	/** 싱글톤 패턴 적용을 위한 공개 메소드 */

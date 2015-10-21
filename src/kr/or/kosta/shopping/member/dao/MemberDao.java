@@ -5,9 +5,8 @@ import java.util.List;
 import kr.or.kosta.shopping.member.domain.Member;
 
 /**
- * 사원 관련 영속성 처리 표준 규약
+ * 회원 관련 영속성 처리 표준 규약
  * @author 유안상
- *
  */
 public interface MemberDao {
 	

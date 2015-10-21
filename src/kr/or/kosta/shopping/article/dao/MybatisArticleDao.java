@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
 
 import kr.or.kosta.example.Log4JExample;
-import kr.or.kosta.shopping.artricle.domain.Article;
+import kr.or.kosta.shopping.article.domain.Article;
 import kr.or.kosta.shopping.common.dao.DaoFactory;
 import kr.or.kosta.shopping.common.dao.DaoFactory.DaoFactoryType;
 import kr.or.kosta.shopping.member.domain.Member;
