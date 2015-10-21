@@ -52,10 +52,11 @@ public class Article {
 	public void setBoardId(int boardId) {
 		this.boardId = boardId;
 	}
-	public String getWriter() {
+	
+	public String getMemberId() {
 		return memberId;
 	}
-	public void setWriter(String memberId) {
+	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
 	public String getSubject() {

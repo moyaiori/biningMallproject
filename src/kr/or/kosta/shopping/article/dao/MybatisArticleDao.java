@@ -12,6 +12,8 @@ import kr.or.kosta.shopping.article.domain.Article;
 import kr.or.kosta.shopping.common.dao.DaoFactory;
 import kr.or.kosta.shopping.common.dao.DaoFactory.DaoFactoryType;
 import kr.or.kosta.shopping.member.domain.Member;
+import kr.or.kosta.shopping.product.dao.ProductDao;
+import kr.or.kosta.shopping.product.domain.Product;
 
 /**
  * Mybatis를 이용한 디비 연동
@@ -32,7 +34,7 @@ public class MybatisArticleDao implements ArticleDao {
 
 	@Override
 	public void insert(Article article) throws RuntimeException {
-	SqlSession sqlSession = sqlSessionFactory.openSession();
+		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
 		try {
 			ArticleDao dao = sqlSession.getMapper(ArticleDao.class);
@@ -47,6 +49,20 @@ public class MybatisArticleDao implements ArticleDao {
 			sqlSession.close();
 		}
 		
+	}
+	
+	@Override
+	public Article get(int aricleId) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		Article article = null;
+		try{
+			ArticleDao dao = (ArticleDao)sqlSession.getMapper(ArticleDao.class);
+			article = dao.get(aricleId);
+			
+		}finally{
+			sqlSession.close();
+		}
+		return article;
 	}
 
 }

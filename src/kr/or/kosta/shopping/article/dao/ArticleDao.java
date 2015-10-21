@@ -14,6 +14,7 @@ public interface ArticleDao{
 	/**게시판 등록 */
 	public void insert(Article article) throws RuntimeException;
 	
+	public Article get(int aricleId) throws RuntimeException;
 /*	
 	*//** 회원 전체 목록 조회 *//*
 	public List<Member> getAll() throws RuntimeException;
