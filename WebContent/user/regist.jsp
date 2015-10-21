@@ -164,10 +164,10 @@
 			<td colspan="2"><input type="text" id="address2" name="address2" size="35px" placeholder="상세주소" class="form-control"></td>
 			</tr>
 			<tr>
-			
+	
 			<td></td>
 			<td colspan="2"><input type="submit" value="회원가입" class="btn btn-default" onclick="return check()">
-			<input type="button" value="홈으로" class="btn btn-default"></td>
+			<input onclick="location.href='../index.bins'" type="button" value="홈으로" class="btn btn-default"></td>
 			</tr>
 		</table>
 	</form>

@@ -61,7 +61,7 @@
                <option value="writer">작성자</option>
             </select>
             <input type="text"  class="form-control" style="width:200px;" name="stx" value="" required id="stx" />
-            <input type="button" class="btn btn-default" value="검색"/>
+            <input onclick="location.href='../notice/notice_list.bins'" type="button" class="btn btn-default" value="검색"/>
          </div>
       </form>
 	  

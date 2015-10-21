@@ -20,7 +20,7 @@ public class NoticeListController implements Controller {
 		ModelAndView mav = new ModelAndView();
 		ArticleService service =ArticleService.getInstance();
 		// 나중에 DB에서 게시글 가져옴
-		mav.addObject("contentFile", "../notice/notice.jsp");
+		mav.addObject("contentFile", "../notice/notice_list.jsp");
 		return mav;
 	}
 }
