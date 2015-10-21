@@ -56,10 +56,50 @@
             }
         }).open();
     }
+    
+    function check(){
+		if(document.addjoin.name.value==""){
+			alert("이름을 입력 하세요");
+			return false;
+		}else if(document.addjoin.id.value==""){
+			alert("아이디를 입력 하세요");
+			return false;
+		}else if(document.addjoin.passwd.value==""){
+			alert("비밀번호를 입력 하세요");
+			return false;
+		}else if(document.addjoin.passwd2.value==""){
+			alert("비밀번호확인을 입력 하세요");
+			return false;
+		}else if(document.addjoin.email.value==""){
+			alert("이메일을 입력 하세요");
+			return false;
+		}else if(document.addjoin.phone2.value==""){
+			alert("전화번호 두 번째 칸을 입력 하세요");
+			return false;
+		}else if(document.addjoin.phone3.value==""){
+			alert("전화번호 세 번째 칸을 입력 하세요");
+			return false;
+		}else if(document.addjoin.post.value==""){
+			alert("우편번호를 입력 하세요.");
+			return false;
+		}else if(document.addjoin.address.value==""){
+			alert("주소를 입력 하세요");
+			return false;
+		}else if(document.addjoin.address2.value==""){
+			alert("상세주소를 입력 하세요");
+			return false;
+		}else if(document.addjoin.passwd.value != document.addjoin.passwd2.value){
+			alert("비밀번호가 일치하지 않습니다.");
+			return false;
+		}else if(document.addjoin.birth.value == ""){
+			alert("생년월일을 입력하세요.");
+			return false;
+		}
+	}
 </script>
 <div class="container">
 	<h1>회원가입</h1>
-	<form action="registProc.bins" method="post">
+	<form action="registProc.bins" method="post" name="addjoin">
 		<table class="table">
 			<tr>
 				<td>아이디</td>
@@ -71,7 +111,7 @@
 			</tr>
 			<tr>
 				<td>비밀번호확인</td>
-				<td><input type="password" class="form-control"></td>
+				<td><input type="password" class="form-control" name="passwd2"></td>
 			</tr>
 			<tr>
 				<td>이름</td>
@@ -112,17 +152,23 @@
 	
 			<tr>
 			<td>주소</td>
-			<td><input id="post" type="text" placeholder="우편번호" class="form-control"></td><td><input type="button" onclick="searchPost()" value="우편번호 찾기" class="btn btn-default"></td>
+			<td><input id="post" name="post" type="text" placeholder="우편번호" class="form-control"></td><td><input type="button" onclick="searchPost()" value="우편번호 찾기" class="btn btn-default"></td>
 			</tr>
 			<tr>
 			<td></td>
 			<td colspan="2"><input type="text" id="address"  name="address" size="35px" placeholder="기본주소" class="form-control"></td>
 			</tr>
-			<tr><td></td><td colspan="2"><input type="text" id="address2" name="address2" size="35px" placeholder="상세주소" class="form-control"></td></tr>
 			
-			<tr><td></td>
-			<td colspan="2"><input type="submit" value="회원가입" class="btn btn-default">
-			<input type="button" value="홈으로" class="btn btn-default"></td></tr>
+			<tr>
+			<td></td>
+			<td colspan="2"><input type="text" id="address2" name="address2" size="35px" placeholder="상세주소" class="form-control"></td>
+			</tr>
+			<tr>
+			
+			<td></td>
+			<td colspan="2"><input type="submit" value="회원가입" class="btn btn-default" onclick="return check()">
+			<input type="button" value="홈으로" class="btn btn-default"></td>
+			</tr>
 		</table>
 	</form>
 </div>
