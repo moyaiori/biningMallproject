@@ -4,13 +4,19 @@
 <!-- 네임스페이스(사용영역) 설정 -->
 <mapper namespace="kr.or.kosta.shopping.order.dao.OrderDao">
 	
+		<!-- 주문 등록 -->
+	<insert id="insert" parameterType="kr.or.kosta.shopping.order.domain.Order">
+		INSERT INTO members(member_id, passwd, birth, phone_number, phone_number2, phone_number3, address, address2, name, email, grade, gender)
+		VALUES(#{memberId}, #{passwd}, #{birth}, #{phoneNumber}, #{phoneNumber2}, #[phoneNumber3], #{address}, #{address2}, #{name}, #{email}, '일반', #{gender}); 
+	</insert>
+	
 	<!-- 전체회원 조회를 위한 SQL 매핑 -->
-	<select id="getAll" resultType="kr.or.kosta.shopping.topping.domain.Order" >
+	<select id="getAll" resultType="kr.or.kosta.shopping.order.domain.Order" >
 		SELECT topping_id AS "toppingId", name, picture, description, calorie, country, price
 		FROM order
 	</select>
 		
-	<select id="get" resultType="kr.or.kosta.shopping.topping.domain.Topping" parameterType="int">
+	<select id="get" resultType="kr.or.kosta.shopping.order.domain.Order" parameterType="int">
 		SELECT topping_id AS "toppingId", name, picture, description, calorie, country, price
 		FROM order
 		WHERE topping_id = #{value}
