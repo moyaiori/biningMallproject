@@ -14,15 +14,47 @@
 <style>
 
 .orderTable{
-	width: 1000px;
-	height: 100%;
+	width: 680px;
+	height: 200px;
 	border: 1px solid;
 	margin: 5px auto;
 }
 
+.orderTable tr td{
+	width: 50%;
+	font-size: 20px;
+}
+
+.innerTable{
+	width: 100%;
+}
+
+
+
 img{
 	width: 300px;
+	padding: 10px;
 }
+
+.menuName{
+	padding: 1em 0px;
+	font-size: 25px;
+}
+
+.selectTopping{
+	text-align: center;
+	padding: 10px 0px;
+}
+
+.selectTopping select{
+	width: 80%;
+}
+
+.orderBtnSet{
+	text-align: center;
+}
+
+
 
 </style>
 
@@ -31,10 +63,10 @@ img{
 		<div>
 			<table class="orderTable">
 				<tr>
-					<td><img src='../images/완_스페셜2밥버거.JPG'/></td>
-					<td>
-						<div>메뉴이름</div>
-						<table>
+					<td><img src='../images/완_스페셜2밥버거.jpg'/></td>
+					<td valign="top">
+						<div class="menuName">메뉴이름</div>
+						<table class="innerTable">
 							<tr>
 								<td>가격</td>
 								<td> : 1000원</td>
@@ -52,6 +84,21 @@ img{
 								<td> : 100개</td>
 							</tr>
 						</table>
+						<div class="selectTopping">
+							<select>
+								<option value="">== 옵션선택 ==
+								<option value="30ml">30ml
+								<option value="50ml">50ml (6,500원)
+								<option value="100ml">100ml (10,000원)
+								<option value="500ml">500ml (45,000원)
+								<option value="1000ml">1000ml (80,000원)
+							</select>
+						</div>
+						
+						<div class="orderBtnSet">
+							<input type="button" value="장바구니 추가">
+							<input type="button" value="바로 구매">
+						</div>
 					</td>
 				</tr>
 			</table>

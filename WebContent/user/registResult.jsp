@@ -11,23 +11,23 @@
 	<tr><td colspan="2" align="center" >회원정보</td></tr>
 	<tr>
 	<td width="80">아이디</td>
-	<td width="200">아이디입니다</td>
+	<td width="200">${member.memberId}</td>
 	</tr>
 	<tr>
 	<td>이름</td>
-	<td>이름입니다</td>
+	<td>${member.name}</td>
 	</tr>
 	<tr>
 	<td>연락처</td>
-	<td>연락처입니다</td>
+	<td>${member.phoneNumber}-${member.phoneNumber2}-${member.phoneNumber3}</td>
 	</tr>
 	<tr>
 	<td>이메일</td>
-	<td>이메일 입니다</td>
+	<td>${member.email}</td>
 	</tr>
 	<tr>
 	<td>주소</td>
-	<td>주소입니다</td>
+	<td>${member.address} - ${member.address2}</td>
 	</tr>
 	</table>
 

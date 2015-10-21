@@ -13,11 +13,18 @@ import kr.or.kosta.shopping.topping.domain.Topping;
  */
 public interface OrderDao {
 	
+	/** 주문 내역 등록 */
+	public void insert(Order order) throws RuntimeException;
+	
 	/** 주문 전체 목록 조회 */
 	public List<Order> getAll() throws RuntimeException;
 	
 	/** 한개의 주문 가져오기 */
 	public Order get(int orderNum) throws RuntimeException;
+	
+	
+	
+	
 }
 
 
