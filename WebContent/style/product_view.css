@@ -1,0 +1,54 @@
+@CHARSET "UTF-8";
+.detailMainDiv {
+	width: 680px;
+	height: 200px;
+	margin: 5px auto;
+}
+
+.orderTable tr td {
+	width: 50%;
+	font-size: 20px;
+}
+
+.innerTable {
+	width: 100%;
+}
+
+.innerTable tr{
+	height: 30px;
+}
+
+img {
+	width: 300px;
+	padding: 10px;
+}
+
+.menuName {
+	padding: 1em 0px;
+	font-size: 25px;
+}
+
+.selectTopping {
+	text-align: center;
+	padding: 10px 0px;
+}
+
+.selectTopping select {
+	width: 80%;
+}
+
+.orderBtnSet {
+	text-align: center;
+}
+
+.selectedTopping {
+	padding-top: 10px;
+}
+
+.selectedTopping select {
+	width: 100%;
+}
+
+.reviewDiv {
+	padding-bottom: 15px;
+}
