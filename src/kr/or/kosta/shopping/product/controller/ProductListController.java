@@ -5,13 +5,15 @@
 package kr.or.kosta.shopping.product.controller;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.kosta.shopping.article.domain.Article;
-import kr.or.kosta.shopping.article.service.ArticleService;
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
+import kr.or.kosta.shopping.product.domain.Product;
+import kr.or.kosta.shopping.product.service.ProductService;
 
 public class ProductListController implements Controller {
 
@@ -20,12 +22,12 @@ public class ProductListController implements Controller {
 		
 		ModelAndView mav = new ModelAndView();
 
-		ArticleService service =ArticleService.getInstance();
-	//	service.add(article);
-
+		ProductService service = ProductService.getInstance();
+		List<Product> list = service.getAll();
+		
+		mav.addObject("productList", list);
 		mav.addObject("contentFile", "/product/product_list_berger.jsp");
 
 		return mav;
 	}
-
 }
