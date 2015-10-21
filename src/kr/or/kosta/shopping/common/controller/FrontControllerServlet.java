@@ -60,8 +60,6 @@ public class FrontControllerServlet extends HttpServlet {
 		
 		if (controller == null) {
 			//response.sendError(HttpServletResponse.SC_NOT_FOUND);
-			//return;
-
 			viewResolver.execute(request, response, uri+".jsp");
 			return;
 		}
@@ -79,7 +77,7 @@ public class FrontControllerServlet extends HttpServlet {
 		if (viewPath == null) {
 			//response.sendError(HttpServletResponse.SC_NOT_FOUND);
 			//return;
-			viewResolver.execute(request, response, "/template/template01.jsp");
+			viewResolver.execute(request, response, "/template/template.jsp");
 		}else{
 			if(viewPath.startsWith("redirect")){// redirect
 			String[] tokens = viewPath.split(":");
@@ -88,7 +86,5 @@ public class FrontControllerServlet extends HttpServlet {
 				viewResolver.execute(request, response, viewPath);
 			}
 		}
-
-		
 	}
 }

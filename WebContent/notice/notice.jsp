@@ -30,7 +30,7 @@
                      <tr>
                      <td>52</td>
                      <td class="">
-                        <a href="">입금확인</a>
+                        <a href="../notice/notice_read.bins">입금확인</a>
                      </td>
                      <td><span class="">나미정</span></td>
                      <td>14:47</td>

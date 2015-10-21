@@ -32,8 +32,8 @@
 			</tr>
 			<tr>
 				<td colspan="4" style="text-align: right;">
-					<input class="btn btn-default" type="button" value="돌아가기">
-					<input class="btn btn-default" type="button" value="답글달기">
+					<input src="../notice/notice.bins" class="btn btn-default" type="button" value="돌아가기">
+					<input src="../notice/notice_write.bins" class="btn btn-default" type="button" value="답글달기">
 				</td>
 			</tr>
 		</table>
