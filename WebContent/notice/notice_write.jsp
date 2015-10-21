@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 <div class="container">
-	<form class="col-md-8 col-md-offset-2" method="post">
+	<form class="col-md-8 col-md-offset-2" method="post" action= "moticeProc.bins">
 		<table class="table">
 			<tr>
 				<th colspan="4">※ 비밀번호는 글 수정, 삭제시 필요합니다.</th>
