@@ -4,9 +4,10 @@ public class Member {
 	private String memberId;
 	private String passwd;
 	private String birth;
+	private String gender;
 	private String phoneNumber;
-	private String phoneNumber1;
 	private String phoneNumber2;
+	private String phoneNumber3;
 	private String address;
 	private String address2;
 	private String name;
@@ -16,15 +17,16 @@ public class Member {
 	
 	public Member(){}
 
-	public Member(String memberId, String passwd, String birth, String phoneNumber, String phoneNumber1,
-			String phoneNumber2, String address, String address2, String name, String email, String grade, int point) {
+	public Member(String memberId, String passwd, String birth, String gender, String phoneNumber, String phoneNumber2,
+			String phoneNumber3, String address, String address2, String name, String email, String grade, int point) {
 		super();
 		this.memberId = memberId;
 		this.passwd = passwd;
 		this.birth = birth;
+		this.gender = gender;
 		this.phoneNumber = phoneNumber;
-		this.phoneNumber1 = phoneNumber1;
 		this.phoneNumber2 = phoneNumber2;
+		this.phoneNumber3 = phoneNumber3;
 		this.address = address;
 		this.address2 = address2;
 		this.name = name;
@@ -57,6 +59,14 @@ public class Member {
 		this.birth = birth;
 	}
 
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -65,20 +75,20 @@ public class Member {
 		this.phoneNumber = phoneNumber;
 	}
 
-	public String getPhoneNumber1() {
-		return phoneNumber1;
-	}
-
-	public void setPhoneNumber1(String phoneNumber1) {
-		this.phoneNumber1 = phoneNumber1;
-	}
-
 	public String getPhoneNumber2() {
 		return phoneNumber2;
 	}
 
 	public void setPhoneNumber2(String phoneNumber2) {
 		this.phoneNumber2 = phoneNumber2;
+	}
+
+	public String getPhoneNumber3() {
+		return phoneNumber2;
+	}
+
+	public void setPhoneNumber3(String phoneNumber3) {
+		this.phoneNumber3 = phoneNumber3;
 	}
 
 	public String getAddress() {
@@ -131,9 +141,9 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return "Member [memberId=" + memberId + ", passwd=" + passwd + ", birth=" + birth + ", phoneNumber="
-				+ phoneNumber + ", phoneNumber1=" + phoneNumber1 + ", phoneNumber2=" + phoneNumber2 + ", address="
-				+ address + ", address2=" + address2 + ", name=" + name + ", email=" + email + ", grade=" + grade
-				+ ", point=" + point + "]";
+		return "Member [memberId=" + memberId + ", passwd=" + passwd + ", birth=" + birth + ", gender=" + gender
+				+ ", phoneNumber=" + phoneNumber + ", phoneNumber2=" + phoneNumber2 + ", phoneNumber3=" + phoneNumber3
+				+ ", address=" + address + ", address2=" + address2 + ", name=" + name + ", email=" + email + ", grade="
+				+ grade + ", point=" + point + "]";
 	}
 }
