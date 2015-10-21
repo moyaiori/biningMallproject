@@ -16,6 +16,9 @@ public interface OrderDao {
 	/** 주문 내역 등록 */
 	public void insert(Order order) throws RuntimeException;
 	
+	/** 배송지 정보 가져오기 */
+	public Member getAddress(String memberId) throws RuntimeException;
+	
 	/** 주문 전체 목록 조회 */
 	public List<Order> getAll() throws RuntimeException;
 	

@@ -69,11 +69,28 @@ public class MybatisCartDao implements CartDao {
 		
 		try {
 			CartDao dao = sqlSession.getMapper(CartDao.class);
-			logger.debug("[DEBUG] : insert()에서 발생");
+			logger.debug("[DEBUG] : delete()에서 발생");
 			dao.delete(data);
 			sqlSession.commit();
 		} catch (Exception e) {
-			logger.warn("[WARN] : insert()에서 발생");
+			logger.warn("[WARN] : delete()에서 발생");
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}		
+	}
+	
+	@Override
+	public void deleteAll(String memberId) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		try {
+			CartDao dao = sqlSession.getMapper(CartDao.class);
+			logger.debug("[DEBUG] : deleteAll()에서 발생");
+			dao.deleteAll(memberId);
+			sqlSession.commit();
+		} catch (Exception e) {
+			logger.warn("[WARN] : deleteAll()에서 발생");
 			e.printStackTrace();
 		} finally {
 			sqlSession.close();

@@ -62,5 +62,12 @@ public class CartService {
 		}
 	}
 	
-	
+	/** 해당 아이디의 카트 목록 전체보기 */
+	public void deleteAll(String memberId) throws RuntimeException{
+		try {
+			cartdao.deleteAll(memberId);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 }

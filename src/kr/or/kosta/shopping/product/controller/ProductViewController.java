@@ -13,7 +13,7 @@ import kr.or.kosta.shopping.article.service.ArticleService;
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
 
-public class ProductController implements Controller {
+public class ProductViewController implements Controller {
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response){
@@ -22,8 +22,8 @@ public class ProductController implements Controller {
 
 		ArticleService service =ArticleService.getInstance();
 	//	service.add(article);
-		System.out.println("요기까지와??");
-		mav.addObject("contentFile", "/product/product_list_berger.jsp");
+	
+		mav.addObject("contentFile", "../product/product_view.jsp");
 
 		return mav;
 	}

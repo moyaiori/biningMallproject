@@ -8,11 +8,11 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
 
 import kr.or.kosta.example.Log4JExample;
+import kr.or.kosta.shopping.member.domain.Member;
 import kr.or.kosta.shopping.order.domain.Order;
 
 /**
  * Mybatis를 이용한 디비 연동
- * 
  * @author 가승호
  * @작성일 : 2015/10/21
  */
@@ -46,6 +46,9 @@ public class MybatisOrderDao implements OrderDao{
 			sqlSession.close();
 		}
 	}
+	
+
+	
 
 	// 전체 주문 목록
 	public List<Order> getAll() throws RuntimeException {
@@ -60,6 +63,16 @@ public class MybatisOrderDao implements OrderDao{
 		return list;
 	}
 
+	//배송지 정보 가져오기
+	public Member getAddress(String memberId) throws RuntimeException{
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		Member member = new Member();
+		
+		
+		
+		return null;
+	}
+	
 	// 한개의 주문 가져오기
 	public Order get(int orderNum) throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
