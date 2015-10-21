@@ -8,75 +8,118 @@
 <head>
 <meta charset="utf-8">
 <title>주문페이지</title>
+
+<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css.map">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../style/product_view.css">
+
+<style type="text/css">
+
+img {
+	width: 100px;
+}
+
+.table tbody>tr>td{
+    vertical-align: middle;
+}
+
+.table td {
+   text-align: center;   
+}
+
+.table th {
+   text-align: center;   
+}
+
+
+.order tbody>tr>td{
+    vertical-align: top;
+}
+
+.order tbody>tr>td>div>label{
+	padding-bottom: 30px;
+}
+
+</style>
+
 </head>
 <body>
-<table width="1100" height="100%" cellpadding="0" cellspacing="0" border="1">
-<tbody><tr>
-<td valign="top" width="0">요건옆입니다. </td>
- <td valign="top" width="100%" height="100%" bgcolor="" background="" >
 
-<!-- 상단이미지 || 현재위치 -->
-
-<span class="path">HOME &gt; <strong>주문하기</strong></span>
-
-<table cellpadding="0" cellspacing="0" border="1" width="100%" height="100%">
-<thead> 
-<tr bordercolor="black">
-
-	<th colspan="2">상품정보</th>
-	<th width="80">적립금</th>
-	<th width="80">판매가</th>
-	<th width="80">수량</th>
-	<th width="80">배송비</th>
-	<th width="80">합계</th>
-</tr>
-</thead>
-<tbody>
-	<tr>
-		<td colspan="2">ex상품정보</td>
-		<td>ex적립금</td>
-		<td>ex판매가</td>
-		<td>ex수량</td>
-		<td>ex배송비</td>
-		<td>ex합계</td>
-	</tr>
-	<tr>
-		<td colspan="2">뿡뿡이밥버거</td>
-		<td>100원</td>
-		<td>10000원</td>
-		<td>1</td>
-		<td>2500원</td>
-		<td>12500원</td>
-	</tr>			
-</tbody>
-<br>
-<tfoot>
-<tr>
-	<td colspan="10">
-
-	<table style="display:block;float:right;">
-	<tbody><tr>
+<div class="container">
+	<table class="table">
+		<colgroup>
+			<col width="275" />
+			<col width="275" />
+			<col width="90" />
+			<col width="90" />
+			<col width="90" />
+			<col width="90" />
+			<col width="90" />
+		</colgroup>
 		
-		<td align="right">상품합계금액</td>
-		<td align="right" style="font-weight:bold; padding-left:30px"><span>0</span>원&nbsp;</td>
-	
-		<td align="right"><!--  -->받으실적립금<!--  --></td>
-		<td align="right" style="font-weight:bold;padding-left:25px"><span>0</span>원&nbsp;</td>
-	</tr>
-	</tbody></table>
+		<tr class="active">
+			<th>상품사진</th>
+			<th>상품명</th>
+			<th>판매가</th>
+			<th>수량</th>
+			<th>배송비</th>
+			<th>적립금</th>
+			<th>합계</th>
+		</tr>
+		<tr>
+			<td><img src='../images/완_스페셜2밥버거.jpg' /></td>
+			<td>아주아주 맛있어요</td>
+			<td>비닝이</td>
+			<td>Good</td>
+			<td>Good</td>
+			<td>Good</td>
+			<td>Good</td>
+		</tr>
+		<tr>
+			<td><img src='../images/완_스페셜2밥버거.jpg' /></td>
+			<td>아주아주 맛있어요</td>
+			<td>비닝이</td>
+			<td>Good</td>
+			<td>Good</td>
+			<td>Good</td>
+			<td>Good</td>
+		</tr>
+	</table>
+</div>
 
-	</td>
-</tr>
-</tfoot>
-</table>
+<div class="container">
+	<table class="table order">
+		<colgroup>
+			<col width="250" />
+			<col width="200" />
+			<col width="550" />
+		</colgroup>
+		<tr>
+			<td>01. 주문자 정보</td>
+			<td>
+				<div class="form-group" style="text-align: left;">
+					<label style="padding-top: 8px;">주문하시는분</label><br>
+					<label>전화번호</label><br>
+					<label>핸드폰번호</label><br>
+					<label>이메일</label>
+				</div>
+			</td>
+			<td>
+				<div class="form-group" style="text-align: left;">
+					<input type="text" class="form-control"><br>
+					<input type="text" class="form-control"><br>
+					<input type="text" class="form-control"><br>
+					<input type="text" class="form-control">
+				</div>
+			</td>
+		</tr>
+	</table>
+</div>
 
-<div style="font-size:0;height:5px">이게 뭐닝</div>
-
-<div style="margin-top:20;"><br>상황봐서 필요한 것 넣거나 공백..</div>
-
-<div></div>
-
-<!-- 01 주문자정보 -->
 <table width="100%" style="border:1px solid #DEDEDE" cellpadding="0" cellspacing="0">
 <tbody><tr>
 	<td width="150" valign="top" align="right" bgcolor="#F3F3F3">01주문자정보</td>
