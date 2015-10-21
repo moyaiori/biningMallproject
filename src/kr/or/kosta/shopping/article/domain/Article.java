@@ -1,4 +1,4 @@
-package kr.or.kosta.shopping.artricle.domain;
+package kr.or.kosta.shopping.article.domain;
 
 public class Article {
 	private int articleId;  // 게시글의 식별번호

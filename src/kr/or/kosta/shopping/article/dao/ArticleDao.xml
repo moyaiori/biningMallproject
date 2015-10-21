@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 네임스페이스(사용영역) 설정 -->
-<mapper namespace="kr.or.kosta.shopping.member.dao.MemberDao">
+<mapper namespace="kr.or.kosta.shopping.article.dao.ArticleDao">
 
 		
 	<!-- 게시글 등록 boardId: 1 - 공지 , 2 QnA-->
@@ -10,8 +10,4 @@
 		INSERT INTO article( board_id, writer, subject, content,step_no, order_no)
 		VALUES( #{boardId}, #{memberId}, #{subject}, #{content},   0, 0);
 	</insert>
-	
-
-	
-	<!-- isMember 추가(email로 검색) -->
 </mapper>

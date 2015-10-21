@@ -39,12 +39,14 @@ public class ControllerFactory {
 			
 				String controllerName = (String)keyIter.next();
 				String controllerClass = prop.getProperty(controllerName);
+				System.out.println(controllerName);
+				System.out.println(controllerClass);
 				// 컨트롤러 생성
 				Controller controllerObject = (Controller)Class.forName(controllerClass).newInstance();
 				controllerMap.put(controllerName, controllerObject);
 				
 			}
-		}catch(Exception ex){}		
+		}catch(Exception ex){}
 	}
 	
 	/** 싱글톤 패턴 적용을 위한 공개 메소드 */

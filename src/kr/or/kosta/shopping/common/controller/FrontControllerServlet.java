@@ -79,7 +79,7 @@ public class FrontControllerServlet extends HttpServlet {
 		if (viewPath == null) {
 			//response.sendError(HttpServletResponse.SC_NOT_FOUND);
 			//return;
-			viewResolver.execute(request, response, "/template/template01.jsp");
+			viewResolver.execute(request, response, "/template/template.jsp");
 		}else{
 			if(viewPath.startsWith("redirect")){// redirect
 			String[] tokens = viewPath.split(":");
