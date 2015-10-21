@@ -5,7 +5,9 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.log4j.Logger;
 
+import kr.or.kosta.example.Log4JExample;
 import kr.or.kosta.shopping.common.dao.DaoFactory;
 import kr.or.kosta.shopping.common.dao.DaoFactory.DaoFactoryType;
 import kr.or.kosta.shopping.member.domain.Member;
@@ -16,6 +18,7 @@ import kr.or.kosta.shopping.member.domain.Member;
  */
 public class MybatisMemberDao implements MemberDao {
 	
+	Logger logger = Logger.getLogger(Log4JExample.class);
 	private SqlSessionFactory sqlSessionFactory;
 
 	public SqlSessionFactory getSqlSessionFactory() {
@@ -32,6 +35,7 @@ public class MybatisMemberDao implements MemberDao {
 		List<Member> list = new ArrayList<Member>();
 		try {
 			MemberDao dao = (MemberDao) sqlSession.getMapper(MemberDao.class);
+			logger.debug("[DEBUG] : getAll()에서 발생");
 			list = dao.getAll();
 		} finally {
 			sqlSession.close();
@@ -46,8 +50,10 @@ public class MybatisMemberDao implements MemberDao {
 		try {
 			MemberDao dao = sqlSession.getMapper(MemberDao.class);
 			dao.insert(member);
+			logger.debug("[DEBUG] : insert()에서 발생");
 			sqlSession.commit();
 		} catch (Exception e) {
+			logger.warn("[WARN] : insert()에서 발생");
 			sqlSession.rollback();
 			e.printStackTrace();
 		} finally {
@@ -64,9 +70,11 @@ public class MybatisMemberDao implements MemberDao {
 		
 		try {
 			MemberDao dao = sqlSession.getMapper(MemberDao.class);
+			logger.debug("[DEBUG] : insert()에서 발생");
 			dao.delete(employeeId);
 			sqlSession.commit();
 		} catch (Exception e) {
+			logger.warn("[WARN] : insert()에서 발생");
 			e.printStackTrace();
 		} finally {
 			sqlSession.close();

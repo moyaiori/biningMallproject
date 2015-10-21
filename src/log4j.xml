@@ -26,15 +26,6 @@
 		<level value="warn" />
 	</logger>
 	
-	<!-- 
-	<logger name="kr.or.kosta.some">
-		<level value="warn" />
-	</logger>
-	 -->
-	
-	
-
-
 	<root>
 		<level value="WARN" />                  <!-- 로그 출력 레벨 -->
 		<appender-ref ref="console" />          <!-- 콘솔어펜더 이름 -->
