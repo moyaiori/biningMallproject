@@ -64,10 +64,10 @@
 </style>
 <div class="logoRight">
 	<ul>
-		<li><a>Home</a></li>
+		<li><a  href = "../index.bins">Home</a></li>
 		<li><a href = "../user/login.bins">Login</a></li>
-		<li><a href="../notice/notice.bins" >공지사항</a></li>
-		<li><a>QnA</a></li>
+		<li><a href="../notice/notice_list.bins" >공지사항</a></li>
+		<li><a href= "../qna/qna_view.bins">QnA</a></li>
 	</ul>
 </div>
 <div class="logoTop">
@@ -78,12 +78,12 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="#"><h4>Bin's Berger 소개</h4></a></li>
+        <li><a href="../menus/intro.bins"><h4>Bin's Berger 소개</h4></a></li>
         <li><a href="../notice/notice_list.bins"><h4>Bin's Berger 공지사항</h4></a></li>
         	 <!--  <li><button onclick="location.href='../notice/notice.bins'"><h4>Bin's Berger 공지사항</h4></button></li> -->
        		<!-- <li><button onclick="location.href='../product/product_list_berger.bins' "><h4>Bin's Berger 버거</h4>    </button>--> 
        		 <li> <a href="../product/product_list_berger.bins"><h4>Bin's Berger 버거</h4></a></li> 
-        <li><a href="#"><h4>Bin's Berger 토핑</h4></a></li>
+        <li><a href="../product/topping_list.bins"><h4>Bin's Berger 토핑</h4></a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

@@ -22,7 +22,7 @@
 			</tr>
 			<tr>
 				<th class="active">조회수</th>
-				<td>300</td>s
+				<td>300</td>
 			</tr>
 		
 			<tr>
