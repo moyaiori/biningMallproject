@@ -1,36 +1,31 @@
 package kr.or.kosta.shopping.article.service;
-/*package kr.or.kosta.shopping.notice.service;
 
-import java.util.List;
-
+import kr.or.kosta.shopping.article.dao.ArticleDao;
 import kr.or.kosta.shopping.common.dao.DaoFactory;
 import kr.or.kosta.shopping.common.dao.DaoFactory.DaoFactoryType;
-//import kr.or.kosta.shopping.user.dao.JdbcUserDao;
-//import kr.or.kosta.shopping.user.dao.UserDao;
-import kr.or.kosta.shopping.notice.domain.Notice;
+import kr.or.kosta.shopping.common.dao.MybatisDaoFactory;
 
-*//**
+/**
  *  
  * 서비스 계층은 사용 기술과 상관 없이 객체 지향 설계 원칙이 적용된 핵심 비즈니스 로직을 잘 담아내야 한다.
  * 싱글톤패턴 적용
- * *//*
-public class NoticeService {
+ * */
+public class ArticleService {
 
-	private static NoticeService instance;
-	UserDao userDao;
-	private NoticeService() throws Exception{
+	private static ArticleService instance;
+	ArticleDao articleDao;
+	private ArticleService() throws Exception{
 		
-		DaoFactory daoFactory = DaoFactory.getInstance(DaoFactoryType.JDBC);
-		userDao  = (UserDao) daoFactory.getDao(JdbcUserDao.class);
+		DaoFactory daoFactory = DaoFactory.getInstance(DaoFactoryType.MYBATIS);
+		articleDao  = (ArticleDao) daoFactory.getDao(MybatisDaoFactory.class);
 	}
 	
-	public static UserService getInstance(){
+	public static ArticleService getInstance(){
 		if(instance == null)
 			
-			synchronized (UserService.class) {
-				a
+			synchronized (ArticleService.class) {
 				try {
-					instance  = new UserService();
+					instance  = new ArticleService();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -38,13 +33,12 @@ public class NoticeService {
 		return instance;	
 	}
 	
-	
-	
-	*//**회원 등록*//*
+	/**회원 등록*//*
 	public void add(User user)throws RuntimeException{
 		
 		*//**비즈니스 로직 처리...*//*
 		try {
+
 			userDao.add(user);
 		} catch (Exception e) {
 			
@@ -67,14 +61,12 @@ public class NoticeService {
 		}
 		return list;
 	}
-	
-	*//**회원 정보 수정*//*
-	
+
+/*
 	
 	public static void main(String[] args) {
-		UserService service = UserService.getInstance();
+		ArticleService service = UserService.getInstance();
 		service.add(new User("killer2", "김킬러", "1111"));
 		System.out.println("등록완료");
-	}
+	}*/
 }
-*/

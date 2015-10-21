@@ -2,6 +2,7 @@ package kr.or.kosta.shopping.article.dao;
 
 import java.util.List;
 
+import kr.or.kosta.shopping.artricle.domain.Article;
 import kr.or.kosta.shopping.member.domain.Member;
 
 /**
@@ -10,6 +11,9 @@ import kr.or.kosta.shopping.member.domain.Member;
  *
  */
 public interface ArticleDao{
+	/**게시판 등록 */
+	public void insert(Article article) throws RuntimeException;
+	
 /*	
 	*//** 회원 전체 목록 조회 *//*
 	public List<Member> getAll() throws RuntimeException;

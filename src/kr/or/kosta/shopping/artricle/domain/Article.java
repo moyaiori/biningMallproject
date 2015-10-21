@@ -13,7 +13,10 @@ public class Article {
 	private int orderNum; // 그룹내 게시글 순서(댓글과 함께 그룹화 된다)
 	
 	/** 생성자 오버로딩 */
-	public Article(){} // Java Bean을 위한 디폴트 생성자
+	public Article(){
+		
+	} // Java Bean을 위한 디폴트 생성자
+	/** 생성자 오버로딩 - 전체 */
 	public Article(int articleId, int boardId, String memberId, String subject, String content, String regdate,
 			int hitcount, int groupNum, int stepNum, int orderNum) {
 		super();

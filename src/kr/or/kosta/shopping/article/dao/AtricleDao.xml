@@ -3,38 +3,15 @@
                         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 네임스페이스(사용영역) 설정 -->
 <mapper namespace="kr.or.kosta.shopping.member.dao.MemberDao">
-	
-	<!-- 전체회원 조회를 위한 SQL 매핑 -->
-	<select id="getAll" resultType="kr.or.kosta.shopping.member.domain.Member" >
-		SELECT member_id AS "memberId", passwd AS "passwd", birth AS "birth", phone_number AS "phoneNumber", address AS "address", address2 AS "address2", name AS "name", email AS "email", grade AS "grade", point AS "point"
-		FROM members
-	</select>
+
 		
-	<!-- 회원 등록 -->
-	<insert id="insert" parameterType="kr.or.kosta.shopping.member.domain.Member">
-		INSERT INTO members(member_id, passwd, birth, phone_number, address, address2, name, email, grade, gender)
-		VALUES(#{memberId}, #{passwd}, #{birth}, #{phoneNumber}, #{address}, #{address2}, #{name}, #{email}, '일반', #{gender}); 
+	<!-- 게시글 등록 boardId: 1 - 공지 , 2 QnA-->
+	<insert id="insert" parameterType="kr.or.kosta.shopping.article.domain.Article">
+		INSERT INTO article( board_id, writer, subject, content,step_no, order_no)
+		VALUES( #{boardId}, #{memberId}, #{subject}, #{content},   0, 0);
 	</insert>
 	
-	<!-- 회원 정보 수정(JSTL set, if 태그를 이용한 동적 SQL) -->
-	<!-- 추후 추가
-	<update id="update" parameterType="kr.or.kosta.employee.domain.Employee">
-		UPDATE employees
-		<set>
-	        <if test="firstName != null">first_name = #{firstName},</if>
-	        <if test="lastName != null">last_name = #{lastName},</if>
-	        <if test="salary != null">salary = #{salary},</if>
-	        <if test="email != null">email = #{email},</if>
-	    </set>
-	    WHERE employee_id = #{id}
-	</update>
-	-->
-	
-	<!-- 회원 삭제 -->
-	<delete id="delete" parameterType="java.lang.Integer">
-		DELETE FROM employees
-		WHERE employee_id = #{value}
-	</delete>
+
 	
 	<!-- isMember 추가(email로 검색) -->
 </mapper>

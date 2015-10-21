@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
 
 import kr.or.kosta.example.Log4JExample;
+import kr.or.kosta.shopping.artricle.domain.Article;
 import kr.or.kosta.shopping.common.dao.DaoFactory;
 import kr.or.kosta.shopping.common.dao.DaoFactory.DaoFactoryType;
 import kr.or.kosta.shopping.member.domain.Member;
@@ -28,60 +29,24 @@ public class MybatisArticleDao implements ArticleDao {
 	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
-	
-/*	@Override
-	public List<Member> getAll() throws RuntimeException {
-		SqlSession sqlSession = sqlSessionFactory.openSession();
-		List<Member> list = new ArrayList<Member>();
-		try {
-			MemberDao dao = (MemberDao) sqlSession.getMapper(MemberDao.class);
-			logger.debug("[DEBUG] : getAll()에서 발생");
-			list = dao.getAll();
-		} finally {
-			sqlSession.close();
-		}
-		return list;
-	}
 
 	@Override
-	public void insert(Member member) throws RuntimeException {
-		SqlSession sqlSession = sqlSessionFactory.openSession();
+	public void insert(Article article) throws RuntimeException {
+	SqlSession sqlSession = sqlSessionFactory.openSession();
 		
 		try {
-			MemberDao dao = sqlSession.getMapper(MemberDao.class);
-			dao.insert(member);
-			logger.debug("[DEBUG] : insert()에서 발생");
+			ArticleDao dao = sqlSession.getMapper(ArticleDao.class);
+			dao.insert(article);
+			logger.debug("[DEBUG] : MybatisArticleDao - insert()에서 발생");
 			sqlSession.commit();
 		} catch (Exception e) {
-			logger.warn("[WARN] : insert()에서 발생");
+			logger.warn("[WARN] : MybatisArticleDao -insert()에서 발생");
 			sqlSession.rollback();
 			e.printStackTrace();
 		} finally {
 			sqlSession.close();
 		}
-	}
-
-	@Override
-	public void update(Member member) throws RuntimeException {}
-
-	@Override
-	public void delete(int employeeId) throws RuntimeException {
-		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
-		try {
-			MemberDao dao = sqlSession.getMapper(MemberDao.class);
-			logger.debug("[DEBUG] : insert()에서 발생");
-			dao.delete(employeeId);
-			sqlSession.commit();
-		} catch (Exception e) {
-			logger.warn("[WARN] : insert()에서 발생");
-			e.printStackTrace();
-		} finally {
-			sqlSession.close();
-		}		
 	}
-	@Override
-	public Member isMember(String email) throws Exception {
-		return null;
-	}*/
+
 }
