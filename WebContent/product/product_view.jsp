@@ -3,7 +3,7 @@
 	레이아웃 수정최종 날짜 : 2015 -10 -20 : 8시 30분
  -->
 <%@ page contentType="text/html; charset=utf-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.min.css">
@@ -47,11 +47,9 @@
 						<div class="selectTopping">
 							<select class="form-control" id="sel2" style="display: inline;">
 								<option value="">== 토핑 선택 ==
-								<option value="30ml">30ml
-								<option value="50ml">50ml (6,500원)
-								<option value="100ml">100ml (10,000원)
-								<option value="500ml">500ml (45,000원)
-								<option value="1000ml">1000ml (80,000원)
+								<c:forEach items="${toppingList}" var="topping">
+								<option value="${topping.toppingId}">${topping.toppingId}.${topping.name} : ${topping.price}원
+								</c:forEach>
      						 </select>
 							<input type="button" class="btn btn-default" value="삭제" style="display: inline;"/>
 						</div>
