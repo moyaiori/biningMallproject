@@ -22,7 +22,7 @@
 			</tr>
 			<tr>
 				<th class="active">조회수</th>
-				<td>300</td>
+				<td>300</td>s
 			</tr>
 		
 			<tr>
@@ -32,8 +32,8 @@
 			</tr>
 			<tr>
 				<td colspan="4" style="text-align: right;">
-					<input src="../notice/notice.bins" class="btn btn-default" type="button" value="돌아가기">
-					<input src="../notice/notice_write.bins" class="btn btn-default" type="button" value="답글달기">
+					<input onclick="location.href='../notice/notice_list.bins'" class="btn btn-default" type="submit" value="돌아가기"> 
+					<input  onclick="location.href='../notice/notice_write.bins'" class="btn btn-default" type="button" value="답글달기">
 				</td>
 			</tr>
 		</table>

@@ -13,17 +13,13 @@ import kr.or.kosta.shopping.member.service.MemberService;
  * 회원가입에 대한 세부컨트롤러
  * @author AS
  */
-public class MemberLoginController implements Controller{
+public class MemberUserInfoSearchController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-		
-		
+	
 		MemberService service = MemberService.getInstance();
-		
 		ModelAndView mav = new ModelAndView();
-		
-		
-		mav.addObject("contentFile", "/user/login.jsp");
+		mav.addObject("contentFile", "../user/userinforsearch.jsp");
 		return mav;
 	}
 }
