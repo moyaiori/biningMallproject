@@ -79,7 +79,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li><a href="#"><h4>Bin's Berger 소개</h4></a></li>
-        <li><a href="../notice/notice.bins"><h4>Bin's Berger 공지사항</h4></a></li>
+        <li><a href="../notice/notice_list.bins"><h4>Bin's Berger 공지사항</h4></a></li>
         	 <!--  <li><button onclick="location.href='../notice/notice.bins'"><h4>Bin's Berger 공지사항</h4></button></li> -->
        		<!-- <li><button onclick="location.href='../product/product_list_berger.bins' "><h4>Bin's Berger 버거</h4>    </button>--> 
        		 <li> <a href="../product/product_list_berger.bins"><h4>Bin's Berger 버거</h4></a></li> 

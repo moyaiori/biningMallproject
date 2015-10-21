@@ -10,7 +10,31 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
+
+<style type="text/css">
+html {
+    height: 100%;
+
+    body {
+        height: 100%;
+        overflow: hidden;
+
+        .container-fluid.body-content {
+            position: absolute;
+            top: @navbar-height;
+            bottom: 30px;
+            right: 0;
+            left: 0;
+            overflow-y: auto;
+        }
+    }
+}
+
+</style>
+
 </head>
+
+
 <body>
 
 <div>
