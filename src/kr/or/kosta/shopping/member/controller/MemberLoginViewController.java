@@ -19,9 +19,6 @@ public class MemberLoginViewController implements Controller{
 		
 		MemberService service = MemberService.getInstance();
 		ModelAndView mav = new ModelAndView();
-		
-		
-		
 		mav.addObject("contentFile", "/user/login.jsp");
 		return mav;
 	}

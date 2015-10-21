@@ -1,10 +1,14 @@
 <%@ page contentType="text/html; charset=utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet" type="text/css" href="../style/header.css">
 
 <div class="logoRight">
 	<ul>
 		<li><a  href = "../index.bins">Home</a></li>
-		<li><a href = "../user/login.bins">Login</a></li>
+		<c:choose>
+			<c:when test="${cookie.loginId == null}"><li><a href = "../user/login.bins">Login</a></li></c:when>
+			<c:when test="${cookie.loginId != null}"><li><a href = "../user/logout.bins">Logout</a></li></c:when>
+		</c:choose>
 		<li><a href="../notice/notice_list.bins" >공지사항</a></li>
 		<li><a href= "../qna/qna_view.bins">QnA</a></li>
 	</ul>
