@@ -36,21 +36,19 @@ form {
 				</tr>
 				<tr>
 					<td>아이디</td>
-					<td><input type="text" class="form-control"></td>
+					<td><input type="text" class="form-control" name="memberId"></td>
 					<td><input type="submit" class="btn btn-default" value="로그인"></td>
 					<td>Bin's회원이 되시면 편리한 이용이 가능 합니다.</td>
-					<td><input type="button" class="btn btn-default" value="회원가입"></td>
+					<td><input onclick="location.href='../user/regist.bins'" type="button" class="btn btn-default" value="회원가입"></td>
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="text" class="form-control"></td>
+					<td><input type="text" class="form-control" name="passwd"></td>
 					<td></td>
 					<td>회원아이디와 비밀번호가 생각 나지 않으세요?</td>
-					<td><input type="button" class="btn btn-default" value="ID/PW찾기"></td>
+					<td><input onclick="location.href='../user/userinforsearch.bins'" type="button" class="btn btn-default" value="ID/PW찾기"></td>
 				</tr>
 			</table>
-	
-	
 	</div>
 
 </form>
