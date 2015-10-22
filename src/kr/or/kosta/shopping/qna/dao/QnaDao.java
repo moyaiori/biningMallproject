@@ -3,7 +3,6 @@ package kr.or.kosta.shopping.qna.dao;
 import java.util.List;
 
 import kr.or.kosta.shopping.article.domain.Article;
-import kr.or.kosta.shopping.member.domain.Member;
 import kr.or.kosta.shopping.qna.domain.Qna;
 
 /**
@@ -15,7 +14,7 @@ public interface QnaDao{
 	/**게시판 등록 */
 	public void insert(Qna qna) throws RuntimeException;
 	
-	public Qna get(int qnaId) throws RuntimeException;
+	public Article get(int artilceId) throws RuntimeException;
 	
 	public List<Qna> getAll(int boardId) throws RuntimeException;
 /*	

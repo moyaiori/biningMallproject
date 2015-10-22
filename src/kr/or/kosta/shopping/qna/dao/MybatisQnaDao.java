@@ -1,6 +1,5 @@
 package kr.or.kosta.shopping.qna.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -8,8 +7,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
 
 import kr.or.kosta.example.Log4JExample;
-import kr.or.kosta.shopping.common.dao.DaoFactory;
-import kr.or.kosta.shopping.common.dao.DaoFactory.DaoFactoryType;
+import kr.or.kosta.shopping.article.dao.ArticleDao;
+import kr.or.kosta.shopping.article.domain.Article;
 import kr.or.kosta.shopping.qna.domain.Qna;
 
 /**
@@ -50,17 +49,26 @@ public class MybatisQnaDao implements QnaDao {
 	}
 	
 	@Override
-	public Qna get(int qnaId) throws RuntimeException {
+	public Article get(int articleId) throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		Qna qna = null;
+		Article article = null;
+		System.out.println("get 메소드 진입");
+		//Qna qna = null;
 		try{
+			System.out.println(articleId);
+			System.out.println("get() 트라이문 진입");
+			//QnaDao dao = (QnaDao)sqlSession.getMapper(QnaDao.class);
+			//qna = dao.get(articleId);
 			QnaDao dao = (QnaDao)sqlSession.getMapper(QnaDao.class);
-			qna = dao.get(qnaId);
-			
+			//ArticleDao dao = (ArticleDao)sqlSession.getMapper(ArticleDao.class);
+			System.out.println(" 뿅");
+			article = dao.get(articleId);
+			//article = dao.get(articleId);
+			System.out.println("article : "+article);
 		}finally{
 			sqlSession.close();
 		}
-		return qna;
+		return article;
 	}
 	
 	public List<Qna> getAll(int boardId) throws RuntimeException {
