@@ -48,15 +48,32 @@
 	</update>
 	
 	<!--  제목 혹은 내용으로 검색  -->
-	<select id="selectEmployeesByLastName"  parameterType="java.lang.String" resultType="kr.or.kosta.shopping.article.domain.Article">
+	<select id="getAllSearch"  parameterType="java.util.HashMap" resultType="kr.or.kosta.shopping.article.domain.Article">
 
-		SELECT employee_id "id", first_name "firstName", last_name "lastName", email "email", phone_number "phoneNumber", TO_CHAR(hire_date, 'YYYY-MM-DD') "hireDate", salary "salary"
-		FROM employees
-		WHERE UPPER(last_name) like #{lastName}
+		SELECT  article_id as "articleId", subject, member_id as "memberId", regdate, hitcount, step_num as "stepNum"
+					FROM ( 
+					     SELECT CEIL(rownum / 10) request_page, article_id, subject, member_id, TO_CHAR(regdate, 'YYYY-MM-DD') regdate, hitcount, step_num
+					     FROM ( 
+					         SELECT rownum, article_id, subject, member_id, regdate, hitcount, step_num
+					         FROM article 
+					         WHERE board_id = 1 AND ${searchType} LIKE ${searchValue}
+					        ORDER BY group_num DESC, order_num ASC 
+					    ) 
+					 )  
+					 WHERE request_page = ${searchPage}
 	</select>
 	
 	
-	
-	
-	
+	<!--  검색 카운트  -->
+	 <select id="getAllSearchCnt"  parameterType="java.util.HashMap"  resultType="java.lang.Integer">
+		SELECT Count(article_id) count 
+    	FROM ( 
+            SELECT rownum, article_id, subject, member_id, regdate, hitcount 
+            FROM article 
+            WHERE board_id = 1 AND ${searchType} LIKE ${searchValue}
+	        ORDER BY group_num DESC, order_num ASC 
+         )
+	</select>
+     
+     
 </mapper>

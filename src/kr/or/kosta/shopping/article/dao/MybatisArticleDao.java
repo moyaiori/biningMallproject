@@ -1,10 +1,13 @@
 package kr.or.kosta.shopping.article.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
+
+import com.sun.org.apache.xalan.internal.xsltc.runtime.Hashtable;
 
 import kr.or.kosta.example.Log4JExample;
 import kr.or.kosta.shopping.article.domain.Article;
@@ -103,4 +106,37 @@ public class MybatisArticleDao implements ArticleDao {
 		}
 		return listCount;
 	}
+
+	@Override
+	public int getAllSearchCnt(HashMap<String, Object> type) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int listCount= 0;
+		try{
+		
+			ArticleDao dao = (ArticleDao)sqlSession.getMapper(ArticleDao.class);
+			listCount = dao.getAllSearchCnt(type);
+			logger.debug("DEBUG : 서치잼");
+			sqlSession.commit();
+		}catch(Exception e){
+			e.printStackTrace();
+			sqlSession.rollback();
+		}finally{
+			sqlSession.close();
+		}
+		return listCount;
+	}
+
+	@Override
+	public List<Article> getAllSearch(HashMap<String, Object> type) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<Article>  articleList =null;
+		try{
+			ArticleDao dao = (ArticleDao)sqlSession.getMapper(ArticleDao.class);
+			articleList = dao.getAllSearch(type);
+		}finally{
+			sqlSession.close();
+		}
+		return articleList;
+	}
+
 }
