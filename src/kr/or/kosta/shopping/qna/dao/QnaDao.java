@@ -1,26 +1,23 @@
-package kr.or.kosta.shopping.article.dao;
+package kr.or.kosta.shopping.qna.dao;
 
 import java.util.List;
 
 import kr.or.kosta.shopping.article.domain.Article;
+import kr.or.kosta.shopping.member.domain.Member;
+import kr.or.kosta.shopping.qna.domain.Qna;
 
 /**
- * 사원 관련 영속성 처리 표준 규약
- * @author 유안상
- *
+ * QnA 게시판  관련 영속성 처리 표준 규약
+ * @author 가승호
+ * @작성일 : 2015/10/22
  */
-public interface ArticleDao{
+public interface QnaDao{
 	/**게시판 등록 */
-	public void insert(Article article) throws RuntimeException;
+	public void insert(Qna qna) throws RuntimeException;
 	
-	public Article get(int aricleId) throws RuntimeException;
+	public Qna get(int qnaId) throws RuntimeException;
 	
-	public List<Article> getAll(int boardId) throws RuntimeException;
-	
-	public void updateHitcount(int aricleId) throws RuntimeException;
-	
-	//getAllCnt
-	public int getAllCnt() throws RuntimeException;
+	public List<Qna> getAll(int boardId) throws RuntimeException;
 /*	
 	*//** 회원 전체 목록 조회 *//*
 	public List<Member> getAll() throws RuntimeException;

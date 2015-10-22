@@ -90,6 +90,7 @@
 				</select>
 				<input type="text"  class="" style="width:620px;" name="stx" value="" required id="stx" />
 				<input onclick="location.href='../qna/qna_view.bins'" type="button" value="검색"/>
+				<input onclick="location.href='../qna/qna_write.bins'" type="button" class="btn btn-default" value="글쓰기"  />
 			</div>
 		</form>
 	</div>

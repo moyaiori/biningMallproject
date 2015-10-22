@@ -20,13 +20,13 @@ public class NoticeReadController implements Controller {
 		String articleId = request.getParameter("articleId");
 		ModelAndView mav = new ModelAndView();
 		ArticleService service =ArticleService.getInstance();
-	
+		service.updateHitcount(Integer.parseInt(articleId));
 		Article article  =service.get(Integer.parseInt(articleId));
 	
 		mav.addObject("article", article);
 	//	service.add(article);
 		mav.addObject("contentFile", "/notice/notice_read.jsp");
-
+		
 		return mav;
 	}
 

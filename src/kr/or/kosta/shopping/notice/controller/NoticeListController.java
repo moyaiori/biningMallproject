@@ -16,7 +16,6 @@ import kr.or.kosta.shopping.article.service.ArticleService;
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
 import kr.or.kosta.shopping.common.web.page.Pagination;
-
 public class NoticeListController implements Controller {
 
 	@Override
@@ -33,13 +32,13 @@ public class NoticeListController implements Controller {
 			 pageNum = Integer.parseInt(rp);
 		}
 		//리스트의 사이즈 알아보기
-		List<Article> listNum = service.getAll(1);
-		int listSize = listNum.size();
+		List<Article> articleList = service.getAll(pageNum);
+		int listSize =service.getAllCnt();
 		int requestP = Integer.parseInt(rp);
+		
 		Pagination pagination = new Pagination(10, 5, listSize, pageNum);
-	
 		pagination.paginate();
-		mav.addObject("listNum", listNum);
+		mav.addObject("articleList", articleList);
 		mav.addObject("listSize", listSize);
 		mav.addObject("requestP", requestP);
 		mav.addObject("pagination", pagination);
