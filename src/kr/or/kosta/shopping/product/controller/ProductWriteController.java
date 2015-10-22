@@ -26,7 +26,7 @@ public class ProductWriteController implements Controller {
 		ModelAndView mav = new ModelAndView();
 		
 		ProductService service = ProductService.getInstance();
-	
+
 		mav.addObject("contentFile", "../product/product_write.jsp");
 
 		return mav;

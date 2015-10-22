@@ -10,6 +10,7 @@
    레이아웃 수정최종 날짜 : 2015 -10 -20 : 8시 30분
  -->
 <%@ page contentType="text/html; charset=utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div class="container">
       <form name=""  id="" action="" onsubmit="" method="post">
             <table class="table">
@@ -36,12 +37,10 @@
                      <td>14:47</td>
                      <td>5</td>
                      </tr>
-                     
                      <tr>
                      <td>
                      43      </td>
                      <td class="">
-                        
                         <a href="">
                            구매 전 필독!! </a>
                
@@ -62,7 +61,12 @@
             </select>
             <input type="text"  class="form-control" style="width:200px;" name="stx" value="" required id="stx" />
             <input onclick="location.href='../notice/notice_list.bins'" type="button" class="btn btn-default" value="검색"/>
-            <input onclick="location.href='../notice/notice_write.bins'" type="button" class="btn btn-default" value="글쓰기"/>
+ 				 
+ 		
+ 			<c:if test="${cookie.loginId.value.equals('admin')}" >
+				<input onclick="location.href='../product/product_write.bins'" type="button" class="btn btn-default" value="글쓰기" style="float: right;" />
+			</c:if>
+
          </div>
       </form>
 	  
