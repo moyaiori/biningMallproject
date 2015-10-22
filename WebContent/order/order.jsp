@@ -4,6 +4,7 @@
 	최종수정일 : 2015/10/20/ 17:15
  -->
  <%@ page contentType="text/html; charset=utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,6 +55,60 @@ img {
 	padding-bottom: 10px;
 }
 </style>
+
+<script type="text/javascript">
+
+
+function setData(){
+	document.getElementById("name").value = "${member.name}";
+	document.getElementById("address").value = "${member.address}";
+	document.getElementById("address2").value = "${member.address2}";
+	document.getElementById("phoneNum1").value = "${member.phoneNumber}";
+	document.getElementById("phoneNum2").value = "${member.phoneNumber2}";
+	document.getElementById("phoneNum3").value = "${member.phoneNumber3}";
+}
+
+function clearData(){
+	document.getElementById("name").value = "";
+	document.getElementById("address").value = "";
+	document.getElementById("address2").value = "";
+	document.getElementById("phoneNum1").value = "";
+	document.getElementById("phoneNum2").value = "";
+	document.getElementById("phoneNum3").value = "";
+}
+
+window.onload = function(){
+	
+	document.getElementById("checkbox").onchange = function(){
+		if (this.checked == true) {
+			setData();
+		}else{
+			clearData();
+		}
+	}
+	
+	document.getElementById("usePoint").onchange = function(){
+		
+		if(usePoint >= Point){
+			console.log("true");
+		}else{
+			console.log("false");
+		}
+		
+		var usePoint = document.getElementById("usePoint").value;	// 사용하고자하는 적립금
+		var Point = document.getElementById("point");							// 적립금
+		var price = document.getElementById("price").textContent;		// 상품 가격
+		var total = document.getElementById("total");								// 최종 결제 가격
+
+		//Point.textContent = Point - usePoint;
+		//alert("적립금을 초과 하셧습니다.");
+		
+		
+		
+	}
+}
+
+</script>
 
 </head>
 <body>
@@ -106,19 +161,19 @@ img {
 				<table>
 					<tr>
 						<td class="TagTd">주문하시는분</td>
-						<td class="inputTd"><input type="text" class="form-control"></td>
+						<td class="inputTd"><input type="text" class="form-control" value="${member.name }"></td>
 					</tr>
 					<tr>
 						<td class="TagTd">전화번호</td>
 						<td class="inputTd">
-							<input type="text" class="form-control phoneFile"  style="display: inline;"> - 
-							<input type="text" class="form-control phoneFile"> - 
-							<input type="text" class="form-control phoneFile">
+							<input type="text" class="form-control phoneFile"  value="${member.phoneNumber }" style="display: inline;"> - 
+							<input type="text" class="form-control phoneFile"  value="${member.phoneNumber2 }"> - 
+							<input type="text" class="form-control phoneFile"  value="${member.phoneNumber3}">
 						</td>
 					</tr>
 					<tr>
 						<td class="TagTd">이메일</td>
-						<td class="inputTd"><input type="text" class="form-control"></td>
+						<td class="inputTd"><input type="text" class="form-control" value="${member.email }"></td>
 					</tr>
 				</table>
 			</td>
@@ -129,26 +184,26 @@ img {
 				<table>
 					<tr>
 						<td class="TagTd">배송지 확인</td>
-						<td class="inputTd"><div class="checkbox" style="margin: 0px"><label><input type="checkbox" value="">주문고객 정보와 동일합니다.</label></div></td>
+						<td class="inputTd"><div class="checkbox" style="margin: 0px"><label><input type="checkbox" value=""  id="checkbox">주문고객 정보와 동일합니다.</label></div></td>
 					</tr>
 					<tr>
 						<td class="TagTd">받으실분</td>
-						<td class="inputTd"><input type="text" class="form-control"></td>
+						<td class="inputTd"><input type="text" class="form-control" id="name" value=""></td>
 					</tr>
 					<tr>
 						<td class="TagTd">받으실곳</td>
-						<td class="inputTd"><input type="text" class="form-control"></td>
+						<td class="inputTd"><input type="text" class="form-control" id="address"></td>
 					</tr>
 					<tr>
 						<td class="TagTd"></td>
-						<td class="inputTd"><input type="text" class="form-control"></td>
+						<td class="inputTd"><input type="text" class="form-control" id="address2"></td>
 					</tr>
 					<tr>
 						<td class="TagTd">전화번호</td>
 						<td class="inputTd">
-							<input type="text" class="form-control phoneFile"  style="display: inline;"> - 
-							<input type="text" class="form-control phoneFile"> - 
-							<input type="text" class="form-control phoneFile">
+							<input type="text" class="form-control phoneFile"  id="phoneNum1" style="display: inline;"> - 
+							<input type="text" class="form-control phoneFile" id="phoneNum2"> - 
+							<input type="text" class="form-control phoneFile" id="phoneNum3">
 						</td>
 					</tr>
 					<tr>
@@ -159,7 +214,7 @@ img {
 						<td class="TagTd">배송 선택</td>
 						<td class="inputTd">
 							<div class="radio">
-	  							<label><input type="radio" name="optradio">기본 배송</label>
+	  							<label><input type="radio" name="optradio" checked="checked">기본 배송</label>
 							</div>
 						</td>
 					</tr>
@@ -173,19 +228,19 @@ img {
 				<table>
 					<tr>
 						<td class="TagTd">상품합계금액</td>
-						<td class="inputTd"><label>10000원</label></td>
+						<td class="inputTd"><label id="price">${request.price }</label></td>
 					</tr>
 					<tr>
 						<td class="TagTd">적립금</td>
-						<td class="inputTd"><label>10000원</label></td>
+						<td class="inputTd"><label id="point">${member.point }원</label></td>
 					</tr>
 					<tr>
 						<td class="TagTd">사용할 적립금</td>
-						<td class="inputTd"><input type="text" class="form-control"></td>
+						<td class="inputTd"><input type="text" class="form-control" id="usePoint"></td>
 					</tr>
 					<tr>
 						<td class="TagTd">총 결제 금액</td>
-						<td class="inputTd"><label>10000원</label></td>
+						<td class="inputTd"><label id="total">10000원</label></td>
 					</tr>
 				</table>
 			</td>
