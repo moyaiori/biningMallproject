@@ -48,7 +48,7 @@
 </tbody>
 
 </table>
-<input type="button" value="확인">
+<input onclick="location.href='../index.bins'" type="button" class="btn btn-default" value="확인"/>
 </div>
 </body>
 </html>
