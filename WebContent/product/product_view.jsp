@@ -19,7 +19,7 @@
 		var realPrice = ${product.price};
 		var select = document.getElementById("select");
 		var toppingBox = document.getElementById("topping");
-		var output = "";
+		var array = [];
 		
 		count.onchange = function(){
 			price.innerHTML = realPrice * count.value;
@@ -29,8 +29,34 @@
 			var temp = (realPrice + parseInt(this.value)) * count.value;
 			price.innerHTML = temp;
 			var str = select.options[select.selectedIndex].text;
-			console.log(str.substring(3)); // 선택된 값 가져와야한다
-			output += "<option>" + str.substring(3).trim() +"</option>"
+			
+			
+			
+			var childNodes = toppingBox.childNodes;		
+			if(array.length != 0){
+				if(dupleCheck(str.substring(3).trim().split(":")[0].trim())){
+					array.push({name:str.substring(3).trim().split(":")[0].trim(), price:str.substring(3).trim().split(":")[1].trim(), count:1});
+				}
+			}else{
+				console.log("맨처음만 실행");
+				array.push({name:str.substring(3).trim().split(":")[0].trim(), price:str.substring(3).trim().split(":")[1].trim(), count:1});
+			}
+			
+			function dupleCheck(nameCheck){
+				for ( var i in array) {
+					if(array[i].name == nameCheck){
+						array[i].count = array[i].count + 1;
+						return false;
+					}
+				}
+				return true;
+			}
+			
+			var output= "";
+			for (var i in array) {
+				console.log(array[i]);
+				output += "<option>" + array[i].name + " : " + array[i].price + " - " + array[i].count +"개</option>";
+			}
 			toppingBox.innerHTML = output;
 		}
 		
