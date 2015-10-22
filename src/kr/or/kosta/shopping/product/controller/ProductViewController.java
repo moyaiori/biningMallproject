@@ -43,5 +43,4 @@ public class ProductViewController implements Controller {
 
 		return mav;
 	}
-
 }
