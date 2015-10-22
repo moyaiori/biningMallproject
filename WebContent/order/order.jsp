@@ -117,14 +117,6 @@ img {
 						</td>
 					</tr>
 					<tr>
-						<td class="TagTd">휴대전화번호</td>
-						<td class="inputTd">
-							<input type="text" class="form-control phoneFile"  style="display: inline;"> - 
-							<input type="text" class="form-control phoneFile"> - 
-							<input type="text" class="form-control phoneFile">
-						</td>
-					</tr>
-					<tr>
 						<td class="TagTd">이메일</td>
 						<td class="inputTd"><input type="text" class="form-control"></td>
 					</tr>
@@ -145,14 +137,6 @@ img {
 					</tr>
 					<tr>
 						<td class="TagTd">받으실곳</td>
-						<td class="inputTd">
-							<input type="text" class="form-control phoneFile"  style="display: inline;"> - 
-							<input type="text" class="form-control phoneFile">
-							<input type="button" class="btn btn-default" value="우편번호 찾기" />
-						</td>
-					</tr>
-					<tr>
-						<td class="TagTd"></td>
 						<td class="inputTd"><input type="text" class="form-control"></td>
 					</tr>
 					<tr>
@@ -161,14 +145,6 @@ img {
 					</tr>
 					<tr>
 						<td class="TagTd">전화번호</td>
-						<td class="inputTd">
-							<input type="text" class="form-control phoneFile"  style="display: inline;"> - 
-							<input type="text" class="form-control phoneFile"> - 
-							<input type="text" class="form-control phoneFile">
-						</td>
-					</tr>
-					<tr>
-						<td class="TagTd">휴개전화번호</td>
 						<td class="inputTd">
 							<input type="text" class="form-control phoneFile"  style="display: inline;"> - 
 							<input type="text" class="form-control phoneFile"> - 
