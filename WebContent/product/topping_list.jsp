@@ -5,5 +5,5 @@
 <%@ page contentType="text/html; charset=utf-8"%>	
 <body>
 
-토핑 소개 화면
+<img alt="토핑리스트" src="../images/토핑테스트.jpg">
 </body>
