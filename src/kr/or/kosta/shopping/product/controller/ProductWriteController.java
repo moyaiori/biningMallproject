@@ -22,13 +22,12 @@ public class ProductWriteController implements Controller {
 		String productId = request.getParameter("productId");
 		ModelAndView mav = new ModelAndView();
 		
+		
 		ProductService service = ProductService.getInstance();
 		
 		mav.addObject("productId", productId);
-	
 		mav.addObject("contentFile", "../product/product_write.jsp");
 
 		return mav;
 	}
-
 }
