@@ -8,14 +8,16 @@
     text-align: center;
 }
 
+
 .navbar-custom {
-	background-color:#fff;
+	background-color:#ffb468;
     color:#ffffff;
   	border-radius:0;
 }
+
   
 .navbar-custom .navbar-nav > li > a {
-  	color:black;
+  	color:white;
   	padding-left:20px;
   	padding-right:20px;
 }
@@ -23,10 +25,10 @@
     color: #ffffff;
 	background-color:transparent;
 }
-      
+ 
 .navbar-custom .navbar-nav > li > a:hover, .nav > li > a:focus {
     text-decoration: none;
-    background-color: #E6E6E6;
+    background-color: #ff990f;
 }
       
 .navbar-custom .navbar-brand {
@@ -57,7 +59,6 @@
 }
 
 .container-fluid{
-  	border-top: 2px solid #D0D0D0;
-  	border-bottom: 2px solid #D0D0D0;
+  	
 }
 
