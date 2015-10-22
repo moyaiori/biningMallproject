@@ -24,12 +24,8 @@ public class ProductWriteController implements Controller {
 		
 		
 		ProductService service = ProductService.getInstance();
-<<<<<<< HEAD
 
-=======
-		
 		mav.addObject("productId", productId);
->>>>>>> 86e431dfbd453fb6219bea55b995bc8dbb5a4814
 		mav.addObject("contentFile", "../product/product_write.jsp");
 
 		return mav;
