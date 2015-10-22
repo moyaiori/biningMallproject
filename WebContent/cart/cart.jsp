@@ -45,9 +45,8 @@
 			<td> 장바구니에 담은 상품</td>
 			<td><input type="number" value="0"></td>
 		</tr>
-		
 			<tr>
-			<td><input type="checkbox" ><span>선택</span></td>
+			<td><input type="checkbox"><span>선택</span></td>
 			<td> 장바구니에 담은 상품</td>
 			<td><input type="number" value="0"></td>
 		</tr>

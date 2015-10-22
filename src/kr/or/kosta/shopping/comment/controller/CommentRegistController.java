@@ -36,14 +36,13 @@ public class CommentRegistController implements Controller{
 		String satisfaction = request.getParameter("satisfaction");
 		String content = request.getParameter("content");
 		String productId = request.getParameter("productId");
+		System.out.println(productId);
 		
 		Comment comment = new Comment();
 		comment.setContent(content);
 		comment.setSatisfaction(satisfaction);
 		comment.setMemberId(memberId);
 		comment.setProductId(Integer.parseInt(productId));
-		
-		System.out.println(productId);
 		
 		CommentService service = CommentService.getInstance();
 		service.regist(comment);
