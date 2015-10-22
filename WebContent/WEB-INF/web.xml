@@ -29,15 +29,9 @@
 	     <!-- <param-value>C:/Users/KSH/Documents/카카오톡 받은 파일/biningMallProject/WebContent/WEB-INF/controllerMapping.properties</param-value>-->
          
          <!-- 광용이꺼 -->
-<<<<<<< HEAD
-<<<<<<< HEAD
           <!-- <param-value>F:\biningMallproject\WebContent\WEB-INF\controllerMapping.properties</param-value> -->
-=======
          <!-- <param-value>F:\biningMallproject\WebContent\WEB-INF\controllerMapping.properties</param-value>-->
->>>>>>> c04bec0158a1b92d949bcaa4fb996e710ac7d746
-=======
          <!-- <param-value>F:\biningMallproject\WebContent\WEB-INF\controllerMapping.properties</param-value> -->
->>>>>>> db80f5fedb6fe35af41e7d51c527e4850d685a61
          
          <!-- 안상이꺼 -->
          <param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value>
@@ -46,7 +40,7 @@
          <!-- param-value>C:/Users/JHB-PC/Desktop/KOSTA/project/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
           
           <!-- 성후니 -->
-          <param-value>C:/Users/chean/Documents/git/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> 
+          <!-- <param-value>C:/Users/chean/Documents/git/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> --> 
       </init-param>
    </servlet>
 

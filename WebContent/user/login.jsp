@@ -49,8 +49,6 @@ form {
 					<td><input type="button" class="btn btn-default" value="ID/PW찾기"></td>
 				</tr>
 			</table>
-	
-	
 	</div>
 
 </form>
