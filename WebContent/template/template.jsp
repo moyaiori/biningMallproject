@@ -12,13 +12,15 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 
 <style type="text/css">
+
 html {
     height: 100%;
 
     body {
         height: 100%;
         overflow: hidden;
-
+        
+	
         .container-fluid.body-content {
             position: absolute;
             top: @navbar-height;

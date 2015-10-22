@@ -16,16 +16,54 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="../style/order.css">
+
+<style type="text/css">
+
+img {
+	width: 100px;
+}
+
+.info tbody>tr>td{
+    vertical-align: middle !important; 
+}
+
+.table td {
+   text-align: center;   
+}
+
+.table th {
+   text-align: center;   
+}
+
+.phoneFile{
+	width: 100px !important;
+	display: inline !important;
+}
+
+.postFile{
+	width: 100px !important;
+	display: inline !important;
+}
+
+.TagTd{
+	line-height: 30px;
+	padding-right: 10px;
+}
+
+.inputTd{
+	padding-bottom: 10px;
+}
+</style>
 
 </head>
 <body>
 
 <div class="container">
-	<table class="table">
+	<table class="table info">
 		<colgroup>
-			<col width="275" />
-			<col width="275" />
+			<col width="230" />
+			<col width="230" />
+			<col width="90" />
 			<col width="90" />
 			<col width="90" />
 			<col width="90" />
@@ -41,6 +79,7 @@
 			<th>배송비</th>
 			<th>적립금</th>
 			<th>합계</th>
+			<th>토핑</th>
 		</tr>
 		<tr>
 			<td><img src='../images/치킨밥버거.JPG' /></td>
@@ -50,15 +89,7 @@
 			<td>Good</td>
 			<td>Good</td>
 			<td>Good</td>
-		</tr>
-		<tr>
-			<td><img src='../images/치킨밥버거.JPG' /></td>
-			<td>아주아주 맛있어요</td>
-			<td>비닝이</td>
-			<td>Good</td>
-			<td>Good</td>
-			<td>Good</td>
-			<td>Good</td>
+			<td><input type="button" class="btn btn-default" value="토핑보기" /></td>
 		</tr>
 	</table>
 </div>
@@ -86,14 +117,6 @@
 						</td>
 					</tr>
 					<tr>
-						<td class="TagTd">휴대전화번호</td>
-						<td class="inputTd">
-							<input type="text" class="form-control phoneFile"  style="display: inline;"> - 
-							<input type="text" class="form-control phoneFile"> - 
-							<input type="text" class="form-control phoneFile">
-						</td>
-					</tr>
-					<tr>
 						<td class="TagTd">이메일</td>
 						<td class="inputTd"><input type="text" class="form-control"></td>
 					</tr>
@@ -114,13 +137,6 @@
 					</tr>
 					<tr>
 						<td class="TagTd">받으실곳</td>
-						<td class="inputTd">
-							<input type="text" class="form-control phoneFile"  style="display: inline;"> - 
-							<input type="text" class="form-control phoneFile">
-						</td>
-					</tr>
-					<tr>
-						<td class="TagTd"></td>
 						<td class="inputTd"><input type="text" class="form-control"></td>
 					</tr>
 					<tr>
@@ -129,14 +145,6 @@
 					</tr>
 					<tr>
 						<td class="TagTd">전화번호</td>
-						<td class="inputTd">
-							<input type="text" class="form-control phoneFile"  style="display: inline;"> - 
-							<input type="text" class="form-control phoneFile"> - 
-							<input type="text" class="form-control phoneFile">
-						</td>
-					</tr>
-					<tr>
-						<td class="TagTd">휴개전화번호</td>
 						<td class="inputTd">
 							<input type="text" class="form-control phoneFile"  style="display: inline;"> - 
 							<input type="text" class="form-control phoneFile"> - 
@@ -203,7 +211,7 @@
 		</tr>
 	</table>
 	<div style="text-align: center">
-		<input type="button" class="btn btn-default" value="결제하기" />
+		<input type="submit" class="btn btn-default" value="결제하기" />
 		<input type="button" class="btn btn-default" value="취소하기" />
 	</div>
 </div>

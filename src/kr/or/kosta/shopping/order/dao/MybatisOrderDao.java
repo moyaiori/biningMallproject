@@ -7,16 +7,19 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
 
+import com.sun.swing.internal.plaf.metal.resources.metal;
+
 import kr.or.kosta.example.Log4JExample;
 import kr.or.kosta.shopping.member.domain.Member;
 import kr.or.kosta.shopping.order.domain.Order;
 
 /**
  * Mybatis를 이용한 디비 연동
+ * 
  * @author 가승호
  * @작성일 : 2015/10/21
  */
-public class MybatisOrderDao implements OrderDao{
+public class MybatisOrderDao implements OrderDao {
 
 	Logger logger = Logger.getLogger(Log4JExample.class);
 	private SqlSessionFactory sqlSessionFactory;
@@ -38,17 +41,14 @@ public class MybatisOrderDao implements OrderDao{
 			dao.insert(order);
 			logger.debug("[DEBUG] : insert()에서 발생");
 			sqlSession.commit();
-		}catch(Exception e){
+		} catch (Exception e) {
 			logger.warn("[WARN] : insert()에서 발생");
 			sqlSession.rollback();
 			e.printStackTrace();
-		}finally {
+		} finally {
 			sqlSession.close();
 		}
 	}
-	
-
-	
 
 	// 전체 주문 목록
 	public List<Order> getAll() throws RuntimeException {
@@ -63,19 +63,22 @@ public class MybatisOrderDao implements OrderDao{
 		return list;
 	}
 
-	//배송지 정보 가져오기
-	public Member getInfo(String memberId) throws RuntimeException{
+	// 배송지 정보 가져오기
+	public Member getInfo(String memberId) throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		Member member = null;
-	try{
-		member = sqlSession.getMapper(OrderDao.class).getInfo(memberId);
-	}finally{
-		sqlSession.close();
-	}
-		
+		try {
+			member = sqlSession.getMapper(OrderDao.class).getInfo(memberId);
+		}  catch (Exception e) {
+			logger.warn("[WARN] : getInfo()에서 발생");
+			sqlSession.rollback();
+			e.printStackTrace();
+		}finally {
+			sqlSession.close();
+		}
 		return member;
 	}
-	
+
 	// 한개의 주문 가져오기
 	public Order get(int orderNum) throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();

@@ -1,6 +1,6 @@
-package kr.or.kosta.shopping.article.domain;
+package kr.or.kosta.shopping.qna.domain;
 
-public class Article {
+public class Qna {
 	private int articleId;  // 게시글의 식별번호
 	private int boardId;	// 소속 게시판을 알아내긔
 	private String memberId;  // 글 작성자
@@ -13,11 +13,11 @@ public class Article {
 	private int orderNum; // 그룹내 게시글 순서(댓글과 함께 그룹화 된다)
 	
 	/** 생성자 오버로딩 */
-	public Article(){
+	public Qna(){
 		
 	} // Java Bean을 위한 디폴트 생성자
 	/** 생성자 오버로딩 - 전체 */
-	public Article(int articleId, int boardId, String memberId, String subject, String content, String regdate,
+	public Qna(int articleId, int boardId, String memberId, String subject, String content, String regdate,
 			int hitcount, int groupNum, int stepNum, int orderNum) {
 		this.articleId = articleId;
 		this.boardId = boardId;
@@ -30,16 +30,9 @@ public class Article {
 		this.stepNum = stepNum;
 		this.orderNum = orderNum;
 	}
-	public Article(int articleId, String memberId, String subject,String regdate, int hitcount, int stepNum){
-		this.articleId = articleId;
-		this.memberId = memberId;
-		this.subject=subject;
-		this.regdate=regdate;
-		this.hitcount = hitcount;
-		this.stepNum=stepNum;
-	}
-	/*공지사항 글 리스트 보여주기 위한 것.*/
-	public Article(int boardId,String memberId, String subject, String content){
+// #{boardId},  #{memberId}, #{subject}, #{content}
+
+	public Qna(int boardId,String memberId, String subject, String content){
 		this.boardId = boardId;
 		this.memberId= memberId;
 		this.subject = subject;

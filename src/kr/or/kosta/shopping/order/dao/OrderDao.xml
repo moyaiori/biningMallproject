@@ -11,11 +11,11 @@
 	</insert>
 	
 	<!--  회원 정보 가져오기 -->
-	<select id="getInfo" parameterType="kr.or.kosta.shopping.order.domain.Order">
-		SELECT member_id AS "memberId", phone_number AS "phoneNumber", email
+	<select id="getInfo"  parameterType="String"  resultType="kr.or.kosta.shopping.member.domain.Member"   >
+		SELECT member_id AS "memberId", phone_number AS "phoneNumber", address AS "address", address2 AS "address2", name AS "name", email AS "email",  point AS "point"
 		FROM members
+		WHERE member_id = #{value}
 	</select>
-	
 	
 	<!-- 전체주문 조회 SQL 매핑 -->
 	<select id="getAll" resultType="kr.or.kosta.shopping.order.domain.Order" >
