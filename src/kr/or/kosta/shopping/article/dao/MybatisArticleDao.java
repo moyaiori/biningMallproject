@@ -1,6 +1,5 @@
 package kr.or.kosta.shopping.article.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -87,5 +86,21 @@ public class MybatisArticleDao implements ArticleDao {
 			}finally{
 				sqlSession.close();
 			}
+	}
+
+	@Override
+	public int getAllCnt() throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int listCount= 0;
+		try{
+			ArticleDao dao = (ArticleDao)sqlSession.getMapper(ArticleDao.class);
+			listCount=dao.getAllCnt();
+			sqlSession.commit();
+		}catch(Exception e){
+			sqlSession.rollback();
+		}finally{
+			sqlSession.close();
+		}
+		return listCount;
 	}
 }

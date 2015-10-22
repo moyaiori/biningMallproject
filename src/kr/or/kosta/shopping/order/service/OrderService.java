@@ -5,7 +5,6 @@ package kr.or.kosta.shopping.order.service;
  * @작성일 : 2015/10/21
  */
 
-
 import java.util.List;
 
 import kr.or.kosta.shopping.common.dao.DaoFactory;
@@ -20,16 +19,16 @@ import kr.or.kosta.shopping.order.domain.Order;
 public class OrderService {
 	private static OrderService instance;
 	OrderDao orderDao;
-	
-	//throws RuntimeException
-	private OrderService() throws Exception{
+
+	// throws RuntimeException
+	private OrderService() throws Exception {
 		DaoFactory dao = DaoFactory.getInstance(DaoFactoryType.MYBATIS);
-		orderDao = (MybatisOrderDao)dao.getDao(MybatisOrderDao.class);
+		orderDao = (MybatisOrderDao) dao.getDao(MybatisOrderDao.class);
 	}
-	
-	public static OrderService getInstance(){
-		if(instance == null){
-				synchronized (OrderService.class){
+
+	public static OrderService getInstance() {
+		if (instance == null) {
+			synchronized (OrderService.class) {
 				try {
 					instance = new OrderService();
 				} catch (Exception e) {
@@ -39,31 +38,29 @@ public class OrderService {
 		}
 		return instance;
 	}
-	
+
 	/** 주문등록 */
-	public void insert(Order order) throws RuntimeException{
+	public void insert(Order order) throws RuntimeException {
 		try {
 			orderDao.insert(order);
 		} catch (Exception e) {
 			throw new RuntimeException(e.toString());
 		}
 	}
-	
-	
+
 	/** 배송지 정보 가져오기 */
-	public Member getInfo(String memberId) throws RuntimeException{
-		Member member = null;
-		try{
-			member = orderDao.getInfo(memberId);	
-		}catch(Exception e){
+	public Member getInfo(String memberId) throws RuntimeException {
+		Member member = new Member();
+		try {
+			member = orderDao.getInfo(memberId);
+		} catch (Exception e) {
 			throw new RuntimeException(e.toString());
 		}
 		return member;
 	}
-	
-	
+
 	/** 주문목록 */
-	public List<Order> list() throws RuntimeException{
+	public List<Order> list() throws RuntimeException {
 		List<Order> list = null;
 		try {
 			list = orderDao.getAll();
@@ -72,18 +69,16 @@ public class OrderService {
 		}
 		return list;
 	}
-	
+
 	/** 한개의 주문 가져오기 */
-	public Order get(int orderNum) throws RuntimeException{
+	public Order get(int orderNum) throws RuntimeException {
 		Order order = null;
-		try{
+		try {
 			order = orderDao.get(orderNum);
-		}catch(Exception e){
+		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 		return order;
 	}
-	
-	
-	
+
 }

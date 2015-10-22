@@ -3,7 +3,6 @@ package kr.or.kosta.shopping.article.dao;
 import java.util.List;
 
 import kr.or.kosta.shopping.article.domain.Article;
-import kr.or.kosta.shopping.member.domain.Member;
 
 /**
  * 사원 관련 영속성 처리 표준 규약
@@ -19,6 +18,9 @@ public interface ArticleDao{
 	public List<Article> getAll(int boardId) throws RuntimeException;
 	
 	public void updateHitcount(int aricleId) throws RuntimeException;
+	
+	//getAllCnt
+	public int getAllCnt() throws RuntimeException;
 /*	
 	*//** 회원 전체 목록 조회 *//*
 	public List<Member> getAll() throws RuntimeException;
