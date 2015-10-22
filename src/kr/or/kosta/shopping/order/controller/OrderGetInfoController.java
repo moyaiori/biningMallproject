@@ -27,7 +27,7 @@ public class OrderGetInfoController implements Controller{
 		String price = request.getParameter("price");
 		System.out.println(price);
 		
-		service.getInfo("kahlman");
+		//service.getInfo("kahlman");
 		
 		//Order order = new Order(orderN, memberId,  address,  address2, orderDate,  payment, recipient, Integer.parseInt(totalPrice));
 		//service.get(orderN);
