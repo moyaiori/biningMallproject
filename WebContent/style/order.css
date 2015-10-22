@@ -16,7 +16,7 @@ img {
 }
 
 
-.order tbody>tr>td{
+.table tbody>tr>td{
     vertical-align: top;
     text-align: left;
 }

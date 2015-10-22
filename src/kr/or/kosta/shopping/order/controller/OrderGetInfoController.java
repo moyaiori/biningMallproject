@@ -24,25 +24,16 @@ public class OrderGetInfoController implements Controller{
 		OrderService service = OrderService.getInstance();
 		System.out.println("OrderGetInfoController 진입");
  
-
-		String orderNum = request.getParameter("orderNum");
-		int orderN = Integer.parseInt(orderNum);
-		String memberId = request.getParameter("memberId");
-		String address = request.getParameter("address");
-		String address2 = request.getParameter("address2");
-		String orderDate = request.getParameter("orderDate");
-		String payment = request.getParameter("payment");
-		String recipient = request.getParameter("recipient");
-		String totalPrice = request.getParameter("totalPrice");
+		String price = request.getParameter("price");
+		System.out.println(price);
 		
-		System.out.println(orderNum + memberId + address + address2 + orderDate);
+		service.getInfo("kahlman");
 		
+		//Order order = new Order(orderN, memberId,  address,  address2, orderDate,  payment, recipient, Integer.parseInt(totalPrice));
+		//service.get(orderN);
 		
-		Order order = new Order(orderN, memberId,  address,  address2, orderDate,  payment, recipient, Integer.parseInt(totalPrice));
-		service.get(orderN);
-		
-		mav.addObject("order", order);
-		mav.addObject("contentFile", "/order/orderCheck.jsp");
+	//	mav.addObject("order", order);
+		mav.addObject("contentFile", "/order/order.jsp");
 		
 		
 		return mav;

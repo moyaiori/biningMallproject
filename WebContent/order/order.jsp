@@ -64,7 +64,7 @@
 </div>
 
 <div class="container">
-	<table class="table order">
+	<table class="table">
 		<colgroup>
 			<col width="250" />
 			<col width="750" />
