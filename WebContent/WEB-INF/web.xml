@@ -23,16 +23,10 @@
 	<servlet>
 		<servlet-name>frontController</servlet-name>
 		<servlet-class>kr.or.kosta.shopping.common.controller.FrontControllerServlet</servlet-class>
-			<init-param>
+		<init-param>
 			<param-name>controllerMapping</param-name>
-<<<<<<< HEAD
 			<param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value>
-			</init-param>
-=======
-			<!-- <param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
-			<param-value>F:/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value>
 		</init-param>
->>>>>>> e5a2a2fffd95fc63ff03760f6f6f522513923834
 	</servlet>
 
 	<servlet-mapping>

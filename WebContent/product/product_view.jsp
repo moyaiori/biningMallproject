@@ -114,7 +114,10 @@
 					</tr>
 				</c:forEach>
 			</table>
-			<input onclick="location.href='../product/product_write.bins'" type="button" class="btn btn-default" value="글쓰기" style="float: right;" />
+			<c:choose>
+			<c:when test="${cookie.loginId != null}"><input onclick="location.href='../product/product_write.bins'" type="button" class="btn btn-default" value="글쓰기" style="float: right;" /></c:when>
+			</c:choose>
+			
 		</div>
 	</div>
 </body>

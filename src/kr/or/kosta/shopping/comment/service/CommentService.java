@@ -1,6 +1,5 @@
 package kr.or.kosta.shopping.comment.service;
 
-import java.util.HashMap;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -11,11 +10,6 @@ import kr.or.kosta.shopping.comment.dao.MybatisCommentDao;
 import kr.or.kosta.shopping.comment.domain.Comment;
 import kr.or.kosta.shopping.common.dao.DaoFactory;
 import kr.or.kosta.shopping.common.dao.DaoFactory.DaoFactoryType;
-import kr.or.kosta.shopping.member.dao.MemberDao;
-import kr.or.kosta.shopping.member.dao.MybatisMemberDao;
-import kr.or.kosta.shopping.member.domain.Member;
-import kr.or.kosta.shopping.product.dao.MybatisProductDao;
-import kr.or.kosta.shopping.product.dao.ProductDao;
 
 public class CommentService {
 	
@@ -47,6 +41,7 @@ public class CommentService {
 		try {
 			commentDao.insert(comment);
 		} catch (Exception e) {
+			logger.debug("[DEBUG] CommnetService : regist()");
 			throw new RuntimeException(e.toString());
 		}
 	}
@@ -57,6 +52,7 @@ public class CommentService {
 		try {
 			list = commentDao.getAll(productId);
 		} catch (Exception e) {
+			logger.debug("[DEBUG] CommnetService : getAll()");
 			throw new RuntimeException(e);
 		}
 		return list;
@@ -67,6 +63,7 @@ public class CommentService {
 		try {
 			commentDao.delete(commentId);
 		} catch (Exception e) {
+			logger.debug("[DEBUG] CommnetService : delete()");
 			throw new RuntimeException(e);
 		}
 	}
