@@ -5,7 +5,6 @@
 package kr.or.kosta.shopping.product.controller;
 
 
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,22 +13,25 @@ import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
 import kr.or.kosta.shopping.product.domain.Product;
 import kr.or.kosta.shopping.product.service.ProductService;
-import kr.or.kosta.shopping.topping.domain.Topping;
-import kr.or.kosta.shopping.topping.service.ToppingService;
 
 public class ProductWriteController implements Controller {
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response){
 		
-	
+		String productId = request.getParameter("productId");
 		ModelAndView mav = new ModelAndView();
 		
+		
 		ProductService service = ProductService.getInstance();
+<<<<<<< HEAD
 
+=======
+		
+		mav.addObject("productId", productId);
+>>>>>>> 86e431dfbd453fb6219bea55b995bc8dbb5a4814
 		mav.addObject("contentFile", "../product/product_write.jsp");
 
 		return mav;
 	}
-
 }

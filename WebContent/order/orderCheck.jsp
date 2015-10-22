@@ -27,7 +27,6 @@
 </head>
 <body>
 
-<input onclick="location.href='../index.bins'" type="button" class="btn btn-default" value="확인"/>
 <div class="container col-md-8 col-md-offset-2">
 			<table class="table">
 				<colgroup>
@@ -59,7 +58,7 @@
 				</tr>
 			</table>
 			<div style="text-align: center;">
-				<input type="button" class="btn btn-default" value="확 인"/>
+				<input onclick="location.href='../index.bins'" type="button" class="btn btn-default" value="확인"/>
 			</div>
 		</div>
 </body>

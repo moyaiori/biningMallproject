@@ -21,12 +21,11 @@ public class ProductListController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response){
 		
 		ModelAndView mav = new ModelAndView();
-
+		
 		ProductService service = ProductService.getInstance();
 		List<Product> list = service.getAll();
 		mav.addObject("productList", list);
 		mav.addObject("contentFile", "/product/product_list_berger.jsp");
-
 		return mav;
 	}
 }

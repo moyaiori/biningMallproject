@@ -17,16 +17,27 @@
 		var count = document.getElementById("count");
 		var price = document.getElementById("price");
 		var realPrice = ${product.price};
-		
-		count.onchange = function(){
-			price.innerHTML = ": " + realPrice * count.value;
-		}
-		
 		var select = document.getElementById("select");
 		var toppingBox = document.getElementById("topping");
+		var output = "";
+		
+		count.onchange = function(){
+			price.innerHTML = realPrice * count.value;
+		}
 		
 		select.onchange = function(){
+			var temp = (realPrice + parseInt(this.value)) * count.value;
+			price.innerHTML = temp;
+			output += "<option>" + "</option>"
+			toppingBox.innerHTML = output;
 		}
+		
+	    var buyButton = document.getElementById("buyButton");
+	    buyButton.onclick = function(){
+	       var priceE = document.getElementById("price");
+	       var price = priceE.firstChild.nodeValue;
+	       window.location.href="../order/order.bins?price="+price;      
+	    }
 	}
 </script>
 
@@ -40,19 +51,19 @@
 						<div><h3>${product.name}</h3></div>
 						<table class="innerTable">
 							<tr>
-								<td>가격</td>
-								<td id="price">: ${product.price}</td>
+								<td>가격 : </td>
+								<td id="price">${product.price}</td>
 							</tr>
 							<tr>
-								<td>칼로리</td>
-								<td>: ${product.calorie}cal</td>
+								<td>칼로리 : </td>
+								<td>${product.calorie}cal</td>
 							</tr>
 							<tr>
-								<td>판매량</td>
-								<td>: ${product.salesCount}</td>
+								<td>판매량 : </td>
+								<td>${product.salesCount}</td>
 							</tr>
 							<tr>
-								<td>갯수</td>
+								<td>갯수 : </td>
 								<td><input id="count" type="number" style="width: 50px" min="1" max="10" value="1"></td>
 							</tr>
 						</table>
@@ -65,7 +76,7 @@
 							<select class="form-control" id="select" style="display: inline;">
 								<option value="">== 토핑 선택 ==
 								<c:forEach items="${toppingList}" var="topping">
-								<option value="${topping.toppingId}">${topping.toppingId}.${topping.name} : ${topping.price}원
+								<option value="${topping.price}">${topping.toppingId}.${topping.name} : ${topping.price}원
 								</c:forEach>
      						 </select>
 							<input type="button" class="btn btn-default" value="삭제" style="display: inline;"/>
@@ -73,7 +84,7 @@
 
 						<div class="orderBtnSet">
 							<input type="button" class="btn btn-default" value="장바구니 추가"/>
-							<input onclick="location.href='../order/order.bins'" type="button" class="btn btn-default" value="바로 구매"/>
+							<input id="buyButton" type="button" class="btn btn-default" value="바로 구매"/>
 						</div>
 					</td>
 				</tr>
@@ -86,7 +97,7 @@
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading">메뉴 상세 설명</div>
-			<div class="panel-body">${product.description }</div>
+			<div class="panel-body">${product.description}</div>
 		</div>
 	</div>
 
@@ -105,17 +116,27 @@
 					<th>작성자</th>
 					<th>만족도</th>
 				</tr>
-				<c:forEach items="${commentList}" var="comment">
+				<c:if test="${commentList.size()-1 >= 0}">
+					<c:forEach begin="0" end="${commentList.size()-1}" var="i">
+						<tr>
+							<td>${commentList.size()-i}</td>
+							<td>${commentList.get(i).content}</td>
+							<td>${commentList.get(i).memberId}</td>
+							<td>${commentList.get(i).satisfaction}</td>
+						</tr>
+					</c:forEach>
+				</c:if>
+				<c:if test="${commentList.size()-1 < 0}">
 					<tr>
-						<td>${i}</td>
-						<td>${commentList.content}</td>
-						<td>${commentList.memberId}</td>
-						<td>${commentList.satisfaction}</td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
 					</tr>
-				</c:forEach>
+				</c:if>
 			</table>
 			<c:choose>
-			<c:when test="${cookie.loginId != null}"><input onclick="location.href='../product/product_write.bins'" type="button" class="btn btn-default" value="글쓰기" style="float: right;" /></c:when>
+				<c:when test="${cookie.loginId != null}"><input onclick="location.href='../product/product_write.bins?productId=${product.productId}'" type="button" class="btn btn-default" value="글쓰기" style="float: right;" /></c:when>
 			</c:choose>
 			
 		</div>
