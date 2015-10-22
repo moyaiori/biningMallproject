@@ -1,20 +1,21 @@
 package kr.or.kosta.shopping.order.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
-import kr.or.kosta.shopping.member.domain.Member;
-import kr.or.kosta.shopping.member.service.MemberService;
-import kr.or.kosta.shopping.order.domain.Order;
 import kr.or.kosta.shopping.order.service.OrderService;
 
 /**
- * 주문내역 등록에 대한 세부컨트롤러
- * @author 가승호
- * @작성일 : 2015/10/21
+ *  상품상세 & 장바구니에서 가져온 주문 데이터 처리
+ * @author 이광용
+ * @작성일 : 2015/10/22
  */
 public class OrderGetInfoController implements Controller{
 	@Override
@@ -23,11 +24,18 @@ public class OrderGetInfoController implements Controller{
 		ModelAndView mav = new ModelAndView();
 		OrderService service = OrderService.getInstance();
 		System.out.println("OrderGetInfoController 진입");
- 
-		String price = request.getParameter("price");
-		System.out.println(price);
 		
-		service.getInfo("kahlman");
+		// 쿠키값 가져오기
+	    Cookie[] cookies = request.getCookies();
+		if(cookies != null){
+			for (Cookie cookie : cookies) {
+				if(cookie.getName().equals("loginId")){
+					cookie.setPath("/");
+				}				
+			}			
+		}
+		
+		//service.getInfo("kahlman");
 		
 		//Order order = new Order(orderN, memberId,  address,  address2, orderDate,  payment, recipient, Integer.parseInt(totalPrice));
 		//service.get(orderN);

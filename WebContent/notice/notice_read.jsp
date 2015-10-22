@@ -33,7 +33,6 @@
 			<tr>
 				<td colspan="4" style="text-align: right;">
 					<input onclick="location.href='../notice/notice_list.bins'" class="btn btn-default" type="submit" value="돌아가기"> 
-					<input  onclick="location.href='../notice/notice_write.bins'" class="btn btn-default" type="button" value="답글달기">
 				</td>
 			</tr>
 		</table>

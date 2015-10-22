@@ -34,6 +34,7 @@ public class MemberLoginController implements Controller{
 			cookie = new Cookie("loginId", memberId);
 			cookie.setPath("/");
 			response.addCookie(cookie);
+			
 			mav.setView("redirect:/index.jsp");
 			mav.addObject("message", "로그인 성공");
 			return mav;
