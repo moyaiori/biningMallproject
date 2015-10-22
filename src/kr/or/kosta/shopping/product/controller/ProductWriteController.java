@@ -10,8 +10,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.or.kosta.shopping.comment.domain.Comment;
-import kr.or.kosta.shopping.comment.service.CommentService;
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
 import kr.or.kosta.shopping.product.domain.Product;
@@ -19,27 +17,17 @@ import kr.or.kosta.shopping.product.service.ProductService;
 import kr.or.kosta.shopping.topping.domain.Topping;
 import kr.or.kosta.shopping.topping.service.ToppingService;
 
-public class ProductViewController implements Controller {
+public class ProductWriteController implements Controller {
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response){
 		
-		String productId = request.getParameter("productId");
+	
 		ModelAndView mav = new ModelAndView();
 		
 		ProductService service = ProductService.getInstance();
-		Product product = service.get(Integer.parseInt(productId));
-		
-		ToppingService toppingService = ToppingService.getInstance();
-		List<Topping> toppingList = toppingService.getAll();
-		
-		CommentService commentService = CommentService.getInstance();
-		List<Comment> commentList = commentService.getAll(Integer.parseInt(productId));
-		
-		mav.addObject("commentList", commentList);
-		mav.addObject("toppingList", toppingList);
-		mav.addObject("product", product);
-		mav.addObject("contentFile", "../product/product_view.jsp");
+	
+		mav.addObject("contentFile", "../product/product_write.jsp");
 
 		return mav;
 	}

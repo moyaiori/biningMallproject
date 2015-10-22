@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 네임스페이스(사용영역) 설정 -->
+<mapper namespace="kr.or.kosta.shopping.comment.dao.CommentDao">
+	
+	<!-- 해당글 상품평 가져오기 -->
+	<select id="getAll" parameterType="java.lang.Integer" resultType="kr.or.kosta.shopping.comment.domain.Comment" >
+		SELECT comment_id AS "commentId", product_id AS "productId", member_id AS "memberId", content, regdate, satisfaction, group_num, order_num, step_num
+		FROM comments
+		WHERE product_id = #{value}
+		ORDER BY comment_id ASC
+	</select>
+		
+	<!-- 상품평 등록 -->
+	<insert id="insert" parameterType="kr.or.kosta.shopping.comment.domain.Comment">
+		INSERT INTO comments(comment_id, product_id, member_id, content, satisfaction, group_num, order_num, step_num)
+		VALUES(comment_num_seq.NEXTVAL, #{productId}, #{memberId}, #{content}, #{satisfaction}, comment_num_seq.CURRVAL, ?, 1);
+	</insert>
+	
+	<!-- 상품평 삭제 -->
+	<delete id="delete" parameterType="java.lang.Integer">
+		DELETE FROM comments
+		WHERE comment_id = #{value}
+	</delete>
+</mapper>

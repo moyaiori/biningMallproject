@@ -7,7 +7,25 @@
 		
 	<!-- 게시글 등록 boardId: 1 - 공지 , 2 QnA-->
 	<insert id="insert" parameterType="kr.or.kosta.shopping.article.domain.Article">
-		INSERT INTO article( board_id, writer, subject, content,step_no, order_no)
-		VALUES( #{boardId}, #{memberId}, #{subject}, #{content},   0, 0);
+		INSERT INTO article(article_id, board_id, member_id, subject, content,group_num,step_num, order_num)
+		VALUES(article_id_seq.NEXTVAL,  #{boardId},  #{memberId}, #{subject}, #{content},article_id_seq.CURRVAL,0, 0)
 	</insert>
+	
+	<!-- 게시글 댓글시 orderNuM 수정-->	       
+<!--      <update id="updateOrderNum" parameterType="kr.or.kosta.shopping.article.domain.Article">
+		UPDATE article  SET order_num = order_num+1  WHERE board_id = 1 
+		AND group_num = #{groupNum} AND order_num >= (   SELECT MIN(order_num) 
+        FROM article 
+     	WHERE group_num =#{groupNum} AND order_num > #{orderNum} AND step_num <= #{stepNum}; 
+	</update>       
+ -->	      
+                 
+ <!--   게시글 읽기      -->	           
+	<select id="get" parameterType="java.lang.Integer" resultType="kr.or.kosta.shopping.article.domain.Article">
+		SELECT article_id as "articleId", subject, content, member_id as "memberId", regdate, hitcount, group_num as "groupNum", step_num as "stepNum", order_num as "orderNum"
+	    FROM article 
+		WHERE board_id = 1 and article_id = #{value}
+	</select>
+
+	
 </mapper>

@@ -8,6 +8,14 @@
 	img태그  onerror=this.src='' 이부분에 이미지를 넣음. 
 	해당 이미지가 gif파일이면 쇼핑몰 이미지 처럼 반짝반짝 움직임.
  -->
+ 
+<style>
+img{
+	width: 200px;
+}
+
+</style>
+ 
 <div>
 	<table width=100% cellpadding="0" cellspacing="0">
 	<!--첫 번째 줄 -->

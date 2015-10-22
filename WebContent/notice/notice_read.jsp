@@ -12,22 +12,22 @@
 		<table class="table">
 			<tr>
 				<th class="active">글제목</th>
-				<td colspan="3">임시제목</td>
+				<td colspan="3">${article.subject}</td>
 			</tr>
 			<tr>
 				<th class="active">작성자</th>
-				<td>임시작성자</td>
+				<td>${article.memberId}</td>
 				<th class="active">작성일</th>
-				<td>2015-10-20</td>
+				<td>${article.regdate}</td>
 			</tr>
 			<tr>
 				<th class="active">조회수</th>
-				<td>300</td>
+				<td>${article.hitcount}</td>
 			</tr>
 		
 			<tr>
 				<td colspan="4" style="padding: 10px 30px">
-					<textarea class="form-control" rows="10" cols="10" readonly style="resize:none;">안녕</textarea>
+					<textarea class="form-control" rows="10" cols="10" readonly style="resize:none;">${article.content}</textarea>
 				</td>
 			</tr>
 			<tr>

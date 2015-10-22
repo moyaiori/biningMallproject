@@ -9,46 +9,65 @@
 <head>
 <meta charset="utf-8">
 <title>주문확인 페이지</title>
+<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css.map">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
+
+<style type="text/css">
+
+.table tr td{
+	font-size: 18px;
+}
+
+</style>
+
 </head>
 <body>
-<h2 align="center">주문이 완료되었습니다. 내역을 확인해주세요.</h2>
 
 
-<div align="center">
-<table style="" cellpadding="0" cellspacing="0" border="1" width="800px" height="600px">
-<thead> 
-<tr bordercolor="black">
-	<th >상세정보</th>
-	<th>내용</th>
-</tr>
-</thead>
-<tbody>
-</tr>
-	<tr bordercolor="black">
-	<th>주문번호</th>
-	<td> 주문번호를 보여주는 란</td>
-</tr>
-<tr bordercolor="black">
-	<th >결제금액</th>
-	<td> 결제금액을 보여주는 란</td>
-</tr>
-<tr bordercolor="black">
-	<th >상품내역</th>
-	<td> 뿡뿡이 밥버거</td>
-</tr>
-<tr bordercolor="black">
-	<th >배송정보</th>
-	<td> 서울시</td>
-</tr>
-<tr bordercolor="black">
-	<th>기타사항</th>
-	<td> 로켓배송! </td>
-</tr>
 
-</tbody>
-
+<<<<<<< HEAD
 </table>
 <input onclick="location.href='../index.bins'" type="button" class="btn btn-default" value="확인"/>
 </div>
+=======
+<div class="container col-md-8 col-md-offset-2">
+			<table class="table">
+				<colgroup>
+					<col width="300" />
+					<col width="700" />
+				</colgroup>
+				<tr>
+					<td colspan="2" style="text-align: center;"><h3>주문의 완료되었습니다. 주문내역을 확인해주세요</h3></td>
+				</tr>
+				<tr>
+					<td>주문번호</td>
+					<td>0001111</td>
+				</tr>
+				<tr>
+					<td>결제금액</td>
+					<td>100,000원</td>
+				</tr>
+				<tr>
+					<td>상품내역</td>
+					<td>빈스 밥버거</td>
+				</tr>
+				<tr>
+					<td>배송정보</td>
+					<td>너희집 우리집 여기저기</td>
+				</tr>
+				<tr>
+					<td>기타사항</td>
+					<td>둘이먹다 하나 죽어요</td>
+				</tr>
+			</table>
+			<div style="text-align: center;">
+				<input type="button" class="btn btn-default" value="확 인"/>
+			</div>
+		</div>
+>>>>>>> e1b63cb6276d128bcf8ea480f7e4f6d6476b992f
 </body>
 </html>

@@ -19,7 +19,6 @@ public class Article {
 	/** 생성자 오버로딩 - 전체 */
 	public Article(int articleId, int boardId, String memberId, String subject, String content, String regdate,
 			int hitcount, int groupNum, int stepNum, int orderNum) {
-		super();
 		this.articleId = articleId;
 		this.boardId = boardId;
 		this.memberId = memberId;
@@ -31,8 +30,15 @@ public class Article {
 		this.stepNum = stepNum;
 		this.orderNum = orderNum;
 	}
+// #{boardId},  #{memberId}, #{subject}, #{content}
 
-
+	public Article(int boardId,String memberId, String subject, String content){
+		this.boardId = boardId;
+		this.memberId= memberId;
+		this.subject = subject;
+		this.content = content;
+	}
+	
 	/** setter, getter */
 	public int getArticleId() {
 		return articleId;
@@ -46,10 +52,11 @@ public class Article {
 	public void setBoardId(int boardId) {
 		this.boardId = boardId;
 	}
-	public String getWriter() {
+	
+	public String getMemberId() {
 		return memberId;
 	}
-	public void setWriter(String memberId) {
+	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
 	public String getSubject() {

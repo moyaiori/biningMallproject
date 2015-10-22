@@ -25,6 +25,7 @@
 		<servlet-class>kr.or.kosta.shopping.common.controller.FrontControllerServlet</servlet-class>
 		<init-param>
 			<param-name>controllerMapping</param-name>
+<<<<<<< HEAD
 
 			<!-- <param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
 			<param-value>C:/Users/KSH/Documents/카카오톡 받은 파일/biningMallProject/WebContent/WEB-INF/controllerMapping.properties</param-value>
@@ -32,6 +33,9 @@
 
 			<!-- <param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
 
+=======
+			<param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value>
+>>>>>>> e1b63cb6276d128bcf8ea480f7e4f6d6476b992f
 		</init-param>
 	</servlet>
 

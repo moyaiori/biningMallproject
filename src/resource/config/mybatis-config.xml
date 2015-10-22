@@ -47,6 +47,7 @@
 		<mapper resource="kr/or/kosta/shopping/cart/dao/CartDao.xml" />
 		<mapper resource="kr/or/kosta/shopping/article/dao/ArticleDao.xml" />
 		<mapper resource="kr/or/kosta/shopping/product/dao/ProductDao.xml" />
+		<mapper resource="kr/or/kosta/shopping/comment/dao/CommentDao.xml" />
 		
 	</mappers>
 

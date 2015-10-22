@@ -30,7 +30,7 @@
                      <tr>
                      <td>52</td>
                      <td class="">
-                        <a href="../notice/notice_read.bins">입금확인</a>
+                        <a href="../notice/notice_read.bins?articleId=${4}">입금확인</a>
                      </td>
                      <td><span class="">나미정</span></td>
                      <td>14:47</td>
@@ -62,6 +62,7 @@
             </select>
             <input type="text"  class="form-control" style="width:200px;" name="stx" value="" required id="stx" />
             <input onclick="location.href='../notice/notice_list.bins'" type="button" class="btn btn-default" value="검색"/>
+            <input onclick="location.href='../notice/notice_write.bins'" type="button" class="btn btn-default" value="글쓰기"/>
          </div>
       </form>
 	  
