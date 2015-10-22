@@ -37,10 +37,10 @@
          <!-- <param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value>  -->
          
          <!-- 비닝이꺼 -->
-         <!--  <param-value>C:/Users/JHB-PC/Desktop/KOSTA/project/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> --> 
+         	<param-value>C:/Users/JHB-PC/Desktop/KOSTA/project/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> 
           
           <!-- 성후니 -->
-          <param-value>C:/Users/chean/Documents/git/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> 
+           <!-- <param-value>C:/Users/chean/Documents/git/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> --> 
       </init-param>
    </servlet>
 
