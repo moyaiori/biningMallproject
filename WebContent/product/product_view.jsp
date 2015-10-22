@@ -28,7 +28,9 @@
 		select.onchange = function(){
 			var temp = (realPrice + parseInt(this.value)) * count.value;
 			price.innerHTML = temp;
-			output += "<option>" + "</option>"
+			var str = select.options[select.selectedIndex].text;
+			console.log(str.substring(3)); // 선택된 값 가져와야한다
+			output += "<option>" + str.substring(3).trim() +"</option>"
 			toppingBox.innerHTML = output;
 		}
 		
@@ -76,7 +78,7 @@
 							<select class="form-control" id="select" style="display: inline;">
 								<option value="">== 토핑 선택 ==
 								<c:forEach items="${toppingList}" var="topping">
-								<option value="${topping.price}">${topping.toppingId}.${topping.name} : ${topping.price}원
+								<option value="${topping.price}">${topping.toppingId}. ${topping.name} : ${topping.price}원
 								</c:forEach>
      						 </select>
 							<input type="button" class="btn btn-default" value="삭제" style="display: inline;"/>
