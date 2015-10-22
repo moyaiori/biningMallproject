@@ -105,20 +105,21 @@
 					<th>작성자</th>
 					<th>만족도</th>
 				</tr>
-				<tr>
-					<td>1</td>
-					<td>아주아주 맛있어요</td>
-					<td>비닝이</td>
-					<td>Good</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>둘이먹다 하나 죽어요</td>
-					<td>가승호</td>
-					<td>Very Good</td>
-				</tr>
+				<c:forEach items="${commentList}" var="comment">
+					<tr>
+						<td>${i}</td>
+						<td>${commentList.content}</td>
+						<td>${commentList.memberId}</td>
+						<td>${commentList.satisfaction}</td>
+					</tr>
+				</c:forEach>
 			</table>
-			<input onclick="location.href='../product/product_write.bins'" type="button" class="btn btn-default" value="글쓰기" style="float: right;" />
+			<!--
+			<c:choose>
+			<c:when test="${cookie.loginId != null}"><input onclick="location.href='../product/product_write.bins'" type="button" class="btn btn-default" value="글쓰기" style="float: right;" /></c:when>
+			</c:choose>
+			 -->
+			 <input onclick="location.href='../product/product_write.bins'" type="button" class="btn btn-default" value="글쓰기" style="float: right;" />
 		</div>
 	</div>
 </body>
