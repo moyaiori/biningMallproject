@@ -83,6 +83,17 @@ public class ArticleService {
 	}
 	
 	
+	public int getAllCnt()throws RuntimeException{
+		int listCount = 0;
+		try {
+			listCount= articleDao.getAllCnt();
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+			
+		}
+		return listCount;
+	}
+	
 	/**회원 목록*//*
 	public List<User> list()throws RuntimeException{
 		

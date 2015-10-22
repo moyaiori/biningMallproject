@@ -32,9 +32,10 @@ public class NoticeListController implements Controller {
 			 pageNum = Integer.parseInt(rp);
 		}
 		//리스트의 사이즈 알아보기
-		List<Article> articleList = service.getAll(1);
-		int listSize = articleList.size();
+		List<Article> articleList = service.getAll(pageNum);
+		int listSize =service.getAllCnt();
 		int requestP = Integer.parseInt(rp);
+		
 		Pagination pagination = new Pagination(10, 5, listSize, pageNum);
 		pagination.paginate();
 		mav.addObject("articleList", articleList);

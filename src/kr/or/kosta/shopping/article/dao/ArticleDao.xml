@@ -11,6 +11,13 @@
 		VALUES(article_id_seq.NEXTVAL,  #{boardId},  #{memberId}, #{subject}, #{content},article_id_seq.CURRVAL,0, 0)
 	</insert>
      
+     <select id="getAllCnt"   resultType="java.lang.Integer">
+		 select COUNT(article_id) count 
+		from article
+		where board_id=1
+	</select>
+     
+     
                  
  <!--   게시글 읽기      -->	           
 	<select id="get" parameterType="java.lang.Integer" resultType="kr.or.kosta.shopping.article.domain.Article">
@@ -26,10 +33,10 @@
 					     FROM ( 
 					         SELECT article_id, subject, member_id, regdate, hitcount, step_num
                              FROM article 
-					         WHERE board_id =  #{value}
+					         WHERE board_id =  1
 					         ORDER BY group_num DESC, order_num ASC 
 					         )
-					 )
+					)WHERE request_page = #{value}
 	</select>
 	
 	
@@ -39,6 +46,16 @@
 					SET hitcount = hitcount + 1 
 					WHERE board_id =1 AND article_id =#{articleId}
 	</update>
+	
+	<!--  제목 혹은 내용으로 검색  -->
+	<select id="selectEmployeesByLastName"  parameterType="java.lang.String" resultType="kr.or.kosta.shopping.article.domain.Article">
+
+		SELECT employee_id "id", first_name "firstName", last_name "lastName", email "email", phone_number "phoneNumber", TO_CHAR(hire_date, 'YYYY-MM-DD') "hireDate", salary "salary"
+		FROM employees
+		WHERE UPPER(last_name) like #{lastName}
+	</select>
+	
+	
 	
 	
 	
