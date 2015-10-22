@@ -2,10 +2,7 @@ package kr.or.kosta.shopping.qna.service;
 
 import java.util.List;
 
-import org.apache.ibatis.session.SqlSession;
-
 import kr.or.kosta.shopping.article.dao.ArticleDao;
-import kr.or.kosta.shopping.article.dao.MybatisArticleDao;
 import kr.or.kosta.shopping.article.domain.Article;
 import kr.or.kosta.shopping.common.dao.DaoFactory;
 import kr.or.kosta.shopping.common.dao.DaoFactory.DaoFactoryType;
@@ -22,6 +19,7 @@ public class QnaService {
 
 	private static QnaService instance;
 	QnaDao qnaDao;
+	ArticleDao articledao;
 	private QnaService() throws Exception{
 		
 		DaoFactory daoFactory = DaoFactory.getInstance(DaoFactoryType.MYBATIS);
@@ -52,14 +50,14 @@ public class QnaService {
 		}
 	}
 	
-	public Qna get(int qnaId) throws RuntimeException {
-		Qna qna = null;
+	public Article get(int articleId) throws RuntimeException {
+		Article article = null;
 		try {
-			qna = qnaDao.get(qnaId);
+			article = qnaDao.get(articleId);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
-		return qna;
+		return article;
 	}
 	
 	public List<Qna> getAll(int boardId) throws RuntimeException {
@@ -75,9 +73,7 @@ public class QnaService {
 	
 	/**회원 목록*//*
 	public List<User> list()throws RuntimeException{
-		
 		List<User> list= null;
-		
 		try {
 			list= userDao.getAll();
 			

@@ -22,15 +22,16 @@
 							<col width="85" />
 						</colgroup>
 						<tr>
-							<th>NUM</th>
-							<th>SUBJECT</th>
-							<th>WRITER</th>
-							<th>DATE</th>
+							<th>번호</th>
+							<th>제목</th>
+							<th>작성자</th>
+							<th>작성일</th>
+							<th>조회수</th>
 						</tr>
 							<tr>
 							<td>52</td>
 							<td class="">
-								<a href="../qna/qna_read.bins">문의 화면맞나요요요요??/ </a>
+								<a href="../qna/qna_read.bins?articleId=8">문의 화면맞나요요요요??/ </a>
 							</td>
 							<td><span class="">나미정</span></td>
 							<td>14:47</td>
