@@ -27,13 +27,7 @@
 </head>
 <body>
 
-
-
-<<<<<<< HEAD
-</table>
 <input onclick="location.href='../index.bins'" type="button" class="btn btn-default" value="확인"/>
-</div>
-=======
 <div class="container col-md-8 col-md-offset-2">
 			<table class="table">
 				<colgroup>
@@ -68,6 +62,5 @@
 				<input type="button" class="btn btn-default" value="확 인"/>
 			</div>
 		</div>
->>>>>>> e1b63cb6276d128bcf8ea480f7e4f6d6476b992f
 </body>
 </html>

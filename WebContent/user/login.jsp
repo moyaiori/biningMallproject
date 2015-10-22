@@ -1,4 +1,33 @@
 <%@ page contentType="text/html; charset=utf-8" %>
+<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css.map">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
+
+
+
+
+<form action="../user/loginProc.bins" method="post">
+	<div class="container col-md-8 col-md-offset-2">
+			<table class="table">
+				<colgroup>
+					<col width="150" />
+					<col width="275" />
+					<col width="150" />
+					<col width="275" />
+					<col width="150" />
+				</colgroup>
+			</table>
+	
+	
+	</div>
+
+</form>
+
+
+
 <form action="../user/loginProc.bins" method="post">
 	<table>
 		<tr><td>로그인</td></tr>
