@@ -47,8 +47,6 @@ form {
 					<td><input onclick="location.href='../user/userinforsearch.bins'" type="button" class="btn btn-default" value="ID/PW찾기"></td>
 				</tr>
 			</table>
-	
-	
 	</div>
 
 </form>
