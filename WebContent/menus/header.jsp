@@ -14,7 +14,7 @@
 	</ul>
 </div>
 <div class="logoTop">
-	<img alt="WelCome" src="../images/mainlogo.jpg">
+	<img style="width: 800px;" alt="WelCome" src="../images/mainlogo.jpg">
 </div>
 <nav class="navbar navbar-custom navbar-static-top">
   <div class="container-fluid">
