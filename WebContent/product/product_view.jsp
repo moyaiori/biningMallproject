@@ -14,37 +14,62 @@
 
 <script>
 	window.onload = function(){
+		var toppingPrice = 0;
 		var count = document.getElementById("count");
 		var price = document.getElementById("price");
 		var realPrice = ${product.price};
 		var select = document.getElementById("select");
 		var toppingBox = document.getElementById("topping");
+		var deleteButton = document.getElementById("delete");
 		var array = [];
 		
-		count.onchange = function(){
-			price.innerHTML = realPrice * count.value;
+		deleteButton.onclick = function(){
+			toppingPrice -= parseInt(toppingBox.options[toppingBox.selectedIndex].text.split(":")[1].split("원")[0].trim());
+			price.innerHTML = (realPrice + toppingPrice) * count.value;
+			if(dupleCheck2(toppingBox.options[toppingBox.selectedIndex].text.split(":")[0])){
+				array.splice(toppingBox.selectedIndex, 1);
+			}
+						
+			function dupleCheck2(nameCheck){
+				for (var i in array){
+					console.log(array[i].name +":"+ nameCheck);
+					if(array[i].name.trim() == nameCheck.trim()){
+						array[i].count = array[i].count - 1;
+						if(array[i].count == 0){
+							array.splice(toppingBox.selectedIndex, 1);
+						}
+						return false;
+					}
+					return true;
+				}
+			}
+
+			var output= "";
+			for (var i in array) {
+				output += "<option>" + array[i].name + " : " + array[i].price + " - " + array[i].count +"개</option>";
+			}
+			toppingBox.innerHTML = output;
 		}
 		
 		select.onchange = function(){
 			var temp = (realPrice + parseInt(this.value)) * count.value;
 			price.innerHTML = temp;
 			var str = select.options[select.selectedIndex].text;
-			
-			
-			
-			var childNodes = toppingBox.childNodes;		
+				
 			if(array.length != 0){
 				if(dupleCheck(str.substring(3).trim().split(":")[0].trim())){
 					array.push({name:str.substring(3).trim().split(":")[0].trim(), price:str.substring(3).trim().split(":")[1].trim(), count:1});
+					toppingPrice += parseInt(str.substring(3).trim().split(":")[1].trim().split("원")[0]) * 1;
 				}
 			}else{
-				console.log("맨처음만 실행");
 				array.push({name:str.substring(3).trim().split(":")[0].trim(), price:str.substring(3).trim().split(":")[1].trim(), count:1});
+				toppingPrice += parseInt(str.substring(3).trim().split(":")[1].trim().split("원")[0]) * 1;
 			}
 			
 			function dupleCheck(nameCheck){
 				for ( var i in array) {
 					if(array[i].name == nameCheck){
+						toppingPrice += parseInt(array[i].price.split("원")[0]) * parseInt(array[i].count);
 						array[i].count = array[i].count + 1;
 						return false;
 					}
@@ -54,10 +79,15 @@
 			
 			var output= "";
 			for (var i in array) {
-				console.log(array[i]);
 				output += "<option>" + array[i].name + " : " + array[i].price + " - " + array[i].count +"개</option>";
 			}
 			toppingBox.innerHTML = output;
+			price.innerHTML = (realPrice + toppingPrice) * count.value;
+		}
+		
+		
+		count.onchange = function(){
+			price.innerHTML = (realPrice + toppingPrice) * count.value;
 		}
 		
 	    var buyButton = document.getElementById("buyButton");
@@ -107,7 +137,7 @@
 								<option value="${topping.price}">${topping.toppingId}. ${topping.name} : ${topping.price}원
 								</c:forEach>
      						 </select>
-							<input type="button" class="btn btn-default" value="삭제" style="display: inline;"/>
+							<input type="button" id="delete" class="btn btn-default" value="삭제" style="display: inline;"/>
 						</div>
 
 						<div class="orderBtnSet">
