@@ -7,7 +7,6 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 
 <style>
-
 .table>tbody>tr>td{
 	vertical-align: middle;
 }
@@ -17,7 +16,6 @@ form {
 	margin: 0px auto;
 	padding: 70px 0px 130px;
 }
-
 </style>
 
 <form action="../user/loginProc.bins" method="post">
@@ -43,7 +41,7 @@ form {
 				</tr>
 				<tr>
 					<td>비밀번호</td>
-					<td><input type="text" class="form-control" name="passwd"></td>
+					<td><input type="password" class="form-control" name="passwd"></td>
 					<td></td>
 					<td>회원아이디와 비밀번호가 생각 나지 않으세요?</td>
 					<td><input onclick="location.href='../user/userinforsearch.bins'" type="button" class="btn btn-default" value="ID/PW찾기"></td>
