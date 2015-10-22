@@ -48,7 +48,6 @@ public class MybatisOrderDao implements OrderDao{
 	}
 	
 
-	
 
 	// 전체 주문 목록
 	public List<Order> getAll() throws RuntimeException {

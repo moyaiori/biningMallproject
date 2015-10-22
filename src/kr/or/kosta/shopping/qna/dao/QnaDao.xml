@@ -2,24 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- 네임스페이스(사용영역) 설정 -->
-<mapper namespace="kr.or.kosta.shopping.article.dao.ArticleDao">
+<mapper namespace="kr.or.kosta.shopping.qna.dao.QnaDao">
 
 		
-	<!-- 게시글 등록 boardId: 1 - 공지 , 2 QnA-->
-	<insert id="insert" parameterType="kr.or.kosta.shopping.article.domain.Article">
+	<!-- 게시글 등록 boardId: 2 - 공지 , 2 QnA-->
+	<insert id="insert" parameterType="kr.or.kosta.shopping.qna.domain.Qna">
 		INSERT INTO article(article_id, board_id, member_id, subject, content,group_num,step_num, order_num)
-		VALUES(article_id_seq.NEXTVAL,  #{boardId},  #{memberId}, #{subject}, #{content},article_id_seq.CURRVAL,0, 0)
+		VALUES(article_id_seq.NEXTVAL,  2,  #{memberId}, #{subject}, #{content},article_id_seq.CURRVAL,0, 0)
 	</insert>
-     
+	
+	<!-- 게시글 댓글시 orderNuM 수정-->	       
+<!--      <update id="updateOrderNum" parameterType="kr.or.kosta.shopping.article.domain.Article">
+		UPDATE article  SET order_num = order_num+1  WHERE board_id = 1 
+		AND group_num = #{groupNum} AND order_num >= (   SELECT MIN(order_num) 
+        FROM article 
+     	WHERE group_num =#{groupNum} AND order_num > #{orderNum} AND step_num <= #{stepNum}; 
+	</update>       
+ -->	      
                  
  <!--   게시글 읽기      -->	           
-	<select id="get" parameterType="java.lang.Integer" resultType="kr.or.kosta.shopping.article.domain.Article">
+	<select id="get" parameterType="java.lang.Integer" resultType="kr.or.kosta.shopping.qna.domain.Qna">
 		SELECT article_id as "articleId", subject, content, member_id as "memberId", regdate, hitcount, group_num as "groupNum", step_num as "stepNum", order_num as "orderNum"
 	    FROM article 
-		WHERE board_id = 1 and article_id = #{value}
+		WHERE board_id = 2 and article_id = #{value}
 	</select>
 
-	<select id="getAll" parameterType="java.lang.Integer"   resultType="kr.or.kosta.shopping.article.domain.Article">
+	<select id="getAll" parameterType="java.lang.Integer"   resultType="java.util.HashMap">
 		 SELECT  article_id as "articleId", subject, member_id as "memberId", regdate, hitcount, step_num as "stepNum"
  		 FROM (
 					     SELECT CEIL(rownum / 10) request_page, article_id, subject, member_id, TO_CHAR(regdate, 'YYYY-MM-DD') regdate,  hitcount, step_num
@@ -31,15 +39,4 @@
 					         )
 					 )
 	</select>
-	
-	
-	<!-- 글 상세 보기 시, 조회수 증가.-->
-	<update id="updateHitcount" parameterType="java.lang.Integer" >
-			UPDATE article 
-					SET hitcount = hitcount + 1 
-					WHERE board_id =1 AND article_id =#{articleId}
-	</update>
-	
-	
-	
 </mapper>

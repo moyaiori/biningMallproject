@@ -9,11 +9,7 @@ import org.apache.log4j.Logger;
 
 import kr.or.kosta.example.Log4JExample;
 import kr.or.kosta.shopping.article.domain.Article;
-import kr.or.kosta.shopping.common.dao.DaoFactory;
-import kr.or.kosta.shopping.common.dao.DaoFactory.DaoFactoryType;
-import kr.or.kosta.shopping.member.domain.Member;
-import kr.or.kosta.shopping.product.dao.ProductDao;
-import kr.or.kosta.shopping.product.domain.Product;
+
 
 /**
  * Mybatis를 이용한 디비 연동
@@ -72,10 +68,24 @@ public class MybatisArticleDao implements ArticleDao {
 		try{
 			ArticleDao dao = (ArticleDao)sqlSession.getMapper(ArticleDao.class);
 			articleList = dao.getAll(boardId);
-			
+
 		}finally{
 			sqlSession.close();
 		}
 		return articleList;
+	}
+
+	@Override
+	public void updateHitcount(int aricleId) throws RuntimeException {
+			SqlSession sqlSession = sqlSessionFactory.openSession();
+			try{
+				ArticleDao dao = (ArticleDao)sqlSession.getMapper(ArticleDao.class);
+				dao.updateHitcount(aricleId);
+				sqlSession.commit();
+			}catch(Exception e){
+				sqlSession.rollback();
+			}finally{
+				sqlSession.close();
+			}
 	}
 }

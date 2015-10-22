@@ -61,8 +61,9 @@ img {
 <div class="container">
 	<table class="table info">
 		<colgroup>
-			<col width="275" />
-			<col width="275" />
+			<col width="230" />
+			<col width="230" />
+			<col width="90" />
 			<col width="90" />
 			<col width="90" />
 			<col width="90" />
@@ -78,6 +79,7 @@ img {
 			<th>배송비</th>
 			<th>적립금</th>
 			<th>합계</th>
+			<th>토핑</th>
 		</tr>
 		<tr>
 			<td><img src='../images/치킨밥버거.JPG' /></td>
@@ -87,15 +89,7 @@ img {
 			<td>Good</td>
 			<td>Good</td>
 			<td>Good</td>
-		</tr>
-		<tr>
-			<td><img src='../images/치킨밥버거.JPG' /></td>
-			<td>아주아주 맛있어요</td>
-			<td>비닝이</td>
-			<td>Good</td>
-			<td>Good</td>
-			<td>Good</td>
-			<td>Good</td>
+			<td><input type="button" class="btn btn-default" value="토핑보기" /></td>
 		</tr>
 	</table>
 </div>
