@@ -18,18 +18,6 @@
      <error-code>404</error-code>
      <location>/errors/error_404.jsp</location>
   </error-page>
-<<<<<<< HEAD
-	
-	<!-- 모든 웹 클라이언트 요청에 대한 단일(메인) 진입점(프론트 컨트롤러) 서블릿 등록 -->
-	<servlet>
-		<servlet-name>frontController</servlet-name>
-		<servlet-class>kr.or.kosta.shopping.common.controller.FrontControllerServlet</servlet-class>
-		<init-param>
-			<param-name>controllerMapping</param-name>
-			<param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value>
-		</init-param>
-	</servlet>
-=======
    
    <!-- 모든 웹 클라이언트 요청에 대한 단일(메인) 진입점(프론트 컨트롤러) 서블릿 등록 -->
    <servlet>
@@ -37,16 +25,14 @@
       <servlet-class>kr.or.kosta.shopping.common.controller.FrontControllerServlet</servlet-class>
       <init-param>
          <param-name>controllerMapping</param-name>
->>>>>>> 6b4a785c1a43e89bf43398e8810d6965d91c1f18
-
          <!-- 쓰레기네 -->
-         <param-value>C:/Users/KSH/Documents/카카오톡 받은 파일/biningMallProject/WebContent/WEB-INF/controllerMapping.properties</param-value>
+         <!-- <param-value>C:/Users/KSH/Documents/카카오톡 받은 파일/biningMallProject/WebContent/WEB-INF/controllerMapping.properties</param-value>-->
          
          <!-- 광용이꺼 -->
          <!--  <param-value>F:\biningMallproject\WebContent\WEB-INF\controllerMapping.properties</param-value>-->
          
          <!-- 안상이꺼 -->
-         <!--  <param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value>-->
+         <param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value>
          
          <!-- 비닝이꺼 -->
          <!-- <param-value>C:/Users/JHB-PC/Desktop/KOSTA/project/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->

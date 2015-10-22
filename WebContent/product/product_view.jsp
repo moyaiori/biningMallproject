@@ -19,7 +19,7 @@
 		var realPrice = ${product.price};
 		
 		count.onchange = function(){
-			price.innerHTML = ": " + realPrice * count.value;
+			price.innerHTML = realPrice * count.value;
 		}
 		
 		var select = document.getElementById("select");
@@ -51,15 +51,15 @@
 								<td id="price">${product.price}</td>
 							</tr>
 							<tr>
-								<td>칼로리</td>
-								<td>: ${product.calorie}cal</td>
+								<td>칼로리 : </td>
+								<td>${product.calorie}cal</td>
 							</tr>
 							<tr>
-								<td>판매량</td>
-								<td>: ${product.salesCount}</td>
+								<td>판매량 : </td>
+								<td>${product.salesCount}</td>
 							</tr>
 							<tr>
-								<td>갯수</td>
+								<td>갯수 : </td>
 								<td><input id="count" type="number" style="width: 50px" min="1" max="10" value="1"></td>
 							</tr>
 						</table>
@@ -131,10 +131,6 @@
 					</tr>
 				</c:if>
 			</table>
-<<<<<<< HEAD
-			
-=======
->>>>>>> 6b4a785c1a43e89bf43398e8810d6965d91c1f18
 			<c:choose>
 				<c:when test="${cookie.loginId != null}"><input onclick="location.href='../product/product_write.bins?productId=${product.productId}'" type="button" class="btn btn-default" value="글쓰기" style="float: right;" /></c:when>
 			</c:choose>
