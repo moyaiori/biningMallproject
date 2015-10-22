@@ -66,12 +66,22 @@ public class ArticleService {
 		List<Article> articleList = null;
 		try {
 			articleList= articleDao.getAll(boardId);
-			
+
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 		return articleList;
 	}
+	/*조회수 증가.*/
+	public void updateHitcount(int aricleId)throws RuntimeException{
+		try {
+			articleDao.updateHitcount(aricleId);	
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+			
+		}
+	}
+	
 	
 	/**회원 목록*//*
 	public List<User> list()throws RuntimeException{

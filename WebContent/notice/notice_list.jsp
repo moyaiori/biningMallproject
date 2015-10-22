@@ -28,27 +28,21 @@
                      <th>작성일</th>
                      <th>조회수</th>
                   </tr>
-                     <tr>
-                     <td>52</td>
-                     <td class="">
-                        <a href="../notice/notice_read.bins?articleId=${4}">입금확인</a>
-                     </td>
-                     <td><span class="">나미정</span></td>
-                     <td>14:47</td>
-                     <td>5</td>
-                     </tr>
-                     <tr>
-                     <td>
-                     43      </td>
-                     <td class="">
-                        <a href="">
-                           구매 전 필독!! </a>
-               
-                              </td>
-                     <td><span class="">노대훈</span></td>
-                     <td>10-09</td>
-                     <td>5</td>
-                     </tr>
+                  
+                  
+                  
+                   <c:forEach var="article" items="${articleList}" >
+   						<tr>
+   						  <td>0</td>
+   						    <td class="">
+                    		    <a href="../notice/notice_read.bins?articleId=${article.articleId}">${article.subject}</a>
+                   		  </td>
+                    	  <td><span class="">${article.memberId}</span></td>
+                   		  <td>${article.regdate}</td>
+                    	  <td>${article.hitcount}</td>
+  					 	</tr>
+   					</c:forEach>
+
                </table>
       </form>
 	  
@@ -64,7 +58,7 @@
  				 
  		
  			<c:if test="${cookie.loginId.value.equals('admin')}" >
-				<input onclick="location.href='../product/product_write.bins'" type="button" class="btn btn-default" value="글쓰기" style="float: right;" />
+				<input onclick="location.href='../notice/notice_write.bins'" type="button" class="btn btn-default" value="글쓰기" style="float: right;" />
 			</c:if>
 
          </div>

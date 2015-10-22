@@ -30,8 +30,15 @@ public class Article {
 		this.stepNum = stepNum;
 		this.orderNum = orderNum;
 	}
-// #{boardId},  #{memberId}, #{subject}, #{content}
-
+	public Article(int articleId, String memberId, String subject,String regdate, int hitcount, int stepNum){
+		this.articleId = articleId;
+		this.memberId = memberId;
+		this.subject=subject;
+		this.regdate=regdate;
+		this.hitcount = hitcount;
+		this.stepNum=stepNum;
+	}
+	/*공지사항 글 리스트 보여주기 위한 것.*/
 	public Article(int boardId,String memberId, String subject, String content){
 		this.boardId = boardId;
 		this.memberId= memberId;
