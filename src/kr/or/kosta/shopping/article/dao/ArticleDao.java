@@ -15,6 +15,8 @@ public interface ArticleDao{
 	public void insert(Article article) throws RuntimeException;
 	
 	public Article get(int aricleId) throws RuntimeException;
+	
+	public List<Article> getAll(int boardId) throws RuntimeException;
 /*	
 	*//** 회원 전체 목록 조회 *//*
 	public List<Member> getAll() throws RuntimeException;

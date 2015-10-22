@@ -64,5 +64,18 @@ public class MybatisArticleDao implements ArticleDao {
 		}
 		return article;
 	}
+	
+	public List<Article> getAll(int boardId) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<Article>  articleList =null;
 
+		try{
+			ArticleDao dao = (ArticleDao)sqlSession.getMapper(ArticleDao.class);
+			articleList = dao.getAll(boardId);
+			
+		}finally{
+			sqlSession.close();
+		}
+		return articleList;
+	}
 }

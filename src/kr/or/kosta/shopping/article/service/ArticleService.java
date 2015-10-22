@@ -1,5 +1,7 @@
 package kr.or.kosta.shopping.article.service;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import kr.or.kosta.shopping.article.dao.ArticleDao;
@@ -52,16 +54,24 @@ public class ArticleService {
 	
 	public Article get(int aricleId) throws RuntimeException {
 		Article article = null;
-		System.out.println("eee"+aricleId);
 		try {
-			article= articleDao.get(4);
+			article= articleDao.get(aricleId);
 			
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 		return article;
 	}
-	
+	public List<Article> getAll(int boardId) throws RuntimeException {
+		List<Article> articleList = null;
+		try {
+			articleList= articleDao.getAll(boardId);
+			
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return articleList;
+	}
 	
 	/**회원 목록*//*
 	public List<User> list()throws RuntimeException{
