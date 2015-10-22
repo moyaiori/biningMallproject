@@ -9,13 +9,13 @@
 		SELECT comment_id AS "commentId", product_id AS "productId", member_id AS "memberId", content, regdate, satisfaction, group_num, order_num, step_num
 		FROM comments
 		WHERE product_id = #{value}
-		ORDER BY comment_id ASC
+		ORDER BY comment_id DESC
 	</select>
 		
 	<!-- 상품평 등록 -->
 	<insert id="insert" parameterType="kr.or.kosta.shopping.comment.domain.Comment">
 		INSERT INTO comments(comment_id, product_id, member_id, content, satisfaction, group_num, order_num, step_num)
-		VALUES(comment_num_seq.NEXTVAL, #{productId}, #{memberId}, #{content}, #{satisfaction}, comment_num_seq.CURRVAL, ?, 1);
+		VALUES(comment_num_seq.NEXTVAL, #{productId}, #{memberId}, #{content}, #{satisfaction}, comment_num_seq.CURRVAL, 0, 1)
 	</insert>
 	
 	<!-- 상품평 삭제 -->
