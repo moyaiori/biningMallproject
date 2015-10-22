@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
+import kr.or.kosta.shopping.member.domain.Member;
 import kr.or.kosta.shopping.order.service.OrderService;
 
 /**
@@ -25,24 +26,34 @@ public class OrderGetInfoController implements Controller{
 		OrderService service = OrderService.getInstance();
 		System.out.println("OrderGetInfoController 진입");
 		
+		String loginId = null;
+		
 		// 쿠키값 가져오기
 	    Cookie[] cookies = request.getCookies();
 		if(cookies != null){
 			for (Cookie cookie : cookies) {
 				if(cookie.getName().equals("loginId")){
 					cookie.setPath("/");
+					loginId = cookie.getValue();
 				}				
 			}			
 		}
 		
-		//service.getInfo("kahlman");
+		Member member = service.getInfo(loginId);
 		
-		//Order order = new Order(orderN, memberId,  address,  address2, orderDate,  payment, recipient, Integer.parseInt(totalPrice));
-		//service.get(orderN);
+		String phoneNum = member.getPhoneNumber();
 		
-	//	mav.addObject("order", order);
+		String phoneResult[] =  phoneNum.split("-");
+
+		member.setPhoneNumber2(phoneResult[1]);
+		member.setPhoneNumber3(phoneResult[2]);
+		member.setPhoneNumber(phoneResult[0]);
+		
+		System.out.println(member);
+		
+		mav.addObject("member", member);
+		
 		mav.addObject("contentFile", "/order/order.jsp");
-		
 		
 		return mav;
 	}

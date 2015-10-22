@@ -5,9 +5,6 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
-
-
-
 <div class="container">
 	<form class="col-md-8 col-md-offset-2" method="post" action= "commentRegistProc.bins">
 		<table class="table">
