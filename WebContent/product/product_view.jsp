@@ -131,7 +131,10 @@
 					</tr>
 				</c:if>
 			</table>
+<<<<<<< HEAD
 			
+=======
+>>>>>>> 6b4a785c1a43e89bf43398e8810d6965d91c1f18
 			<c:choose>
 				<c:when test="${cookie.loginId != null}"><input onclick="location.href='../product/product_write.bins?productId=${product.productId}'" type="button" class="btn btn-default" value="글쓰기" style="float: right;" /></c:when>
 			</c:choose>

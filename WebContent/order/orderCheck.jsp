@@ -27,8 +27,7 @@
 </head>
 <body>
 
-
-
+<input onclick="location.href='../index.bins'" type="button" class="btn btn-default" value="확인"/>
 <div class="container col-md-8 col-md-offset-2">
 			<table class="table">
 				<colgroup>
