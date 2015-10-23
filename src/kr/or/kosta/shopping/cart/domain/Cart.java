@@ -1,6 +1,7 @@
 package kr.or.kosta.shopping.cart.domain;
 
 public class Cart {
+	private int cartId;
 	private String memberId;
 	private int productId;
 	private String name;
@@ -11,7 +12,8 @@ public class Cart {
 	private String toppingName;
 	
 	public Cart(){}
-	public Cart(String memberId, int productId, String name, String picture, int price, int orderCount, int toppingPrice, String toppingName) {
+	public Cart(int cartId, String memberId, int productId, String name, String picture, int price, int orderCount, int toppingPrice, String toppingName) {
+		this.cartId = cartId;
 		this.memberId = memberId;
 		this.productId = productId;
 		this.name = name;
@@ -20,6 +22,15 @@ public class Cart {
 		this.orderCount = orderCount;
 		this.toppingPrice = toppingPrice;
 		this.toppingName = toppingName;
+	}
+	
+	
+	
+	public int getCartId() {
+		return cartId;
+	}
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
 	}
 	public String getMemberId() {
 		return memberId;

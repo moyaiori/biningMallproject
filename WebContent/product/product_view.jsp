@@ -109,7 +109,6 @@
 	    	}
 	    	window.location.href = "../cart/cartInsert.bins?loginId=" + "${cookie.loginId.value}" + "&productId=" + "${product.productId}" + "&price=" + realPrice + "&name=" + "${product.name}" + "&picture=" + "${product.picture}" + "&count=" + count.value + "&toppingPrice=" + toppingPrice + "&toppingName=" + toppingName ;
 	    }
-	    
 	}
 </script>
 

@@ -13,8 +13,8 @@
 		
 	<!-- 회원 등록 -->
 	<insert id="insert" parameterType="java.util.HashMap">
-		INSERT INTO cart(member_id, product_id, name, price, picture, order_count, topping_price, topping_name)
-		VALUES(#{memberId}, #{product.productId}, #{product.name}, #{product.price}, #{product.picture}, #{count}, #{toppingPrice}, #{toppingName})
+		INSERT INTO cart(cart_id, member_id, product_id, name, price, picture, order_count, topping_price, topping_name)
+		VALUES(cart_id_seq.NEXTVAL , #{memberId}, #{product.productId}, #{product.name}, #{product.price}, #{product.picture}, #{count}, #{toppingPrice}, #{toppingName})
 	</insert>
 	
 	<!-- 회원 삭제 -->
