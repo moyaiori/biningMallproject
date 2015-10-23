@@ -75,8 +75,8 @@
       </form>
 
 	  ${pageNation}
-	  
-<!-- 	  <div class="text-center">
+<!-- 	  
+ 	  <div class="text-center">
 	      <ul class="pagination">
 	      	 <li><a href="" >&lt;&lt;</a></li>
 	         <li><a href="" >&lt;</a></li>
@@ -89,5 +89,5 @@
 	         <li><a href="" >&gt;</a></li>
 	         <li><a href="" >&gt;&gt;</a></li>
 	      </ul>
-      </div> -->
+      </div>  -->
 </div>
