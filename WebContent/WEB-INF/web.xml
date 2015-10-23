@@ -26,64 +26,20 @@
       <init-param>
          <param-name>controllerMapping</param-name>
 	     <!-- 쓰레기네 -->
-<<<<<<< HEAD
 	     <param-value>C:/Users/KSH/Documents/카카오톡 받은 파일/biningMallProject/WebContent/WEB-INF/controllerMapping.properties</param-value>
          
          <!-- 광용이꺼 -->
-=======
-<<<<<<< HEAD
-	 	  <!-- <param-value>C:/Users/KSH/Documents/카카오톡 받은 파일/biningMallProject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
-         
-         <!-- 광용이꺼 -->
-
->>>>>>> 375d40fc68b87128f21e3eabb4e9468b8af8f5f2
 
          <!-- <param-value>F:\biningMallproject\WebContent\WEB-INF\controllerMapping.properties</param-value> -->
-         
-<<<<<<< HEAD
-   		  <!-- 안상이꺼 -->
-=======
-         <!-- 안상이꺼 -->
-
-          <!-- <param-value>F:\biningMallproject\WebContent\WEB-INF\controllerMapping.properties</param-value> -->
-         <!-- <param-value>F:\biningMallproject\WebContent\WEB-INF\controllerMapping.properties</param-value>-->
-         <!-- <param-value>F:\biningMallproject\WebContent\WEB-INF\controllerMapping.properties</param-value> -->
-     <!-- 안상이꺼 -->
->>>>>>> 375d40fc68b87128f21e3eabb4e9468b8af8f5f2
+  		  <!-- 안상이꺼 -->
          <!-- <param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
          
-=======
-	  <!--  <param-value>C:/Users/KSH/Documents/카카오톡 받은 파일/biningMallProject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
-         
-         <!-- 광용이꺼 -->
-        <param-value>F:\biningMallproject\WebContent\WEB-INF\controllerMapping.properties</param-value>
-         
-         <!-- 안상이꺼 -->
           <!-- <param-value>F:\biningMallproject\WebContent\WEB-INF\controllerMapping.properties</param-value> -->
->>>>>>> 04594b36b5858a1150e9a31f542b31bb7c0041e4
          <!-- 비닝이꺼 -->
-<<<<<<< HEAD
          <!-- <param-value>C:/Users/JHB-PC/Desktop/KOSTA/project/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> --> 
-=======
-         <!-- <param-value>C:/Users/JHB-PC/Desktop/KOSTA/project/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value>  -->
->>>>>>> 375d40fc68b87128f21e3eabb4e9468b8af8f5f2
           
           <!-- 성후니 -->
-
-<<<<<<< HEAD
-          <!-- <param-value>C:/Users/chean/Documents/git/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
-=======
-
-          <!-- <param-value>C:/Users/chean/Documents/git/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> --> 
-          <!-- <param-value>C:/Users/chean/Documents/git/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
-
-           <!-- <param-value>C:/Users/chean/Documents/git/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> --> 
-         <!-- param-value>C:/Users/JHB-PC/Desktop/KOSTA/project/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
-=======
-          <!-- <param-value>C:/Users/chean/Documents/git/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
->>>>>>> 04594b36b5858a1150e9a31f542b31bb7c0041e4
->>>>>>> 375d40fc68b87128f21e3eabb4e9468b8af8f5f2
-
+ 		<!-- <param-value>C:/Users/chean/Documents/git/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
       </init-param>
    </servlet>
 
