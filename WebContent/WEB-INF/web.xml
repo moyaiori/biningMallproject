@@ -27,12 +27,11 @@
          <param-name>controllerMapping</param-name>
 	     <!-- 쓰레기네 -->
 
-	     <!--  <param-value>C:/Users/KSH/Documents/카카오톡 받은 파일/biningMallProject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
-         
+	     <!--  <param-value>C:/Users/KSH/Documents/카카오톡 받은 파일/biningMallProject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->      
          <!-- 광용이꺼 -->
 
         <!--  <param-value>F:\biningMallproject\WebContent\WEB-INF\controllerMapping.properties</param-value>-->
-  
+
          <!-- 안상이꺼 -->
           <!-- <param-value>F:\biningMallproject\WebContent\WEB-INF\controllerMapping.properties</param-value> -->
 
@@ -42,7 +41,7 @@
           
           
           <!-- 성후니 -->
-          <!-- <param-value>C:/Users/chean/Documents/git/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
+	     <!-- <param-value>C:/Users/KSH/Documents/카카오톡 받은 파일/biningMallProject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
 
       </init-param>
    </servlet>

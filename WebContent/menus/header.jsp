@@ -11,6 +11,9 @@
 		</c:choose>
 		<li><a href="../notice/notice_list.bins" >공지사항</a></li>
 		<li><a href= "../qna/qna_view.bins">QnA</a></li>
+		<c:if test="${cookie.loginId != null}">
+			<li><a href= "../cart/cartView.bins?loginId=${cookie.loginId.value}">Cart</a></li>
+		</c:if>
 	</ul>
 </div>
 <div class="logoTop">
