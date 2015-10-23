@@ -11,6 +11,8 @@ import kr.or.kosta.shopping.article.domain.Article;
 import kr.or.kosta.shopping.article.service.ArticleService;
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
+import kr.or.kosta.shopping.product.domain.Product;
+import kr.or.kosta.shopping.product.service.ProductService;
 
 /** 
  *   /index 요청시
@@ -27,6 +29,11 @@ public class IndexController implements Controller {
 		ArticleService service =ArticleService.getInstance();
 		List<Article> noticeList =  service.getIndexArticle(1);
 		List<Article> qnaList =  service.getIndexArticle(2);
+		
+		ProductService productService = ProductService.getInstance();
+		List<Product> expensive = productService.expensive();
+		
+		mav.addObject("expensive", expensive);
 		mav.addObject("noticeList", noticeList);
 		mav.addObject("qnaList", qnaList);
 		mav.addObject("contentFile", "/index.jsp");

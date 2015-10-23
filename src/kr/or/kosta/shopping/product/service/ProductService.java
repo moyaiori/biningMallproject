@@ -49,5 +49,15 @@ public class ProductService {
 			throw new RuntimeException(e.toString());
 		}
 		return product;
-	}	
+	}
+	
+	public List<Product> expensive() throws RuntimeException{
+		List<Product> list = null;
+		try{
+			list = productDao.expensive();
+		}catch (Exception e){
+			throw new RuntimeException(e.toString());
+		}
+		return list;
+	}
 }

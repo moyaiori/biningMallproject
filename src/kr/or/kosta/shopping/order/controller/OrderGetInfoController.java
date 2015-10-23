@@ -30,6 +30,7 @@ public class OrderGetInfoController implements Controller{
 		String jsonTxt = request.getParameter("json");
 		JSONParser parser = new JSONParser();
 		Object obj = null;
+		
 		try {
 			obj = parser.parse(jsonTxt);
 		} catch (ParseException e) {
@@ -37,10 +38,12 @@ public class OrderGetInfoController implements Controller{
 		}
 		
 		JSONArray array = (JSONArray) obj;
-		JSONObject jsonObj = (JSONObject)array.get(0);
-		System.out.println(jsonObj.get("name"));
-		System.out.println(jsonObj.get("price"));
-		System.out.println(jsonObj.get("count"));
+		for (int i = 0; i < array.size(); i++) {
+			JSONObject jsonObj = (JSONObject)array.get(i);
+			System.out.println(jsonObj.get("name"));
+			System.out.println(jsonObj.get("price"));
+			System.out.println(jsonObj.get("count"));
+		}
 		
 		ModelAndView mav = new ModelAndView();
 		OrderService service = OrderService.getInstance();
@@ -62,7 +65,7 @@ public class OrderGetInfoController implements Controller{
 		
 		productName = request.getParameter("productName");
 		
-		productImg = service.getProductInfo(productName);
+		//productImg = service.getProductInfo(productName);
 		
 		Member member = service.getInfo(loginId);
 		
