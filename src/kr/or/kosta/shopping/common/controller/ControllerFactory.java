@@ -38,7 +38,6 @@ public class ControllerFactory {
 			while(keyIter.hasNext()){
 				String controllerName = (String)keyIter.next();
 				String controllerClass = prop.getProperty(controllerName);
-				System.out.println(controllerName + ":" + controllerClass);
 				// 컨트롤러 생성
 				Controller controllerObject = (Controller)Class.forName(controllerClass).newInstance();
 				controllerMap.put(controllerName, controllerObject);
