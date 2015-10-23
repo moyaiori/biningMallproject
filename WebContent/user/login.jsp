@@ -34,7 +34,7 @@ form {
 				</colgroup>
 				
 				<p class="j_p">
-				<font class="j_txt">L </font>o g i n</p>
+				<font class="j_txt">L </font>O G I N</p>
 				
 				<tr>
 					<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">아이디</td>

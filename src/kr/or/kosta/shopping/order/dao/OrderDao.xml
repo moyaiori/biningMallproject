@@ -7,7 +7,7 @@
 		<!-- 주문 등록 -->
 	<insert id="insert" parameterType="kr.or.kosta.shopping.order.domain.Order">
 		INSERT INTO order(member_id, address, order_date, payment, recipient, price)
-		VALUES(#{memberId}, #{address},  #{order_date}, #{payment}, #{recipient}, #{price}); 
+		VALUES(#{memberId}, #{address},  #{address2}, #{payment}, #{recipient}, #{productName}, #{toppingName}, #{comment}); 
 	</insert>
 	
 	<!--  회원 정보 가져오기 -->

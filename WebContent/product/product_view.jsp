@@ -15,6 +15,7 @@
 <script>
 	window.onload = function(){
 		var toppingPrice = 0;
+		var toppingName = "";
 		var count = document.getElementById("count");
 		var price = document.getElementById("price");
 		var realPrice = ${product.price};
@@ -96,6 +97,18 @@
 	       var price = priceE.firstChild.nodeValue;
 	       window.location.href="../order/order.bins?price="+price;      
 	    }
+	    
+	    var addCart = document.getElementById("addCart");
+	    addCart.onclick = function(){
+	    	for ( var i in array) {
+				toppingName += (array[i].name + " ");
+			}
+	    	alert("상품이 추가 되었습니다");
+	    	if(toppingName.trim().length == 0){
+	    		toppingName = "없음";
+	    	}
+	    	window.location.href = "../cart/cartInsert.bins?loginId=" + "${cookie.loginId.value}" + "&productId=" + "${product.productId}" + "&price=" + realPrice + "&name=" + "${product.name}" + "&picture=" + "${product.picture}" + "&count=" + count.value + "&toppingPrice=" + toppingPrice + "&toppingName=" + toppingName ;
+	    }
 	}
 </script>
 
@@ -122,7 +135,7 @@
 							</tr>
 							<tr>
 								<td>갯수 : </td>
-								<td><input id="count" type="number" style="width: 50px" min="1" max="10" value="1"></td>
+								<td><input id="count" type="number" style="width: 50px" min="1" max="50" value="1"></td>
 							</tr>
 						</table>
 						<div class="selectedTopping">
@@ -141,7 +154,7 @@
 						</div>
 
 						<div class="orderBtnSet">
-							<input type="button" class="btn btn-default" value="장바구니 추가"/>
+							<input id="addCart" type="button" class="btn btn-default" value="장바구니 추가"/>
 							<input id="buyButton" type="button" class="btn btn-default" value="바로 구매"/>
 						</div>
 					</td>
