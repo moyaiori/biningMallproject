@@ -95,8 +95,11 @@
 	    buyButton.onclick = function(){
 	       var priceE = document.getElementById("price");
 	       var price = priceE.firstChild.nodeValue;
-	       console.log(price);
-	       //window.location.href="../order/order.bins?price="+price;      
+	       for ( var i in array) {
+				toppingName += (array[i].name + ",");
+			}
+	       var productName = "${product.name}";
+	       window.location.href="../order/order.bins?price="+price + "&toppingname=" + toppingName + "&productName=" + productName;   
 	    }
 	    
 	    var addCart = document.getElementById("addCart");
