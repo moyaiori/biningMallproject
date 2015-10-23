@@ -25,6 +25,9 @@ public interface OrderDao {
 	/** 한개의 주문 가져오기 */
 	public Order get(int orderNum) throws RuntimeException;
 	
+	/** 주문한 물건 정보 가져오기 */
+	public String getProductInfo(String productName) throws RuntimeException;
+	
 	
 }
 

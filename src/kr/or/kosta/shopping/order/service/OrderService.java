@@ -46,6 +46,18 @@ public class OrderService {
 		} catch (Exception e) {
 			throw new RuntimeException(e.toString());
 		}
+	} 
+	
+	/** 제품명에 해당하는 사진 이름 가져오기 */
+	public String getProductInfo(String productName) throws RuntimeException{
+		String productImg = null;
+		try {
+			productImg = orderDao.getProductInfo(productName);
+		} catch (Exception e) {
+			throw new RuntimeException(e.toString());
+		}
+		
+		return productImg;
 	}
 
 	/** 배송지 정보 가져오기 */
