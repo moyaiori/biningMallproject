@@ -88,6 +88,13 @@ window.onload = function(){
 	}
 	
 	document.getElementById("usePoint").onchange = function(){
+		var usePoint = document.getElementById("usePoint").value;	// 사용하고자하는 적립금
+		var Point = document.getElementById("point");							// 적립금
+		var price = document.getElementById("price").textContent;		// 상품 가격
+		var total = document.getElementById("total");								// 최종 결제 가격
+		
+		console.log(usePoint);
+		console.log(Point.textContent);
 		
 		if(usePoint >= Point){
 			console.log("true");
@@ -95,10 +102,6 @@ window.onload = function(){
 			console.log("false");
 		}
 		
-		var usePoint = document.getElementById("usePoint").value;	// 사용하고자하는 적립금
-		var Point = document.getElementById("point");							// 적립금
-		var price = document.getElementById("price").textContent;		// 상품 가격
-		var total = document.getElementById("total");								// 최종 결제 가격
 
 		//Point.textContent = Point - usePoint;
 		//alert("적립금을 초과 하셧습니다.");
@@ -228,7 +231,7 @@ window.onload = function(){
 				<table>
 					<tr>
 						<td class="TagTd">상품합계금액</td>
-						<td class="inputTd"><label id="price">${request.price }</label></td>
+						<td class="inputTd"><label id="price">${param.price }</label></td>
 					</tr>
 					<tr>
 						<td class="TagTd">적립금</td>
