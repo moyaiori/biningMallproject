@@ -8,11 +8,14 @@ public class Order {
 	private String orderDate;
 	private String payment;
 	private String recipient;
+	private String productName;
+	private String toppingName;;
 	private int totalPrice;
 	
 	public Order(){}
+	
 	public Order(int orderNum, String memberId, String address, String address2, String orderDate, String payment,
-			String recipient, int totalPrice) {
+			String recipient, String productName, String toppingName, int totalPrice) {
 		super();
 		this.orderNum = orderNum;
 		this.memberId = memberId;
@@ -21,8 +24,12 @@ public class Order {
 		this.orderDate = orderDate;
 		this.payment = payment;
 		this.recipient = recipient;
+		this.productName = productName;
+		this.toppingName = toppingName;
 		this.totalPrice = totalPrice;
 	}
+
+
 	public int getOrderNum() {
 		return orderNum;
 	}
@@ -71,10 +78,27 @@ public class Order {
 	public void setTotalPrice(int totalPrice) {
 		this.totalPrice = totalPrice;
 	}
+	
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public String getToppingName() {
+		return toppingName;
+	}
+
+	public void setToppingName(String toppingName) {
+		this.toppingName = toppingName;
+	}
+
 	@Override
 	public String toString() {
 		return "Order [orderNum=" + orderNum + ", memberId=" + memberId + ", address=" + address + ", address2="
 				+ address2 + ", orderDate=" + orderDate + ", payment=" + payment + ", recipient=" + recipient
-				+ ", totalPrice=" + totalPrice + "]";
+				+ ", productName=" + productName + ", toppingName=" + toppingName + ", totalPrice=" + totalPrice + "]";
 	}
 }
