@@ -22,8 +22,10 @@ public class IndexController implements Controller {
 			throws ServletException {
 		// 다양한 서비스 객체를 이용한 비즈니스 메소드 호출
 		ModelAndView mav = new ModelAndView();
-		mav.setView("/index.jsp");
 		
+		
+		//mav.setView("/index.jsp");
+		mav.addObject("contentFile", "/index.jsp");
 		return mav;
 	}
 
