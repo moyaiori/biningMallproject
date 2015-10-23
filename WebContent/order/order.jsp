@@ -115,23 +115,17 @@ window.onload = function(){
 				document.getElementById("usePoint").value = document.getElementById("price").textContent;
 				document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
 			}else if( Number(nowPoint) < Number(document.getElementById("usePoint").value)){
-				console.log("usePoint : " + document.getElementById("usePoint").value);
-				console.log("nowPoint : " + nowPoint);
 				alert("현재 보유하신 적립금보다 많습니다.");
 				document.getElementById("usePoint").value = nowPoint;
-				//document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
+				document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
 			}else{
 				document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
 				document.getElementById("payment").value = document.getElementById("price").textContent - document.getElementById("usePoint").value;
 			}
 			
 		}
-		//console.log(nowPoint);
 	}
 }
-		
-	
-
 </script>
 
 </head>
@@ -141,13 +135,11 @@ window.onload = function(){
 	<div class="container">
 		<table class="table info">
 			<colgroup>
-				<col width="275" />
-				<col width="275" />
-				<col width="90" />
-				<col width="90" />
-				<col width="90" />
-				<col width="90" />
-				<col width="90" />
+				<col width="320" />
+				<col width="320" />
+				<col width="120" />
+				<col width="120" />
+				<col width="120" />
 			</colgroup>
 			
 			<tr class="active">
@@ -160,11 +152,9 @@ window.onload = function(){
 			<tr>
 				<td><img src='../images/${productImg }' /></td>
 				<td>${param.productName }</td>
+				<td>${param.price / param.count }</td>
+				<td>${param.count }</td>
 				<td>${param.price }</td>
-				<td>Good</td>
-				<td>Good</td>
-				<td>Good</td>
-				<td>Good</td>
 			</tr>
 		</table>
 		<input type="hidden" name="productname" value="임시 상품명">
@@ -177,6 +167,7 @@ window.onload = function(){
 				<col width="250" />
 				<col width="750" />
 			</colgroup>
+			
 			<tr>
 				<td><h4>01. 주문자 정보</h4></td>
 				<td>
@@ -200,6 +191,7 @@ window.onload = function(){
 					</table>
 				</td>
 			</tr>
+			
 			<tr>
 				<td><h4>02. 배송 정보</h4></td>
 				<td>
@@ -269,7 +261,6 @@ window.onload = function(){
 				</td>
 			</tr>
 			
-			
 			<tr>
 				<td><h4>04. 결제 방법</h4></td>
 				<td>
@@ -294,8 +285,6 @@ window.onload = function(){
 		</div>
 	</div>
 </form>
-
-
 	
 </body>
 </html>

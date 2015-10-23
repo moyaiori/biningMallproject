@@ -38,27 +38,27 @@
 				</tr>
 				<tr>
 					<td>주문번호</td>
-					<td>0001111</td>
+					<td>${ }</td>
 				</tr>
 				<tr>
 					<td>결제금액</td>
-					<td>100,000원</td>
+					<td>${ }원</td>
 				</tr>
 				<tr>
 					<td>상품내역</td>
-					<td>빈스 밥버거</td>
+					<td>${ }</td>
 				</tr>
 				<tr>
 					<td>받으실분</td>
-					<td>유안상</td>
+					<td>${ }</td>
 				</tr>
 				<tr>
 					<td>배송될 주소</td>
-					<td>너희집 우리집 여기저기</td>
+					<td>${ }</td>
 				</tr>
 				<tr>
 					<td>남기신말</td>
-					<td>둘이먹다 하나 죽어요</td>
+					<td>${ }</td>
 				</tr>
 			</table>
 			<div style="text-align: center;">
