@@ -13,6 +13,8 @@ html {
 body {
   margin: 0;
 }
+
+
 article,
 aside,
 details,
@@ -282,6 +284,21 @@ th {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.j_p{
+   font-size:34px;
+   text-align:center;
+   font-family: Helvetica, Arial, sans-serif;
+   font-weight: bold;
+}
+
+.j_txt{
+   font-size:58px;
+   color:#d56a00;
+   font-family: Helvetica, Arial, sans-serif;
+   font-style: 
+}
+
 .glyphicon-asterisk:before {
   content: "\2a";
 }
