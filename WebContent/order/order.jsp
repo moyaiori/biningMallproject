@@ -87,6 +87,8 @@ window.onload = function(){
 		}
 	}
 	
+	//--------------- 가격 연산
+	
 	document.getElementById("total").textContent = document.getElementById("price").textContent;
 	document.getElementById("payment").value =  document.getElementById("price").textContent;
 	if(document.getElementById("usePoint").value == 0 || document.getElementById("usePoint").value == 0 || document.getElementById("usePoint") == null){
@@ -97,28 +99,35 @@ window.onload = function(){
 	var point = document.getElementById("point");							// 적립금 label
 	var price = document.getElementById("price").textContent;		// 상품 가격 label
 	var total = document.getElementById("total");								// 최종 결제 가격 label
+
 	var nowPoint = "${member.point }";
-	
 	point.innerHTML = nowPoint;
 	
 	document.getElementById("usePoint").onchange = function(){
 
 		if(document.getElementById("usePoint").value == 0 || document.getElementById("usePoint") == null){
 			document.getElementById("usePoint").value = 0;
+			document.getElementById("total").textContent = document.getElementById("price").textContent;
+			document.getElementById("payment").value =  document.getElementById("price").textContent;
 		}else{
 			if(document.getElementById("usePoint").value > document.getElementById("price").textContent){
 				alert("적립금을 상품가격보다 더 사용하셧습니다.");
 				document.getElementById("usePoint").value = document.getElementById("price").textContent;
 				document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
-			}else if(document.getElementById("usePoint").value > nowPoint){
+			}else if( nowPoint < document.getElementById("usePoint").value){
+				console.log("usePoint : " + document.getElementById("usePoint").value);
+				console.log("nowPoint : " + nowPoint);
 				alert("현재 보유하신 적립금보다 많습니다.");
-				document.getElementById("usePoint").value = price;
-				document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
+				document.getElementById("usePoint").value = nowPoint;
+				// 여기까지
+				//document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
 			}else{
 				document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
 				document.getElementById("payment").value = document.getElementById("price").textContent - document.getElementById("usePoint").value;
 			}
+			
 		}
+		//console.log(nowPoint);
 	}
 }
 		
