@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../style/product_view.css">
+<script src="../js/ajax.js"></script>
 
 <script>
 	window.onload = function(){
@@ -104,6 +105,9 @@
 	    	   toppingName = "없음";
 	       }
 	       json += '{"name":"' + productName +"(토핑 : " + toppingName + ")" + '","price":"'+ price +'","count":"'+count.value+'"},';
+	       json = json.substring(0, json.length-1);
+	       json += ']'
+	       console.log(json);
 	       ajax({
   			  	method: "post",
   				url: "../order/order.bins",
