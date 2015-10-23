@@ -49,7 +49,7 @@ public class OrderGetInfoController implements Controller{
 		member.setPhoneNumber3(phoneResult[2]);
 		member.setPhoneNumber(phoneResult[0]);
 		
-		System.out.println(member);
+		//System.out.println(member);
 		
 		mav.addObject("member", member);
 		

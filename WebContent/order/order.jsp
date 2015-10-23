@@ -88,7 +88,7 @@ window.onload = function(){
 	}
 	
 	document.getElementById("total").textContent = document.getElementById("price").textContent;
-	
+	document.getElementById("payment").value =  document.getElementById("price").textContent;
 	if(document.getElementById("usePoint").value == 0 || document.getElementById("usePoint").value == 0 || document.getElementById("usePoint") == null){
 		document.getElementById("usePoint").value = 0;
 	}
@@ -116,6 +116,7 @@ window.onload = function(){
 				document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
 			}else{
 				document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
+				document.getElementById("payment").value = document.getElementById("price").textContent - document.getElementById("usePoint").value;
 			}
 		}
 	}
@@ -203,15 +204,15 @@ window.onload = function(){
 						</tr>
 						<tr>
 							<td class="TagTd">받으실분</td>
-							<td class="inputTd"><input type="text" class="form-control" id="name" value=""></td>
+							<td class="inputTd"><input type="text" class="form-control" id="name" name="recipient" value=""></td>
 						</tr>
 						<tr>
 							<td class="TagTd">받으실곳</td>
-							<td class="inputTd"><input type="text" class="form-control" id="address"></td>
+							<td class="inputTd"><input type="text" class="form-control" id="address" name="address"></td>
 						</tr>
 						<tr>
 							<td class="TagTd"></td>
-							<td class="inputTd"><input type="text" class="form-control" id="address2"></td>
+							<td class="inputTd"><input type="text" class="form-control" id="address2" name="address2"></td>
 						</tr>
 						<tr>
 							<td class="TagTd">전화번호</td>
@@ -223,7 +224,7 @@ window.onload = function(){
 						</tr>
 						<tr>
 							<td class="TagTd">남기실 말씀</td>
-							<td class="inputTd"><input type="text" class="form-control"></td>
+							<td class="inputTd"><input type="text" class="form-control" name="comment"></td>
 						</tr>
 						<tr>
 							<td class="TagTd">배송 선택</td>
@@ -256,7 +257,7 @@ window.onload = function(){
 						</tr>
 						<tr>
 							<td class="TagTd">총 결제 금액</td>
-							<td class="inputTd"><label id="total" for="payment"></label>원</td>
+							<td class="inputTd"><label id="total"></label>원<input type="hidden" name="payment" id="payment" value=""></td>
 						</tr>
 					</table>
 				</td>

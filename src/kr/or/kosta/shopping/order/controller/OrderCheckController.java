@@ -1,11 +1,15 @@
 package kr.or.kosta.shopping.order.controller;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
+
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
+import kr.or.kosta.shopping.order.domain.Order;
 import kr.or.kosta.shopping.order.service.OrderService;
 
 /**
@@ -21,7 +25,7 @@ public class OrderCheckController implements Controller{
 		OrderService service = OrderService.getInstance();
 		System.out.println("OrderCheckController 진입");
 		
-		String memberId = null;
+		String loginId = null;
 		String address = null;
 		String address2 = null;
 		String payment = null;
@@ -30,10 +34,29 @@ public class OrderCheckController implements Controller{
 		String productName = null;
 		String toppingName = null;
 		
-//		memberId = request.getAttribute(arg0)
+		// 쿠키값 가져오기
+	    Cookie[] cookies = request.getCookies();
+		if(cookies != null){
+			for (Cookie cookie : cookies) {
+				if(cookie.getName().equals("loginId")){
+					cookie.setPath("/");
+					loginId = cookie.getValue();
+				}				
+			}			
+		}
+
+		address = request.getParameter("address");
+		address2 = request.getParameter("address2");
+		payment = request.getParameter("payment");
+		recipient = request.getParameter("recipient");
+		comment = request.getParameter("comment");
+		productName = request.getParameter("productname");
+		toppingName = request.getParameter("toppingname");
 		
+		Order order = new Order(0, loginId, address, address2, null, payment, recipient, productName, toppingName, comment, 0);
 		
-		
+		service.insert(order);
+		mav.addObject("order", order);
 		mav.addObject("contentFile", "/order/orderCheck.jsp");
 		
 		return mav;
