@@ -71,7 +71,7 @@
 		</table>
 		<ul>
 		<c:if test="${noticeList.size() -1 >= 0}">
-       <c:forEach  begin="0" end="${noticeList.size()-1}" var="i">
+        <c:forEach  begin="0" end="${noticeList.size()-1}" var="i">
        		<li>
 	            <a href="../notice/notice_read.bins?articleId=${noticeList.get(i).articleId}">
 	           		    <span>
