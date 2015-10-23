@@ -104,6 +104,9 @@
 				toppingName += (array[i].name + " ");
 			}
 	    	alert("상품이 추가 되었습니다");
+	    	if(toppingName.trim().length == 0){
+	    		toppingName = "없음";
+	    	}
 	    	window.location.href = "../cart/cartInsert.bins?loginId=" + "${cookie.loginId.value}" + "&productId=" + "${product.productId}" + "&price=" + realPrice + "&name=" + "${product.name}" + "&picture=" + "${product.picture}" + "&count=" + count.value + "&toppingPrice=" + toppingPrice + "&toppingName=" + toppingName ;
 	    }
 	    
