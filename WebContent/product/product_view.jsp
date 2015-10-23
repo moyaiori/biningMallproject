@@ -95,7 +95,8 @@
 	    buyButton.onclick = function(){
 	       var priceE = document.getElementById("price");
 	       var price = priceE.firstChild.nodeValue;
-	       window.location.href="../order/order.bins?price="+price;      
+	       console.log(price);
+	       //window.location.href="../order/order.bins?price="+price;      
 	    }
 	    
 	    var addCart = document.getElementById("addCart");
