@@ -7,6 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.or.kosta.shopping.article.domain.Article;
+import kr.or.kosta.shopping.article.service.ArticleService;
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
 
@@ -22,9 +24,11 @@ public class IndexController implements Controller {
 			throws ServletException {
 		// 다양한 서비스 객체를 이용한 비즈니스 메소드 호출
 		ModelAndView mav = new ModelAndView();
-		
-		
-		//mav.setView("/index.jsp");
+		ArticleService service =ArticleService.getInstance();
+		List<Article> noticeList =  service.getIndexArticle(1);
+		List<Article> qnaList =  service.getIndexArticle(2);
+		mav.addObject("noticeList", noticeList);
+		mav.addObject("qnaList", qnaList);
 		mav.addObject("contentFile", "/index.jsp");
 		return mav;
 	}

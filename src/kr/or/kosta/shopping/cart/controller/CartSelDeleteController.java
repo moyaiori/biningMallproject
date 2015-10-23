@@ -16,14 +16,17 @@ public class CartSelDeleteController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		String loginId = request.getParameter("loginId");
-		String productId = request.getParameter("productId");
-				
-		HashMap<String, Object> data = new HashMap<String, Object>();
-		data.put("memberId", loginId);
-		data.put("productId", productId);
-		
+		String cartId = request.getParameter("cartId");
 		CartService service = CartService.getInstance();
-		service.delete(data);
+		
+		String[] cartIdList = cartId.split(",");
+		
+		for (int i = 0; i < cartIdList.length; i++) {
+			HashMap<String, Object> data = new HashMap<String, Object>();
+			data.put("memberId", loginId);
+			data.put("cartId", cartIdList[i]);
+			service.delete(data);
+		}
 		
 		List<Cart> list = service.getAll(loginId);
 		ModelAndView mav = new ModelAndView();

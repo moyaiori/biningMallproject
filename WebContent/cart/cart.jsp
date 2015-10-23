@@ -13,6 +13,8 @@
       var point = document.getElementById("point");
       var checkBox = document.getElementsByName("check");
       var orderCount = document.getElementsByName("count");
+      var cartId = document.getElementsByClassName("cartId");
+      var cartOutput = "";
       
       var viewPrice;
       var count;
@@ -73,6 +75,16 @@
       allDeleteBtn.onclick = function(){
          window.location.href = "/cart/cartAlldelete.bins?loginId=" + "${cookie.loginId.value}"
       }
+      
+      selDeleteBtn = document.getElementById("selDelete");
+      selDeleteBtn.onclick = function(){
+    	  for (var i in checkBox){  
+    		  if(checkBox[i].checked){
+    			  cartOutput += checkBox[i].parentNode.previousSibling.previousSibling.firstChild.nodeValue + ",";
+    		  }
+    	  }
+    	  window.location.href = "/cart/cartSeldelete.bins?loginId=" + "${cookie.loginId.value}" + "&cartId=" + cartOutput;
+      }
    }
    
    function checkSelect(standard){
@@ -118,6 +130,7 @@
    <tbody>
       <c:forEach items="${cartList}" var="cart">
          <tr>
+            <td style="display:none;" class="cartId">${cart.cartId}</td>
             <td style="vertical-align: inherit;"><input type="checkbox" name="check"><span>선택</span></td>
             <td><img src='../images/${cart.picture}' width="100px" height="100px"/></td>
             <td style="vertical-align: inherit;"> ${cart.name}(토핑 : ${cart.toppingName}) </td>
@@ -132,7 +145,6 @@
       <td colspan="10">
       <table style="display:block;float:right;">
          <tbody><tr>
-            
             <td align="right">상품합계금액</td>
             <td align="right" style="font-weight:bold; padding-left:30px"><span id="totalPrice">0</span>원&nbsp;</td>         
             <td align="right">받으실적립금</td>

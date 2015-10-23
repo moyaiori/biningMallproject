@@ -116,5 +116,16 @@ public class ArticleService {
 		}
 		return articleList;
 	}
+	
+	public List<Article> getIndexArticle(int boardId) throws RuntimeException{
+		List<Article> articleList = null;
+		try {
+			articleList= articleDao.getIndexArticle(boardId);
+
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return articleList;
+	}
 
 }
