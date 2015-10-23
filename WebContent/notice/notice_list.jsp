@@ -13,15 +13,8 @@
  
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-      <%
-    	  Pagination pagination = new Pagination(10, 5, 17,1);
-    	  pagination.paginate();
-
-      
-      %>
 <div class="container">
-      <form name=""  id="" action="" onsubmit="" method="post">
+    
             <table class="table">
                   <colgroup>
                      <col width="75" />
@@ -54,8 +47,7 @@
    				  </c:if>
 
                </table>
-      </form>
-	  
+
 	  <form class="form-inline" method="post" action="../notice/notice_list.bins">
          <div class="form-group">
             <select class="form-control" style="width:95px;" name="searchType" id="">
@@ -64,7 +56,6 @@
                <option value="member_id">작성자</option>
             </select>
             <input type="text"  class="form-control" style="width:200px;" name="searchValue"  required id="stx" />
-<!--             <input onclick="location.href='../notice/notice_list.bins'" type="button" class="btn btn-default" value="검색"/> -->
  			 <input  type="submit" class="btn btn-default" value="검색"/> 
  		
  			<c:if test="${cookie.loginId.value.equals('admin')}" >
