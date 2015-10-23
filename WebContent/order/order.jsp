@@ -114,12 +114,11 @@ window.onload = function(){
 				alert("적립금을 상품가격보다 더 사용하셧습니다.");
 				document.getElementById("usePoint").value = document.getElementById("price").textContent;
 				document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
-			}else if( nowPoint < document.getElementById("usePoint").value){
+			}else if( Number(nowPoint) < Number(document.getElementById("usePoint").value)){
 				console.log("usePoint : " + document.getElementById("usePoint").value);
 				console.log("nowPoint : " + nowPoint);
 				alert("현재 보유하신 적립금보다 많습니다.");
 				document.getElementById("usePoint").value = nowPoint;
-				// 여기까지
 				//document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
 			}else{
 				document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
@@ -156,12 +155,10 @@ window.onload = function(){
 				<th>상품명</th>
 				<th>판매가</th>
 				<th>수량</th>
-				<th>배송비</th>
-				<th>적립금</th>
 				<th>합계</th>
 			</tr>
 			<tr>
-				<td><img src='../images/${param.productName }.jpg' /></td>
+				<td><img src='../images/${productImg }' /></td>
 				<td>${param.productName }</td>
 				<td>${param.price }</td>
 				<td>Good</td>

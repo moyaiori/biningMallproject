@@ -28,4 +28,11 @@
 		FROM order
 		WHERE topping_id = #{value}
 	</select>
+	
+	<select id="getProductInfo" resultType="String"  parameterType="String">
+		SELECT picture AS "productImg"
+		FROM product
+		WHERE name = #{value}
+	</select>
+	
 </mapper>

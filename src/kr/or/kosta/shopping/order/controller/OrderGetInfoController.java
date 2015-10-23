@@ -27,6 +27,8 @@ public class OrderGetInfoController implements Controller{
 		System.out.println("OrderGetInfoController 진입");
 		
 		String loginId = null;
+		String productName = null;
+		String productImg = null;
 		
 		// 쿠키값 가져오기
 	    Cookie[] cookies = request.getCookies();
@@ -39,6 +41,10 @@ public class OrderGetInfoController implements Controller{
 			}			
 		}
 		
+		productName = request.getParameter("productName");
+		
+		productImg = service.getProductInfo(productName);
+		
 		Member member = service.getInfo(loginId);
 		
 		String phoneNum = member.getPhoneNumber();
@@ -49,9 +55,8 @@ public class OrderGetInfoController implements Controller{
 		member.setPhoneNumber3(phoneResult[2]);
 		member.setPhoneNumber(phoneResult[0]);
 		
-		//System.out.println(member);
-		
 		mav.addObject("member", member);
+		mav.addObject("productImg", productImg);
 		
 		mav.addObject("contentFile", "/order/order.jsp");
 		
