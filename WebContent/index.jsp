@@ -63,9 +63,8 @@
 	</div>
 
 
-
-	<table width=70% cellpadding="0" cellspacing="0" style="margin-left: 200">
 	
+	<table width=70% cellpadding="0" cellspacing="0" style="margin-left: 200">
 	<tr>
 		<td align=center valign=top width="25%" style="padding-bottom:25px;">
 		<img alt="best" src="../images/best.jpg" style="margin-right: 150px">
@@ -92,16 +91,11 @@
 				<div></div>	</div>
 		</td>
 
-	<tr>
-		<td>
-			Expensive 상품
-		</td>
-	</tr>	
-		
 		
 	<tr>
 		<c:forEach items="${expensive}" var="product">
 		<td align=center valign=top width="25%" style="padding-bottom:25px;">
+		<img alt="expensive" src="../images/expensive.jpg" style="margin-right: 150px">
 					<div style="text-align:center;"><a href="../product/product_view.bins?productId=${product.productId}"><img src='../images/${product.picture}' width=200/></a></div>
 					<div style="padding:14px 0 0 6px; text-align:center; width:200px;">
 					<div><a href="" style="display:inline-block; color:#000; font-size:11px; padding:0 0 3px 0;">${product.name}</a></div>		
