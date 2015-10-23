@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../style/product_view.css">
-<script src="../js/ajax.js"></script>
+<script src="../js/ajax2.js"></script>
 
 <script>
 	window.onload = function(){

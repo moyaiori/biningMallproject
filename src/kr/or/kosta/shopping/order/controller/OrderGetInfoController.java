@@ -65,7 +65,7 @@ public class OrderGetInfoController implements Controller{
 		
 		productName = request.getParameter("productName");
 		
-		productImg = service.getProductInfo(productName);
+		//productImg = service.getProductInfo(productName);
 		
 		Member member = service.getInfo(loginId);
 		
