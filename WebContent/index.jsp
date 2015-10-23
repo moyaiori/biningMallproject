@@ -111,7 +111,8 @@
 			</tr>
 		</table>			
 		<ul>		
-	<%-- 		<c:forEach  begin="0" end="${qnaList.size()-1}" var="i">
+			<c:if test="${qnaList.size() -1 >= 0}">
+	 		<c:forEach  begin="0" end="${qnaList.size()-1}" var="i">
        			<li>
 	            	<a href="../qna/qna_read.bins?articleId=${qnaList.get(i).articleId}">
 	           			    <span>
@@ -122,6 +123,7 @@
 							</span>
 	  				</a>
   				</li>
-   			</c:forEach> --%>
+   			</c:forEach>
+   			</c:if> 
 		</ul>					 
 	
