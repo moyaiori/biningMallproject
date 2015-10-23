@@ -1,7 +1,72 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<body>
-	<table width=100% cellpadding="0" cellspacing="0">
+
+
+
+	<div class="news_div" style="float: left; width: 30%; margin-left: 230px">
+		<table class="n_h_table" style="font-family:hy강m; font-size: 12pt; font-weight: bold;" >
+			<tr>
+				<td>
+					최근 공지사항
+				</td>
+				<td align="right" class="all">
+					<a href="../notice/notice_list.bins">+ ALL</a>
+				</td>
+			</tr>
+		</table>
+		
+		<ul class="n_ul">
+		<c:if test="${noticeList.size() -1 >= 0}">
+		
+        <c:forEach  begin="0" end="${noticeList.size()-1}" var="i">
+       		<li>
+	            <a href="../notice/notice_read.bins?articleId=${noticeList.get(i).articleId}">
+	           		    <span class="news_title">
+							${noticeList.get(i).subject}
+						</span>
+						
+						<span class="news_date">
+							${noticeList.get(i).regdate}
+						</span>
+	  			</a>
+  			</li>
+   		</c:forEach>
+   		</c:if>
+		</ul>	
+	</div>
+		
+		<div class="news_div" style="float: left; width: 30%; margin-left: 50px">
+		<table class="n_h_table" style="font-family:hy강m;font-size: 12pt; font-weight: bold;">
+			<tr>
+				<td>
+					최근 문의 사항
+				</td>
+				<td align="right" class="all">
+					<a href="../qna/qna_view.bins">+ ALL</a>
+				</td>
+			</tr>
+		</table>			
+		<ul class="n_ul">		
+			<c:if test="${qnaList.size() -1 >= 0}">
+	 		<c:forEach  begin="0" end="${qnaList.size()-1}" var="i">
+       			<li>
+	            	<a href="../qna/qna_read.bins?articleId=${qnaList.get(i).articleId}">
+	           			    <span class="news_title">
+								${qnaList.get(i).subject}
+							</span>
+							<span class="news_date">
+								${qnaList.get(i).regdate}
+							</span>
+	  				</a>
+  				</li>
+   			</c:forEach>
+   			</c:if> 
+		</ul>					 
+
+	</div>
+
+
+	<table width=70% cellpadding="0" cellspacing="0" style="margin-left: 200">
 	<tr>
 		<td>
 			Best 상품
@@ -59,71 +124,6 @@
 	</tr>
 	</table>
 	
-	<table>
-			<tr>
-				<td>
-					최근 공지사항
-				</td>
-				<td>
-					<a href="../notice/notice_list.bins">+ ALL</a>
-				</td>
-			</tr>
-		</table>
-		<ul>
-		<c:if test="${noticeList.size() -1 >= 0}">
-        <c:forEach  begin="0" end="${noticeList.size()-1}" var="i">
-       		<li>
-	            <a href="../notice/notice_read.bins?articleId=${noticeList.get(i).articleId}">
-	           		    <span>
-							${noticeList.get(i).subject}
-						</span>
-						<span>
-							${noticeList.get(i).regdate}
-						</span>
-	  			</a>
-  			</li>
-   		</c:forEach>
-   		</c:if>
-		<!-- 
-		
-		
-			<li>
-				<a href="">
-					<span>
-						글제목 보여주는 부분 
-					</span>
-					<span>
-						글 작성일 보여주는 부분
-					</span>
-				</a>
-			</li>	 -->	
-			
-		</ul>		
-		
-		<table>
-			<tr>
-				<td>
-					최근 문의 사항
-				</td>
-				<td>
-					<a href="../qna/qna_view.bins">+ ALL</a>
-				</td>
-			</tr>
-		</table>			
-		<ul>		
-			<c:if test="${qnaList.size() -1 >= 0}">
-	 		<c:forEach  begin="0" end="${qnaList.size()-1}" var="i">
-       			<li>
-	            	<a href="../qna/qna_read.bins?articleId=${qnaList.get(i).articleId}">
-	           			    <span>
-								${qnaList.get(i).subject}
-							</span>
-							<span>
-								${qnaList.get(i).regdate}
-							</span>
-	  				</a>
-  				</li>
-   			</c:forEach>
-   			</c:if> 
-		</ul>					 
+	
+	
 	
