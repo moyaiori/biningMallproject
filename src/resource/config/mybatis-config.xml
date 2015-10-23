@@ -50,13 +50,6 @@
 		<mapper resource="kr/or/kosta/shopping/comment/dao/CommentDao.xml" />
 		<mapper resource="kr/or/kosta/shopping/qna/dao/QnaDao.xml"/>
 		<mapper resource="kr/or/kosta/shopping/order/dao/OrderDao.xml"/>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-
-=======
->>>>>>> 04594b36b5858a1150e9a31f542b31bb7c0041e4
->>>>>>> 375d40fc68b87128f21e3eabb4e9468b8af8f5f2
 	</mappers>
 
 </configuration>

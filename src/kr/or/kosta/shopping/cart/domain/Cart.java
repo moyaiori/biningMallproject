@@ -7,16 +7,19 @@ public class Cart {
 	private String picture;
 	private int price;
 	private int orderCount;
+	private int toppingPrice;
+	private String toppingName;
 	
 	public Cart(){}
-	public Cart(String memberId, int productId, String name, String picture, int price, int orderCount) {
-		super();
+	public Cart(String memberId, int productId, String name, String picture, int price, int orderCount, int toppingPrice, String toppingName) {
 		this.memberId = memberId;
 		this.productId = productId;
 		this.name = name;
 		this.picture = picture;
 		this.price = price;
 		this.orderCount = orderCount;
+		this.toppingPrice = toppingPrice;
+		this.toppingName = toppingName;
 	}
 	public String getMemberId() {
 		return memberId;
@@ -54,9 +57,24 @@ public class Cart {
 	public void setOrderCount(int orderCount) {
 		this.orderCount = orderCount;
 	}
+	
+	public int getToppingPrice() {
+		return toppingPrice;
+	}
+	public void setToppingPrice(int toppingPrice) {
+		this.toppingPrice = toppingPrice;
+	}
+	
+	public String getToppingName() {
+		return toppingName;
+	}
+	public void setToppingName(String toppingName) {
+		this.toppingName = toppingName;
+	}
 	@Override
 	public String toString() {
 		return "Cart [memberId=" + memberId + ", productId=" + productId + ", name=" + name + ", picture=" + picture
-				+ ", price=" + price + ", orderCount=" + orderCount + "]";
+				+ ", price=" + price + ", orderCount=" + orderCount + ", toppingPrice=" + toppingPrice
+				+ ", toppingName=" + toppingName + "]";
 	}
 }
