@@ -60,8 +60,8 @@ public class QnaService {
 		return article;
 	}
 	
-	public List<Qna> getAll(int boardId) throws RuntimeException {
-		List<Qna> qnaList = null;
+	public List<Article> getAll(int boardId) throws RuntimeException {
+		List<Article> qnaList = null;
 		try {
 			qnaList= qnaDao.getAll(boardId);
 			
