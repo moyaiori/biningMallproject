@@ -1,5 +1,6 @@
 package kr.or.kosta.shopping.qna.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import kr.or.kosta.shopping.article.dao.ArticleDao;
@@ -60,8 +61,8 @@ public class QnaService {
 		return article;
 	}
 	
-	public List<Qna> getAll(int boardId) throws RuntimeException {
-		List<Qna> qnaList = null;
+	public List<Article> getAll(int boardId) throws RuntimeException {
+		List<Article> qnaList = null;
 		try {
 			qnaList= qnaDao.getAll(boardId);
 			
@@ -71,24 +72,47 @@ public class QnaService {
 		return qnaList;
 	}
 	
-	/**회원 목록*//*
-	public List<User> list()throws RuntimeException{
-		List<User> list= null;
+	public int getAllCnt()throws RuntimeException{
+		int listCount = 0;
 		try {
-			list= userDao.getAll();
-			
+			listCount= qnaDao.getAllCnt();
 		} catch (Exception e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 			
 		}
-		return list;
+		return listCount;
+	}
+	
+	/*조회수 증가.*/
+	public void updateHitcount(int aricleId)throws RuntimeException{
+		try {
+			qnaDao.updateHitcount(aricleId);	
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+			
+		}
+	}
+	
+	public int getAllSearchCnt(HashMap<String, Object> type)throws RuntimeException{
+		int listCount = 0;
+		try {
+			listCount= qnaDao.getAllSearchCnt(type);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+			
+		}
+		return listCount;
+	}
+	
+	public List<Article> getAllSearch(HashMap<String, Object> type) throws RuntimeException {
+		List<Article> articleList = null;
+		try {
+			articleList= qnaDao.getAllSearch(type);
+
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return articleList;
 	}
 
-/*
-	
-	public static void main(String[] args) {
-		ArticleService service = UserService.getInstance();
-		service.add(new User("killer2", "김킬러", "1111"));
-		System.out.println("등록완료");
-	}*/
 }

@@ -1,5 +1,6 @@
 package kr.or.kosta.shopping.qna.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import kr.or.kosta.shopping.article.domain.Article;
@@ -16,23 +17,18 @@ public interface QnaDao{
 	
 	public Article get(int artilceId) throws RuntimeException;
 	
-	public List<Qna> getAll(int boardId) throws RuntimeException;
-/*	
-	*//** 회원 전체 목록 조회 *//*
-	public List<Member> getAll() throws RuntimeException;
+	public List<Article> getAll(int boardId) throws RuntimeException;
+
+	public int getAllCnt() throws RuntimeException;
 	
-	*//** 회원 등록 *//*
-	public void insert(Member member) throws RuntimeException;
-	
-	*//** 회원 정보 수정 *//*
-	public void update(Member member) throws RuntimeException;
-	
-	*//** 회원 정보 삭제 *//*
-	public void delete(int memberId) throws RuntimeException;
-	
-	*//** 회원 확인 *//*
-	public Member isMember(String email) throws Exception;*/
+	public List<Article> getAllSearch(HashMap<String, Object> type) throws RuntimeException;
+
+	public void updateHitcount(int aricleId) throws RuntimeException;
+
+	public int getAllSearchCnt(HashMap<String, Object> type) throws RuntimeException;
+
 }
+	
 
 
 
