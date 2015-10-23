@@ -50,6 +50,18 @@ public class QnaService {
 			throw new RuntimeException(e);
 		}
 	}
+	/** 게시글 답변 등록 */
+	public void addRe(Qna qna)throws RuntimeException{
+		System.out.println("service . addRe() 진입");
+		/**비즈니스 로직 처리...*/
+		try {
+			qnaDao.insertRe(qna);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
+	
+	
 	
 	public Article get(int articleId) throws RuntimeException {
 		Article article = null;
@@ -84,9 +96,9 @@ public class QnaService {
 	}
 	
 	/*조회수 증가.*/
-	public void updateHitcount(int aricleId)throws RuntimeException{
+	public void updateHitcount(int articleId)throws RuntimeException{
 		try {
-			qnaDao.updateHitcount(aricleId);	
+			qnaDao.updateHitcount(articleId);	
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 			

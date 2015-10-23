@@ -1,6 +1,6 @@
 /*
- * 작성자 : 조현빈
- * 작성 최종 수정일 : 2015-10-21:오전 12시 (조현빈)
+ * 작성자 : 가승호
+ * 작성 최종 수정일 : 2015-10-23:오전 12시 (가승호)
  * */
 package kr.or.kosta.shopping.qna.controller;
 
@@ -42,15 +42,20 @@ public class QnaRegistController implements Controller {
 				}
 			}
 		}
+		String articleId = request.getParameter("articleId");
 		String subject = request.getParameter("subject");
-		String content= request.getParameter("content");	
-		System.out.println("subject : " + subject + "," +  "id : " +  memberId);
-		
+		String content= request.getParameter("content");
 		Qna qna = new Qna(2,memberId,subject,content);
 		QnaService service = QnaService.getInstance();
 		
-		service.add(qna);
-		
+		if(memberId.equals("admin")){
+			qna.setGroupNum(Integer.parseInt(articleId));
+			qna.setOrderNum(1);
+			qna.setStepNum(1);
+			service.addRe(qna);
+		}else{
+			service.add(qna);
+		}
 	//	mav.addObject("user", user);
 		mav.setView("/qna/qna_view.bins");
 		return mav;

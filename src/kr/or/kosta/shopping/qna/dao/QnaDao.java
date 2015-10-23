@@ -27,6 +27,10 @@ public interface QnaDao{
 
 	public int getAllSearchCnt(HashMap<String, Object> type) throws RuntimeException;
 
+	public void insertRe(Qna qna) throws RuntimeException;
+	
+	
+	
 }
 	
 

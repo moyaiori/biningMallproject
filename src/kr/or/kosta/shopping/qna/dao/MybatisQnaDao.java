@@ -30,6 +30,8 @@ public class MybatisQnaDao implements QnaDao {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
 
+	
+	// QNA 게시글 등록
 	@Override
 	public void insert(Qna qna) throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -46,24 +48,38 @@ public class MybatisQnaDao implements QnaDao {
 		} finally {
 			sqlSession.close();
 		}
+	}
+	
+	//QNA 게시글에 대한 관리자의 답변 
+	@Override
+	public void insertRe(Qna qna) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		System.out.println("insertRe 진입");
+		try {
+			QnaDao dao = sqlSession.getMapper(QnaDao.class);
+			dao.insertRe(qna);
+			logger.debug("[DEBUG] : MybatisQnaDao - insertRe()에서 발생");
+			sqlSession.commit();
+		} catch (Exception e) {
+			logger.warn("[WARN] : MybatisQnaDao -insertRe()에서 발생");
+			sqlSession.rollback();
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
 		
 	}
+	
+	
 	
 	@Override
 	public Article get(int articleId) throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		Article article = null;
-		System.out.println("get 메소드 진입");
-		//Qna qna = null;
 		try{
-			System.out.println(articleId);
-			System.out.println("get() 트라이문 진입");
-			//QnaDao dao = (QnaDao)sqlSession.getMapper(QnaDao.class);
 			QnaDao dao = (QnaDao)sqlSession.getMapper(QnaDao.class);
-			//ArticleDao dao = (ArticleDao)sqlSession.getMapper(ArticleDao.class);
-			System.out.println(" 뿅");
 			article = dao.get(articleId);
-			System.out.println("article : "+article);
+			logger.debug("[DEBUG] : MybatisQnaDao - get()에서 발생");
 		}finally{
 			sqlSession.close();
 		}
@@ -74,11 +90,10 @@ public class MybatisQnaDao implements QnaDao {
 	public int getAllCnt() throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		int listCount= 0;
-		System.out.println("getAllCnt() 진입");
 		try{
 			QnaDao dao = (QnaDao)sqlSession.getMapper(QnaDao.class);
 			listCount=dao.getAllCnt();
-			System.out.println("listCount :" + listCount);
+			logger.debug("[DEBUG] : MybatisQnaDao - gtAllCnt()에서 발생");
 			sqlSession.commit();
 		}catch(Exception e){
 			sqlSession.rollback();

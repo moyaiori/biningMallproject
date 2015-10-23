@@ -11,6 +11,30 @@
 		VALUES(article_id_seq.NEXTVAL,  2,  #{memberId}, #{subject}, #{content},article_id_seq.CURRVAL,0, 0)
 	</insert>
 	
+	<!-- 게시글 답변 등록 boardId: 2 - 공지 , 2 QnA-->
+	<insert id="insertRe" parameterType="kr.or.kosta.shopping.qna.domain.Qna">
+		INSERT INTO article(article_id, board_id, member_id, subject, content, group_num, step_num, order_num) 
+	    VALUES(article_id_seq.NEXTVAL, 2, #{memberId}, #{subject}, #{content},  #{groupNum}, #{stepNum} + 1, ( 
+	    	SELECT MAX(order_num)+1 "orderNum"
+            FROM article 
+            WHERE group_num = #{groupNum}
+             ) 
+     	 ) 
+	</insert>
+	
+	<!-- 신규 공개 게시글에 대한 답변 
+   <insert id="addRe" parameterType="kr.or.kosta.charge.qna.domain.QnA">
+      INSERT INTO qna(qna_num, id, title, content, group_no, step_no, order_no)
+      VALUES(qna_num_seq.NEXTVAL, #{id}, #{title}, #{content}, #{group_no}, #{step_no} + 1, (
+         SELECT MAX(order_no)+1 "order_no"
+         FROM qna
+         WHERE group_no=#{group_no}
+         )
+      )
+   </insert>-->
+	
+	
+	
 	<!-- 게시글 댓글시 orderNuM 수정-->	       
 <!--      <update id="updateOrderNum" parameterType="kr.or.kosta.shopping.article.domain.Article">
 		UPDATE article  SET order_num = order_num+1  WHERE board_id = 1 
@@ -19,6 +43,7 @@
      	WHERE group_num =#{groupNum} AND order_num > #{orderNum} AND step_num <= #{stepNum}; 
 	</update>       
  -->	      
+ 		
  
  	  <select id="getAllCnt"   resultType="java.lang.Integer">
 		 select COUNT(article_id) count 
