@@ -1,5 +1,6 @@
 package kr.or.kosta.shopping.article.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -94,26 +95,26 @@ public class ArticleService {
 		return listCount;
 	}
 	
-	/**회원 목록*//*
-	public List<User> list()throws RuntimeException{
-		
-		List<User> list= null;
-		
+	public int getAllSearchCnt(HashMap<String, Object> type)throws RuntimeException{
+		int listCount = 0;
 		try {
-			list= userDao.getAll();
-			
+			listCount= articleDao.getAllSearchCnt(type);
 		} catch (Exception e) {
-			throw new RuntimeException();
+			throw new RuntimeException(e);
 			
 		}
-		return list;
+		return listCount;
+	}
+	
+	public List<Article> getAllSearch(HashMap<String, Object> type) throws RuntimeException {
+		List<Article> articleList = null;
+		try {
+			articleList= articleDao.getAllSearch(type);
+
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return articleList;
 	}
 
-/*
-	
-	public static void main(String[] args) {
-		ArticleService service = UserService.getInstance();
-		service.add(new User("killer2", "김킬러", "1111"));
-		System.out.println("등록완료");
-	}*/
 }
