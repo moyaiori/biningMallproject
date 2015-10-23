@@ -161,9 +161,9 @@ window.onload = function(){
 				<th>합계</th>
 			</tr>
 			<tr>
-				<td><img src='../images/치킨밥버거.JPG' /></td>
-				<td>아주아주 맛있어요</td>
-				<td>비닝이</td>
+				<td><img src='../images/${param.productName }.jpg' /></td>
+				<td>${param.productName }</td>
+				<td>${param.price }</td>
 				<td>Good</td>
 				<td>Good</td>
 				<td>Good</td>
