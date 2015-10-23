@@ -95,8 +95,7 @@
 			Expensive 상품
 		</td>
 	</tr>	
-		
-		
+			
 	<tr>
 		<c:forEach items="${expensive}" var="product">
 		<td align=center valign=top width="25%" style="padding-bottom:25px;">
