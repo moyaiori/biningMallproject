@@ -71,9 +71,9 @@ public class MybatisQnaDao implements QnaDao {
 		return article;
 	}
 	
-	public List<Qna> getAll(int boardId) throws RuntimeException {
+	public List<Article> getAll(int boardId) throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		List<Qna>  qnaList =null;
+		List<Article> qnaList = null;
 
 		try{
 			QnaDao dao = (QnaDao)sqlSession.getMapper(QnaDao.class);
