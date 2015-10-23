@@ -17,8 +17,6 @@
 		where board_id=1
 	</select>
      
-     
-                 
  <!--   게시글 읽기      -->	           
 	<select id="get" parameterType="java.lang.Integer" resultType="kr.or.kosta.shopping.article.domain.Article">
 		SELECT article_id as "articleId", subject, content, member_id as "memberId", regdate, hitcount, group_num as "groupNum", step_num as "stepNum", order_num as "orderNum"
@@ -75,5 +73,15 @@
          )
 	</select>
      
-     
+     <!--최근 공지사항 글 5개  -->
+     <select id="getIndexArticle"  parameterType="java.lang.Integer"  resultType="kr.or.kosta.shopping.article.domain.Article">
+		select article_id as "articleId", subject,  member_id as "memberId", TO_CHAR(regdate, 'YYYY-MM-DD') regdate
+		from( 
+    			select  board_id , article_id, subject, member_id,  regdate
+    			from article
+    			where order_NUM=0
+    			ORDER BY article_id DESC
+    		)
+ 		where board_id= ${value} and  rownum &lt;=5
+	</select>
 </mapper>
