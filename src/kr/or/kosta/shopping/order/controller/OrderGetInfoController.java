@@ -1,12 +1,18 @@
 package kr.or.kosta.shopping.order.controller;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.Iterator;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
@@ -21,12 +27,30 @@ import kr.or.kosta.shopping.order.service.OrderService;
 public class OrderGetInfoController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+		String jsonTxt = request.getParameter("json");
+		JSONParser parser = new JSONParser();
+		Object obj = null;
+		
+		try {
+			obj = parser.parse(jsonTxt);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		JSONArray array = (JSONArray) obj;
+		for (int i = 0; i < array.size(); i++) {
+			JSONObject jsonObj = (JSONObject)array.get(i);
+			System.out.println(jsonObj.get("name"));
+			System.out.println(jsonObj.get("price"));
+			System.out.println(jsonObj.get("count"));
+		}
 		
 		ModelAndView mav = new ModelAndView();
 		OrderService service = OrderService.getInstance();
-		System.out.println("OrderGetInfoController 진입");
 		
 		String loginId = null;
+		String productName = null;
+		String productImg = null;
 		
 		// 쿠키값 가져오기
 	    Cookie[] cookies = request.getCookies();
@@ -35,9 +59,13 @@ public class OrderGetInfoController implements Controller{
 				if(cookie.getName().equals("loginId")){
 					cookie.setPath("/");
 					loginId = cookie.getValue();
-				}				
-			}			
+				}
+			}
 		}
+		
+		productName = request.getParameter("productName");
+		
+		//productImg = service.getProductInfo(productName);
 		
 		Member member = service.getInfo(loginId);
 		
@@ -49,9 +77,8 @@ public class OrderGetInfoController implements Controller{
 		member.setPhoneNumber3(phoneResult[2]);
 		member.setPhoneNumber(phoneResult[0]);
 		
-		//System.out.println(member);
-		
 		mav.addObject("member", member);
+		mav.addObject("productImg", productImg);
 		
 		mav.addObject("contentFile", "/order/order.jsp");
 		

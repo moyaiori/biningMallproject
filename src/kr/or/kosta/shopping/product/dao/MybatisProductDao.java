@@ -56,4 +56,19 @@ public class MybatisProductDao implements ProductDao {
 		}
 		return product;
 	}
+	
+	@Override
+	public List<Product> expensive() throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<Product> list = new ArrayList<Product>();
+		try {
+			ProductDao dao = (ProductDao) sqlSession.getMapper(ProductDao.class);
+			logger.debug("[DEBUG] : expensive()에서 발생");
+			list = dao.expensive();
+		} finally {
+			sqlSession.close();
+		}
+		return list;
+	}
+	
 }

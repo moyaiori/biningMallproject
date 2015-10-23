@@ -11,6 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../style/product_view.css">
+<script src="../js/ajax2.js"></script>
 
 <script>
 	window.onload = function(){
@@ -93,13 +94,25 @@
 		
 	    var buyButton = document.getElementById("buyButton");
 	    buyButton.onclick = function(){
+	       var json = '[';
 	       var priceE = document.getElementById("price");
 	       var price = priceE.firstChild.nodeValue;
 	       for ( var i in array) {
-				toppingName += (array[i].name + ",");
+				toppingName += (array[i].name + " ");
 			}
 	       var productName = "${product.name}";
-	       window.location.href="../order/order.bins?price="+price + "&toppingname=" + toppingName + "&productName=" + productName;   
+	       if(toppingName.trim().length == 0){
+	    	   toppingName = "없음";
+	       }
+	       json += '{"name":"' + productName +"(토핑 : " + toppingName + ")" + '","price":"'+ price +'","count":"'+count.value+'"},';
+	       json = json.substring(0, json.length-1);
+	       json += ']'
+	       console.log(json);
+	       ajax({
+  			  	method: "post",
+  				url: "../order/order.bins",
+  				data: "json="+json,
+  			});
 	    }
 	    
 	    var addCart = document.getElementById("addCart");
