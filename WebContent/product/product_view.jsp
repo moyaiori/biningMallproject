@@ -106,8 +106,8 @@
 	       json += '{"name":"' + productName +"(토핑 : " + toppingName + ")" + '","price":"'+ price +'","count":"'+count.value+'"},';
 	       ajax({
   			  	method: "post",
-  				url: "order.bins",
-  				data: json,
+  				url: "../order/order.bins",
+  				data: "json="+json,
   			});
 	    }
 	    

@@ -107,8 +107,8 @@
     	  
    		  ajax({
    			  	method: "post",
-   				url: "order.bins",
-   				data: json,
+   				url: "../order/order.bins",
+   				data:"json="+json,
    			});
     	  
       }
@@ -132,8 +132,8 @@
     	  
    		  ajax({
    			  	method: "post",
-   				url: "order.bins",
-   				data: json,
+   				url: "../order/order.bins",
+   				data:"json="+json,
    			});
     	  
       }
