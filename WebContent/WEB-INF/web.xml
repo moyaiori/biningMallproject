@@ -25,8 +25,8 @@
       <servlet-class>kr.or.kosta.shopping.common.controller.FrontControllerServlet</servlet-class>
       <init-param>
          <param-name>controllerMapping</param-name>
-
 	     <!-- 쓰레기네 -->
+<<<<<<< HEAD
 
 	     <param-value>C:/Users/KSH/Documents/카카오톡 받은 파일/biningMallProject/WebContent/WEB-INF/controllerMapping.properties</param-value>
          
@@ -44,14 +44,27 @@
           
           <!-- 성후니 -->
 
+=======
+	    <!--  <param-value>C:/Users/KSH/Documents/카카오톡 받은 파일/biningMallProject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
+         <!-- 광용이꺼 -->
+     	 <param-value>F:\biningMallproject\WebContent\WEB-INF\controllerMapping.properties</param-value>
+         
+         <!-- 안상이꺼 -->
+        <!--  <param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
+        
+         <!-- 비닝이꺼 -->
+         <!-- <param-value>C:/Users/JHB-PC/Desktop/KOSTA/project/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> --> 
+          
+          <!-- 성후니 -->
+>>>>>>> f55e9760a881fbff6d86a30ac6547af5e7994bd4
           <!-- <param-value>C:/Users/chean/Documents/git/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
 
       </init-param>
    </servlet>
 
-   <servlet-mapping>
-      <servlet-name>frontController</servlet-name>
-      <url-pattern>*.bins</url-pattern>
-   </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>frontController</servlet-name>
+		<url-pattern>*.bins</url-pattern>
+	</servlet-mapping>
 
 </web-app>
