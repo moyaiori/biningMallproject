@@ -226,9 +226,10 @@ public class Pagination {
 		// 페이지 번호 반복
 		for(int i=beginNoOfCurrentList; i<=endNoOfCurrentList; i++){
 			if(i == requestPage){
+				
 			//	sb.append("<span class=\"selected\">" + i + "&nbsp;</span>");
 			//	sb.append("<li class=\"selected\">" + i + "&nbsp;</li>");
-				sb.append("<li><a href=\"?page=" + i + parameters + "\">" + i + "</a></li>");
+				sb.append("<li class=\"active\"><a href=\"?page=" + i + parameters + "\">" + i + "</a></li>");
 			}else{
 				//sb.append("<span><a href=\"?page=" + i + parameters + "\">" + i + "</a>&nbsp;</span>");
 				sb.append("<li><a href=\"?page=" + i + parameters + "\">" + i + "</a></li>");

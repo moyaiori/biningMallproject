@@ -59,7 +59,7 @@
  			 <input  type="submit" class="btn btn-default" value="검색"/> 
  		
  			<c:if test="${cookie.loginId.value.equals('admin')}" >
-				<input onclick="location.href='../notice/notice_write.bins'" type="button" class="btn btn-default" value="글쓰기" style="float: right;" />
+				<input onclick="location.href='../notice/notice_write.bins'" type="button" class="btn btn-default" value="글쓰기" style="float: right; margin-left: 700;" />
 			</c:if>
 
          </div>
