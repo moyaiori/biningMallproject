@@ -1,12 +1,18 @@
 package kr.or.kosta.shopping.order.controller;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
+import java.io.IOException;
+import java.io.Writer;
+import java.util.Iterator;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
@@ -21,10 +27,23 @@ import kr.or.kosta.shopping.order.service.OrderService;
 public class OrderGetInfoController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+		String jsonTxt = request.getParameter("json");
+		JSONParser parser = new JSONParser();
+		Object obj = null;
+		try {
+			obj = parser.parse(jsonTxt);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		
+		JSONArray array = (JSONArray) obj;
+		JSONObject jsonObj = (JSONObject)array.get(0);
+		System.out.println(jsonObj.get("name"));
+		System.out.println(jsonObj.get("price"));
+		System.out.println(jsonObj.get("count"));
 		
 		ModelAndView mav = new ModelAndView();
 		OrderService service = OrderService.getInstance();
-		System.out.println("OrderGetInfoController 진입");
 		
 		String loginId = null;
 		String productName = null;
