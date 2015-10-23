@@ -10,11 +10,21 @@
 		FROM product
 	</select>
 	
+	<!-- 상세보기를 위한 쿼리문 -->
 	<select id="get" parameterType="java.lang.Integer" resultType="kr.or.kosta.shopping.product.domain.Product" >
 		SELECT product_id AS "productId", name, picture, price, calorie, description, sales_count
 		FROM product
 		WHERE product_id = #{value}
 	</select>
 		
-	
+	<!-- 메인화면에 가장 비싼 상품 3개 가져오기 -->
+	<select id="expensive" resultType="kr.or.kosta.shopping.product.domain.Product">
+		select product_id AS "productId", name, picture, price, calorie, description, sales_count
+		from( 
+		        select product_id, name, picture, price, calorie, description, sales_count
+		        from product
+		        ORDER BY price DESC
+	    )
+		where rownum &lt;=3
+	</select>
 </mapper>

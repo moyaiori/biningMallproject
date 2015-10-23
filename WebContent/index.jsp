@@ -1,8 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
-
-
 	<div class="news_div" style="float: left; width: 30%; margin-left: 230px">
 		<table class="n_h_table" style="font-family:hy강m; font-size: 12pt; font-weight: bold;" >
 			<tr>
@@ -75,20 +72,20 @@
 	
 	<tr>
 		<td align=center valign=top width="25%" style="padding-bottom:25px;">
-				<div style="text-align:center;"><a href=""><img src='' width=200 class="" onerror=this.src='' /></a></div>
+				<div style="text-align:center;"><a href=""><img src='' width=200 class="" /></a></div>
 				<div style="padding:14px 0 0 6px; text-align:center; width:200px;">
 				<div><a href="" style="display:inline-block; color:#000; font-size:11px; padding:0 0 3px 0;">프리저브드 플라워 DIY</a></div>		<div style="padding-bottom:3px;"><a href="" style="display:inline-block; color:#000; font-weight:bold; padding:0 0 3px 0; font-size:11px">5,800원</a> </div>
 				<div></div>	</div>
 		</td>
 		
 		<td align=center valign=top width="25%" style="padding-bottom:25px;">
-				<div style="text-align:center;"><a href=""><img src='' width=200 class="" onerror=this.src='' /></a></div>
+				<div style="text-align:center;"><a href=""><img src='' width=200 class="" /></a></div>
 				<div style="padding:14px 0 0 6px; text-align:center; width:200px;">
 				<div><a href="" style="display:inline-block; color:#000; font-size:11px; padding:0 0 3px 0;">프리저브드 플라워 DIY</a></div>		<div style="padding-bottom:3px;"><a href="" style="display:inline-block; color:#000; font-weight:bold; padding:0 0 3px 0; font-size:11px">5,800원</a> </div>
 				<div></div>	</div>
 		</td>
 		<td align=center valign=top width="25%" style="padding-bottom:25px;">
-				<div style="text-align:center;"><a href=""><img src='' width=200 class="" onerror=this.src='' /></a></div>
+				<div style="text-align:center;"><a href=""><img src='' width=200 class=""/></a></div>
 				<div style="padding:14px 0 0 6px; text-align:center; width:200px;">
 				<div><a href="" style="display:inline-block; color:#000; font-size:11px; padding:0 0 3px 0;">프리저브드 플라워 DIY</a></div>		<div style="padding-bottom:3px;"><a href="" style="display:inline-block; color:#000; font-weight:bold; padding:0 0 3px 0; font-size:11px">5,800원</a> </div>
 				<div></div>	</div>
@@ -101,27 +98,18 @@
 		
 		
 	<tr>
+		<c:forEach items="${expensive}" var="product">
 		<td align=center valign=top width="25%" style="padding-bottom:25px;">
-				<div style="text-align:center;"><a href=""><img src='' width=200 class="" onerror=this.src='' /></a></div>
-				<div style="padding:14px 0 0 6px; text-align:center; width:200px;">
-				<div><a href="" style="display:inline-block; color:#000; font-size:11px; padding:0 0 3px 0;">프리저브드 플라워 DIY</a></div>		<div style="padding-bottom:3px;"><a href="" style="display:inline-block; color:#000; font-weight:bold; padding:0 0 3px 0; font-size:11px">5,800원</a> </div>
-				<div></div>	</div>
+					<div style="text-align:center;"><a href="../product/product_view.bins?productId=${product.productId}"><img src='../images/${product.picture}' width=200/></a></div>
+					<div style="padding:14px 0 0 6px; text-align:center; width:200px;">
+					<div><a href="" style="display:inline-block; color:#000; font-size:11px; padding:0 0 3px 0;">${product.name}</a></div>		
+					<div style="padding-bottom:3px;"><a href="" style="display:inline-block; color:#000; font-weight:bold; padding:0 0 3px 0; font-size:11px">${product.price}</a></div>
+					<div></div>	</div>
 		</td>
 		
-		<td align=center valign=top width="25%" style="padding-bottom:25px;">
-				<div style="text-align:center;"><a href=""><img src='' width=200 class="" onerror=this.src='' /></a></div>
-				<div style="padding:14px 0 0 6px; text-align:center; width:200px;">
-				<div><a href="" style="display:inline-block; color:#000; font-size:11px; padding:0 0 3px 0;">프리저브드 플라워 DIY</a></div>		<div style="padding-bottom:3px;"><a href="" style="display:inline-block; color:#000; font-weight:bold; padding:0 0 3px 0; font-size:11px">5,800원</a> </div>
-				<div></div>	</div>
-		</td>
-		<td align=center valign=top width="25%" style="padding-bottom:25px;">
-				<div style="text-align:center;"><a href=""><img src='' width=200 class="" onerror=this.src='' /></a></div>
-				<div style="padding:14px 0 0 6px; text-align:center; width:200px;">
-				<div><a href="" style="display:inline-block; color:#000; font-size:11px; padding:0 0 3px 0;">프리저브드 플라워 DIY</a></div>		<div style="padding-bottom:3px;"><a href="" style="display:inline-block; color:#000; font-weight:bold; padding:0 0 3px 0; font-size:11px">5,800원</a> </div>
-				<div></div>	</div>
-		</td>
-	
+		</c:forEach>
 	</tr>
+	
 	</table>
 	
 	

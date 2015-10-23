@@ -6,7 +6,7 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
-<script src="../js/ajax.js"></script>
+<script src="../js/ajax2.js"></script>
 <script>
    window.onload = function(){
       var price = 0;
@@ -37,14 +37,14 @@
                         count = parseInt(this.value);
                         productPrice2 = this.parentNode.previousSibling.previousSibling.firstChild.nodeValue.trim();
                         temp = parseInt(count) * parseInt(productPrice2);
-                        //console.log("temp:"+temp);
                         viewPrice.innerHTML = parseInt(count) * parseInt(productPrice2);
                         price = temp;
                         
                         for(var j=0; j<orderCount.length; j++){
-                           //console.log(parseInt(orderCount[j].parentNode.nextSibling.nextSibling.firstChild.nodeValue.trim()))   ;
                            if(orderCount[j].parentNode.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.firstChild.checked){
-                              total += parseInt(orderCount[j].parentNode.nextSibling.nextSibling.firstChild.nodeValue.trim());   
+                        	  total = checkSelect(checkBox);
+                              //total += parseInt(orderCount[j].parentNode.nextSibling.nextSibling.firstChild.nodeValue.trim());
+                              console.log("들어옴 :" + total);
                            }
                         }
                         
@@ -81,7 +81,7 @@
       selDeleteBtn = document.getElementById("selDelete");
       selDeleteBtn.onclick = function(){
     	  var json = '[';
-    	  for (var i in checkBox){  
+    	  for (var i in checkBox){
     		  if(checkBox[i].checked){
     			  cartOutput += checkBox[i].parentNode.previousSibling.previousSibling.firstChild.nodeValue + ",";
     		  }
@@ -141,7 +141,7 @@
    
    function checkSelect(standard){
 	   var total = 0;
-	   for (var i in standard){  
+	   for (var i in standard){
 		   if(typeof standard[i] == "object"){
 			   if(standard[i].checked){
 				   total += parseInt(standard[i].parentNode.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.firstChild.nodeValue.trim());
