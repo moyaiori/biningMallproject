@@ -28,6 +28,12 @@ public interface MemberDao {
 	
 	/** 회원 로그인 */
 	public Member login(HashMap<String, Object> data) throws Exception;
+
+	/*회원 가입시 , 아이디 중복 검사.*/
+	public Member idChk(String id) throws RuntimeException;
+	
+	/*회원 가입시 , 이메일 중복 검사.*/
+	public Member emailChk(String email) throws RuntimeException;
 }
 
 
