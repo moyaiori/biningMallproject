@@ -4,6 +4,10 @@
  -->
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	String articleId = request.getParameter("articleId");
+%>
+
 <link rel="stylesheet" type="text/css"
 	href="../style/bootstrap-theme.css">
 <link rel="stylesheet" type="text/css"
@@ -17,19 +21,14 @@
 <div class="container">
 	<div class="col-md-10 col-md-offset-1">
 	<table class="table">
-		<thead>
 			<tr>
-				<th scope="row">제목</th>
+				<th class="active">제목</th>
 				<td colspan="3">${qna.subject}</td>
 			</tr>
 			<tr>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<th scope="row">작성자</th>
+				<th class="active">작성자</th>
 				<td>${qna.memberId}</td>
-				<th scope="row">작성일</th>
+				<th class="active">작성일</th>
 				<td>${qna.regdate}</td>
 			</tr>
 			<tr>
@@ -38,18 +37,18 @@
 			</tr>
 
 			<tr>
-			<th>내용</th>
-				<td class="cont" colspan="6">${qna.content}</td>
+				<td  colspan="4" style="padding: 10px 30px">
+				<textarea class="form-control" rows="10" cols="10" readonly style="resize:none;">${qna.content}</textarea>
+				</td>
 			</tr>
-		</tbody>
 	</table>
-	<input onclick="location.href='../qna/qna_view.bins'" type="button"
-		value="목록" />
+	<input onclick="location.href='../qna/qna_view.bins" type="button"
+		class="btn btn-default" value="목록" />
 	<c:if test="${cookie.loginId.value.equals('admin')}" >
-		<input onclick="location.href='../qna/qna_write.bins'" type="button" class="btn btn-default" value="답글쓰기"  />
+		<input onclick="location.href='../qna/qna_write.bins?articleId=<%=articleId%>'" type="button" class="btn btn-default" value="답글쓰기"  />
 	</c:if>
 	<c:if test="${cookie.loginId.value.equals('qna.memberId')}" >
-		<input onclick="location.href='../qna/qna_write.bins'" type="button" class="btn btn-default" value="답글쓰기"  />
+		<input onclick="location.href='../qna/qna_write.bins'" type="button" class="btn btn-default" value="수정하기"  />
 	</c:if>
 	</div>
 </div>

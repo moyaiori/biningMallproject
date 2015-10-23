@@ -4,6 +4,15 @@
  -->
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script>
+
+	function userChk(){
+		if()
+		return false;
+	}
+
+</script>
+
 <div id="container">
 	<div class="content">
 		<table cellpadding="0" cellspacing="0" border="0" class="table">
@@ -20,14 +29,16 @@
 				<th>작성자</th>
 				<th>작성일</th>
 				<th>조회수</th>
+				
 			</tr>
 
 			<c:if test="${listSize - 1 >= 0}">
 				<c:forEach begin="0" end="${articleList.size()-1}" var="i">
 					<tr>
 						<td>${listSize-i}</td>
-						<td class=""><a
-							href="../qna/qna_read.bins?articleId=${articleList.get(i).articleId}"><span><img src="../images/lock.png"></span>${articleList.get(i).subject}</a>
+						<td>
+						<a	href="../qna/qna_read.bins?articleId=${articleList.get(i).articleId}" onclick="userChk()">
+							<span style="margin-left:${articleList.get(i).stepNum}0px"><img src="../images/lock.png"></span>${articleList.get(i).subject}</a>
 						</td>
 						<td><span class="">${articleList.get(i).memberId}</span></td>
 						<td>${articleList.get(i).regdate}</td>
@@ -40,6 +51,7 @@
 
 	</div>
 	<form class="form-inline" method="post" action="../qna/qna_view.bins">
+	
 		<div class="form-group">
 			<select class="form-control" style="width: 95px;" name="searchType"
 				id="">

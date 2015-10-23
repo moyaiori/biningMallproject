@@ -32,7 +32,6 @@ public class QnaListController implements Controller {
 		if(rp == null){
 			rp = "1";
 		}
-		System.out.println("if Next rp : " + rp);
 		int pageNum = 1;
 		if(rp != null){
 			 pageNum = Integer.parseInt(rp);

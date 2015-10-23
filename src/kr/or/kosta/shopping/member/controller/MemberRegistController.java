@@ -36,8 +36,8 @@ public class MemberRegistController implements Controller{
 		ModelAndView mav = new ModelAndView();
 		
 		mav.addObject("member", member);
-		mav.setView("registResult.jsp"); // forward
-		
+		//mav.setView("registResult.jsp"); // forward
+		mav.addObject("contentFile", "../user/registResult.jsp");
 		return mav;
 	}
 }
