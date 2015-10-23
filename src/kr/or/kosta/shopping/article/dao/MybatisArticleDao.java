@@ -139,4 +139,18 @@ public class MybatisArticleDao implements ArticleDao {
 		return articleList;
 	}
 
+	@Override
+	public List<Article> getIndexArticle(int boardId) throws RuntimeException{
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<Article>  articleList =null;
+		try{
+			ArticleDao dao = (ArticleDao)sqlSession.getMapper(ArticleDao.class);
+			articleList = dao.getIndexArticle(boardId);
+		}finally{
+			sqlSession.close();
+		}
+		return articleList;
+	
+	}
+
 }

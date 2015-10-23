@@ -26,7 +26,10 @@ public interface ArticleDao{
 	public int getAllCnt() throws RuntimeException;
 
 	public int getAllSearchCnt(HashMap<String, Object> type) throws RuntimeException;
+	
+	public List<Article> getIndexArticle(int boardId) throws RuntimeException;
 
+	
 }
 
 
