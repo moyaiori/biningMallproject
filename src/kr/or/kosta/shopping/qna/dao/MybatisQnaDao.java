@@ -1,5 +1,6 @@
 package kr.or.kosta.shopping.qna.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -58,18 +59,37 @@ public class MybatisQnaDao implements QnaDao {
 			System.out.println(articleId);
 			System.out.println("get() 트라이문 진입");
 			//QnaDao dao = (QnaDao)sqlSession.getMapper(QnaDao.class);
-			//qna = dao.get(articleId);
 			QnaDao dao = (QnaDao)sqlSession.getMapper(QnaDao.class);
 			//ArticleDao dao = (ArticleDao)sqlSession.getMapper(ArticleDao.class);
 			System.out.println(" 뿅");
 			article = dao.get(articleId);
-			//article = dao.get(articleId);
 			System.out.println("article : "+article);
 		}finally{
 			sqlSession.close();
 		}
 		return article;
 	}
+	
+	@Override
+	public int getAllCnt() throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int listCount= 0;
+		System.out.println("getAllCnt() 진입");
+		try{
+			QnaDao dao = (QnaDao)sqlSession.getMapper(QnaDao.class);
+			listCount=dao.getAllCnt();
+			System.out.println("listCount :" + listCount);
+			sqlSession.commit();
+		}catch(Exception e){
+			sqlSession.rollback();
+		}finally{
+			sqlSession.close();
+		}
+		return listCount;
+	}
+
+	
+	
 	
 	public List<Article> getAll(int boardId) throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -84,4 +104,54 @@ public class MybatisQnaDao implements QnaDao {
 		}
 		return qnaList;
 	}
+	
+	//조회수증가
+	@Override
+	public void updateHitcount(int aricleId) throws RuntimeException {
+			SqlSession sqlSession = sqlSessionFactory.openSession();
+			try{
+				QnaDao dao = (QnaDao)sqlSession.getMapper(QnaDao.class);
+				dao.updateHitcount(aricleId);
+				sqlSession.commit();
+			}catch(Exception e){
+				sqlSession.rollback();
+			}finally{
+				sqlSession.close();
+			}
+	}
+
+	//검색된 리스트 갯수
+	@Override
+	public int getAllSearchCnt(HashMap<String, Object> type) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int listCount= 0;
+		try{
+			QnaDao dao = (QnaDao)sqlSession.getMapper(QnaDao.class);
+			listCount = dao.getAllSearchCnt(type);
+			logger.debug("DEBUG : getAllSearchCnt()");
+			sqlSession.commit();
+		}catch(Exception e){
+			e.printStackTrace();
+			sqlSession.rollback();
+		}finally{
+			sqlSession.close();
+		}
+		return listCount;
+	}
+
+	//검색 리스트
+	@Override
+	public List<Article> getAllSearch(HashMap<String, Object> type) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<Article>  articleList =null;
+		try{
+			QnaDao dao = (QnaDao)sqlSession.getMapper(QnaDao.class);
+			articleList = dao.getAllSearch(type);
+		}finally{
+			sqlSession.close();
+		}
+		return articleList;
+	}
+
+	
 }
