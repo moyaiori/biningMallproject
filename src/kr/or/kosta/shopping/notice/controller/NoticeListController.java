@@ -40,8 +40,6 @@ public class NoticeListController implements Controller {
 		int requestP =0;
 
 		if(searchValue!=null){/*검색 할경우*/
-			System.out.println("요기 ");
-
 			HashMap<String, Object> type = new HashMap<String, Object>();
 			type.put("searchType", request.getParameter("searchType"));
 			type.put("searchValue", "'%"+request.getParameter("searchValue")+"%'");

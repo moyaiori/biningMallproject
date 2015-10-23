@@ -118,10 +118,10 @@ window.onload = function(){
 				document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
 			}
 		}
-		
 	}
-	
 }
+		
+	
 
 </script>
 
@@ -244,6 +244,7 @@ window.onload = function(){
 					<tr>
 						<td class="TagTd">상품합계금액</td>
 						<td class="inputTd"><label id="price">${param.price }</label>원</td>
+						<td class="inputTd"><label id="price">${request.price }</label></td>
 					</tr>
 					<tr>
 						<td class="TagTd">적립금</td>
