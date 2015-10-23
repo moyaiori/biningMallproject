@@ -21,7 +21,7 @@
  -->	      
                  
  <!--   게시글 읽기      -->	           
-	<select id="get" parameterType="java.lang.Integer" resultType="kr.or.kosta.shopping.qna.domain.Qna">
+	<select id="get" parameterType="java.lang.Integer" resultType="kr.or.kosta.shopping.article.domain.Article">
 		SELECT article_id as "articleId", subject, content, member_id as "memberId", regdate, hitcount, group_num as "groupNum", step_num as "stepNum", order_num as "orderNum"
 	    FROM article 
 		WHERE board_id = 2 and article_id = #{value}
