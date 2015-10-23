@@ -198,50 +198,62 @@ public class Pagination {
 	public String toHtml(String searchType, String searchValue){
 		StringBuilder sb = new StringBuilder();
 		String parameters ="";
-		
+		sb.append(" <div class=\"text-center\"> <ul class=\"pagination\">");
 		// 조건검색이 있는 경우 요청파라메터 추가
 		if(searchType != null && searchType.trim().length() != 0){
 			parameters = "&searchType=" + searchType + "&searchValue=" + searchValue;
 		}
 		
 		// 처음으로 보여주기 여부
-		if(isShowFirst()){
-			sb.append("<span><a href=\"?page=1" + parameters + "\">처음으로</a>&nbsp;</span>");
-		}
-		
+/*		if(isShowFirst()){
+		//	sb.append("<span><a href=\"?page=1" + parameters + "\">처음으로</a>&nbsp;</span>");
+			sb.append("<li><a href=\"?page=1" + parameters + "\">처음으로</a></li>");
+	
+		}*/
+	
 		// 이전목록 보여주기 여부
 		if(isShowPreviousList()){
-			sb.append("<span><a href=\"?page=" + beginNoOfPreviousList + parameters + "\">이전목록</a>&nbsp;</span>");
+		//	sb.append("<span><a href=\"?page=" + beginNoOfPreviousList + parameters + "\">이전목록</a>&nbsp;</span>");
+			sb.append("<li><a href=\"?page=" + beginNoOfPreviousList + parameters + "\">&lt;&lt;</a></li>");
 		}
 		
 		// 이전 페이지 보여주기 여부
 		if(isShowPreviousPage()){
-			sb.append("<span><a href=\"?page=" + (requestPage-1) + parameters + "\">이전페이지</a>&nbsp;</span>");
+			//sb.append("<span><a href=\"?page=" + (requestPage-1) + parameters + "\">이전페이지</a>&nbsp;</span>");
+			sb.append("<li><a href=\"?page=" + (requestPage-1) + parameters + "\">&lt;</a></li>");
 		}
 
 		// 페이지 번호 반복
 		for(int i=beginNoOfCurrentList; i<=endNoOfCurrentList; i++){
 			if(i == requestPage){
-				sb.append("<span class=\"selected\">" + i + "&nbsp;</span>");
+			//	sb.append("<span class=\"selected\">" + i + "&nbsp;</span>");
+			//	sb.append("<li class=\"selected\">" + i + "&nbsp;</li>");
+				sb.append("<li><a href=\"?page=" + i + parameters + "\">" + i + "</a></li>");
 			}else{
-				sb.append("<span><a href=\"?page=" + i + parameters + "\">" + i + "</a>&nbsp;</span>");
+				//sb.append("<span><a href=\"?page=" + i + parameters + "\">" + i + "</a>&nbsp;</span>");
+				sb.append("<li><a href=\"?page=" + i + parameters + "\">" + i + "</a></li>");
 			}
+			
 		}
 
 		// 다음 페이지 보여주기 여부
 		if(isShowNextPage()){
-			sb.append("<span><a href=\"?page=" + (requestPage+1) + parameters + "\">다음페이지</a>&nbsp;</span>");
+			//sb.append("<span><a href=\"?page=" + (requestPage+1) + parameters + "\">다음페이지</a>&nbsp;</span>");
+			sb.append("<li><a href=\"?page=" + (requestPage+1) + parameters + "\">&gt;</a></li>");
 		}
 		
 		// 다음 목록 보여주기 여부
 		if(isShowNextList()){
-			sb.append("<span><a href=\"?page=" + beginNoOfNextList + parameters + "\">다음목록</a>&nbsp;</span>");
+			//sb.append("<span><a href=\"?page=" + beginNoOfNextList + parameters + "\">다음목록</a>&nbsp;</span>");
+			sb.append("<li><a href=\"?page=" + beginNoOfNextList + parameters + "\">&gt;&gt;</a></li>");
 		}
 		
-		// 끝으로 보여주기 여부
+/*		// 끝으로 보여주기 여부
 		if(isShowLast()){
 			sb.append("<span><a href=\"?page=" + totalPageCount + parameters + "\">끝으로</a>&nbsp;</span>");
-		}
+		}*/
+		
+		sb.append(" </ul>  </div>");
 		return sb.toString();
 	}
 	
