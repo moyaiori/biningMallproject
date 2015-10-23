@@ -56,4 +56,5 @@ public class MybatisProductDao implements ProductDao {
 		}
 		return product;
 	}
+	
 }

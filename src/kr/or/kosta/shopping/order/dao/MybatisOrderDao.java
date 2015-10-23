@@ -91,4 +91,31 @@ public class MybatisOrderDao implements OrderDao {
 		}
 		return order;
 	}
+
+	// 물건의 정보 가져오기
+	@Override
+	public String getProductInfo(String productName) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		String productImg = null;
+		
+		try {
+			OrderDao dao = (OrderDao) sqlSession.getMapper(OrderDao.class);
+			productImg = dao.getProductInfo(productName);
+		} finally {
+			sqlSession.close();
+		}
+		
+		return productImg;
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
