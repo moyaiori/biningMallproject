@@ -285,6 +285,75 @@ th {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/** 메인*/
+#board_top{
+		float: left; 
+		width: 50%;
+		padding-top:0px;
+		padding-bottom: 0px;
+	}
+	.news_div{
+		
+		width:100%;
+		margin:0 auto;
+		display:block;
+	}
+	.news_title {
+	color:#aeaeae;
+	width: 227px;
+	padding: 3px 3px 0 0;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+	.news_date {
+	color:#aeaeae;
+	float: right;
+	padding: 3px 0px 0 0;
+	}
+	
+	.pro_div{
+		width:100%;
+		height: 160px;
+		margin:0 auto;
+		display:block;
+		background:#fff;
+		margin-top:10px;
+		
+	}
+	.cus_div{
+		display:block;
+		background: #fff;
+		width: 100%;
+		margin-top: 10px;
+	}
+
+.n_h_table {
+    width: 100%;
+    border-bottom: 1px solid #d5d5d5;
+    margin: 0 auto;
+    padding: 2px 0;
+    font-size: 13px;}
+    
+    .n_ul {
+    margin: 0 auto;
+    padding: 17px 8px;
+    font-size: 12px;}
+    
+    .n_ul li{
+   		
+	  	list-style:none;
+		position: relative;
+		width: 100%;
+	}
+    
+    .all a {
+	color:#aeaeae;
+	font-size:12px;
+    }
+
+/** 로그인*/
 .j_p{
    font-size:34px;
    text-align:center;
@@ -298,6 +367,9 @@ th {
    font-family: Helvetica, Arial, sans-serif;
    font-style: 
 }
+
+
+
 
 .glyphicon-asterisk:before {
   content: "\2a";
