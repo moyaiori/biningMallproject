@@ -16,7 +16,7 @@ public interface QnaDao{
 	
 	public Article get(int artilceId) throws RuntimeException;
 	
-	public List<Qna> getAll(int boardId) throws RuntimeException;
+	public List<Article> getAll(int boardId) throws RuntimeException;
 /*	
 	*//** 회원 전체 목록 조회 *//*
 	public List<Member> getAll() throws RuntimeException;

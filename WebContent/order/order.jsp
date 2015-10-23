@@ -87,29 +87,41 @@ window.onload = function(){
 		}
 	}
 	
-	document.getElementById("usePoint").onchange = function(){
-		var usePoint = document.getElementById("usePoint").value;	// 사용하고자하는 적립금
-		var Point = document.getElementById("point");							// 적립금
-		var price = document.getElementById("price").textContent;		// 상품 가격
-		var total = document.getElementById("total");								// 최종 결제 가격
-		
-		console.log(usePoint);
-		console.log(Point.textContent);
-		
-		if(usePoint >= Point){
-			console.log("true");
-		}else{
-			console.log("false");
-		}
-		
+	document.getElementById("total").textContent = document.getElementById("price").textContent;
+	
+	if(document.getElementById("usePoint").value == 0 || document.getElementById("usePoint").value == 0 || document.getElementById("usePoint") == null){
+		document.getElementById("usePoint").value = 0;
+	}
 
-		//Point.textContent = Point - usePoint;
-		//alert("적립금을 초과 하셧습니다.");
-		
-		
-		
+	var usePoint = document.getElementById("usePoint").value;	// 사용하고자하는 적립금 input
+	var point = document.getElementById("point");							// 적립금 label
+	var price = document.getElementById("price").textContent;		// 상품 가격 label
+	var total = document.getElementById("total");								// 최종 결제 가격 label
+	var nowPoint = "${member.point }";
+	
+	point.innerHTML = nowPoint;
+	
+	document.getElementById("usePoint").onchange = function(){
+
+		if(document.getElementById("usePoint").value == 0 || document.getElementById("usePoint") == null){
+			document.getElementById("usePoint").value = 0;
+		}else{
+			if(document.getElementById("usePoint").value > document.getElementById("price").textContent){
+				alert("적립금을 상품가격보다 더 사용하셧습니다.");
+				document.getElementById("usePoint").value = document.getElementById("price").textContent;
+				document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
+			}else if(document.getElementById("usePoint").value > nowPoint){
+				alert("현재 보유하신 적립금보다 많습니다.");
+				document.getElementById("usePoint").value = price;
+				document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
+			}else{
+				document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
+			}
+		}
 	}
 }
+		
+	
 
 </script>
 
@@ -231,11 +243,12 @@ window.onload = function(){
 				<table>
 					<tr>
 						<td class="TagTd">상품합계금액</td>
-						<td class="inputTd"><label id="price">${param.price }</label></td>
+						<td class="inputTd"><label id="price">${param.price }</label>원</td>
+						<td class="inputTd"><label id="price">${request.price }</label></td>
 					</tr>
 					<tr>
 						<td class="TagTd">적립금</td>
-						<td class="inputTd"><label id="point">${member.point }원</label></td>
+						<td class="inputTd"><label id="point"></label>원</td>
 					</tr>
 					<tr>
 						<td class="TagTd">사용할 적립금</td>
@@ -243,7 +256,7 @@ window.onload = function(){
 					</tr>
 					<tr>
 						<td class="TagTd">총 결제 금액</td>
-						<td class="inputTd"><label id="total">10000원</label></td>
+						<td class="inputTd"><label id="total"></label>원</td>
 					</tr>
 				</table>
 			</td>

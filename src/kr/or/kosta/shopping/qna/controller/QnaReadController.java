@@ -21,13 +21,14 @@ public class QnaReadController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response){
 		
 		ModelAndView mav = new ModelAndView();
+		Article article;
 		System.out.println("QnaReadController 진입");
 		String articleId = request.getParameter("articleId");
 		System.out.println("QnaReadController articleId : "+articleId);
 		QnaService service = QnaService.getInstance();
 		//Qna qna = service.get(Integer.parseInt(articleId));
 		//ArticleService service = ArticleService.getInstance();
-		Article article = service.get(Integer.parseInt(articleId));
+		article = (Article)service.get(Integer.parseInt(articleId));
 		//Article article = service.get(Integer.parseInt(articleId));
 		//service.add(article);
 		mav.addObject("qna", article);
