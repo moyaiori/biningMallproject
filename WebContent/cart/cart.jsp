@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
+<script src="../js/ajax2.js"></script>
 <script>
    window.onload = function(){
       var price = 0;
@@ -21,6 +22,7 @@
       var productPrice2;
       var temp;
       
+      
       for (var i in checkBox){         
          checkBox[i].onchange = function(){
             if(this.checked == true){
@@ -35,14 +37,14 @@
                         count = parseInt(this.value);
                         productPrice2 = this.parentNode.previousSibling.previousSibling.firstChild.nodeValue.trim();
                         temp = parseInt(count) * parseInt(productPrice2);
-                        //console.log("temp:"+temp);
                         viewPrice.innerHTML = parseInt(count) * parseInt(productPrice2);
                         price = temp;
                         
                         for(var j=0; j<orderCount.length; j++){
-                           //console.log(parseInt(orderCount[j].parentNode.nextSibling.nextSibling.firstChild.nodeValue.trim()))   ;
                            if(orderCount[j].parentNode.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.firstChild.checked){
-                              total += parseInt(orderCount[j].parentNode.nextSibling.nextSibling.firstChild.nodeValue.trim());   
+                        	  total = checkSelect(checkBox);
+                              //total += parseInt(orderCount[j].parentNode.nextSibling.nextSibling.firstChild.nodeValue.trim());
+                              console.log("들어옴 :" + total);
                            }
                         }
                         
@@ -78,18 +80,68 @@
       
       selDeleteBtn = document.getElementById("selDelete");
       selDeleteBtn.onclick = function(){
-    	  for (var i in checkBox){  
+    	  var json = '[';
+    	  for (var i in checkBox){
     		  if(checkBox[i].checked){
     			  cartOutput += checkBox[i].parentNode.previousSibling.previousSibling.firstChild.nodeValue + ",";
     		  }
     	  }
     	  window.location.href = "/cart/cartSeldelete.bins?loginId=" + "${cookie.loginId.value}" + "&cartId=" + cartOutput;
       }
+      
+      allOrderBtn = document.getElementById("allOrder");
+      allOrderBtn.onclick = function(){
+    	  var json = '[';
+    	  var tbody = document.getElementById("tbody");
+    	  var nodeList = tbody.childNodes;
+    	  for ( var i in nodeList) {
+    		  if(nodeList[i].constructor == "function HTMLTableRowElement() { [native code] }"){
+    			  var name = nodeList[i].childNodes[3].nextSibling.nextSibling.nextSibling.nextSibling.firstChild.nodeValue.trim();
+    			  var price = nodeList[i].childNodes[3].nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.firstChild.nodeValue.trim();
+    			  var count = nodeList[i].childNodes[3].nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.firstChild.value;
+    			  json += '{"name":"' +name+ '","price":"'+ price +'","count":"'+count+'"},'; 
+    		  }
+		  }
+    	  json = json.substring(0, json.length-1);
+    	  json += ']'
+    	  
+   		  ajax({
+   			  	method: "post",
+   				url: "../order/order.bins",
+   				data:"json="+json,
+   			});
+    	  
+      }
+      
+      selOrderBtn = document.getElementById("selOrder");
+      selOrderBtn.onclick = function(){
+    	  var tbody = document.getElementById("tbody");
+    	  var nodeList = tbody.childNodes;
+    	  for ( var i in nodeList) {
+    		  if(nodeList[i].constructor == "function HTMLTableRowElement() { [native code] }"){
+    			  if(nodeList[i].childNodes[3].firstChild.checked){
+	    			  var name = nodeList[i].childNodes[3].nextSibling.nextSibling.nextSibling.nextSibling.firstChild.nodeValue.trim();
+	    			  var price = nodeList[i].childNodes[3].nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.firstChild.nodeValue.trim();
+	    			  var count = nodeList[i].childNodes[3].nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.firstChild.value;
+	    			  json += '{"name":"' +name+ '","price":"'+ price +'","count":"'+count+'"},';
+    			  }
+    		  }
+		  }
+    	  json = json.substring(0, json.length-1);
+    	  json += ']'   
+    	  
+   		  ajax({
+   			  	method: "post",
+   				url: "../order/order.bins",
+   				data:"json="+json,
+   			});
+    	  
+      }
    }
    
    function checkSelect(standard){
 	   var total = 0;
-	   for (var i in standard){  
+	   for (var i in standard){
 		   if(typeof standard[i] == "object"){
 			   if(standard[i].checked){
 				   total += parseInt(standard[i].parentNode.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.firstChild.nodeValue.trim());
@@ -108,6 +160,8 @@
       price = standard.parentNode.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.firstChild.nodeValue;
       return price.trim();
    }
+   
+   
 </script>
 <!-- 
    작성일 : 2015/10/20
@@ -127,7 +181,7 @@
       <th>수량</th>
       <th>총 가격</th>
    </thead>
-   <tbody>
+   <tbody id="tbody">
       <c:forEach items="${cartList}" var="cart">
          <tr>
             <td style="display:none;" class="cartId">${cart.cartId}</td>
@@ -159,8 +213,8 @@
    </tfoot>
 </table>
 <br>
-<input type="button" value="선택주문">
-<input type="button" value="전체주문">
+<input type="button" value="선택주문" id="selOrder">
+<input type="button" value="전체주문" id="allOrder">
 </div>
 
 </div>

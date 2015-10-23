@@ -6,7 +6,10 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script src="../js/ajax.js"></script>
 <script>
+var join= false;
 function searchPost() {
     new daum.Postcode({
         oncomplete: function(data) {
@@ -50,6 +53,7 @@ function searchPost() {
 }
     
     function check(){
+    	
 		if(document.addjoin.name.value==""){
 			alert("이름을 입력 하세요");
 			return false;
@@ -88,6 +92,77 @@ function searchPost() {
 			return false;
 		}
 	}
+
+/*   조현빈 자바스크립트 부분 추가    */
+    var checked = false;
+    window.onload = function(){
+    	// 이벤트소스에 이벤트리스너 등록
+    	document.addjoin.id.onkeyup = function(){
+    		var joinId = document.addjoin.id.value;
+    	
+    		
+    		if(document.addjoin.id.value.length >= 5 && document.addjoin.id.value.length <= 8){
+    			// 서버에 아이디 전송
+    			  	ajax({
+    				url: "/user/MemberJoinIdChk.bins",
+    				data: "joinId="+joinId,
+    				callback : function(xhr){
+    					//alert(xhr.responseText);
+    					onMessage(xhr,"id");
+    				}
+    			});
+    			checked = true;
+    		}else{
+    			setMessage("아이디는 5~8자 이어야 합니다.");
+    		}
+    
+    	}
+    	
+    	document.addjoin.email.onkeyup = function(){
+    		var joinEmail= document.addjoin.email.value;
+    		if(document.addjoin.email.value.length >= 5){
+    			// 서버에 아이디 전송
+    			  	ajax({
+    				url: "/user/MemberJoinEmailChk.bins",
+    				data: "joinEmail="+joinEmail,
+    				callback : function(xhr){
+    					//alert(xhr.responseText);
+    					onMessage(xhr,"email");
+    				}
+    			});
+    			checked = true;
+    		}else{
+    			setMessage("");
+    		}
+    	}
+    	
+    }
+
+    function onMessage(xhr, type){
+    	console.log(xhr.responseText);
+    	var result = xhr.responseText;
+    	//setMessage(xhr);
+    	//console.log(result);
+    	if(result.trim() == "true"){//아이디 중복 === : 타입까지 비교!!
+    		setMessage("사용가능합니다.",type);
+    	}else{
+    		setMessage("중복된 내역 입니다.",type);
+    	} 
+    }
+
+    function setMessage(message, type){
+    	var messageBox = document.getElementById(type+"messageBox");
+    	if(messageBox){
+    		messageBox.innerHTML = message;
+    	}
+    	if(color){
+    		messageBox.style.color = color;
+    	}
+    }
+    
+    
+    
+    
 </script>
 
 <style>
@@ -117,7 +192,7 @@ form {
 				</colgroup>
 			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">아이디</td>
-				<td><input type="text" class="form-control" name="id"></td>
+				<td><input type="text" class="form-control" name="id"><span id="idmessageBox"></span></td>
 			</tr>
 			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">비밀번호</td>
@@ -144,7 +219,7 @@ form {
 			</tr>
 			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">이메일주소</td>
-				<td><input type="text" class="form-control" name="email"></td>
+				<td><input type="text" class="form-control" name="email"><span id="emailmessageBox"></span></td>
 			</tr>
 	
 			<tr>

@@ -45,4 +45,16 @@
 		 WHERE member_id = #{memberId} AND passwd = #{passwd}
 	</select>	
 	
+	<!-- login 아이디 중복 검사  -->
+	<select id="idChk" resultType="kr.or.kosta.shopping.member.domain.Member" parameterType="java.lang.String">
+		  select member_id AS "memberId", passwd AS "passwd", birth AS "birth", phone_number AS "phoneNumber", address AS "address", address2 AS "address2", name AS "name", email AS "email", grade AS "grade", point AS "point"   
+		  from members where member_id =#{value}
+	</select>
+		
+	<!-- login 이메일 중복 검사  -->
+	<select id="emailChk" resultType="kr.or.kosta.shopping.member.domain.Member" parameterType="java.lang.String">
+		  select member_id AS "memberId", passwd AS "passwd", birth AS "birth", phone_number AS "phoneNumber", address AS "address", address2 AS "address2", name AS "name", email AS "email", grade AS "grade", point AS "point"   
+		  from members where email =#{value}
+	</select>
+	
 </mapper>

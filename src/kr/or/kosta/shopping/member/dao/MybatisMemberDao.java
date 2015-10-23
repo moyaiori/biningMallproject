@@ -101,4 +101,35 @@ public class MybatisMemberDao implements MemberDao {
 		}
 		return member;
 	}
+
+	@Override
+	public Member idChk(String id) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		Member member = null;
+		try {
+			MemberDao dao = sqlSession.getMapper(MemberDao.class);
+			member = dao.idChk(id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return member;
+	}
+
+	@Override
+	public Member emailChk(String email) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		Member member = null;
+		try {
+			MemberDao dao = sqlSession.getMapper(MemberDao.class);
+			member = dao.emailChk(email);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return member;
+		
+	}
 }

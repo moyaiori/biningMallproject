@@ -33,6 +33,7 @@ public class OrderCheckController implements Controller{
 		String comment = null;
 		String productName = null;
 		String toppingName = null;
+		String totalPrice = null;
 		
 		// 쿠키값 가져오기
 	    Cookie[] cookies = request.getCookies();
@@ -53,10 +54,12 @@ public class OrderCheckController implements Controller{
 		productName = request.getParameter("productname");
 		toppingName = request.getParameter("toppingname");
 		
-		Order order = new Order(0, loginId, address, address2, null, payment, recipient, productName, toppingName, comment, 0);
+		Order order = new Order(0, loginId, address, address2, null, payment, recipient, productName, toppingName, comment, totalPrice);
 		
 		service.insert(order);
+		
 		mav.addObject("order", order);
+		
 		mav.addObject("contentFile", "/order/orderCheck.jsp");
 		
 		return mav;

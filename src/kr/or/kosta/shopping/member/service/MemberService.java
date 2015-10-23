@@ -65,4 +65,27 @@ public class MemberService {
 		}
 		return member;
 	}
+	
+	
+	public Member idChk(String id) throws RuntimeException {
+		Member member = null;
+		try {
+			member = memberDao.idChk(id);
+			
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return member;
+	}
+	
+	public Member emailChk(String email) throws RuntimeException {
+		
+		Member member = null;
+		try {
+			member = memberDao.emailChk(email);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return member;
+	}
 }

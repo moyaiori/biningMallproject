@@ -15,6 +15,9 @@ public interface ProductDao {
 	
 	/** 밥버거 하나 조회 */
 	public Product get(int productId) throws Exception;
+	
+	/** 비싼 밥버거 3개 */
+	public List<Product> expensive() throws Exception;
 }
 
 

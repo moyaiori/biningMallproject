@@ -9,10 +9,14 @@
 			<c:when test="${cookie.loginId == null}"><li><a href = "../user/login.bins">Login</a></li></c:when>
 			<c:when test="${cookie.loginId != null}"><li><a href = "../user/logout.bins">Logout</a></li></c:when>
 		</c:choose>
+		<c:if test="${cookie.loginId == null}">
+			<li><a href = "../user/regist.bins">Join</a></li>
+		</c:if>
 		<li><a href="../notice/notice_list.bins" >공지사항</a></li>
 		<li><a href= "../qna/qna_view.bins">QnA</a></li>
 		<c:if test="${cookie.loginId != null}">
 			<li><a href= "../cart/cartView.bins?loginId=${cookie.loginId.value}">Cart</a></li>
+			<li><a href= "../cart/cartView.bins?loginId=${cookie.loginId.value}">MyPage</a></li>
 		</c:if>
 	</ul>
 </div>

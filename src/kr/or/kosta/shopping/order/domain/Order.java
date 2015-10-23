@@ -11,12 +11,12 @@ public class Order {
 	private String productName;
 	private String toppingName;
 	private String comment;
-	private int totalPrice;
+	private String totalPrice;
 	
 	public Order(){}
 
 	public Order(int orderNum, String memberId, String address, String address2, String orderDate, String payment,
-			String recipient, String productName, String toppingName, String comment, int totalPrice) {
+			String recipient, String productName, String toppingName, String comment, String totalPrice) {
 		super();
 		this.orderNum = orderNum;
 		this.memberId = memberId;
@@ -75,10 +75,10 @@ public class Order {
 	public void setRecipient(String recipient) {
 		this.recipient = recipient;
 	}
-	public int getTotalPrice() {
+	public String getTotalPrice() {
 		return totalPrice;
 	}
-	public void setTotalPrice(int totalPrice) {
+	public void setTotalPrice(String totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 	

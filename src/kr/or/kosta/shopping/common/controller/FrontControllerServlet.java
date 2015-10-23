@@ -65,26 +65,30 @@ public class FrontControllerServlet extends HttpServlet {
 		}
 
 		mav = controller.handleRequest(request, response);
-		Map<String, Object> map = mav.getMap();
-		Set<String> keys = map.keySet();
-		for (String key : keys) {
-			Object value = map.get(key);
-			// JSP(View)가 데이터를 사용할 수 있도록 request에 저장
-			request.setAttribute(key, value);
-		}
-		
-		String viewPath = mav.getView();
-		if (viewPath == null) {
-			//response.sendError(HttpServletResponse.SC_NOT_FOUND);
-			//return;
-			viewResolver.execute(request, response, "/template/template.jsp");
-		}else{
-			if(viewPath.startsWith("redirect")){// redirect
-			String[] tokens = viewPath.split(":");
-			response.sendRedirect(tokens[1]);
-			}else{//forward
-				viewResolver.execute(request, response, viewPath);
+		if(mav != null){
+			Map<String, Object> map = mav.getMap();
+			Set<String> keys = map.keySet();
+			for (String key : keys) {
+				Object value = map.get(key);
+				// JSP(View)가 데이터를 사용할 수 있도록 request에 저장
+				request.setAttribute(key, value);
 			}
+			
+			String viewPath = mav.getView();
+			if (viewPath == null) {
+				//response.sendError(HttpServletResponse.SC_NOT_FOUND);
+				//return;
+				viewResolver.execute(request, response, "/template/template.jsp");
+			}else{
+				if(viewPath.startsWith("redirect")){// redirect
+				String[] tokens = viewPath.split(":");
+				response.sendRedirect(tokens[1]);
+				}else{//forward
+					viewResolver.execute(request, response, viewPath);
+				}
+			}
+		}else{
+			return ;
 		}
 	}
 }
