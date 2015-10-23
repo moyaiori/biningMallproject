@@ -99,7 +99,7 @@
 				toppingName += (array[i].name + ",");
 			}
 	       var productName = "${product.name}";
-	       window.location.href="../order/order.bins?price="+price + "&toppingname=" + toppingName + "&productName=" + productName;   
+	       window.location.href="../order/order.bins?price="+price + "&toppingname=" + toppingName + "&productName=" + productName + "&count=" + count.value;   
 	    }
 	    
 	    var addCart = document.getElementById("addCart");
