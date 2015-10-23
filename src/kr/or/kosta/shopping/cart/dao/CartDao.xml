@@ -6,7 +6,7 @@
 	
 	<!-- 전체회원 조회를 위한 SQL 매핑 -->
 	<select id="getAll" parameterType="java.lang.String" resultType="kr.or.kosta.shopping.cart.domain.Cart" >
-		SELECT member_id AS "memberId", product_id AS "productId", name, price, picture, order_count AS "orderCount", topping_price AS "toppingPrice", topping_name AS "toppingName" 
+		SELECT cart_id AS "cartId",member_id AS "memberId", product_id AS "productId", name, price, picture, order_count AS "orderCount", topping_price AS "toppingPrice", topping_name AS "toppingName" 
 		FROM cart
 		WHERE member_id = #{memberId}
 	</select>
@@ -20,7 +20,7 @@
 	<!-- 회원 삭제 -->
 	<delete id="delete" parameterType="java.util.HashMap">
 		DELETE FROM cart
-		WHERE member_id = #{memberId} AND product_id = #{productId}
+		WHERE member_id = #{memberId} AND cart_id = #{cartId}
 	</delete>
 	
 	<delete id="deleteAll" parameterType="java.lang.String">
