@@ -283,7 +283,7 @@ window.onload = function(){
 	</table>
 	<div style="text-align: center">
 		<input type="submit" class="btn btn-default" value="결제하기" />
-		<input type="button" class="btn btn-default" value="취소하기" />
+		<input type="reset" class="btn btn-default" value="취소하기" />
 	</div>
 </div>
 	
