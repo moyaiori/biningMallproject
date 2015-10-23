@@ -35,11 +35,11 @@ public class MemberLoginController implements Controller{
 			cookie.setPath("/");
 			response.addCookie(cookie);
 			
-			mav.setView("redirect:/index.jsp");
+			mav.setView("redirect:/index.bins");
 			mav.addObject("message", "로그인 성공");
 			return mav;
 		}else{
-			mav.setView("redirect:/index.jsp");
+			mav.setView("redirect:/index.bins");
 			mav.addObject("message", "로그인 실패");
 			return mav;
 		}
