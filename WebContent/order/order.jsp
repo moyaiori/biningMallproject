@@ -246,7 +246,7 @@ window.onload = function(){
 							<td class="inputTd"><label id="price">${request.price }</label></td>
 						</tr>
 						<tr>
-							<td class="TagTd">적립금</td>
+							<td class="TagTd">사용가능 적립금</td>
 							<td class="inputTd"><label id="point"></label>원</td>
 						</tr>
 						<tr>

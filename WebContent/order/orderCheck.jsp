@@ -38,27 +38,27 @@
 				</tr>
 				<tr>
 					<td>주문번호</td>
-					<td>${ }</td>
+					<td>${param.num }</td>
 				</tr>
 				<tr>
 					<td>결제금액</td>
-					<td>${ }원</td>
+					<td>${param.num  }원</td>
 				</tr>
 				<tr>
 					<td>상품내역</td>
-					<td>${ }</td>
+					<td>${param.num  }</td>
 				</tr>
 				<tr>
 					<td>받으실분</td>
-					<td>${ }</td>
+					<td>${param.num  }</td>
 				</tr>
 				<tr>
 					<td>배송될 주소</td>
-					<td>${ }</td>
+					<td>${param.num  }</td>
 				</tr>
 				<tr>
 					<td>남기신말</td>
-					<td>${ }</td>
+					<td>${param.num  }</td>
 				</tr>
 			</table>
 			<div style="text-align: center;">

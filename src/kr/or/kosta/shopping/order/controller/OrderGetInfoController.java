@@ -37,8 +37,8 @@ public class OrderGetInfoController implements Controller{
 				if(cookie.getName().equals("loginId")){
 					cookie.setPath("/");
 					loginId = cookie.getValue();
-				}				
-			}			
+				}
+			}
 		}
 		
 		productName = request.getParameter("productName");
