@@ -36,8 +36,7 @@ public class MemberLogoutController implements Controller{
 
 		
 		ModelAndView mav = new ModelAndView();
-//		mav.addObject("contentFile", "/index.jsp");
-		mav.setView("redirect:/index.jsp");
+		mav.setView("redirect:/index.bins");
 		return mav;
 	}
 }
