@@ -93,13 +93,22 @@
 		
 	    var buyButton = document.getElementById("buyButton");
 	    buyButton.onclick = function(){
+	       var json = '[';
 	       var priceE = document.getElementById("price");
 	       var price = priceE.firstChild.nodeValue;
 	       for ( var i in array) {
-				toppingName += (array[i].name + ",");
+				toppingName += (array[i].name + " ");
 			}
 	       var productName = "${product.name}";
-	       window.location.href="../order/order.bins?price="+price + "&toppingname=" + toppingName + "&productName=" + productName + "&count=" + count.value;   
+	       if(toppingName.trim().length == 0){
+	    	   toppingName = "없음";
+	       }
+	       json += '{"name":"' + productName +"(토핑 : " + toppingName + ")" + '","price":"'+ price +'","count":"'+count.value+'"},';
+	       ajax({
+  			  	method: "post",
+  				url: "order.bins",
+  				data: json,
+  			});
 	    }
 	    
 	    var addCart = document.getElementById("addCart");
