@@ -51,7 +51,7 @@ public class NoticeListController implements Controller {
 		}else{/*검색이 아닐경우 일반 페이지 처리.*/
 	
 			articleList=service.getAll(pageNum);
-			listSize=service.getAllCnt();
+			listSize=service.getAllCnt(); //검색된 전체 수.
 		}
 		requestP = Integer.parseInt(rp);
 		

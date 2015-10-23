@@ -128,164 +128,167 @@ window.onload = function(){
 </head>
 <body>
 
-<div class="container">
-	<table class="table info">
-		<colgroup>
-			<col width="230" />
-			<col width="230" />
-			<col width="90" />
-			<col width="90" />
-			<col width="90" />
-			<col width="90" />
-			<col width="90" />
-			<col width="90" />
-		</colgroup>
-		
-		<tr class="active">
-			<th>상품사진</th>
-			<th>상품명</th>
-			<th>판매가</th>
-			<th>수량</th>
-			<th>배송비</th>
-			<th>적립금</th>
-			<th>합계</th>
-			<th>토핑</th>
-		</tr>
-		<tr>
-			<td><img src='../images/치킨밥버거.JPG' /></td>
-			<td>아주아주 맛있어요</td>
-			<td>비닝이</td>
-			<td>Good</td>
-			<td>Good</td>
-			<td>Good</td>
-			<td>Good</td>
-			<td><input type="button" class="btn btn-default" value="토핑보기" /></td>
-		</tr>
-	</table>
-</div>
-
-<div class="container">
-	<table class="table">
-		<colgroup>
-			<col width="250" />
-			<col width="750" />
-		</colgroup>
-		<tr>
-			<td><h4>01. 주문자 정보</h4></td>
-			<td>
-				<table>
-					<tr>
-						<td class="TagTd">주문하시는분</td>
-						<td class="inputTd"><input type="text" class="form-control" value="${member.name }"></td>
-					</tr>
-					<tr>
-						<td class="TagTd">전화번호</td>
-						<td class="inputTd">
-							<input type="text" class="form-control phoneFile"  value="${member.phoneNumber }" style="display: inline;"> - 
-							<input type="text" class="form-control phoneFile"  value="${member.phoneNumber2 }"> - 
-							<input type="text" class="form-control phoneFile"  value="${member.phoneNumber3}">
-						</td>
-					</tr>
-					<tr>
-						<td class="TagTd">이메일</td>
-						<td class="inputTd"><input type="text" class="form-control" value="${member.email }"></td>
-					</tr>
-				</table>
-			</td>
-		</tr>
-		<tr>
-			<td><h4>02. 배송 정보</h4></td>
-			<td>
-				<table>
-					<tr>
-						<td class="TagTd">배송지 확인</td>
-						<td class="inputTd"><div class="checkbox" style="margin: 0px"><label><input type="checkbox" value=""  id="checkbox">주문고객 정보와 동일합니다.</label></div></td>
-					</tr>
-					<tr>
-						<td class="TagTd">받으실분</td>
-						<td class="inputTd"><input type="text" class="form-control" id="name" value=""></td>
-					</tr>
-					<tr>
-						<td class="TagTd">받으실곳</td>
-						<td class="inputTd"><input type="text" class="form-control" id="address"></td>
-					</tr>
-					<tr>
-						<td class="TagTd"></td>
-						<td class="inputTd"><input type="text" class="form-control" id="address2"></td>
-					</tr>
-					<tr>
-						<td class="TagTd">전화번호</td>
-						<td class="inputTd">
-							<input type="text" class="form-control phoneFile"  id="phoneNum1" style="display: inline;"> - 
-							<input type="text" class="form-control phoneFile" id="phoneNum2"> - 
-							<input type="text" class="form-control phoneFile" id="phoneNum3">
-						</td>
-					</tr>
-					<tr>
-						<td class="TagTd">남기실 말씀</td>
-						<td class="inputTd"><input type="text" class="form-control"></td>
-					</tr>
-					<tr>
-						<td class="TagTd">배송 선택</td>
-						<td class="inputTd">
-							<div class="radio">
-	  							<label><input type="radio" name="optradio" checked="checked">기본 배송</label>
-							</div>
-						</td>
-					</tr>
-				</table>
-			</td>
-		</tr>
-		
-		<tr>
-			<td><h4>03. 결제 금액</h4></td>
-			<td>
-				<table>
-					<tr>
-						<td class="TagTd">상품합계금액</td>
-						<td class="inputTd"><label id="price">${param.price }</label>원</td>
-						<td class="inputTd"><label id="price">${request.price }</label></td>
-					</tr>
-					<tr>
-						<td class="TagTd">적립금</td>
-						<td class="inputTd"><label id="point"></label>원</td>
-					</tr>
-					<tr>
-						<td class="TagTd">사용할 적립금</td>
-						<td class="inputTd"><input type="text" class="form-control" id="usePoint"></td>
-					</tr>
-					<tr>
-						<td class="TagTd">총 결제 금액</td>
-						<td class="inputTd"><label id="total"></label>원</td>
-					</tr>
-				</table>
-			</td>
-		</tr>
-		
-		
-		<tr>
-			<td><h4>04. 결제 방법</h4></td>
-			<td>
-				<table>
-					<tr>
-						<td  class="TagTd" style="line-height: 22px;">일반 결제 방법</td>
-						<td>
-							<label class="radio-inline"><input type="radio" name="optradio">무통장입금</label>
-							<label class="radio-inline"><input type="radio" name="optradio">신용카드</label>
-							<label class="radio-inline"><input type="radio" name="optradio">계좌이제</label>
-							<label class="radio-inline"><input type="radio" name="optradio">가상계좌</label>
-							<label class="radio-inline"><input type="radio" name="optradio">핸드폰</label>
-						</td>
-					</tr>
-				</table>
-			</td>
-		</tr>
-	</table>
-	<div style="text-align: center">
-		<input type="submit" class="btn btn-default" value="결제하기" />
-		<input type="reset" class="btn btn-default" value="취소하기" />
+<form action="../order/orderCheck.bins" method="post">
+	<div class="container">
+		<table class="table info">
+			<colgroup>
+				<col width="275" />
+				<col width="275" />
+				<col width="90" />
+				<col width="90" />
+				<col width="90" />
+				<col width="90" />
+				<col width="90" />
+			</colgroup>
+			
+			<tr class="active">
+				<th>상품사진</th>
+				<th>상품명</th>
+				<th>판매가</th>
+				<th>수량</th>
+				<th>배송비</th>
+				<th>적립금</th>
+				<th>합계</th>
+			</tr>
+			<tr>
+				<td><img src='../images/치킨밥버거.JPG' /></td>
+				<td>아주아주 맛있어요</td>
+				<td>비닝이</td>
+				<td>Good</td>
+				<td>Good</td>
+				<td>Good</td>
+				<td>Good</td>
+			</tr>
+		</table>
+		<input type="hidden" name="productname" value="임시 상품명">
+		<input type="hidden" name="toppingname" value="임시 토핑명">
 	</div>
-</div>
+	
+	<div class="container">
+		<table class="table">
+			<colgroup>
+				<col width="250" />
+				<col width="750" />
+			</colgroup>
+			<tr>
+				<td><h4>01. 주문자 정보</h4></td>
+				<td>
+					<table>
+						<tr>
+							<td class="TagTd">주문하시는분</td>
+							<td class="inputTd"><input type="text" class="form-control"  name="memberId" value="${member.name }"></td>
+						</tr>
+						<tr>
+							<td class="TagTd">전화번호</td>
+							<td class="inputTd">
+								<input type="text" class="form-control phoneFile"  value="${member.phoneNumber }" style="display: inline;"> - 
+								<input type="text" class="form-control phoneFile"  value="${member.phoneNumber2 }"> - 
+								<input type="text" class="form-control phoneFile"  value="${member.phoneNumber3}">
+							</td>
+						</tr>
+						<tr>
+							<td class="TagTd">이메일</td>
+							<td class="inputTd"><input type="text" class="form-control" value="${member.email }"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td><h4>02. 배송 정보</h4></td>
+				<td>
+					<table>
+						<tr>
+							<td class="TagTd">배송지 확인</td>
+							<td class="inputTd"><div class="checkbox" style="margin: 0px"><label><input type="checkbox" value=""  id="checkbox">주문고객 정보와 동일합니다.</label></div></td>
+						</tr>
+						<tr>
+							<td class="TagTd">받으실분</td>
+							<td class="inputTd"><input type="text" class="form-control" id="name" value=""></td>
+						</tr>
+						<tr>
+							<td class="TagTd">받으실곳</td>
+							<td class="inputTd"><input type="text" class="form-control" id="address"></td>
+						</tr>
+						<tr>
+							<td class="TagTd"></td>
+							<td class="inputTd"><input type="text" class="form-control" id="address2"></td>
+						</tr>
+						<tr>
+							<td class="TagTd">전화번호</td>
+							<td class="inputTd">
+								<input type="text" class="form-control phoneFile"  id="phoneNum1" style="display: inline;"> - 
+								<input type="text" class="form-control phoneFile" id="phoneNum2"> - 
+								<input type="text" class="form-control phoneFile" id="phoneNum3">
+							</td>
+						</tr>
+						<tr>
+							<td class="TagTd">남기실 말씀</td>
+							<td class="inputTd"><input type="text" class="form-control"></td>
+						</tr>
+						<tr>
+							<td class="TagTd">배송 선택</td>
+							<td class="inputTd">
+								<div class="radio">
+		  							<label><input type="radio" name="optradio" checked="checked">기본 배송</label>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			
+			<tr>
+				<td><h4>03. 결제 금액</h4></td>
+				<td>
+					<table>
+						<tr>
+							<td class="TagTd">상품합계금액</td>
+							<td class="inputTd"><label id="price">${param.price }</label>원</td>
+							<td class="inputTd"><label id="price">${request.price }</label></td>
+						</tr>
+						<tr>
+							<td class="TagTd">적립금</td>
+							<td class="inputTd"><label id="point"></label>원</td>
+						</tr>
+						<tr>
+							<td class="TagTd">사용할 적립금</td>
+							<td class="inputTd"><input type="text" class="form-control" id="usePoint"></td>
+						</tr>
+						<tr>
+							<td class="TagTd">총 결제 금액</td>
+							<td class="inputTd"><label id="total" for="payment"></label>원</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			
+			
+			<tr>
+				<td><h4>04. 결제 방법</h4></td>
+				<td>
+					<table>
+						<tr>
+							<td  class="TagTd" style="line-height: 22px;">일반 결제 방법</td>
+							<td>
+								<label class="radio-inline"><input type="radio" name="optradio">무통장입금</label>
+								<label class="radio-inline"><input type="radio" name="optradio">신용카드</label>
+								<label class="radio-inline"><input type="radio" name="optradio">계좌이제</label>
+								<label class="radio-inline"><input type="radio" name="optradio">가상계좌</label>
+								<label class="radio-inline"><input type="radio" name="optradio">핸드폰</label>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<div style="text-align: center">
+			<input type="submit" class="btn btn-default" value="결제하기" />
+			<input type="reset" class="btn btn-default" value="취소하기" />
+		</div>
+	</div>
+</form>
+
+
 	
 </body>
 </html>

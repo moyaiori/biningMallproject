@@ -1,15 +1,21 @@
 package kr.or.kosta.shopping.cart.controller;
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.or.kosta.shopping.cart.service.CartService;
+import kr.or.kosta.shopping.comment.domain.Comment;
+import kr.or.kosta.shopping.comment.service.CommentService;
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
 import kr.or.kosta.shopping.product.domain.Product;
+import kr.or.kosta.shopping.product.service.ProductService;
+import kr.or.kosta.shopping.topping.domain.Topping;
+import kr.or.kosta.shopping.topping.service.ToppingService;
 
 public class CartInsertController implements Controller{
 	@Override
@@ -18,8 +24,10 @@ public class CartInsertController implements Controller{
 		String productId = request.getParameter("productId");
 		String name = request.getParameter("name");
 		String price = request.getParameter("price");
-		String picture = request.getParameter("pirture");
-		String count = request.getParameter("count");
+		String picture = request.getParameter("picture");
+		String orderCount = request.getParameter("count");
+		String toppingPrice = request.getParameter("toppingPrice");
+		String toppingName = request.getParameter("toppingName");
 		
 		Product product = new Product();
 		product.setProductId(Integer.parseInt(productId));
@@ -30,12 +38,28 @@ public class CartInsertController implements Controller{
 		HashMap<String, Object> data = new HashMap<String, Object>();
 		data.put("memberId", loginId);
 		data.put("product", product);
-		data.put("count", count);
+		data.put("count", orderCount);
+		data.put("toppingPrice", toppingPrice);
+		data.put("toppingName", toppingName);
 		
 		CartService service = CartService.getInstance();
 		service.insert(data);
 		
-		// 카트 추가는 페이지 이동이 필요 없다고 생각됨 (아니면 나중에 수정)
-		return null;
+		ModelAndView mav = new ModelAndView();
+		
+		ProductService productService = ProductService.getInstance();
+		Product viewProduct = productService.get(Integer.parseInt(productId));
+		
+		ToppingService toppingService = ToppingService.getInstance();
+		List<Topping> toppingList = toppingService.getAll();
+		
+		CommentService commentService = CommentService.getInstance();
+		List<Comment> commentList = commentService.getAll(Integer.parseInt(productId));
+		
+		mav.addObject("commentList", commentList);
+		mav.addObject("toppingList", toppingList);
+		mav.addObject("product", viewProduct);
+		mav.addObject("contentFile", "../product/product_view.jsp");
+		return mav;
 	}
 }

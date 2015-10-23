@@ -6,9 +6,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
-import kr.or.kosta.shopping.member.domain.Member;
-import kr.or.kosta.shopping.member.service.MemberService;
-import kr.or.kosta.shopping.order.domain.Order;
 import kr.or.kosta.shopping.order.service.OrderService;
 
 /**
@@ -22,11 +19,22 @@ public class OrderCheckController implements Controller{
 		
 		ModelAndView mav = new ModelAndView();
 		OrderService service = OrderService.getInstance();
-		System.out.println("OrderSetOrderController 진입");
+		System.out.println("OrderCheckController 진입");
+		
+		String memberId = null;
+		String address = null;
+		String address2 = null;
+		String payment = null;
+		String recipient = null;
+		String comment = null;
+		String productName = null;
+		String toppingName = null;
+		
+//		memberId = request.getAttribute(arg0)
+		
 		
 		
 		mav.addObject("contentFile", "/order/orderCheck.jsp");
-		
 		
 		return mav;
 	}
