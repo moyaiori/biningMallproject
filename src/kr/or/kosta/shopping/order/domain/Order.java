@@ -9,13 +9,14 @@ public class Order {
 	private String payment;
 	private String recipient;
 	private String productName;
-	private String toppingName;;
+	private String toppingName;
+	private String comment;
 	private int totalPrice;
 	
 	public Order(){}
-	
+
 	public Order(int orderNum, String memberId, String address, String address2, String orderDate, String payment,
-			String recipient, String productName, String toppingName, int totalPrice) {
+			String recipient, String productName, String toppingName, String comment, int totalPrice) {
 		super();
 		this.orderNum = orderNum;
 		this.memberId = memberId;
@@ -26,8 +27,10 @@ public class Order {
 		this.recipient = recipient;
 		this.productName = productName;
 		this.toppingName = toppingName;
+		this.comment = comment;
 		this.totalPrice = totalPrice;
 	}
+
 
 
 	public int getOrderNum() {
@@ -95,10 +98,19 @@ public class Order {
 		this.toppingName = toppingName;
 	}
 
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
 	@Override
 	public String toString() {
 		return "Order [orderNum=" + orderNum + ", memberId=" + memberId + ", address=" + address + ", address2="
 				+ address2 + ", orderDate=" + orderDate + ", payment=" + payment + ", recipient=" + recipient
-				+ ", productName=" + productName + ", toppingName=" + toppingName + ", totalPrice=" + totalPrice + "]";
+				+ ", productName=" + productName + ", toppingName=" + toppingName + ", comment=" + comment
+				+ ", totalPrice=" + totalPrice + "]";
 	}
 }
