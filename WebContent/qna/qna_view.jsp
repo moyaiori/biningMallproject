@@ -4,14 +4,13 @@
  -->
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script>
 
-	function userChk(){
-		if()
-		return false;
-	}
-
-</script>
+<style>
+a.disabled {
+   pointer-events: none;
+   cursor: default;
+}
+</style>
 
 <div id="container">
 	<div class="content">
@@ -31,16 +30,66 @@
 				<th>조회수</th>
 				
 			</tr>
-
+			
+		
 			<c:if test="${listSize - 1 >= 0}">
 				<c:forEach begin="0" end="${articleList.size()-1}" var="i">
+					<c:set var="j" value="${articleList.get(i).stepNum}"/>
+					<c:set var="writer" value="${articleList.get(i).memberId}"/>
+					<c:set var="loginId" value="${memberId}"/>
 					<tr>
 						<td>${listSize-i}</td>
 						<td>
-						<a	href="../qna/qna_read.bins?articleId=${articleList.get(i).articleId}" onclick="userChk()">
-							<span style="margin-left:${articleList.get(i).stepNum}0px"><img src="../images/lock.png"></span>${articleList.get(i).subject}</a>
+						<c:if test="${j=='0'}">
+						<c:choose>
+							<c:when test="${loginId eq 'admin'}">
+								<a href="../qna/qna_read.bins?articleId=${articleList.get(i).articleId}" >
+								<span><img src="../images/lock.png"></span>${articleList.get(i).subject}</a>
+							</c:when>
+							<c:when test="${writer eq loginId or writer=='admin'}">
+								<a href="../qna/qna_read.bins?articleId=${articleList.get(i).articleId}" >
+								<span><img src="../images/lock.png"></span>${articleList.get(i).subject}</a>
+							</c:when>
+							<c:when test="${writer ne loginId}">
+								<a href="../qna/qna_read.bins?articleId=${articleList.get(i).articleId}"  class="disabled">
+								<span><img src="../images/lock.png"></span>${articleList.get(i).subject}</a>
+							</c:when>
+						</c:choose>
+						</c:if>
+						
+						<c:if test="${j=='2'}">
+						<c:choose>
+							<c:when test="${loginId eq 'admin'}">
+								<a href="../qna/qna_read.bins?articleId=${articleList.get(i).articleId}" >
+								<span style="margin-left:${articleList.get(i).stepNum}0px"><img src="../images/re.gif">
+								<img src="../images/lock.png"></span>${articleList.get(i).subject}</a>
+							</c:when>
+							<c:when test="${writer eq loginId}">
+									<a href="../qna/qna_read.bins?articleId=${articleList.get(i).articleId}">
+									<span style="margin-left:${articleList.get(i).stepNum}0px"><img src="../images/re.gif">
+									<img src="../images/lock.png"></span>${articleList.get(i).subject}</a>
+							</c:when>
+							
+							<c:when test="${writer ne loginId}">
+								<a href="../qna/qna_read.bins?articleId=${articleList.get(i).articleId}"  class="disabled">
+								<span style="margin-left:${articleList.get(i).stepNum}0px">
+								<img src="../images/re.gif"><img src="../images/lock.png"></span>${articleList.get(i).subject}</a>
+							</c:when>
+						</c:choose>
+						</c:if>
+				
+				
+				
 						</td>
-						<td><span class="">${articleList.get(i).memberId}</span></td>
+						<c:choose>
+							<c:when test="${j=='0'}">
+						<td>${articleList.get(i).memberId}</td>
+							</c:when>
+							<c:when test="${j=='2'}">
+						<td>admin</td>
+							</c:when>
+						
+						</c:choose>
 						<td>${articleList.get(i).regdate}</td>
 						<td>${articleList.get(i).hitcount}</td>
 					</tr>
@@ -62,8 +111,6 @@
 			<input type="text" class="form-control" style="width: 200px;"	name="searchValue" required id="stx" /> 
 			<input type="submit"	class="btn btn-default" value="검색" /> 
 			<input onclick="location.href='../qna/qna_write.bins'" type="button"	class="btn btn-default" value="글쓰기" style="float: right;" />
-
-
 
 		</div>
 	</form>

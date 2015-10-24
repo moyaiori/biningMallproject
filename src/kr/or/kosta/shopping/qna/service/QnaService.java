@@ -52,7 +52,6 @@ public class QnaService {
 	}
 	/** 게시글 답변 등록 */
 	public void addRe(Qna qna)throws RuntimeException{
-		System.out.println("service . addRe() 진입");
 		/**비즈니스 로직 처리...*/
 		try {
 			qnaDao.insertRe(qna);
