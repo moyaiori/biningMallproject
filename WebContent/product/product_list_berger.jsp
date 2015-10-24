@@ -16,6 +16,9 @@ img{
 
 </style>
  
+ <p class="j_p">
+				<font class="j_txt">B </font>I N ' S 　B E R G E R </p>
+ 
 <div>
 	<table width=70% cellpadding="0" cellspacing="0" style="margin-left: 200">
 	<!--첫 번째 줄 -->
