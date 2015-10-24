@@ -37,28 +37,24 @@
 					<td colspan="2" style="text-align: center;"><h3>주문의 완료되었습니다. 주문내역을 확인해주세요</h3></td>
 				</tr>
 				<tr>
-					<td>주문번호</td>
-					<td>${param.num }</td>
-				</tr>
-				<tr>
 					<td>결제금액</td>
-					<td>${param.num  }원</td>
+					<td>${orderList.totalPrice}원</td>
 				</tr>
 				<tr>
 					<td>상품내역</td>
-					<td>${param.num  }</td>
+					<td>${productName}</td>
 				</tr>
 				<tr>
 					<td>받으실분</td>
-					<td>${param.num  }</td>
+					<td>${orderList.recipient}</td>
 				</tr>
 				<tr>
 					<td>배송될 주소</td>
-					<td>${param.num  }</td>
+					<td>${orderList.address} ${orderList.address2}</td>
 				</tr>
 				<tr>
 					<td>남기신말</td>
-					<td>${param.num  }</td>
+					<td>${orderList.orderComment}</td>
 				</tr>
 			</table>
 			<div style="text-align: center;">

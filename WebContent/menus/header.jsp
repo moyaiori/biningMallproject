@@ -16,14 +16,14 @@
 		<li><a href= "../qna/qna_view.bins">QnA</a></li>
 		<c:if test="${cookie.loginId != null}">
 			<li><a href= "../cart/cartView.bins?loginId=${cookie.loginId.value}">Cart</a></li>
-			<li><a href= "../cart/cartView.bins?loginId=${cookie.loginId.value}">MyPage</a></li>
+			<li><a href= "../user/myInfo.bins?loginId=${cookie.loginId.value}">MyPage</a></li>
 		</c:if>
 	</ul>
 </div>
 <div class="logoTop">
 	<a  href = "../index.bins"><img style="width: 800px;" alt="WelCome" src="../images/mainlogo.jpg"></a>
 </div>
-<nav class="navbar navbar-custom navbar-static-top">
+<nav class="navbar navbar-custom navbar-static-top" style="margin-bottom: 70px">
   <div class="container-fluid">
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

@@ -39,7 +39,7 @@ public class OrderService {
 		return instance;
 	}
 
-	/** 주문등록 */
+	/** 주문 등록 */
 	public void insert(Order order) throws RuntimeException {
 		try {
 			orderDao.insert(order);
@@ -47,50 +47,26 @@ public class OrderService {
 			throw new RuntimeException(e.toString());
 		}
 	} 
-	
-	/** 제품명에 해당하는 사진 이름 가져오기 */
-	public String getProductInfo(String productName) throws RuntimeException{
-		String productImg = null;
-		try {
-			productImg = orderDao.getProductInfo(productName);
-		} catch (Exception e) {
-			throw new RuntimeException(e.toString());
-		}
-		
-		return productImg;
-	}
 
-	/** 배송지 정보 가져오기 */
-	public Member getInfo(String memberId) throws RuntimeException {
-		Member member = new Member();
-		try {
-			member = orderDao.getInfo(memberId);
-		} catch (Exception e) {
-			throw new RuntimeException(e.toString());
-		}
-		return member;
-	}
-
-	/** 주문목록 */
-	public List<Order> list() throws RuntimeException {
+	/** 주문 목록 */
+	public List<Order> getAll(int orderListNumber) throws RuntimeException {
 		List<Order> list = null;
 		try {
-			list = orderDao.getAll();
+			list = orderDao.getAll(orderListNumber);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 		return list;
 	}
-
-	/** 한개의 주문 가져오기 */
-	public Order get(int orderNum) throws RuntimeException {
-		Order order = null;
-		try {
-			order = orderDao.get(orderNum);
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-		return order;
-	}
-
+	
+   /** 배송지 정보 가져오기 */
+   public Member getInfo(String memberId) throws RuntimeException {
+      Member member = new Member();
+      try {
+         member = orderDao.getInfo(memberId);
+      } catch (Exception e) {
+         throw new RuntimeException(e.toString());
+      }
+      return member;
+   }
 }

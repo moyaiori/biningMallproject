@@ -1,4 +1,4 @@
-package kr.or.kosta.shopping.order.dao;
+package kr.or.kosta.shopping.orderlist.dao;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,7 @@ import com.sun.swing.internal.plaf.metal.resources.metal;
 import kr.or.kosta.example.Log4JExample;
 import kr.or.kosta.shopping.member.domain.Member;
 import kr.or.kosta.shopping.order.domain.Order;
+import kr.or.kosta.shopping.orderlist.domain.OrderList;
 
 /**
  * Mybatis를 이용한 디비 연동
@@ -19,7 +20,7 @@ import kr.or.kosta.shopping.order.domain.Order;
  * @author 가승호
  * @작성일 : 2015/10/21
  */
-public class MybatisOrderDao implements OrderDao {
+public class MybatisOrderListDao implements OrderListDao {
 
 	Logger logger = Logger.getLogger(Log4JExample.class);
 	private SqlSessionFactory sqlSessionFactory;
@@ -32,13 +33,13 @@ public class MybatisOrderDao implements OrderDao {
 		this.sqlSessionFactory = sqlSessionFactory;
 	}
 
-	// 주문내역 등록하기
-	public void insert(Order order) throws RuntimeException {
+	// 주문항목 등록하기
+	public void insert(OrderList orderlist) throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 
 		try {
-			OrderDao dao = sqlSession.getMapper(OrderDao.class);
-			dao.insert(order);
+			OrderListDao dao = sqlSession.getMapper(OrderListDao.class);
+			dao.insert(orderlist);
 			logger.debug("[DEBUG] : insert()에서 발생");
 			sqlSession.commit();
 		} catch (Exception e) {
@@ -51,33 +52,30 @@ public class MybatisOrderDao implements OrderDao {
 	}
 
 	// 전체 주문 목록
-	public List<Order> getAll(int orderListNum) throws RuntimeException {
+	public List<OrderList> getAll(String memberId) throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		List<Order> list = new ArrayList<Order>();
+		List<OrderList> list = new ArrayList<OrderList>();
 		try {
-			OrderDao dao = (OrderDao) sqlSession.getMapper(OrderDao.class);
-			list = dao.getAll(orderListNum);
+			OrderListDao dao = (OrderListDao) sqlSession.getMapper(OrderListDao.class);
+			list = dao.getAll(memberId);
 		} finally {
 			sqlSession.close();
 		}
 		return list;
 	}
 	
-	   // 배송지 정보 가져오기
-	   public Member getInfo(String memberId) throws RuntimeException {
-	      SqlSession sqlSession = sqlSessionFactory.openSession();
-	      Member member = null;
-	      try {
-	         member = sqlSession.getMapper(OrderDao.class).getInfo(memberId);
-	      }  catch (Exception e) {
-	         logger.warn("[WARN] : getInfo()에서 발생");
-	         sqlSession.rollback();
-	         e.printStackTrace();
-	      }finally {
-	         sqlSession.close();
-	      }
-	      return member;
-	   }
+	@Override
+	public OrderList recently(String memberId) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		OrderList orderList = new OrderList();
+		try {
+			OrderListDao dao = (OrderListDao) sqlSession.getMapper(OrderListDao.class);
+			orderList = dao.recently(memberId);
+		} finally {
+			sqlSession.close();
+		}
+		return orderList;
+	}
 }
 
 

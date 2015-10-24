@@ -24,13 +24,10 @@ import kr.or.kosta.shopping.member.service.MemberService;
 public class MemberJoinEmailChkController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-		System.out.println("dddddddd들어와??");
 		String joinEmail = request.getParameter("joinEmail");
 		MemberService service = MemberService.getInstance();
 		
-		System.out.println("dddddddd들어와??000");
 		response.setContentType("text/plain");
-		System.out.println("joinEmail-- "+joinEmail +", "+joinEmail.length());
 		
 		try {
 			PrintWriter out = response.getWriter();
@@ -38,10 +35,8 @@ public class MemberJoinEmailChkController implements Controller{
 			 member=service.emailChk(joinEmail);
 			 
 			if(member==null){
-				System.out.println("이메일 사용 가능 ");
 				out.println("true");/*그럼 아이디를 사용할수잇어요*/
 			}else{
-				System.out.println("이메일 사용 불가 ");
 				out.println("false");
 			}
 		} catch (IOException e) {

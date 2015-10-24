@@ -78,6 +78,17 @@ function clearData(){
 }
 
 window.onload = function(){
+	var total = 0;
+	var nodeList = document.getElementById("tbody").childNodes;
+	for ( var i in nodeList) {
+		if(nodeList[i].constructor == "function HTMLTableRowElement() { [native code] }"){
+			var price = nodeList[i].firstChild.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.firstChild.nodeValue;
+			total+= parseInt(price);
+		}
+	}
+	
+	var price = document.getElementById("price");
+	price.innerHTML = total;
 	
 	document.getElementById("checkbox").onchange = function(){
 		if (this.checked == true) {
@@ -91,39 +102,74 @@ window.onload = function(){
 	
 	document.getElementById("total").textContent = document.getElementById("price").textContent;
 	document.getElementById("payment").value =  document.getElementById("price").textContent;
-	if(document.getElementById("usePoint").value == 0 || document.getElementById("usePoint").value == 0 || document.getElementById("usePoint") == null){
+	if(document.getElementById("usePoint").value == 0 || document.getElementById("usePoint") == null){
 		document.getElementById("usePoint").value = 0;
 	}
 
-	var usePoint = document.getElementById("usePoint").value;	// 사용하고자하는 적립금 input
 	var point = document.getElementById("point");							// 적립금 label
 	var price = document.getElementById("price").textContent;		// 상품 가격 label
 	var total = document.getElementById("total");								// 최종 결제 가격 label
-
-	var nowPoint = "${member.point }";
+		
+	var nowPoint = "${member.point}";
 	point.innerHTML = nowPoint;
 	
 	document.getElementById("usePoint").onchange = function(){
 
-		if(document.getElementById("usePoint").value == 0 || document.getElementById("usePoint") == null){
+		if(parseInt(document.getElementById("usePoint").value) == 0 || document.getElementById("usePoint") == null){
 			document.getElementById("usePoint").value = 0;
 			document.getElementById("total").textContent = document.getElementById("price").textContent;
 			document.getElementById("payment").value =  document.getElementById("price").textContent;
 		}else{
-			if(document.getElementById("usePoint").value > document.getElementById("price").textContent){
+			if(parseInt(document.getElementById("usePoint").value) > parseInt(document.getElementById("price").textContent)){
+				var usePoint = document.getElementById("usePoint").value;	// 사용하고자하는 적립금 input
 				alert("적립금을 상품가격보다 더 사용하셧습니다.");
 				document.getElementById("usePoint").value = document.getElementById("price").textContent;
 				document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
 			}else if( Number(nowPoint) < Number(document.getElementById("usePoint").value)){
+				var usePoint = document.getElementById("usePoint").value;	// 사용하고자하는 적립금 input
 				alert("현재 보유하신 적립금보다 많습니다.");
 				document.getElementById("usePoint").value = nowPoint;
 				document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
 			}else{
+				var usePoint = document.getElementById("usePoint").value;	// 사용하고자하는 적립금 input
 				document.getElementById("total").textContent = document.getElementById("price").textContent - document.getElementById("usePoint").value;
 				document.getElementById("payment").value = document.getElementById("price").textContent - document.getElementById("usePoint").value;
-			}
-			
+			}			
 		}
+	}
+	
+	var cancelBtn = document.getElementById("cancel");
+	cancelBtn.onclick = function(){
+		history.back();
+	}
+	
+	var payBtn = document.getElementById("pay");
+	payBtn.onclick = function(){
+		var totalPrice = document.getElementById("total").textContent;
+		var point = parseInt(totalPrice) / 10;
+		
+		document.getElementById("lastTotalPrice").setAttribute("value",totalPrice);
+		document.getElementById("lastTotalPoint").setAttribute("value",point);
+		
+		var json = '[';
+		for (var i in nodeList) {
+			if(nodeList[i].constructor == "function HTMLTableRowElement() { [native code] }"){
+				var pictureTemp = nodeList[i].firstChild.nextSibling.firstChild.getAttribute("src");
+				var picture = pictureTemp.substring(10, pictureTemp.length); 
+				var productName = nodeList[i].firstChild.nextSibling.nextSibling.nextSibling.firstChild.nodeValue 
+				var price = nodeList[i].firstChild.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.firstChild.nodeValue;
+				var count = nodeList[i].firstChild.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.firstChild.nodeValue;
+			   	var productTotalPrice = parseInt(price) * parseInt(count);
+			   	json += '{"name":"' +productName+ '","price":"'+ price +'","count":"'+count+'","picture":"'+picture+'","totalPrice":"'+ productTotalPrice+'"},';
+			   	
+			}
+		}
+		json = json.substring(0, json.length-1);
+  	 	json += ']';
+		
+		document.getElementById("json").setAttribute("value", json);
+		
+		document.orderForm.submit();		
 	}
 }
 </script>
@@ -131,15 +177,15 @@ window.onload = function(){
 </head>
 <body>
 
-<form action="../order/orderCheck.bins" method="post">
+<form action="../order/orderregist.bins" method="post" name="orderForm">
 	<div class="container">
 		<table class="table info">
 			<colgroup>
-				<col width="320" />
-				<col width="320" />
-				<col width="120" />
-				<col width="120" />
-				<col width="120" />
+				<col width="320"/>
+				<col width="320"/>
+				<col width="120"/>
+				<col width="120"/>
+				<col width="120"/>
 			</colgroup>
 			
 			<tr class="active">
@@ -149,16 +195,18 @@ window.onload = function(){
 				<th>수량</th>
 				<th>합계</th>
 			</tr>
-			<tr>
-				<td><img src='../images/${productImg }' /></td>
-				<td>${param.productName }</td>
-				<td>${param.price / param.count }</td>
-				<td>${param.count }</td>
-				<td>${param.price }</td>
-			</tr>
+			<tbody id="tbody">
+			<c:forEach begin="0" end="${allData.size()-1}" var="i">
+				<tr>
+					<td><img src='../images/${allData.get(i).get("picture")}' /></td>
+					<td>${allData.get(i).get("name")}</td>
+					<td>${allData.get(i).get("price")}</td>
+					<td>${allData.get(i).get("count")}</td>
+					<td>${allData.get(i).get("price") * allData.get(i).get("count")}</td>
+				</tr>
+			</c:forEach>
+			</tbody>
 		</table>
-		<input type="hidden" name="productname" value="임시 상품명">
-		<input type="hidden" name="toppingname" value="임시 토핑명">
 	</div>
 	
 	<div class="container">
@@ -222,7 +270,7 @@ window.onload = function(){
 						</tr>
 						<tr>
 							<td class="TagTd">남기실 말씀</td>
-							<td class="inputTd"><input type="text" class="form-control" name="comment"></td>
+							<td class="inputTd"><input type="text" class="form-control" name="orderComment"></td>
 						</tr>
 						<tr>
 							<td class="TagTd">배송 선택</td>
@@ -242,8 +290,7 @@ window.onload = function(){
 					<table>
 						<tr>
 							<td class="TagTd">상품합계금액</td>
-							<td class="inputTd"><label id="price">${param.price }</label>원</td>
-							<td class="inputTd"><label id="price">${request.price }</label></td>
+							<td class="inputTd"><label id="price">${param.price}</label>원</td>
 						</tr>
 						<tr>
 							<td class="TagTd">사용가능 적립금</td>
@@ -251,7 +298,7 @@ window.onload = function(){
 						</tr>
 						<tr>
 							<td class="TagTd">사용할 적립금</td>
-							<td class="inputTd"><input type="text" class="form-control" id="usePoint"></td>
+							<td class="inputTd"><input type="text" class="form-control" id="usePoint" name="userPoint"></td>
 						</tr>
 						<tr>
 							<td class="TagTd">총 결제 금액</td>
@@ -268,11 +315,11 @@ window.onload = function(){
 						<tr>
 							<td  class="TagTd" style="line-height: 22px;">일반 결제 방법</td>
 							<td>
-								<label class="radio-inline"><input type="radio" name="optradio">무통장입금</label>
-								<label class="radio-inline"><input type="radio" name="optradio">신용카드</label>
-								<label class="radio-inline"><input type="radio" name="optradio">계좌이제</label>
-								<label class="radio-inline"><input type="radio" name="optradio">가상계좌</label>
-								<label class="radio-inline"><input type="radio" name="optradio">핸드폰</label>
+								<label class="radio-inline"><input type="radio" name="payment2" value="무통장입금">무통장입금</label>
+								<label class="radio-inline"><input type="radio" name="payment2" value="신용카드">신용카드</label>
+								<label class="radio-inline"><input type="radio" name="payment2" value="계좌이체">계좌이제</label>
+								<label class="radio-inline"><input type="radio" name="payment2" value="가상계좌">가상계좌</label>
+								<label class="radio-inline"><input type="radio" name="payment2" value="핸드폰">핸드폰</label>
 							</td>
 						</tr>
 					</table>
@@ -280,10 +327,13 @@ window.onload = function(){
 			</tr>
 		</table>
 		<div style="text-align: center">
-			<input type="submit" class="btn btn-default" value="결제하기" />
-			<input type="reset" class="btn btn-default" value="취소하기" />
+			<input type="button" id="pay" class="btn btn-default" value="결제하기" />
+			<input type="button" id="cancel" class="btn btn-default" value="취소하기" />
 		</div>
 	</div>
+		<input type="hidden" id="lastTotalPrice" name="lastTotalPrice">
+		<input type="hidden" id="lastTotalPoint" name="lastTotalPoint">
+		<input type="hidden" id="json" name="json">
 </form>
 	
 </body>

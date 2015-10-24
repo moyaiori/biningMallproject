@@ -2,86 +2,43 @@ package kr.or.kosta.shopping.order.domain;
 
 public class Order {
 	private int orderNum;
-	private String memberId;
-	private String address;
-	private String address2;
-	private String orderDate;
-	private String payment;
-	private String recipient;
+	private int orderListNum;
 	private String productName;
-	private String toppingName;
-	private String comment;
-	private String totalPrice;
+	private String productPicture;
+	private int orderCount;
+	private int price;
+	private int totalPrice;
 	
 	public Order(){}
 
-	public Order(int orderNum, String memberId, String address, String address2, String orderDate, String payment,
-			String recipient, String productName, String toppingName, String comment, String totalPrice) {
+	public Order(int orderNum, int orderListNum, String productName, String productPicture, int orderCount, int price,
+			int totalPrice) {
 		super();
 		this.orderNum = orderNum;
-		this.memberId = memberId;
-		this.address = address;
-		this.address2 = address2;
-		this.orderDate = orderDate;
-		this.payment = payment;
-		this.recipient = recipient;
+		this.orderListNum = orderListNum;
 		this.productName = productName;
-		this.toppingName = toppingName;
-		this.comment = comment;
+		this.productPicture = productPicture;
+		this.orderCount = orderCount;
+		this.price = price;
 		this.totalPrice = totalPrice;
 	}
-
-
 
 	public int getOrderNum() {
 		return orderNum;
 	}
+
 	public void setOrderNum(int orderNum) {
 		this.orderNum = orderNum;
 	}
-	public String getMemberId() {
-		return memberId;
+
+	public int getOrderListNum() {
+		return orderListNum;
 	}
-	public void setMemberId(String memberId) {
-		this.memberId = memberId;
+
+	public void setOrderListNum(int orderListNum) {
+		this.orderListNum = orderListNum;
 	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	public String getAddress2() {
-		return address2;
-	}
-	public void setAddress2(String address2) {
-		this.address2 = address2;
-	}
-	public String getOrderDate() {
-		return orderDate;
-	}
-	public void setOrderDate(String orderDate) {
-		this.orderDate = orderDate;
-	}
-	public String getPayment() {
-		return payment;
-	}
-	public void setPayment(String payment) {
-		this.payment = payment;
-	}
-	public String getRecipient() {
-		return recipient;
-	}
-	public void setRecipient(String recipient) {
-		this.recipient = recipient;
-	}
-	public String getTotalPrice() {
-		return totalPrice;
-	}
-	public void setTotalPrice(String totalPrice) {
-		this.totalPrice = totalPrice;
-	}
-	
+
 	public String getProductName() {
 		return productName;
 	}
@@ -90,27 +47,42 @@ public class Order {
 		this.productName = productName;
 	}
 
-	public String getToppingName() {
-		return toppingName;
+	public String getProductPicture() {
+		return productPicture;
 	}
 
-	public void setToppingName(String toppingName) {
-		this.toppingName = toppingName;
+	public void setProductPicture(String productPicture) {
+		this.productPicture = productPicture;
 	}
 
-	public String getComment() {
-		return comment;
+	public int getOrderCount() {
+		return orderCount;
 	}
 
-	public void setComment(String comment) {
-		this.comment = comment;
+	public void setOrderCount(int orderCount) {
+		this.orderCount = orderCount;
+	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
 	}
 
 	@Override
 	public String toString() {
-		return "Order [orderNum=" + orderNum + ", memberId=" + memberId + ", address=" + address + ", address2="
-				+ address2 + ", orderDate=" + orderDate + ", payment=" + payment + ", recipient=" + recipient
-				+ ", productName=" + productName + ", toppingName=" + toppingName + ", comment=" + comment
+		return "Order [orderNum=" + orderNum + ", orderListNum=" + orderListNum + ", productName=" + productName
+				+ ", productpicture=" + productPicture + ", orderCount=" + orderCount + ", price=" + price
 				+ ", totalPrice=" + totalPrice + "]";
 	}
 }

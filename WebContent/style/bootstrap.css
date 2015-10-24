@@ -314,7 +314,7 @@ th {
 	}
 	
 	.pro_div{
-		width:100%;
+		width:70%;
 		height: 160px;
 		margin:0 auto;
 		display:block;
@@ -368,8 +368,26 @@ th {
    font-style: 
 }
 
+/** 푸터*/
+#footer dl.footInfo {
+	color :#fff;
+	font-family:hy강m;
+	background-color:#2f2d2d;
+	text-align:left;
+    clear: both;
+    width: 100%;
+    margin: 100 0 0 0;
+    border-top-width: 40px;
+    padding-top: 15px;
+    display: table;
+}
 
-
+/** 이미지보더*/
+.imageborder{
+	border-style: solid;
+    border-color: silver;
+    border-width: 1;
+}
 
 .glyphicon-asterisk:before {
   content: "\2a";
