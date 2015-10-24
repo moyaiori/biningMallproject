@@ -43,6 +43,9 @@ public interface MemberDao {
 	
 	/* 아이디를 통해서 계정정보 가져오기 */
 	public Member getMemberInfo(String memberId) throws RuntimeException;
+	
+	/* 회원정보 수정 */
+	public void updateMemberInfo(Member member) throws RuntimeException;
 }
 
 

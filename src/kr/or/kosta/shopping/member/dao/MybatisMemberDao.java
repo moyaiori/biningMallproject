@@ -180,4 +180,20 @@ public class MybatisMemberDao implements MemberDao {
 		
 		return member;
 	}
+
+	@Override
+	public void updateMemberInfo(Member member) throws RuntimeException {
+		
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		
+		try {
+			MemberDao dao = sqlSession.getMapper(MemberDao.class);
+			dao.updateMemberInfo(member);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		
+	}
 }

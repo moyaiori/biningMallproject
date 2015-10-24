@@ -12,6 +12,10 @@
 
 <script type="text/javascript">
 
+window.onload = function(){
+	document.getElementsByName("phone")[0].value = '${member.phoneNumber}';
+}
+
 </script>
 
 <style>
@@ -35,44 +39,20 @@ form {
 <div class="container col-md-8 col-md-offset-2">
 		<p class="j_p">
 				<font class="j_txt">M </font>Y 　P A G E</p>
-	<form action="registProc.bins" method="post" name="addjoin">
+	<form action="../user/myEditInfoProc.bins" method="post" name="addjoin">
 		<table class="table">
 			<colgroup>
 					<col width="100" />
 					<col width="200" />
 				</colgroup>
 			<tr>
-				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">아이디</td>
-				<td><input type="text" class="form-control" name="id"><span id="idmessageBox"></span></td>
-			</tr>
-			<tr>
-				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">비밀번호</td>
-				<td><input type="password" class="form-control" name="passwd"></td>
-			</tr>
-			<tr>
-				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">비밀번호확인</td>
-				<td><input type="password" class="form-control" name="passwd2"></td>
-			</tr>
-			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">이름</td>
-				<td><input type="text" class="form-control" name="name"></td>
-			</tr>
-			<tr>
-				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">생년월일</td>
-				<td><input type="date" class="form-control" name="birth"></td>
-			</tr>
-			<tr>
-				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">성별</td>
-				<td><select class="form-control" name="gender">
-						<option value="남">남자</option>
-						<option value="여">여자</option>
-				</select></td>
+				<td><input type="text" class="form-control" name="name" value="${member.name }"></td>
 			</tr>
 			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">이메일주소</td>
-				<td><input type="text" class="form-control" name="email"><span id="emailmessageBox"></span></td>
+				<td><input type="text" class="form-control" name="email" value="${member.email }"><span id="emailmessageBox"></span></td>
 			</tr>
-	
 			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">연락처</td>
 				<td class="form-inline">
@@ -84,8 +64,8 @@ form {
 						<option>019</option>
 						<option>070</option>
 					</select>
-				　-　<input type="text"  size="12" class="form-control" name="phone2">
-				　-　<input type="text"  size="12" class="form-control" name="phone3">
+				　-　<input type="text"  size="12" class="form-control" name="phone2" value="${member.phoneNumber2}">
+				　-　<input type="text"  size="12" class="form-control" name="phone3" value="${member.phoneNumber3}">
 				</div>
 				</td>
 			</tr>
@@ -97,18 +77,17 @@ form {
 			</tr>
 			<tr>
 			<td></td>
-			<td><input type="text" id="address"  name="address" size="20px" placeholder="기본주소" class="form-control"></td>
+			<td><input type="text" id="address"  name="address" size="20px" placeholder="기본주소" class="form-control" value="${member.address }"></td>
 			</tr>
 			
 			<tr>
 			<td></td>
-			<td><input type="text" id="address2" name="address2" size="20px" placeholder="상세주소" class="form-control"></td>
+			<td><input type="text" id="address2" name="address2" size="20px" placeholder="상세주소" class="form-control" value="${member.address2 }"></td>
 			</tr>
 			<tr>
 	
 			<td></td>
-			<td><input type="submit" value="회원가입" class="btn btn-danger" onclick="return check()">
-			<input onclick="location.href='../index.bins'" type="button" value="홈으로" class="btn btn-danger"></td>
+			<td><input type="submit" value="정보 수정" class="btn btn-danger" onclick="return check()">
 			</tr>
 		</table>
 	</form>

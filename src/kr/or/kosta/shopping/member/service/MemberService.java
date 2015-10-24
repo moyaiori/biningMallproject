@@ -119,6 +119,15 @@ public class MemberService {
 		}
 		
 		return member;
+	}
+	
+	public void updateMemberInfo(Member member) throws RuntimeException{
+		
+		try {
+			memberDao.updateMemberInfo(member);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 		
 	}
 

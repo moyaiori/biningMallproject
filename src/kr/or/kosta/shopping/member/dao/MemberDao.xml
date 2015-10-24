@@ -75,6 +75,10 @@
 		  WHERE member_id = #{value}
 	</select>
 	
+	<update id="updateMemberInfo" parameterType="kr.or.kosta.shopping.member.domain.Member">
+	
+	</update>
+	
 	
 	
 </mapper>

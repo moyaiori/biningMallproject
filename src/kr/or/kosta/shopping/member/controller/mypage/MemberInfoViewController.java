@@ -30,7 +30,6 @@ public class MemberInfoViewController implements Controller{
 		MemberService service = MemberService.getInstance();
 		ModelAndView mav = new ModelAndView();
 		
-
 		String memberId = null;
 		Member member = null;
 		

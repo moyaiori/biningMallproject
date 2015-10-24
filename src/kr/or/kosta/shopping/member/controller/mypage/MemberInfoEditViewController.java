@@ -26,6 +26,30 @@ public class MemberInfoEditViewController implements Controller{
 		MemberService service = MemberService.getInstance();
 		ModelAndView mav = new ModelAndView();
 		
+		String memberId = null;
+		Member member = null;
+		
+		// 쿠키값 가져오기
+	    Cookie[] cookies = request.getCookies();
+		if(cookies != null){
+			for (Cookie cookie : cookies) {
+				if(cookie.getName().equals("loginId")){
+					cookie.setPath("/");
+					memberId = cookie.getValue();
+				}
+			}
+		}
+		
+		member = service.getMemberInfo(memberId);
+		
+		String[] phoneNum = member.getPhoneNumber().split("-");
+		member.setPhoneNumber2(phoneNum[1]);
+		member.setPhoneNumber3(phoneNum[2]);
+		member.setPhoneNumber(phoneNum[0]);
+		
+		System.out.println("member : " + member);
+		
+		mav.addObject("member",member);
 		
 		System.out.println("MemberInfoEditViewController");
 		mav.addObject("contentFile", "/user/myEditInfo.jsp");
