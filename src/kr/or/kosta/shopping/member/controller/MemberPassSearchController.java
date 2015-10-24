@@ -71,10 +71,14 @@ public class MemberPassSearchController implements Controller{
 			}catch(EmailException e){
 				e.printStackTrace();
 			}
-			//mav.addObject("contentFile", "../user/userinfosearch.bins");
+			mav.addObject("searchType", "passwd");
+			mav.addObject("result", true);
+			mav.addObject("contentFile", "../user/searchResult.jsp");
 			return mav;
 		}else{
-			//mav.addObject("contentFile", "../user/userinfosearch.bins");
+			mav.addObject("searchType", "passwd");
+			mav.addObject("result", false);
+			mav.addObject("contentFile", "../user/searchResult.jsp");
 			return mav;
 		}
 	}

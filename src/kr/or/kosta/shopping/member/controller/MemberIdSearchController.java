@@ -41,7 +41,6 @@ public class MemberIdSearchController implements Controller{
 		
 		
 		if(member != null){
-			
 			/* SMTP 서버 설정 */
 			SimpleEmail simpleEmail = new SimpleEmail();
 			simpleEmail.setHostName("smtp.naver.com");
@@ -71,10 +70,15 @@ public class MemberIdSearchController implements Controller{
 			}catch(EmailException e){
 				e.printStackTrace();
 			}
-			//mav.addObject("contentFile", "../user/userinfosearch.bins");
+			
+			mav.addObject("searchType", "id");
+			mav.addObject("result", true);
+			mav.addObject("contentFile", "../user/searchResult.jsp");
 			return mav;
 		}else{
-			//mav.addObject("contentFile", "../user/userinfosearch.bins");
+			mav.addObject("searchType", "id");
+			mav.addObject("result", false);
+			mav.addObject("contentFile", "../user/searchResult.jsp");
 			return mav;
 		}
 	}
