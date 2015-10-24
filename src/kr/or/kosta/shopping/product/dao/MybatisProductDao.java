@@ -76,9 +76,13 @@ public class MybatisProductDao implements ProductDao {
 	public void updateCount(HashMap<String, Object> data) throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
+			/*
 			ProductDao dao = (ProductDao) sqlSession.getMapper(ProductDao.class);
 			logger.debug("[DEBUG] : updateCount()에서 발생");
 			dao.updateCount(data);
+			sqlSession.commit();
+			*/
+			sqlSession.update("kr.or.kosta.shopping.product.dao.ProductDao.updateCount", data);
 			sqlSession.commit();
 		} finally {
 			sqlSession.close();
