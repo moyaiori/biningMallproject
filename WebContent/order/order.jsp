@@ -149,13 +149,15 @@ window.onload = function(){
 				<th>수량</th>
 				<th>합계</th>
 			</tr>
-			<tr>
-				<td><img src='../images/${productImg }' /></td>
-				<td>${param.productName }</td>
-				<td>${param.price / param.count }</td>
-				<td>${param.count }</td>
-				<td>${param.price }</td>
-			</tr>
+			<c:forEach begin="0" end="${allData.size()-1}" var="i">
+				<tr>
+					<td><img src='../images/${allData.get(i).get("picture")}' /></td>
+					<td>${allData.get(i).get("name")}</td>
+					<td>${allData.get(i).get("price")}</td>
+					<td>${allData.get(i).get("count")}</td>
+					<td>${allData.get(i).get("price") * allData.get(i).get("count")}</td>
+				</tr>
+			</c:forEach>
 		</table>
 		<input type="hidden" name="productname" value="임시 상품명">
 		<input type="hidden" name="toppingname" value="임시 토핑명">

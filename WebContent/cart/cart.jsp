@@ -129,13 +129,6 @@
 		  }
     	  json = json.substring(0, json.length-1);
     	  json += ']'   
-    	  
-   		  ajax({
-   			  	method: "post",
-   				url: "../order/order.bins",
-   				data:"json="+json,
-   			});
-    	  
       }
    }
    
