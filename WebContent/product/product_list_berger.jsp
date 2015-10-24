@@ -17,8 +17,9 @@ img{
 </style>
  
 <div>
-	<table width=100% cellpadding="0" cellspacing="0">
+	<table width=70% cellpadding="0" cellspacing="0" style="margin-left: 200">
 	<!--첫 번째 줄 -->
+	<tr><td  class ="" colspan="3" align="center" bordercolor="red" ></td></tr>
 		<tr>
 		<c:forEach begin="0" end="2" var="i">
 				<td align=center valign=top width="25%" style="padding-bottom:25px;">

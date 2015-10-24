@@ -8,30 +8,18 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 
-<style>
+<div id="footer">
+<dl class="footInfo">
+			<dt style="margin-left: 40px">
+				COPYRIGHT ⓒ 2015 BINS. ALL RIGHT RESERVED.
+				<p class="copyright">SITE BY MOVEMENTKGROUP.</p>
+			</dt>
+			<dd style="margin-left: 40px">
+				주소 : 서울특별시 금천구 가산동 371-47 이노플렉스 1차 2층 kosta 3강의실&nbsp;&nbsp;&nbsp;&nbsp;상호명 : Bin's &nbsp;&nbsp;&nbsp;&nbsp;대표 : 비닝이&nbsp;&nbsp;&nbsp;&nbsp;
+				대표번호 : 1234-5678&nbsp;&nbsp;&nbsp;&nbsp;<br />
+				FAX : 02-1234-6789&nbsp;&nbsp;&nbsp;&nbsp;
+				E-mail : <a href="mailto:shyun8900@nate.com">bins@nate.com</a>&nbsp;&nbsp;&nbsp;&nbsp;
+			</dd>
+		</dl>
+	</div>
 
-</style>
-
-
-<footer id="footer"  class="footer navbar-fixed-bottom">
-	픽스드 풋터
-</footer>
-
-<!-- 
-<footer class="footer">
-  <div class="container">
-    <p class="text-muted">Place sticky footer content here.</p>
-  </div>
-</footer>
-
-<div class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-      <p class="navbar-text pull-left">© 2014 - Site Built By Mr. M.
-           <a href="http://tinyurl.com/tbvalid" target="_blank" >HTML 5 Validation</a>
-      </p>
-
-      <a href="http://youtu.be/zJahlKPCL9g" class="navbar-btn btn-danger btn pull-right">
-      <span class="glyphicon glyphicon-star"></span>  Subscribe on YouTube</a>
-    </div>
-</div>
- -->
