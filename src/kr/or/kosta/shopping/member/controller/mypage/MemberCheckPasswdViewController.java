@@ -17,19 +17,15 @@ import kr.or.kosta.shopping.member.service.MemberService;
  * 마이 페이지 정보
  * @author 이광용
  */
-public class MemberInfoEditViewController implements Controller{
+public class MemberCheckPasswdViewController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		Logger logger = Logger.getLogger(Log4JExample.class);
-		logger.debug("[debug] : MemberInfoEditViewController");
-
-		MemberService service = MemberService.getInstance();
+		logger.debug("[debug] : MemberCheckPasswdController");
+		
 		ModelAndView mav = new ModelAndView();
 		
-		
-		System.out.println("MemberInfoEditViewController");
-		mav.addObject("contentFile", "/user/myEditInfo.jsp");
-		
+		mav.addObject("contentFile", "/user/myCheckPasswd.jsp");
 		return mav;
 	}
 }

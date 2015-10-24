@@ -9,7 +9,7 @@ window.onload = function(){
 	
 	document.getElementById("myEditInfo").onclick = function(){
 		console.log("myEditInfo");
-		window.location.href = "../user/myEditInfo.bins";
+		window.location.href = "../user/myCheckPasswd.bins";
 	}
 	
 	document.getElementById("myOrder").onclick = function(){

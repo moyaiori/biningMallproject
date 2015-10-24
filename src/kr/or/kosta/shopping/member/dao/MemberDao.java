@@ -41,6 +41,8 @@ public interface MemberDao {
 	/* 이메일과 아이디로 비밀번호를 찾는다. */
 	public Member searchPass(HashMap<String, Object> data) throws RuntimeException;
 	
+	/* 아이디를 통해서 계정정보 가져오기 */
+	public Member getMemberInfo(String memberId) throws RuntimeException;
 }
 
 

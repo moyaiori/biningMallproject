@@ -69,6 +69,12 @@
 		  WHERE member_id = #{id} AND email = #{email}
 	</select>
 	
+	<select id="getMemberInfo" resultType="kr.or.kosta.shopping.member.domain.Member" parameterType="String">
+		  SELECT  member_id AS "memberId", passwd AS "passwd", TO_CHAR(birth,'YYYY/MM/DD') AS "birth", phone_number AS "phoneNumber", address AS "address", address2 AS "address2", name AS "name", email AS "email", grade AS "grade", point AS "point"
+		  FROM members
+		  WHERE member_id = #{value}
+	</select>
+	
 	
 	
 </mapper>
