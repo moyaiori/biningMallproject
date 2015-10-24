@@ -70,7 +70,6 @@ public class MemberIdSearchController implements Controller{
 			}catch(EmailException e){
 				e.printStackTrace();
 			}
-			
 			mav.addObject("searchType", "id");
 			mav.addObject("result", true);
 			mav.addObject("contentFile", "../user/searchResult.jsp");
