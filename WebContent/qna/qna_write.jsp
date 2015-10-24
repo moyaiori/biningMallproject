@@ -5,6 +5,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <% 
 	String articleId = request.getParameter("articleId");
+	String writer = request.getParameter("writer");
 %>
 <link rel="stylesheet" type="text/css"
 	href="../style/bootstrap-theme.css">
@@ -39,7 +40,8 @@
 					</tr>
 			<tr>
 			<td>
-			<input type="hidden" name="articleId" value=<%=articleId %> />
+			<input type="hidden" name="articleId" value=<%=articleId %>>
+			<input type="hidden" name="memberId" value=<%=writer%>>
 			<input class="btn btn-default" type="submit" value="작성완료" /></td>
 		<td><input class="btn btn-default" type="button" src="../qna/qna_view.bins" value="목록" style="float: right;" /></td>
 		</tr>

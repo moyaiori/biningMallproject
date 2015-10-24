@@ -45,7 +45,8 @@
 	<input onclick="location.href='../qna/qna_view.bins" type="button"
 		class="btn btn-default" value="목록" />
 	<c:if test="${cookie.loginId.value.equals('admin')}" >
-		<input onclick="location.href='../qna/qna_write.bins?articleId=<%=articleId%>'" type="button" class="btn btn-default" value="답글쓰기"  />
+		<input onclick="location.href='../qna/qna_write.bins?articleId=<%=articleId%>&writer=${qna.memberId}'" type="button" class="btn btn-default" value="답글쓰기"  />
+		
 	</c:if>
 	<c:if test="${cookie.loginId.value.equals('qna.memberId')}" >
 		<input onclick="location.href='../qna/qna_write.bins'" type="button" class="btn btn-default" value="수정하기"  />

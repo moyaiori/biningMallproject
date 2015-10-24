@@ -371,6 +371,7 @@ th {
 /** 푸터*/
 #footer dl.footInfo {
 	color :#fff;
+	font-family:hy강m;
 	background-color:#2f2d2d;
 	text-align:left;
     clear: both;
@@ -381,6 +382,12 @@ th {
     display: table;
 }
 
+/** 이미지보더*/
+.imageborder{
+	border-style: solid;
+    border-color: silver;
+    border-width: 1;
+}
 
 .glyphicon-asterisk:before {
   content: "\2a";
@@ -4748,7 +4755,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > li > span:hover,
 .pagination > li > a:focus,
 .pagination > li > span:focus {
-  color: #23527c;
+  color: #a94442;
   background-color: #eee;
   border-color: #ddd;
 }
@@ -4761,8 +4768,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
   z-index: 2;
   color: #fff;
   cursor: default;
-  background-color: #337ab7;
-  border-color: #337ab7;
+  background-color: #a94442;
 }
 .pagination > .disabled > span,
 .pagination > .disabled > span:hover,
@@ -4772,8 +4778,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 .pagination > .disabled > a:focus {
   color: #777;
   cursor: not-allowed;
-  background-color: #fff;
-  border-color: #ddd;
+  background-color: #a94442;
 }
 .pagination-lg > li > a,
 .pagination-lg > li > span {

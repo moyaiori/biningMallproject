@@ -5,6 +5,7 @@
 <%@ page contentType="text/html; charset=utf-8"%>	
 
 <body style="text-align: center">
-
+<p class="j_p">
+<font class="j_txt">T </font>O P P I N G   </p>
 <img alt="토핑리스트" src="../images/toppingmenus.jpg">
 </body>

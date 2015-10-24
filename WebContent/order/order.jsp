@@ -298,7 +298,7 @@ window.onload = function(){
 						</tr>
 						<tr>
 							<td class="TagTd">사용할 적립금</td>
-							<td class="inputTd"><input type="text" class="form-control" id="usePoint"></td>
+							<td class="inputTd"><input type="text" class="form-control" id="usePoint" name="userPoint"></td>
 						</tr>
 						<tr>
 							<td class="TagTd">총 결제 금액</td>
@@ -315,11 +315,11 @@ window.onload = function(){
 						<tr>
 							<td  class="TagTd" style="line-height: 22px;">일반 결제 방법</td>
 							<td>
-								<label class="radio-inline"><input type="radio" name="payment" value="무통장입금">무통장입금</label>
-								<label class="radio-inline"><input type="radio" name="payment" value="신용카드">신용카드</label>
-								<label class="radio-inline"><input type="radio" name="payment" value="계좌이체">계좌이제</label>
-								<label class="radio-inline"><input type="radio" name="payment" value="가상계좌">가상계좌</label>
-								<label class="radio-inline"><input type="radio" name="payment" value="핸드폰">핸드폰</label>
+								<label class="radio-inline"><input type="radio" name="payment2" value="무통장입금">무통장입금</label>
+								<label class="radio-inline"><input type="radio" name="payment2" value="신용카드">신용카드</label>
+								<label class="radio-inline"><input type="radio" name="payment2" value="계좌이체">계좌이제</label>
+								<label class="radio-inline"><input type="radio" name="payment2" value="가상계좌">가상계좌</label>
+								<label class="radio-inline"><input type="radio" name="payment2" value="핸드폰">핸드폰</label>
 							</td>
 						</tr>
 					</table>

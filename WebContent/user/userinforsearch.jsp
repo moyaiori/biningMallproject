@@ -30,65 +30,64 @@
 	vertical-align: middle;
 	margin: 0px auto;
 	padding: 70px 0px 130px;
+	font-family:hy강m;
 }
 
-.table>tbody>tr>td {
+.table>tbody>tr>td{
+	text-align:center;
 	vertical-align: middle;
-	text-align: center;
+	font-family:hy강m;
+	font-size: 15;
 }
+
 </style>
 
-	<div class="container">
-		<div class="row">
+
+
+		<p class="j_p">
+				<font class="j_txt">U </font>S E R I N F O</p>
+
+	<div class="container" style="margin-left: 90px">
+		<div class="row" style=" float: left; width: 50%">
 			<div class="col-md-6 col-md-offset-3">
-				<table class="table">
-					<colgroup>
-						<col width="500" />
-						<col width="500" />
-					</colgroup>
+				<table class="table" style="width: 	400px">
 					<tr>
-						<td class="active" colspan="2" style="text-align: center"><h2>아이디 찾기</h2></td>
+						<td colspan="3" class="active" style="text-align: center">아이디 찾기</td>
 					</tr>
 					<tr>
-						<td><h3>이름</h3></td>
-						<td><input type="text" class="form-control" id="searchName"></td>
+						<td style="vertical-align: middle;">이름</td>
+						<td style="vertical-align: middle;"><input type="text" class="form-control" id="searchName"></td>
+						<td style="vertical-align: middle;"><input type="button" class="btn btn-danger" id="searchId" value="아이디찾기"></td>
 					</tr>
 					<tr>
-						<td><h3>이메일</h3></td>
-						<td><input type="text" class="form-control" id="email"></td>
+						<td style="vertical-align: middle;">이메일</td>
+						<td style="vertical-align: middle;"><input type="text" class="form-control" id="email"></td>
+						<td style="vertical-align: middle;"><input type="button" class="btn btn-danger" value="취소"></td>
 					</tr>
-					<tr>
-						<td colspan="2" align="center"><input type="button"	class="btn btn-default" id="searchId" value="아이디찾기">
-						<input type="button" class="btn btn-default" value="취소"></td>
-					</tr>
-				</table>
+					<tr><td colspan="3"></tr>
+						</table>
 			</div>
+			</div>
+					
+			<div class="row" style=" float: left; width: 50%">
+			<div class="col-md-6 col-md-offset-3">
+			<table class="table" style="width: 400px">
+					<tr>
+						<td class="active" colspan="3" style="text-align: center" >비밀번호찾기</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: middle;">아이디</td>
+						<td style="vertical-align: middle;"><input type="text" class="form-control" id="id"></td>
+						<td style="vertical-align: middle;"><input type="button" id="searchPass" class="btn btn-danger" value="비밀번호찾기">
+					</tr>
+					<tr>
+						<td style="vertical-align: middle;">이메일</td>
+						<td style="vertical-align: middle;"><input type="text" class="form-control" id="email2"></td>
+						<td style="vertical-align: middle;"><input type="button" class="btn btn-danger" value="취소"></td>
+					<tr><td colspan="3"></tr>
+				</table>
+	
+					
 		</div>
 	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<table class="table">
-					<colgroup>
-						<col width="500" />
-						<col width="500" />
-					</colgroup>
-					<tr>
-						<td class="active" colspan="2" style="text-align: center" ><h2>비밀번호	찾기</h2></td>
-					</tr>
-					<tr>
-						<td><h3>아이디</h3></td>
-						<td><input type="text" class="form-control" id="id"></td>
-					</tr>
-					<tr>
-						<td><h3>이메일</h3></td>
-						<td><input type="text" class="form-control" id="email2"></td>
-					</tr>
-					<tr>
-						<td colspan="2" align="center"><input type="button" id="searchPass" class="btn btn-default" value="비밀번호찾기">
-						<input type="button" class="btn btn-default" value="취소"></td>
-					</tr>
-				</table>
-			</div>
-		</div>
 	</div>

@@ -44,7 +44,7 @@ form {
 					
 						<tr>
 					<td colspan='2' style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">Bin's회원이 되시면 편리한 이용이 가능 합니다.</td>
-					<td><input onclick="location.href='../user/regist.bins'" type="button" class="btn btn-danger" value="회원가입" ></td>
+					<td><input onclick="location.href='../user/regist.bins'" type="button" class="btn btn-danger " value="회원가입" ></td>
 				</tr>
 				
 					
