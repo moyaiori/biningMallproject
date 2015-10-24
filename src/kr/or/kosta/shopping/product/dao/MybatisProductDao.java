@@ -1,6 +1,7 @@
 package kr.or.kosta.shopping.product.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -71,4 +72,16 @@ public class MybatisProductDao implements ProductDao {
 		return list;
 	}
 	
+	@Override
+	public void updateCount(HashMap<String, Object> data) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try {
+			ProductDao dao = (ProductDao) sqlSession.getMapper(ProductDao.class);
+			logger.debug("[DEBUG] : updateCount()에서 발생");
+			dao.updateCount(data);
+			sqlSession.commit();
+		} finally {
+			sqlSession.close();
+		}
+	}
 }

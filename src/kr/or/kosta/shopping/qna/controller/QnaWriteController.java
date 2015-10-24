@@ -20,7 +20,6 @@ public class QnaWriteController implements Controller {
 		
 		ModelAndView mav = new ModelAndView();
 		QnaService service = QnaService.getInstance();
-		System.out.println("QnaWrite Controller 진입");
 	//	service.add(article);
 		mav.addObject("contentFile", "/qna/qna_write.jsp");
  

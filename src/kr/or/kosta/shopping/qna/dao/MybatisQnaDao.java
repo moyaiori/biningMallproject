@@ -54,8 +54,8 @@ public class MybatisQnaDao implements QnaDao {
 	@Override
 	public void insertRe(Qna qna) throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		System.out.println("insertRe 진입");
 		try {
+			
 			QnaDao dao = sqlSession.getMapper(QnaDao.class);
 			dao.insertRe(qna);
 			logger.debug("[DEBUG] : MybatisQnaDao - insertRe()에서 발생");

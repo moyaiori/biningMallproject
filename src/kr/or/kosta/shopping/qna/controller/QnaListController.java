@@ -5,9 +5,12 @@
 package kr.or.kosta.shopping.qna.controller;
 
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -23,6 +26,28 @@ public class QnaListController implements Controller {
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView();
+	
+		try {
+			request.setCharacterEncoding("utf-8");
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
+		String memberId = null;
+		Cookie[] cookies = request.getCookies();	
+		if(cookies != null){//로그인 되었을경우.
+			for (Cookie cookie : cookies) {
+				if(cookie.getName().equals("loginId")){
+					try {
+						memberId = URLDecoder.decode(cookie.getValue(), "utf-8");
+					} catch (UnsupportedEncodingException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
+		
+		
+		
 		QnaService service = QnaService.getInstance();
 		String rp = request.getParameter("page");
 		String searchValue= request.getParameter("searchValue");
@@ -62,6 +87,7 @@ public class QnaListController implements Controller {
 		mav.addObject("listSize", listSize);
 		mav.addObject("requestP", requestP);
 		mav.addObject("pageNation", pageNation);
+		mav.addObject("memberId", memberId);
 		
 		mav.addObject("contentFile", "../qna/qna_view.jsp");
 		return mav;

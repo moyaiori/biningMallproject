@@ -1,5 +1,6 @@
 package kr.or.kosta.shopping.product.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import kr.or.kosta.shopping.product.domain.Product;
@@ -18,6 +19,8 @@ public interface ProductDao {
 	
 	/** 비싼 밥버거 3개 */
 	public List<Product> expensive() throws Exception;
+	
+	public void updateCount(HashMap<String, Object> data) throws RuntimeException;
 }
 
 

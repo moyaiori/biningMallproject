@@ -48,15 +48,19 @@ public class QnaRegistController implements Controller {
 		Qna qna = new Qna(2,memberId,subject,content);
 		QnaService service = QnaService.getInstance();
 		
+	
+		
 		if(memberId.equals("admin")){
 			qna.setGroupNum(Integer.parseInt(articleId));
 			qna.setOrderNum(1);
 			qna.setStepNum(1);
+			qna.setMemberId(request.getParameter("memberId"));
+			//memberId = request.getParameter("memberId");
+			//qna.setMemberId(memberId);
 			service.addRe(qna);
 		}else{
 			service.add(qna);
 		}
-	//	mav.addObject("user", user);
 		mav.setView("/qna/qna_view.bins");
 		return mav;
 	}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 네임스페이스(사용영역) 설정 -->
+<mapper namespace="kr.or.kosta.shopping.orderlist.dao.OrderListDao">
+	
+		<!-- 주문 등록 -->
+	<insert id="insert" parameterType="kr.or.kosta.shopping.orderlist.domain.OrderList">
+		INSERT INTO order_list(order_list_num, member_id, order_comment, address, address2, total_price, payment, recipient)
+		VALUES (order_list_num_seq.NEXTVAL, #{memberId}, #{orderComment}, #{address}, #{address2}, #{totalPrice}, #{payment}, #{recipient}) 
+	</insert>
+	
+	<!-- 전체주문 조회 SQL 매핑 -->
+	<select id="getAll" parameterType="java.lang.String" resultType="kr.or.kosta.shopping.orderlist.domain.OrderList">
+		SELECT order_list_num AS "orderListNum", member_id AS "memberId", order_comment AS "orderComment", address, address2, total_price AS "totalPrice", payment, recipient
+		FROM order_list
+		WHERE member_id = #{memberId}
+	</select>
+	
+	
+	<select id="recently" parameterType="java.lang.String" resultType="kr.or.kosta.shopping.orderlist.domain.OrderList">
+			SELECT order_list_num AS "orderListNum", member_id AS "memberId", order_comment AS "orderComment", address, address2, total_price AS "totalPrice", payment, recipient
+			FROM order_list
+			WHERE member_id = #{memberId} AND rownum = 1
+			ORDER BY order_date DESC
+	</select>
+</mapper>
