@@ -1,4 +1,4 @@
-package kr.or.kosta.shopping.member.controller;
+package kr.or.kosta.shopping.member.controller.mypage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
