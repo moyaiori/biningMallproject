@@ -130,6 +130,37 @@ public class MybatisMemberDao implements MemberDao {
 			sqlSession.close();
 		}
 		return member;
-		
+	}
+	
+	/* 이메일과 이름으로 아이디를 찾는다 */
+	@Override
+	public Member searchId(HashMap<String, Object> data) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		Member member = null;
+		try {
+			MemberDao dao = sqlSession.getMapper(MemberDao.class);
+			member = dao.searchId(data);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return member;
+	}
+	
+	/* 아이디와 이메일로 비밀번호를 찾는다 */
+	@Override
+	public Member searchPass(HashMap<String, Object> data) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		Member member = null;
+		try {
+			MemberDao dao = sqlSession.getMapper(MemberDao.class);
+			member = dao.searchPass(data);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return member;
 	}
 }

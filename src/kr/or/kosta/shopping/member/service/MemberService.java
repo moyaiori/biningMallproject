@@ -79,13 +79,33 @@ public class MemberService {
 	}
 	
 	public Member emailChk(String email) throws RuntimeException {
-		
+			Member member = null;
+			try {
+				member = memberDao.emailChk(email);
+			} catch (Exception e) {
+				throw new RuntimeException(e);
+			}
+			return member;
+	}
+	
+	public Member searchId(HashMap<String, Object> data) throws RuntimeException {
 		Member member = null;
 		try {
-			member = memberDao.emailChk(email);
+			member = memberDao.searchId(data);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 		return member;
 	}
+	
+	public Member searchPass(HashMap<String, Object> data) throws RuntimeException {
+		Member member = null;
+		try {
+			member = memberDao.searchPass(data);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		return member;
+	}
+
 }

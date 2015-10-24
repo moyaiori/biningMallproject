@@ -21,13 +21,13 @@ import kr.or.kosta.shopping.member.service.MemberService;
  * 로그인에 대한 세부컨트롤러
  * @author AS
  */
-public class MemberIdSearchController implements Controller{
+public class MemberPassSearchController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		Logger logger = Logger.getLogger(Log4JExample.class);
 		logger.debug("[debug] : MemberIdSearchController");
 		
-		String name = request.getParameter("name");
+		String id = request.getParameter("id");
 		String email = request.getParameter("email");
 		
 		MemberService service = MemberService.getInstance();
@@ -35,9 +35,9 @@ public class MemberIdSearchController implements Controller{
 		ModelAndView mav = new ModelAndView();
 		
 		HashMap<String, Object> data = new HashMap<String, Object>();
-		data.put("name", name);
+		data.put("id", id);
 		data.put("email", email);
-		Member member = service.searchId(data);
+		Member member = service.searchPass(data);
 		
 		
 		if(member != null){
@@ -57,16 +57,16 @@ public class MemberIdSearchController implements Controller{
 				simpleEmail.setStartTLSEnabled(true);
 				
 				// 받는 양반
-				simpleEmail.addTo(email, name, "utf-8");
+				simpleEmail.addTo(email, member.getName(), "utf-8");
 				
 				// 보내는 양반
 				simpleEmail.setFrom("kahlman@naver.com", "Bins Admin");
 				
 				// 제목 설정
-				simpleEmail.setSubject("비닝몰 아이디입니다.");
+				simpleEmail.setSubject("비닝몰 비밀번호입니다.");
 				
 				// 내용
-				simpleEmail.setMsg("언제나 사랑해주셔서 감사합니다. 당신의 아이디는 " + member.getMemberId() + "입니다.");
+				simpleEmail.setMsg("언제나 사랑해주셔서 감사합니다. 당신의 비밀번호는 " + member.getPasswd() + "입니다.");
 				simpleEmail.send();
 			}catch(EmailException e){
 				e.printStackTrace();
