@@ -1,10 +1,3 @@
-<%@ page contentType="text/html; charset=utf-8"%>
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css.map">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 <%@ page contentType="text/html; charset=utf-8" %>
 <link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css.map">
@@ -15,6 +8,11 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="../js/ajax.js"></script>
+<script src="../js/loginCheck.js"></script>
+
+<script type="text/javascript">
+
+</script>
 
 <style>
 .table>tbody>tr>td{

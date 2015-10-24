@@ -17,19 +17,44 @@ import kr.or.kosta.shopping.member.service.MemberService;
  * 마이 페이지 정보
  * @author 이광용
  */
-public class MemberInfoEditViewController implements Controller{
+public class MemberCheckPasswdController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		Logger logger = Logger.getLogger(Log4JExample.class);
-		logger.debug("[debug] : MemberInfoEditViewController");
-
+		logger.debug("[debug] : MemberCheckPasswdViewController");
+		
 		MemberService service = MemberService.getInstance();
 		ModelAndView mav = new ModelAndView();
 		
+		String memberId = null;
 		
-		System.out.println("MemberInfoEditViewController");
+		// 쿠키값 가져오기
+	    Cookie[] cookies = request.getCookies();
+		if(cookies != null){
+			for (Cookie cookie : cookies) {
+				if(cookie.getName().equals("loginId")){
+					cookie.setPath("/");
+					memberId = cookie.getValue();
+				}
+			}
+		}
+		
+		
+		String passwd = request.getParameter("passwd");
+		Member member = service.login(memberId, passwd);
+	
+		System.out.println("MemberCheckPasswdViewController");
 		mav.addObject("contentFile", "/user/myEditInfo.jsp");
+
+		if(member != null){
+			mav.setView("redirect:../user/myEditInfo.bins");
+			mav.addObject("message", "로그인 성공");
+			return mav;
+		}else{
+			mav.setView("redirect:/user/myCheckPasswd.bins");
+			mav.addObject("message", "로그인 실패");
+			return mav;
+		}
 		
-		return mav;
 	}
 }

@@ -107,5 +107,19 @@ public class MemberService {
 		}
 		return member;
 	}
+	
+	/** 사용자 정보 가져오기 */
+	public Member getMemberInfo(String memberId) throws RuntimeException{
+		Member member = null;
+
+		try {
+			member = memberDao.getMemberInfo(memberId);
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+		
+		return member;
+		
+	}
 
 }

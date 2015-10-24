@@ -94,7 +94,7 @@
 	<tr>
 		<c:forEach items="${expensive}" var="product">
 		<td align=center valign=top width="25%" style="padding-bottom:25px;">
-		<img alt="expensive" src="../images/expensive.jpg" style="margin-right: 150px">
+		<img alt="expensive" src="../images/고급져유.jpg" style="margin-right: 150px">
 					<div style="text-align:center;"><a href="../product/product_view.bins?productId=${product.productId}"><img class="imageborder" src='../images/${product.picture}' width=200 /></a></div>
 					<div style="padding:14px 0 0 6px; text-align:center; width:200px;">
 					<div><a href="" style="display:inline-block; color:#000; font-size:11px; padding:0 0 3px 0;">${product.name}</a></div>		
