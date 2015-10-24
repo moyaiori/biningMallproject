@@ -374,8 +374,9 @@ th {
 	background-color:#2f2d2d;
 	text-align:left;
     clear: both;
-    width: 1263px;
+    width: 100%;
     margin: 100 0 0 0;
+    border-top-width: 40px;
     padding-top: 15px;
     display: table;
 }

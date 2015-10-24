@@ -99,22 +99,23 @@
     			  var name = nodeList[i].childNodes[3].nextSibling.nextSibling.nextSibling.nextSibling.firstChild.nodeValue.trim();
     			  var price = nodeList[i].childNodes[3].nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.firstChild.nodeValue.trim();
     			  var count = nodeList[i].childNodes[3].nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.firstChild.value;
-    			  json += '{"name":"' +name+ '","price":"'+ price +'","count":"'+count+'"},'; 
-    		  }
+    			  var picture = nodeList[i].childNodes[3].nextSibling.nextSibling.firstChild.getAttribute("src");
+    			  picture = picture.substring(10, picture.length);
+    			  json += '{"name":"' +name+ '","price":"'+ price +'","count":"'+count+'","picture":"'+picture+'"},';    		  
+    			  }
 		  }
     	  json = json.substring(0, json.length-1);
-    	  json += ']'
+    	  json += ']';
     	  
-   		  ajax({
-   			  	method: "post",
-   				url: "../order/order.bins",
-   				data:"json="+json,
-   			});
-    	  
+    	  var data = document.getElementById("hidden");
+	      data.setAttribute("value", json);
+	      
+	      document.cartForm.submit();
       }
       
       selOrderBtn = document.getElementById("selOrder");
       selOrderBtn.onclick = function(){
+    	  var json = '[';
     	  var tbody = document.getElementById("tbody");
     	  var nodeList = tbody.childNodes;
     	  for ( var i in nodeList) {
@@ -123,12 +124,19 @@
 	    			  var name = nodeList[i].childNodes[3].nextSibling.nextSibling.nextSibling.nextSibling.firstChild.nodeValue.trim();
 	    			  var price = nodeList[i].childNodes[3].nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.firstChild.nodeValue.trim();
 	    			  var count = nodeList[i].childNodes[3].nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.firstChild.value;
-	    			  json += '{"name":"' +name+ '","price":"'+ price +'","count":"'+count+'"},';
+	    			  var picture = nodeList[i].childNodes[3].nextSibling.nextSibling.firstChild.getAttribute("src");
+	    			  picture = picture.substring(10, picture.length);
+	    			  json += '{"name":"' +name+ '","price":"'+ price +'","count":"'+count+'","picture":"'+picture+'"},';
     			  }
     		  }
 		  }
     	  json = json.substring(0, json.length-1);
-    	  json += ']'   
+    	  json += ']' 
+    	  
+          var data = document.getElementById("hidden");
+	      data.setAttribute("value", json);
+	      
+	      document.cartForm.submit();
       }
    }
    
@@ -161,7 +169,10 @@
    작성자 : 가승호
    최종수정일 : 2015/10/20/ 19:20
  -->
+ 
 <div class="container">
+<form name="cartForm" action="../order/order.bins">
+<input type="hidden" name="json" id="hidden">
 <h2 align="center">장바구니</h2>
 <div class="text-center">
 <table class="table">
@@ -207,7 +218,8 @@
 </table>
 <br>
 <input type="button" value="선택주문" id="selOrder">
+
 <input type="button" value="전체주문" id="allOrder">
 </div>
-
+</form>
 </div>
