@@ -34,6 +34,13 @@ public interface MemberDao {
 	
 	/*회원 가입시 , 이메일 중복 검사.*/
 	public Member emailChk(String email) throws RuntimeException;
+	
+	/* 이메일과 이름으로 아이디를 찾는다. */
+	public Member searchId(HashMap<String, Object> data) throws RuntimeException;
+	
+	/* 이메일과 아이디로 비밀번호를 찾는다. */
+	public Member searchPass(HashMap<String, Object> data) throws RuntimeException;
+	
 }
 
 

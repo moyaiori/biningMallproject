@@ -1,8 +1,9 @@
 package kr.or.kosta.shopping.order.controller;
 
-import java.io.IOException;
-import java.io.Writer;
-import java.util.Iterator;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -27,10 +28,12 @@ import kr.or.kosta.shopping.order.service.OrderService;
 public class OrderGetInfoController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+		
 		String jsonTxt = request.getParameter("json");
 		JSONParser parser = new JSONParser();
 		Object obj = null;
-		
+		HashMap<String, Object> temp = new HashMap<String, Object>();
+		List<HashMap<String, Object>> jsonStore = new ArrayList<HashMap<String, Object>>(); 
 		try {
 			obj = parser.parse(jsonTxt);
 		} catch (ParseException e) {
@@ -40,9 +43,11 @@ public class OrderGetInfoController implements Controller{
 		JSONArray array = (JSONArray) obj;
 		for (int i = 0; i < array.size(); i++) {
 			JSONObject jsonObj = (JSONObject)array.get(i);
-			System.out.println(jsonObj.get("name"));
-			System.out.println(jsonObj.get("price"));
-			System.out.println(jsonObj.get("count"));
+			temp.put("name", jsonObj.get("name"));
+			temp.put("price", jsonObj.get("price"));
+			temp.put("count", jsonObj.get("count"));
+			temp.put("picture", jsonObj.get("picture"));
+			jsonStore.add(temp);
 		}
 		
 		ModelAndView mav = new ModelAndView();
@@ -63,10 +68,6 @@ public class OrderGetInfoController implements Controller{
 			}
 		}
 		
-		productName = request.getParameter("productName");
-		
-		//productImg = service.getProductInfo(productName);
-		
 		Member member = service.getInfo(loginId);
 		
 		String phoneNum = member.getPhoneNumber();
@@ -78,11 +79,9 @@ public class OrderGetInfoController implements Controller{
 		member.setPhoneNumber(phoneResult[0]);
 		
 		mav.addObject("member", member);
-		mav.addObject("productImg", productImg);
-		
+		mav.addObject("allData", jsonStore);
 		mav.addObject("contentFile", "/order/order.jsp");
 		
 		return mav;
 	}
-	
 }

@@ -17,7 +17,6 @@ public class Order {
 
 	public Order(int orderNum, String memberId, String address, String address2, String orderDate, String payment,
 			String recipient, String productName, String toppingName, String comment, String totalPrice) {
-		super();
 		this.orderNum = orderNum;
 		this.memberId = memberId;
 		this.address = address;

@@ -90,6 +90,12 @@
 				<div><a href="" style="display:inline-block; color:#000; font-size:11px; padding:0 0 3px 0;">프리저브드 플라워 DIY</a></div>		<div style="padding-bottom:3px;"><a href="" style="display:inline-block; color:#000; font-weight:bold; padding:0 0 3px 0; font-size:11px">5,800원</a> </div>
 				<div></div>	</div>
 		</td>
+	<tr>
+		<td>
+			Expensive 상품
+		</td>
+	</tr>	
+			
 
 		
 	<tr>

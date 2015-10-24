@@ -25,6 +25,10 @@
 		var deleteButton = document.getElementById("delete");
 		var array = [];
 		
+		var picture = document.getElementById("picture");
+		var pictureName = picture.getAttribute("src");
+		pictureName = pictureName.substring(10, pictureName.length);
+		
 		deleteButton.onclick = function(){
 			toppingPrice -= parseInt(toppingBox.options[toppingBox.selectedIndex].text.split(":")[1].split("원")[0].trim());
 			price.innerHTML = (realPrice + toppingPrice) * count.value;
@@ -92,8 +96,9 @@
 			price.innerHTML = (realPrice + toppingPrice) * count.value;
 		}
 		
-	    var buyButton = document.getElementById("buyButton");
-	    buyButton.onclick = function(){
+		var form = document.getElementById("submit");
+	    form.onsubmit = function(){
+	      	
 	       var json = '[';
 	       var priceE = document.getElementById("price");
 	       var price = priceE.firstChild.nodeValue;
@@ -104,15 +109,12 @@
 	       if(toppingName.trim().length == 0){
 	    	   toppingName = "없음";
 	       }
-	       json += '{"name":"' + productName +"(토핑 : " + toppingName + ")" + '","price":"'+ price +'","count":"'+count.value+'"},';
+	       json += '{"name":"' + productName +"(토핑 : " + toppingName + ")" + '","price":"'+ price/count.value +'","count":"'+count.value+'","picture":"'+pictureName+'"},';
 	       json = json.substring(0, json.length-1);
 	       json += ']'
-	       console.log(json);
-	       ajax({
-  			  	method: "post",
-  				url: "../order/order.bins",
-  				data: "json="+json,
-  			});
+	       
+	       var data = document.getElementById("hidden");
+	       data.setAttribute("value", json);
 	    }
 	    
 	    var addCart = document.getElementById("addCart");
@@ -128,60 +130,61 @@
 	    }
 	}
 </script>
-
-<body>
-	<div>
-		<div style="padding-top: 5px; padding-bottom: 10px;">
-			<table class="detailMainDiv">
-				<tr>
-					<td><img src='../images/${product.picture}' /></td>
-					<td valign="top">
-						<div><h3>${product.name}</h3></div>
-						<table class="innerTable">
-							<tr>
-								<td>가격 : </td>
-								<td id="price">${product.price}</td>
-							</tr>
-							<tr>
-								<td>칼로리 : </td>
-								<td>${product.calorie}cal</td>
-							</tr>
-							<tr>
-								<td>판매량 : </td>
-								<td>${product.salesCount}</td>
-							</tr>
-							<tr>
-								<td>갯수 : </td>
-								<td><input id="count" type="number" style="width: 50px" min="1" max="50" value="1"></td>
-							</tr>
-						</table>
-						<div class="selectedTopping">
-							<select multiple class="form-control" id="topping">
-						        <option>토핑을 추가해 주세요</option>
-     						 </select>
-						</div>
-						<div class="selectTopping">
-							<select class="form-control" id="select" style="display: inline;">
-								<option value="">== 토핑 선택 ==
-								<c:forEach items="${toppingList}" var="topping">
-								<option value="${topping.price}">${topping.toppingId}. ${topping.name} : ${topping.price}원
-								</c:forEach>
-     						 </select>
-							<input type="button" id="delete" class="btn btn-default" value="삭제" style="display: inline;"/>
-						</div>
-
-						<div class="orderBtnSet">
-							<input id="addCart" type="button" class="btn btn-default" value="장바구니 추가"/>
-							<input id="buyButton" type="button" class="btn btn-default" value="바로 구매"/>
-						</div>
-					</td>
-				</tr>
-			</table>
+	<form action="../order/order.bins" id="submit">
+	    <input type="hidden" id="hidden" name="json">
+		<div>
+			<div style="padding-top: 5px; padding-bottom: 10px;">
+				<table class="detailMainDiv">
+					<tr>
+						<td><img src='../images/${product.picture}' id="picture"/></td>
+						<td valign="top">
+							<div><h3>${product.name}</h3></div>
+							<table class="innerTable">
+								<tr>
+									<td>가격 : </td>
+									<td id="price">${product.price}</td>
+								</tr>
+								<tr>
+									<td>칼로리 : </td>
+									<td>${product.calorie}cal</td>
+								</tr>
+								<tr>
+									<td>판매량 : </td>
+									<td>${product.salesCount}</td>
+								</tr>
+								<tr>
+									<td>갯수 : </td>
+									<td><input id="count" type="number" style="width: 50px" min="1" max="50" value="1"></td>
+								</tr>
+							</table>
+							<div class="selectedTopping">
+								<select multiple class="form-control" id="topping">
+							        <option>토핑을 추가해 주세요</option>
+	     						 </select>
+							</div>
+							<div class="selectTopping">
+								<select class="form-control" id="select" style="display: inline;">
+									<option value="">== 토핑 선택 ==
+									<c:forEach items="${toppingList}" var="topping">
+									<option value="${topping.price}">${topping.toppingId}. ${topping.name} : ${topping.price}원
+									</c:forEach>
+	     						 </select>
+								<input type="button" id="delete" class="btn btn-default" value="삭제" style="display: inline;"/>
+							</div>
+	
+							<div class="orderBtnSet">
+								<input id="addCart" type="button" class="btn btn-default" value="장바구니 추가"/>
+								<input id="buyButton" type="submit" class="btn btn-default" value="바로 구매"/>
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+	
+			<div></div>
 		</div>
-
-		<div></div>
-	</div>
-
+	</form>
+	
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-heading">메뉴 상세 설명</div>
@@ -229,5 +232,4 @@
 			
 		</div>
 	</div>
-</body>
 

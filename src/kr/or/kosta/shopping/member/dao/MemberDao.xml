@@ -57,4 +57,18 @@
 		  from members where email =#{value}
 	</select>
 	
+	<select id="searchId" resultType="kr.or.kosta.shopping.member.domain.Member" parameterType="java.util.HashMap">
+		  SELECT  member_id AS "memberId", passwd AS "passwd", birth AS "birth", phone_number AS "phoneNumber", address AS "address", address2 AS "address2", name AS "name", email AS "email", grade AS "grade", point AS "point"
+		  FROM members
+		  WHERE name = #{name} AND email = #{email}
+	</select>
+	
+	<select id="searchPass" resultType="kr.or.kosta.shopping.member.domain.Member" parameterType="java.util.HashMap">
+		  SELECT  member_id AS "memberId", passwd AS "passwd", birth AS "birth", phone_number AS "phoneNumber", address AS "address", address2 AS "address2", name AS "name", email AS "email", grade AS "grade", point AS "point"
+		  FROM members
+		  WHERE member_id = #{id} AND email = #{email}
+	</select>
+	
+	
+	
 </mapper>

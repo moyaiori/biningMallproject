@@ -25,8 +25,8 @@ import kr.or.kosta.shopping.member.service.MemberService;
 public class MemberJoinIdChkController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-		//Logger logger = Logger.getLogger(Log4JExample.class);
-	//	logger.debug("[debug] : MemberLoginController");
+		Logger logger = Logger.getLogger(Log4JExample.class);
+	    logger.debug("[debug] : MemberJoinIdChkController");
 		
 		String joinId = request.getParameter("joinId");
 		MemberService service = MemberService.getInstance();
@@ -37,10 +37,8 @@ public class MemberJoinIdChkController implements Controller{
 			Member member =null;
 			 member=service.idChk(joinId);
 			if(member==null){
-			
 				out.println("true");/*그럼 아이디를 사용할수잇어요*/
 			}else{
-				
 				out.println("false");
 			}
 		} catch (IOException e) {
