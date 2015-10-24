@@ -1,5 +1,6 @@
 package kr.or.kosta.shopping.product.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import kr.or.kosta.shopping.common.dao.DaoFactory;
@@ -59,5 +60,13 @@ public class ProductService {
 			throw new RuntimeException(e.toString());
 		}
 		return list;
+	}
+	
+	public void updateCount(HashMap<String, Object> data) throws RuntimeException{
+		try{
+			productDao.updateCount(data);
+		}catch (Exception e){
+			throw new RuntimeException(e.toString());
+		}
 	}
 }
