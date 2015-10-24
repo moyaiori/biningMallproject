@@ -314,7 +314,7 @@ th {
 	}
 	
 	.pro_div{
-		width:100%;
+		width:70%;
 		height: 160px;
 		margin:0 auto;
 		display:block;
@@ -368,7 +368,17 @@ th {
    font-style: 
 }
 
-
+/** 푸터*/
+#footer dl.footInfo {
+	color :#fff;
+	background-color:#2f2d2d;
+	text-align:left;
+    clear: both;
+    width: 1263px;
+    margin: 100 0 0 0;
+    padding-top: 15px;
+    display: table;
+}
 
 
 .glyphicon-asterisk:before {
