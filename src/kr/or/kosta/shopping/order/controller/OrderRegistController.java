@@ -14,10 +14,11 @@ import kr.or.kosta.shopping.order.service.OrderService;
 
 /**
  * 주문내역 등록에 대한 세부컨트롤러
- * @author 가승호
+ * @author 가승호 유안상
  * @작성일 : 2015/10/21
+ * @수정일 : 2015/10/24
  */
-public class OrderCheckController implements Controller{
+public class OrderRegistController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		

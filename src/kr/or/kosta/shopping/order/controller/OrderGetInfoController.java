@@ -32,7 +32,6 @@ public class OrderGetInfoController implements Controller{
 		String jsonTxt = request.getParameter("json");
 		JSONParser parser = new JSONParser();
 		Object obj = null;
-		HashMap<String, Object> temp = new HashMap<String, Object>();
 		List<HashMap<String, Object>> jsonStore = new ArrayList<HashMap<String, Object>>(); 
 		try {
 			obj = parser.parse(jsonTxt);
@@ -43,6 +42,7 @@ public class OrderGetInfoController implements Controller{
 		JSONArray array = (JSONArray) obj;
 		for (int i = 0; i < array.size(); i++) {
 			JSONObject jsonObj = (JSONObject)array.get(i);
+			HashMap<String, Object> temp = new HashMap<String, Object>();
 			temp.put("name", jsonObj.get("name"));
 			temp.put("price", jsonObj.get("price"));
 			temp.put("count", jsonObj.get("count"));
@@ -54,8 +54,6 @@ public class OrderGetInfoController implements Controller{
 		OrderService service = OrderService.getInstance();
 		
 		String loginId = null;
-		String productName = null;
-		String productImg = null;
 		
 		// 쿠키값 가져오기
 	    Cookie[] cookies = request.getCookies();
