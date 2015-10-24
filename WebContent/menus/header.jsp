@@ -16,7 +16,7 @@
 		<li><a href= "../qna/qna_view.bins">QnA</a></li>
 		<c:if test="${cookie.loginId != null}">
 			<li><a href= "../cart/cartView.bins?loginId=${cookie.loginId.value}">Cart</a></li>
-			<li><a href= "../user/userInfo.bins?loginId=${cookie.loginId.value}">MyPage</a></li>
+			<li><a href= "../user/myInfo.bins?loginId=${cookie.loginId.value}">MyPage</a></li>
 		</c:if>
 	</ul>
 </div>

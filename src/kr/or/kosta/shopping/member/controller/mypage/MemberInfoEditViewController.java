@@ -1,4 +1,4 @@
-package kr.or.kosta.shopping.member.controller;
+package kr.or.kosta.shopping.member.controller.mypage;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -15,17 +15,17 @@ import kr.or.kosta.shopping.member.service.MemberService;
  * 마이 페이지 정보
  * @author 이광용
  */
-public class MemberOrderViewController implements Controller{
+public class MemberInfoEditViewController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		Logger logger = Logger.getLogger(Log4JExample.class);
-		logger.debug("[debug] : MemberOrderViewController");
+		logger.debug("[debug] : MemberInfoEditViewController");
 
 		MemberService service = MemberService.getInstance();
 		ModelAndView mav = new ModelAndView();
 		
-		System.out.println("MemberOrderViewController");
-		mav.addObject("contentFile", "/user/myOrder.jsp");
+		System.out.println("MemberInfoEditViewController");
+		mav.addObject("contentFile", "/user/myEditInfo.jsp");
 		
 		return mav;
 	}
