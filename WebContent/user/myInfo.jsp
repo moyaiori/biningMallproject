@@ -1,10 +1,4 @@
-<%@ page contentType="text/html; charset=utf-8"%>
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css.map">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
+<%@ page contentType="text/html; charset=utf-8"%>.css">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="../js/ajax.js"></script>
@@ -46,16 +40,12 @@ form {
 				<td>${member.name }</td>
 			</tr>
 			<tr>
-				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">생년월일</td>
-				<td>${member.birth }</td>
-			</tr>
-			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">이메일주소</td>
 				<td>${member.email }</td>
 			</tr>
 			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">연락처</td>
-				<td>${member.phoneNumber }</td>
+				<td>${member.phoneNumber } - ${member.phoneNumber2 } - ${member.phoneNumber3 }</td>
 			</tr>
 			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">주소</td>

@@ -1,5 +1,4 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-
 <div id="footer">
 	<dl class="footInfo">
 		<dt style="margin-left: 40px">

@@ -1,10 +1,4 @@
 <%@ page contentType="text/html; charset=utf-8" %>
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css.map">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="../js/ajax.js"></script>
@@ -50,6 +44,10 @@ form {
 				<td><input type="text" class="form-control" name="name" value="${member.name }"></td>
 			</tr>
 			<tr>
+				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">비밀번호</td>
+				<td><input type="text" class="form-control" name="passwd"></td>
+			</tr>
+			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">이메일주소</td>
 				<td><input type="text" class="form-control" name="email" value="${member.email }"><span id="emailmessageBox"></span></td>
 			</tr>
@@ -86,8 +84,8 @@ form {
 			</tr>
 			<tr>
 	
-			<td></td>
-			<td><input type="submit" value="정보 수정" class="btn btn-danger" onclick="return check()">
+			<td><input type="hidden" name="" value = ""></td>
+			<td><input type="submit" value ="정보 수정" class="btn btn-danger" onclick="return check()">
 			</tr>
 		</table>
 	</form>
