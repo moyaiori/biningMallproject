@@ -4,30 +4,12 @@
 <script src="../js/ajax.js"></script>
 
 
-<style>
-.table>tbody>tr>td{
-	vertical-align: middle;
-	font-family:hy강m;
-	font-size: 12;
-}
-
-form {
-	vertical-align: middle;
-	margin: 0px auto;
-	font-family:hy강m;
-	font-size: 20;
-	padding: 20px 130px 130px;
-}
-</style>
-
 <p class="j_p">
 				<font class="j_txt">M </font>Y 　I N F O</p>
 
 <jsp:include page="myPageMenu.jsp"></jsp:include>
 
-
-
-<div class="container col-md-8 col-md-offset-2">
+<div class="container col-md-8 col-md-offset-2" >
 		
 	<form action="registProc.bins" method="post" name="addjoin">
 		<table class="table">

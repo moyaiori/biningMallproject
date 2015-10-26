@@ -90,6 +90,8 @@
 			for (var i in array) {
 				output += "<option>" + array[i].name + " : " + array[i].price + " - " + array[i].count +"개</option>";
 			}
+			
+			select.selectedIndex = 0;
 			toppingBox.innerHTML = output;
 			price.innerHTML = (realPrice + toppingPrice) * count.value;
 		}
@@ -138,7 +140,14 @@
 		    	if(toppingName.trim().length == 0){
 		    		toppingName = "없음";
 		    	}
-		    	window.location.href = "../cart/cartInsert.bins?loginId=" + "${cookie.loginId.value}" + "&productId=" + "${product.productId}" + "&price=" + realPrice + "&name=" + "${product.name}" + "&picture=" + "${product.picture}" + "&count=" + count.value + "&toppingPrice=" + toppingPrice + "&toppingName=" + toppingName ;	
+		    	
+		    	var returnValue = confirm("장바구니하면으로 이동하시겠습니까?");
+		    	if (returnValue) {
+		    		window.location.href = "../cart/cartInsert.bins?loginId=" + "${cookie.loginId.value}" + "&productId=" + "${product.productId}" + "&price=" + realPrice + "&name=" + "${product.name}" + "&picture=" + "${product.picture}" + "&count=" + count.value + "&toppingPrice=" + toppingPrice + "&toppingName=" + toppingName+ "&result=true"  ;
+		    	} else {
+		    		window.location.href = "../cart/cartInsert.bins?loginId=" + "${cookie.loginId.value}" + "&productId=" + "${product.productId}" + "&price=" + realPrice + "&name=" + "${product.name}" + "&picture=" + "${product.picture}" + "&count=" + count.value + "&toppingPrice=" + toppingPrice + "&toppingName=" + toppingName+ "&result=false" ;
+				}
+	    	
 	    	}else{
 	    		alert("로그인 후 이용이 가능합니다.");
 	    		$(function(){
@@ -171,7 +180,7 @@
 	    }
 	}
 </script>
-	<form action="../order/order.bins" id="submit">
+	<form action="../order/order.bins" id="submit" method="">
 	    <input type="hidden" id="hidden" name="json">
 		<div>
 			<div style="padding-top: 5px; padding-bottom: 10px;">
@@ -207,7 +216,7 @@
 								<select class="form-control" id="select" style="display: inline; width:210px">
 									<option value="">== 토핑 선택 ==
 									<c:forEach items="${toppingList}" var="topping">
-									<option value="${topping.price}">${topping.toppingId}. ${topping.name} : ${topping.price}원
+									<option  value="${topping.price}">${topping.toppingId}. ${topping.name} : ${topping.price}원
 									</c:forEach>
 	     						 </select>
 								<input type="button" id="delete" class="btn btn-danger" value="삭제" style="display: inline;"/>
@@ -234,7 +243,7 @@
 	</div>
 	
 	<div class="container" style="width: 70%; font-family: HY강">
-		<a id="productView" style="cursor:pointer">상품평 보기</a>
+		<a id="productView" style="cursor:pointer; margin-bottom: 5px" class="btn btn-danger" >상품평 보기</a>
 	</div>
 	
 	<div class="reviewDiv">

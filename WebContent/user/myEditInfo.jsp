@@ -149,12 +149,15 @@ form {
 }
 </style>
 
-<jsp:include page="myPageMenu.jsp"></jsp:include>
-
-<div class="container col-md-8 col-md-offset-2">
 	<p class="j_p">
 		<font class="j_txt">M </font>Y P A G E
 	</p>
+
+<jsp:include page="myPageMenu.jsp"></jsp:include>
+
+
+<div class="container col-md-8 col-md-offset-2">
+
 	<form action="../user/myEditInfoProc.bins" method="post" name="addjoin">
 		<table class="table">
 			<colgroup>

@@ -21,7 +21,7 @@ function myOrderOnClick(){
 <style>
 
 .btn-group button{
-	width: 240px;
+	width: 270px;
 	height: 40px;
 }
 
