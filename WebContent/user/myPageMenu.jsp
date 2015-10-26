@@ -32,7 +32,7 @@ window.onload = function(){
 </style>
 
 
-<div class="btn-group col-md-12 col-md-offset-3" role="group">
+<div class="btn-group" role="group" style="margin-left: 270px">
   <button type="button" class="btn btn-danger" id="myInfo">나의 정보</button>
   <button type="button" class="btn btn-danger" id="myEditInfo">정보 수정</button>
   <button type="button" class="btn btn-danger" id="myOrder">주문 내역</button>
