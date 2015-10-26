@@ -1,7 +1,13 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<<<<<<< HEAD
 <script src="../js/ajax.js"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+=======
+
+<!-- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script> -->
+<script src="../js/ajax.js"></script>
+>>>>>>> 876d22dda65b33ef6bdeb5af3214caa43d623ce3
 <script>
 	function login_ok(){
 		if (document.getLogin.memberId.value == "") {

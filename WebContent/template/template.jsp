@@ -27,7 +27,7 @@ form {
 	margin: 0px auto;
 	font-family:hy강m;
 	font-size: 20;
-	padding: 20px 130px 13px;
+	
 }
 </style>
 <style type="text/css">
