@@ -6,23 +6,18 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<<<<<<< HEAD
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/bootswatch.min.css" rel="stylesheet">
-=======
 <style type="text/css">
->>>>>>> 4bcf2307dc3c72a1d39cd4364d23eff84c5c72d8
 
 </head>
 
 
 
 <body>
-<<<<<<< HEAD
 	<script src="js/jquery-2.1.0.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/bootswatch.js"></script>
-=======
 	<div class="container">
 
 		<!-- header -->
@@ -45,6 +40,5 @@
 			<p>COPYRIGHT ⓒ 2015 BINS. ALL RIGHT RESERVED.</p>
 		</div>
 	</div>
->>>>>>> 4bcf2307dc3c72a1d39cd4364d23eff84c5c72d8
 </body>
 </html>
