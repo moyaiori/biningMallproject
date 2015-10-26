@@ -27,6 +27,8 @@ public class QnaListController implements Controller {
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView();
 	
+		
+		
 		try {
 			request.setCharacterEncoding("utf-8");
 		} catch (UnsupportedEncodingException e1) {
@@ -84,6 +86,7 @@ public class QnaListController implements Controller {
 		pagination.paginate();
 		String pageNation = pagination.toHtml(pageType, pageValue);
 		mav.addObject("articleList", qnaList);
+		mav.addObject("pageNum", pageNum);
 		mav.addObject("listSize", listSize);
 		mav.addObject("requestP", requestP);
 		mav.addObject("pageNation", pageNation);
