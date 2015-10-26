@@ -178,11 +178,11 @@
 							<table class="innerTable">
 								<tr>
 									<td>가격 : </td>
-									<td id="price">${product.price}</td>
+									<td id="price">${product.price} 원</td>
 								</tr>
 								<tr>
 									<td>칼로리 : </td>
-									<td>${product.calorie}cal</td>
+									<td>${product.calorie} kcal</td>
 								</tr>
 								<tr>
 									<td>판매량 : </td>
@@ -198,19 +198,19 @@
 							        <option>토핑을 추가해 주세요</option>
 	     						 </select>
 							</div>
-							<div class="selectTopping">
-								<select class="form-control" id="select" style="display: inline;">
+							<div class="selectTopping" style="text-align: left;">
+								<select class="form-control" id="select" style="display: inline; width:210px">
 									<option value="">== 토핑 선택 ==
 									<c:forEach items="${toppingList}" var="topping">
 									<option value="${topping.price}">${topping.toppingId}. ${topping.name} : ${topping.price}원
 									</c:forEach>
 	     						 </select>
-								<input type="button" id="delete" class="btn btn-default" value="삭제" style="display: inline;"/>
+								<input type="button" id="delete" class="btn btn-danger" value="삭제" style="display: inline;"/>
 							</div>
 	
 							<div class="orderBtnSet">
-								<input id="addCart" type="button" class="btn btn-default" value="장바구니 추가"/>
-								<input id="buyButton" type="submit" class="btn btn-default" value="바로 구매"/>
+								<input id="addCart" type="button" class="btn btn-danger" value="장바구니 추가"/>
+								<input id="buyButton" type="submit" class="btn btn-danger" value="바로 구매"/>
 							</div>
 						</td>
 					</tr>
@@ -221,19 +221,19 @@
 		</div>
 	</form>
 	
-	<div class="container">
-		<div class="panel panel-default">
+	<div class="container" style="width: 70%; font-family: HY강M">
+		<div class="panel panel-danger">
 			<div class="panel-heading">메뉴 상세 설명</div>
 			<div class="panel-body">${product.description}</div>
 		</div>
 	</div>
 	
-	<div class="container">
+	<div class="container" style="width: 70%; font-family: HY강">
 		<a id="productView" style="cursor:pointer">상품평 보기</a>
 	</div>
 	
 	<div class="reviewDiv">
-		<div class="container">
+		<div class="container" style="width: 70%; font-family: hy강M">
 			<table class="table">
 				<colgroup>
 					<col width="70" />
@@ -241,7 +241,7 @@
 					<col width="130" />
 					<col width="130" />
 				</colgroup>
-				<tr class="active">
+				<tr class="active" style="font-family: hy강M">
 					<th>번호</th>
 					<th>상품평</th>
 					<th>작성자</th>
@@ -267,7 +267,7 @@
 				</c:if>
 			</table>
 			<c:choose>
-				<c:when test="${cookie.loginId != null}"><input id="write" onclick="location.href='../product/product_write.bins?productId=${product.productId}'" type="button" class="btn btn-default" value="글쓰기" style="float: right;" /></c:when>
+				<c:when test="${cookie.loginId != null}"><input id="write" onclick="location.href='../product/product_write.bins?productId=${product.productId}'" type="button" class="btn btn-danger" value="글쓰기" style="float: right;" /></c:when>
 			</c:choose>
 			
 		</div>
