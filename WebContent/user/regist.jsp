@@ -84,6 +84,8 @@ function searchPost() {
 			alert("생년월일을 입력하세요.");
 			return false;
 		}
+		
+		
 	}
 
 /*   조현빈 자바스크립트 부분 추가    */
@@ -106,14 +108,18 @@ function searchPost() {
     			});
     			checked = true;
     		}else{
-    			setMessage("아이디는 5~8자 이어야 합니다.");
+    			setMessage("아이디는 5~8자 이어야 합니다.","id");
     		}
     
+    		
+    		
+    		
     	}
     	
     	document.addjoin.email.onkeyup = function(){
     		var joinEmail= document.addjoin.email.value;
-    		if(document.addjoin.email.value.length >= 5){
+    		var regExp = /[0-9a-zA-Z][_0-9a-zA-Z-]*@[_0-9a-zA-Z-]+(\.[_0-9a-zA-Z-]+){1,2}$/;
+    		if(document.addjoin.email.value.match(regExp)){
     			// 서버에 아이디 전송
     			  	ajax({
     				url: "/user/MemberJoinEmailChk.bins",
@@ -125,7 +131,7 @@ function searchPost() {
     			});
     			checked = true;
     		}else{
-    			setMessage("");
+    			setMessage("이메일 형식에 맞게 입력해주세요. ex)________@____.__.__","email");
     		}
     	}
     	
