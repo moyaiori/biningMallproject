@@ -111,7 +111,7 @@ public class MybatisArticleDao implements ArticleDao {
 		try{
 			ArticleDao dao = (ArticleDao)sqlSession.getMapper(ArticleDao.class);
 			listCount = dao.getAllSearchCnt(type);
-			logger.debug("DEBUG : 서치잼");
+		//	logger.debug("DEBUG : 서치잼");
 			sqlSession.commit();
 		}catch(Exception e){
 			e.printStackTrace();
