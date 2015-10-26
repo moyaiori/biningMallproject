@@ -28,7 +28,7 @@ function myOrderOnClick(){
 </style>
 
 
-<div class="btn-group col-md-12 col-md-offset-3" role="group">
+<div class="btn-group button" role="group" style="margin-left: 228px">
   <button type="button" class="btn btn-danger" id="myInfo" onclick="myInfoOnClick()">나의 정보</button>
   <button type="button" class="btn btn-danger" id="myEditInfo" onclick="myEditInfoOnClick()">정보 수정</button>
   <button type="button" class="btn btn-danger" id="myOrder" onclick="myOrderOnClick()">주문 내역</button>
