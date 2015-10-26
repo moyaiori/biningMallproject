@@ -44,6 +44,10 @@ form {
 				<td><input type="text" class="form-control" name="name" value="${member.name }"></td>
 			</tr>
 			<tr>
+				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">비밀번호</td>
+				<td><input type="text" class="form-control" name="passwd"></td>
+			</tr>
+			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">이메일주소</td>
 				<td><input type="text" class="form-control" name="email" value="${member.email }"><span id="emailmessageBox"></span></td>
 			</tr>
@@ -80,8 +84,8 @@ form {
 			</tr>
 			<tr>
 	
-			<td></td>
-			<td><input type="submit" value="정보 수정" class="btn btn-danger" onclick="return check()">
+			<td><input type="hidden" name="" value = ""></td>
+			<td><input type="submit" value ="정보 수정" class="btn btn-danger" onclick="return check()">
 			</tr>
 		</table>
 	</form>
