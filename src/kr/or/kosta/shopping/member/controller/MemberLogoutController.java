@@ -36,7 +36,7 @@ public class MemberLogoutController implements Controller{
 
 		
 		ModelAndView mav = new ModelAndView();
-		mav.setView("redirect:/index.bins");
+		mav.setView("redirect:../index.bins");
 		return mav;
 	}
 }
