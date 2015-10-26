@@ -34,14 +34,13 @@
 			<tr><td colspan="3" style="padding: 0 0 0 0"></td></tr>
 			
 	</table>
-	<input onclick="location.href='../qna/qna_view.bins" type="button"
-		class="btn btn-danger" value="목록" />
-	<c:if test="${cookie.loginId.value.equals('admin')}" >
+	<input onclick="location.href='../qna/qna_view.bins" type="button" class="btn btn-danger" value="목록" />
+	<c:if test="${cookie.loginId.value == admin}" >
 		<input onclick="location.href='../qna/qna_write.bins?articleId=<%=articleId%>&writer=${qna.memberId}'" type="button" class="btn btn-danger" value="답글쓰기"  />
-		
 	</c:if>
-	<c:if test="${cookie.loginId.value.equals('qna.memberId')}" >
-		<input onclick="location.href='../qna/qna_write.bins'" type="button" class="btn btn-danger" value="수정하기"  />
+	<c:if test="${cookie.loginId.value == qna.memberId}" >
+		<input onclick="location.href='../qna/qna_modify.bins?articleId=<%=articleId%>'" type="button" class="btn btn-danger" value="수정하기"  />
+		<input onclick="location.href='../qna/qna_delete.bins?articleId=<%=articleId%>'" class="btn btn-default" type="button" id="delete" value="삭제하기">
 	</c:if>
 	</div>
 </div>

@@ -91,6 +91,6 @@
 
 	<delete id="delete" parameterType="java.lang.String" >
 		delete from article
-			where article_id = #{articleId}
+		where article_id = #{articleId}
 	</delete>
 </mapper>

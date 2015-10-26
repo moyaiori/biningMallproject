@@ -61,7 +61,7 @@ public class QnaRegistController implements Controller {
 		}else{
 			service.add(qna);
 		}
-		mav.setView("/qna/qna_view.bins");
+		mav.setView("../qna/qna_view.bins");
 		return mav;
 	}
 

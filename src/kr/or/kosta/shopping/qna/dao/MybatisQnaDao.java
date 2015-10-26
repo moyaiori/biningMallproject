@@ -168,5 +168,22 @@ public class MybatisQnaDao implements QnaDao {
 		return articleList;
 	}
 
+	@Override
+	public void deleteQna(String articleId) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try{
+			QnaDao dao = (QnaDao)sqlSession.getMapper(QnaDao.class);
+			dao.deleteQna(articleId);
+		}finally{
+			sqlSession.close();
+		}
+	}
+
+	@Override
+	public void modifyQna(Article aricle) throws RuntimeException {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }
