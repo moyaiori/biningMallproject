@@ -46,16 +46,12 @@ form {
 				<td>${member.name }</td>
 			</tr>
 			<tr>
-				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">생년월일</td>
-				<td>${member.birth }</td>
-			</tr>
-			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">이메일주소</td>
 				<td>${member.email }</td>
 			</tr>
 			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">연락처</td>
-				<td>${member.phoneNumber }</td>
+				<td>${member.phoneNumber } - ${member.phoneNumber2 } - ${member.phoneNumber3 }</td>
 			</tr>
 			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">주소</td>

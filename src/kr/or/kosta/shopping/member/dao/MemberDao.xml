@@ -70,13 +70,15 @@
 	</select>
 	
 	<select id="getMemberInfo" resultType="kr.or.kosta.shopping.member.domain.Member" parameterType="String">
-		  SELECT  member_id AS "memberId", passwd AS "passwd", TO_CHAR(birth,'YYYY/MM/DD') AS "birth", phone_number AS "phoneNumber", address AS "address", address2 AS "address2", name AS "name", email AS "email", grade AS "grade", point AS "point"
+		  SELECT  member_id AS "memberId", passwd AS "passwd", TO_CHAR(birth,'YYYY/MM/DD') AS "birth", phone_number AS "phoneNumber",phone_number2 AS "phoneNumber2",phone_number3 AS "phoneNumber3", address AS "address", address2 AS "address2", name AS "name", email AS "email", grade AS "grade", point AS "point"
 		  FROM members
 		  WHERE member_id = #{value}
 	</select>
 	
 	<update id="updateMemberInfo" parameterType="kr.or.kosta.shopping.member.domain.Member">
-	
+		UPDATE members
+		SET name = #{name}, passwd = #{passwd}, email = #{email}, phone_number = #{phoneNumber}, address = #{address}, address2 = #{address2}
+		WHERE member_id = #{memberId}
 	</update>
 	
 	<update id="updatePoint" parameterType="java.util.HashMap">
