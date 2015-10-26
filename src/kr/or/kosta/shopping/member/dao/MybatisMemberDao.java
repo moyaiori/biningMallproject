@@ -171,6 +171,7 @@ public class MybatisMemberDao implements MemberDao {
 		try {
 			MemberDao dao = sqlSession.getMapper(MemberDao.class);
 			member = dao.getMemberInfo(memberId);
+			System.out.println("getMemberInfo - member : " + member);
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -183,7 +184,7 @@ public class MybatisMemberDao implements MemberDao {
 	@Override
 	public void updateMemberInfo(Member member) throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		
+		System.out.println("updateMemberInfo : " + member);
 		try {
 			MemberDao dao = sqlSession.getMapper(MemberDao.class);
 			dao.updateMemberInfo(member);

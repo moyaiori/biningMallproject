@@ -50,6 +50,8 @@ public class MemberInfoEditController implements Controller{
 		member.setAddress(request.getParameter("address"));
 		member.setAddress2(request.getParameter("address2"));
 		
+		System.out.println("MemberInfoEditController - member : " + member);
+		
 		service.updateMemberInfo(member);
 
 		mav.addObject("member", member);

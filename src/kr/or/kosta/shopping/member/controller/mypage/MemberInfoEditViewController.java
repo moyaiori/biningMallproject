@@ -41,10 +41,10 @@ public class MemberInfoEditViewController implements Controller{
 		}
 		
 		member = service.getMemberInfo(memberId);
+		System.out.println("member : " + member);
 
 		mav.addObject("member",member);
 		
-//		System.out.println("MemberInfoEditViewController");
 		mav.addObject("contentFile", "/user/myEditInfo.jsp");
 		
 		return mav;
