@@ -41,12 +41,12 @@ public class MemberInfoViewController implements Controller{
 		}
 		
 		member = service.getMemberInfo(memberId);
+
+		System.out.println("member : " + member);
 		
 		mav.addObject("member",member);
-		
-		
 		mav.addObject("contentFile", "/user/myInfo.jsp");
-		
+		logger.info("[info] : MemberInfoViewController");
 		return mav;
 	}
 }

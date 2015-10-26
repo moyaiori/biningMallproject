@@ -3,7 +3,7 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="../js/ajax.js"></script>
 <script>
-var join= false;
+
 function searchPost() {
     new daum.Postcode({
         oncomplete: function(data) {
@@ -228,8 +228,8 @@ form {
 						<option>019</option>
 						<option>070</option>
 					</select>
-				　-　<input type="text"  size="12" class="form-control" name="phone2">
-				　-　<input type="text"  size="12" class="form-control" name="phone3">
+				　-　<input type="text"  size="8" class="form-control" name="phone2">
+				　-　<input type="text"  size="8" class="form-control" name="phone3">
 				</div>
 				</td>
 			</tr>

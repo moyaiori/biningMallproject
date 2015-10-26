@@ -15,9 +15,9 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-<p class="j_p">
+<p class="j_p" style="margin-bottom: 40px">
 				<font class="j_txt">N </font>O T I C E </p>
-<div class="container" style="margin-left: 280px">
+<div class="container" style="margin-left: 220px">
     
             <table class="table" style="width: 70%">
                   <colgroup>
@@ -52,7 +52,7 @@
 
                </table>
 
-	  <form class="form-inline" method="post" action="../notice/notice_list.bins" style="width: 70%">
+	  <form class="form-inline" method="post" action="../notice/notice_list.bins" style="width: 70%;margin-left: 70px">
          <div class="form-group">
             <select class="form-control" name="searchType" id="">
                <option value="subject">제목</option>
@@ -63,12 +63,12 @@
  			 <input  type="submit" class="btn btn-danger" value="검색"/> 
  		
  			<c:if test="${cookie.loginId.value.equals('admin')}" >
-				<input onclick="location.href='../notice/notice_write.bins'" type="button" class="btn btn-danger" value="글쓰기" style="float: right; margin-left: 350;" />
+				<input onclick="location.href='../notice/notice_write.bins'" type="button" class="btn btn-danger" value="글쓰기" style="float: right; margin-left: 105px;" />
 			</c:if>
 
          </div>
       </form>
- <div class="text-center" style="padding-right: 330px;">
+ <div class="text-center" style="padding-right: 370px;">
    ${pageNation}
   </div>
   </div>

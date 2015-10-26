@@ -1,6 +1,15 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+
+<style>
+a.disabled {
+   pointer-events: none;
+   cursor: default;
+}
+</style>
+
+
 	<div class="news_div" style="float: left; width: 30%; margin-left: 230px">
 		<table class="n_h_table" style="font-family:hy강m; font-size: 12pt; font-weight: bold;" >
 			<tr>
@@ -48,7 +57,7 @@
 			<c:if test="${qnaList.size() -1 >= 0}">
 	 		<c:forEach  begin="0" end="${qnaList.size()-1}" var="i">
        			<li>
-	            	<a href="../qna/qna_read.bins?articleId=${qnaList.get(i).articleId}">
+	            	<a href="../qna/qna_read.bins?articleId=${qnaList.get(i).articleId}" class="disabled">
 	           			    <span class="news_title">
 								${qnaList.get(i).subject}
 							</span>
