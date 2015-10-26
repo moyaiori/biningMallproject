@@ -14,7 +14,7 @@ import kr.or.kosta.shopping.article.service.ArticleService;
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
 
-public class NoticeModifyController implements Controller {
+public class NoticeDeleteController implements Controller {
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response){
@@ -24,9 +24,9 @@ public class NoticeModifyController implements Controller {
 		HashMap<String, Object> data = new HashMap<String, Object>();
 		
 		String no = request.getParameter("no");
-		System.out.println("수정하기 컨트롤러 도착하니?"+no);
-		service.modify(data);
-		mav.addObject("contentFile", "/notice/notice_write.jsp");
+		System.out.println("삭제하기 컨트롤러 도착하니?"+no);
+	//	service.modify(data);
+		//mav.addObject("contentFile", "/notice/notice_write.jsp");
 
 		return mav;
 	}

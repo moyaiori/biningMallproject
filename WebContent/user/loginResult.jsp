@@ -6,69 +6,23 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootswatch.min.css" rel="stylesheet">
+=======
 <style type="text/css">
+>>>>>>> 4bcf2307dc3c72a1d39cd4364d23eff84c5c72d8
 
-.error-header {
-	max-width: 500px;
-	padding: 15px 29px 25px;
-	margin: 0 auto;
-	background-color: #e74c3c;
-	color: white;
-	text-align: left;
-	-webkit-border-radius: 15px 15px 0px 0px;
-	-moz-border-radius: 15px 15px 0px 0px;
-	border-radius: 15px 15px 0px 0px;
-	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
-	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
-	box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
-}
-
-.error-footer {
-	max-width: 500px;
-	margin: 0 auto 20px;
-	padding-left: 10px;
-}
-
-.error-body {
-	max-width: 500px;
-	padding: 29px;
-	margin: 0 auto 20px;
-	background-color: #fff;
-	-webkit-border-radius: 0px 0px 15px 15px;
-	-moz-border-radius: 0px 0px 15px 15px;
-	border-radius: 0px 0px 15px 15px;
-	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
-	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
-	box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
-}
-
-.error-heading {
-	margin-bottom: 15px;
-}
-
-.error-btn {
-	text-align: center;
-	padding-top: 20px;
-}
-</style>
 </head>
 
-<script type="text/javascript">
 
-window.onload = function(){
-	
-	setInterval(function(){
-		window.loation.href = "../index.bins";
-	}, 3000)
-}
-
-function loationHome(){
-	window.loation.href = "../index.bins";
-}
-
-</script>
 
 <body>
+<<<<<<< HEAD
+	<script src="js/jquery-2.1.0.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/bootswatch.js"></script>
+=======
 	<div class="container">
 
 		<!-- header -->
@@ -91,5 +45,6 @@ function loationHome(){
 			<p>COPYRIGHT ⓒ 2015 BINS. ALL RIGHT RESERVED.</p>
 		</div>
 	</div>
+>>>>>>> 4bcf2307dc3c72a1d39cd4364d23eff84c5c72d8
 </body>
 </html>

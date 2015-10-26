@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../style/header.css">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <style>
@@ -51,7 +52,56 @@ html {
 }
 
 </style>
+<style type="text/css">
+body {
+	padding-top: 100px;
+	padding-bottom: 40px;
+	background-color: #ecf0f1;
+}
 
+.error-header {
+	max-width: 500px;
+	padding: 15px 29px 25px;
+	margin: 0 auto;
+	background-color: #e74c3c;
+	color: white;
+	text-align: left;
+	-webkit-border-radius: 15px 15px 0px 0px;
+	-moz-border-radius: 15px 15px 0px 0px;
+	border-radius: 15px 15px 0px 0px;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+}
+
+.error-footer {
+	max-width: 500px;
+	margin: 0 auto 20px;
+	padding-left: 10px;
+}
+
+.error-body {
+	max-width: 500px;
+	padding: 29px;
+	margin: 0 auto 20px;
+	background-color: #fff;
+	-webkit-border-radius: 0px 0px 15px 15px;
+	-moz-border-radius: 0px 0px 15px 15px;
+	border-radius: 0px 0px 15px 15px;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+}
+
+.error-heading {
+	margin-bottom: 15px;
+}
+
+.error-btn {
+	text-align: center;
+	padding-top: 20px;
+}
+</style>
 </head>
 
 
@@ -71,10 +121,6 @@ html {
      
     <%-- footer inclue --%>
     <jsp:include page="../menus/footer.jsp"></jsp:include>
-
 </div>
-
-
-
 </body>
 </html>
