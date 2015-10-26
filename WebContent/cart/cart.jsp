@@ -112,7 +112,7 @@
     	  var data = document.getElementById("hidden");
 	      data.setAttribute("value", json);
 	      
-	     document.cartForm.submit();
+	      document.cartForm.submit();
       }
       
       selOrderBtn = document.getElementById("selOrder");
@@ -136,8 +136,10 @@
     	  json += ']' 
     	  
           var cartOutput = "";
+    	  var checkNum = 0;
    		  for (var i in checkBox){
        		  if(checkBox[i].checked){
+       			  checkNum += 1;
        			  cartOutput += checkBox[i].parentNode.previousSibling.previousSibling.firstChild.nodeValue + ",";
        		  }
        	  }
@@ -146,7 +148,11 @@
           var data = document.getElementById("hidden");
 	      data.setAttribute("value", json);
 	      
-	      document.cartForm.submit();
+	      if(checkNum == 0){
+	    	  alert("하나 이상 선택하셔야 주문이 가능합니다.");
+	    	  return false;
+	      }
+    	  document.cartForm.submit();
       }
    }
    
@@ -173,6 +179,7 @@
    }
    
    
+   
 </script>
 <!-- 
    작성일 : 2015/10/20
@@ -181,7 +188,7 @@
  -->
  
 <div class="container">
-<form name="cartForm" action="../order/order.bins">
+<form name="cartForm" action="../order/order.bins" method="post">
 <input type="hidden" name="json" id="hidden">
 <input type="hidden" name="cartCheck" id="cartCheck">
 

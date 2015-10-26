@@ -121,7 +121,9 @@
 	 	       data.setAttribute("value", json);
 	    	}else{
 	    		alert("로그인 후 이용이 가능합니다.");
-	    		window.location.href = "../user/login.bins";
+	    		$(function(){
+	    	        $('#myModal').modal({ keyboard: false })
+	    		});
 	    		return false;
 	    	}
 	    }
@@ -139,7 +141,9 @@
 		    	window.location.href = "../cart/cartInsert.bins?loginId=" + "${cookie.loginId.value}" + "&productId=" + "${product.productId}" + "&price=" + realPrice + "&name=" + "${product.name}" + "&picture=" + "${product.picture}" + "&count=" + count.value + "&toppingPrice=" + toppingPrice + "&toppingName=" + toppingName ;	
 	    	}else{
 	    		alert("로그인 후 이용이 가능합니다.");
-	    		window.location.href = "../user/login.bins";
+	    		$(function(){
+	    	        $('#myModal').modal({ keyboard: false })
+	    		});
 	    	}
 	    }
 	    

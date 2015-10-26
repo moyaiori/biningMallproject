@@ -30,7 +30,6 @@ public class OrderGetInfoController implements Controller{
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		
 		String cartId = request.getParameter("cartCheck");
-		
 		String jsonTxt = request.getParameter("json");
 		JSONParser parser = new JSONParser();
 		Object obj = null;

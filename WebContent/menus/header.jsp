@@ -1,38 +1,33 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="../js/ajax.js"></script>
-<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-
-<script src="../js/ajax.js"></script>
-<script>
-	function login_ok(){
-		if (document.getLogin.memberId.value == "") {
-	  		alert("아이디를 입력해주세요.");
-	  		return false;
-		}else if(document.getLogin.passwd.value == "") {
-	  		alert("비밀번호를 입력해주세요.");
-	  		return false;
-	 }
-		var memberId = document.getLogin.memberId.value;
-		var passwd = document.getLogin.passwd.value;
-		ajax({
-			method: "post",
-			url: "../user/loginProc.bins",
-			data: "memberId="+memberId+"&passwd="+passwd,
-			callback: function(xhr){
-			}
-		});
-	} 
+<script type="text/javascript">
+function login_ok(){
+	if (document.getLogin.memberId.value == "") {
+  		alert("아이디를 입력해주세요.");
+  		return false;
+	}else if(document.getLogin.passwd.value == "") {
+  		alert("비밀번호를 입력해주세요.");
+  		return false;
+ }
+	var memberId = document.getLogin.memberId.value;
+	var passwd = document.getLogin.passwd.value;
+	ajax({
+		method: "post",
+		url: "../user/loginProc.bins",
+		data: "memberId="+memberId+"&passwd="+passwd,
+		callback: function(xhr){
+			//location.reload();
+		}
+	});
+}	
 </script>
-
-
-
 <div class="logoRight">
 	<ul>
 		<li><a  href = "../index.bins">Home</a></li>
 		<c:choose>
 			<c:when test="${cookie.loginId == null}"><li><a style="cursor:pointer" data-toggle="modal" data-target="#myModal">Login</a></li></c:when>
-			<c:when test="${cookie.loginId != null}"><li><a style="cursor:pointer" href = "../user/logout.bins">Logout</a></li></c:when>
+			<c:when test="${cookie.loginId != null}"><li><a style="cursor:pointer" href="../user/logout.bins">Logout</a></li></c:when>
 		</c:choose>
 		<c:if test="${cookie.loginId == null}">
 			<li><a href = "../user/regist.bins">Join</a></li>
@@ -74,10 +69,10 @@
 		       	 <p class="j_p modal-title"> <font class="j_txt">L </font>O G I N</p>
 	        </div>
 	      
-		  <div class="modal-body container" style="margin-left:-285;">
+		  <div class="modal-body container" style="width: 100%;">
 			<form action="../user/loginProc.bins" method="post" name="getLogin">
-				<div class="container col-md-8 col-md-offset-2">
-						<table class="table">
+				<div class="container col-md-6 col-md-offset-3" style="width: 100%; margin: 0px auto;">
+						<table class="table" style="width: 100%; margin: 0px auto;">
 							<colgroup>
 								<col width="200" />
 								<col width="200" />
