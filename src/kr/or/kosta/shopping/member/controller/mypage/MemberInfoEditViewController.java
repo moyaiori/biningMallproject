@@ -44,7 +44,6 @@ public class MemberInfoEditViewController implements Controller{
 
 		mav.addObject("member",member);
 		
-//		System.out.println("MemberInfoEditViewController");
 		mav.addObject("contentFile", "/user/myEditInfo.jsp");
 		
 		return mav;

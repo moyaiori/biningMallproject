@@ -37,7 +37,6 @@ public class SimpleFrontController extends HttpServlet {
 		// /appName/board/list.do -> /board/list
 		String applicationName = request.getContextPath();
 		uri = uri.substring(applicationName.length(), uri.lastIndexOf("."));
-		System.out.println("[Debug] : 요청 URI: " + uri);
 		
 		// 요청에 따른 비즈니스 처리 및 응답
 		Controller controller = null;
