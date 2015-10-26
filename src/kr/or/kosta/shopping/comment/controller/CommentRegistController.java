@@ -36,7 +36,6 @@ public class CommentRegistController implements Controller{
 		String satisfaction = request.getParameter("satisfaction");
 		String content = request.getParameter("content");
 		String productId = request.getParameter("productId");
-		System.out.println(productId);
 		
 		Comment comment = new Comment();
 		comment.setContent(content);

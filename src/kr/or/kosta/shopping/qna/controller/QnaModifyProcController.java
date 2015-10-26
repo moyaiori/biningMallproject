@@ -100,7 +100,6 @@ public class QnaModifyProcController implements Controller {
 		mav.addObject("pageNation", pageNation);
 		mav.addObject("memberId", memberId);
 		
-		System.out.println("야호");
 		
 		mav.addObject("contentFile", "/qna/qna_view.jsp");
 
