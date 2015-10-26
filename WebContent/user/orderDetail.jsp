@@ -1,8 +1,11 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+		<p class="j_p">
+				<font class="j_txt">O </font> R D E R</p>
+
 <table class="table">
    <thead> 
-   <tr class="active">
+   <tr class="danger">
       <th>사진</th>
       <th>상품명</th>
       <th>개당 가격</th>

@@ -19,8 +19,14 @@
 
 </head>
 <body>
+	
+<p class="j_p">
+				<font class="j_txt">O </font>R D E R　C H E C K</p>
+
 
 <div class="container col-md-8 col-md-offset-2">
+
+
 			<table class="table">
 				<colgroup>
 					<col width="300" />
@@ -51,7 +57,7 @@
 				</tr>
 			</table>
 			<div style="text-align: center;">
-				<input onclick="location.href='../index.bins'" type="button" class="btn btn-default" value="확인"/>
+				<input onclick="location.href='../index.bins'" type="button" class="btn btn-danger" value="확인" style="margin-bottom: 40px"/>
 			</div>
 		</div>
 </body>

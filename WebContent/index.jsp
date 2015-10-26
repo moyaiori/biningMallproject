@@ -9,7 +9,6 @@ a.disabled {
 <script type="text/javascript">
 if("${result}" == 'false'){
 	$(function(){
-	   //$("#popbutton").click(function(){
 	        $('#loginModal').modal({ keyboard: false }) 
 	        var i = 4;
 	    	setInterval(function(){
@@ -20,7 +19,6 @@ if("${result}" == 'false'){
 	    	setInterval(function(){
 	    		loationHome();
 	    	}, 5000)
-	    //})
 	})	
 }
 function loationHome(){
@@ -77,7 +75,7 @@ function loationHome(){
        			<li>
 	            	<a href="../qna/qna_read.bins?articleId=${qnaList.get(i).articleId}" class="disabled">
 	           			    <span class="news_title">
-								${qnaList.get(i).subject}
+								<img src="../images/lock.png">${qnaList.get(i).subject}
 							</span>
 							<span class="news_date">
 								${qnaList.get(i).regdate}

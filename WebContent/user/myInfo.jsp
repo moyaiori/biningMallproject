@@ -20,11 +20,15 @@ form {
 }
 </style>
 
+<p class="j_p">
+				<font class="j_txt">M </font>Y 　I N F O</p>
+
 <jsp:include page="myPageMenu.jsp"></jsp:include>
 
+
+
 <div class="container col-md-8 col-md-offset-2">
-		<p class="j_p">
-				<font class="j_txt">M </font>Y 　I N F O</p>
+		
 	<form action="registProc.bins" method="post" name="addjoin">
 		<table class="table">
 			<colgroup>
@@ -45,7 +49,7 @@ form {
 			</tr>
 			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">연락처</td>
-				<td>${member.phoneNumber } - ${member.phoneNumber2 } - ${member.phoneNumber3 }</td>
+				<td>${member.phoneNumber} ${member.phoneNumber2} ${member.phoneNumber3 }</td>
 			</tr>
 			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">주소</td>
