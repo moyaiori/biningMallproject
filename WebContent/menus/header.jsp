@@ -1,17 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!-- 충돌 나는 것 같은데 이유를 찾아야 한다. -->
-
-<!-- 
-<script>
-$(document).ready(function(){
-    $("#myBtn").click(function(){
-        $("#myModal").modal();
-    });
-});
-</script>
- -->
-
 <div class="logoRight">
 	<ul>
 		<li><a  href = "../index.bins">Home</a></li>
@@ -59,7 +47,7 @@ $(document).ready(function(){
 		       	 <p class="j_p modal-title"> <font class="j_txt">L </font>O G I N</p>
 	        </div>
 	      
-		  <div class="modal-body">
+		  <div class="modal-body container" style="margin-left:-285;">
 			<form action="../user/loginProc.bins" method="post">
 				<div class="container col-md-8 col-md-offset-2">
 			
