@@ -41,7 +41,7 @@ a.disabled {
 					<c:set var="writer" value="${articleList.get(i).memberId}"/>
 					<c:set var="loginId" value="${memberId}"/>
 					<tr>
-						<td>${listSize-i}</td>
+						 <td>${listSize - ((pageNum - 1) *10) - i}</td>
 						<td>
 						<c:if test="${j=='0'}">
 						<c:choose>
@@ -91,7 +91,6 @@ a.disabled {
 							<c:when test="${j=='2'}">
 						<td>admin</td>
 							</c:when>
-						
 						</c:choose>
 						<td>${articleList.get(i).regdate}</td>
 						<td>${articleList.get(i).hitcount}</td>
@@ -102,9 +101,8 @@ a.disabled {
 		</table>
 
 	</div>
-	<form class="form-inline" method="post" action="../qna/qna_view.bins" style="margin: 0px auto" >
-	
-		<div class="form-group ">
+	<form class="form-inline" method="post" action="../qna/qna_view.bins" style=style="width: 100%">
+      <div class="form-group"  style="width: 100%;">
 			<select class="form-control" style="width: 95px;" name="searchType"
 				id="">
 				<option value="subject">제목</option>
@@ -113,9 +111,14 @@ a.disabled {
 			</select> 
 			<input type="text" class="form-control" style="width: 200px;"	name="searchValue" required id="stx" /> 
 			<input type="submit"	class="btn btn-danger" value="검색" />
-			<c:if test="${cookie.loginId != null}">
-				<input onclick="location.href='../qna/qna_write.bins'" type="button" class="btn btn-danger text-right" value="글쓰기" style="float: right" />
-			</c:if>
+			<c:choose>
+				<c:when test="${cookie.loginId.value == 'admin'}">
+					
+				</c:when>
+				<c:when test="${cookie.loginId != null}">
+					<input onclick="location.href='../qna/qna_write.bins'" type="button" class="btn btn-danger text-right" value="글쓰기" style="float: right" />
+				</c:when>
+			</c:choose>
 		</div>
 	</form>
 	
