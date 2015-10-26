@@ -31,7 +31,7 @@ $(document).ready(function(){
 	</ul>
 </div>
 <div class="logoTop">
-	<a  href = "../index.bins"><img style="width: 800px;" alt="WelCome" src="../images/mainlogo.jpg"></a>
+	<a  href = "../index.bins"><img style="width: 800px;" alt="WelCome" src="../images/logo.gif"></a>
 </div>
 <nav class="navbar navbar-custom navbar-static-top" style="margin-bottom: 70px">
   <div class="container-fluid">
