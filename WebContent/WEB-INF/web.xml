@@ -34,12 +34,12 @@
         <!--  <param-value>F:\biningMallproject\WebContent\WEB-INF\controllerMapping.properties</param-value>-->
 
          <!-- 안상이꺼 -->
-          <!--  <param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value>  -->
+           <param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value>
 
          <!-- 비닝이꺼 -->
-        
+        <!-- 
    <param-value>C:/Users/JHB-PC/Desktop/KOSTA/project/binningMallProject/WebContent/WEB-INF/controllerMapping.properties</param-value> 
-
+ -->
 
    <!--
         <param-value>C:/Users/JHB-PC/Desktop/KOSTA/project/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value>

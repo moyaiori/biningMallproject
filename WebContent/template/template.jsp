@@ -53,12 +53,6 @@ html {
 
 </style>
 <style type="text/css">
-body {
-	padding-top: 100px;
-	padding-bottom: 40px;
-	background-color: #ecf0f1;
-}
-
 .error-header {
 	max-width: 500px;
 	padding: 15px 29px 25px;
