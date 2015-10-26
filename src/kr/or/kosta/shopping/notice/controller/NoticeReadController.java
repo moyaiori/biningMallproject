@@ -24,7 +24,6 @@ public class NoticeReadController implements Controller {
 		Article article  =service.get(Integer.parseInt(articleId));
 	
 		mav.addObject("article", article);
-
 		mav.addObject("contentFile", "/notice/notice_read.jsp");
 		return mav;
 	}
