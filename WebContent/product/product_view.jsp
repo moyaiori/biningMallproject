@@ -41,7 +41,6 @@
 						
 			function dupleCheck2(nameCheck){
 				for (var i in array){
-					console.log(array[i].name +":"+ nameCheck);
 					if(array[i].name.trim() == nameCheck.trim()){
 						array[i].count = array[i].count - 1;
 						if(array[i].count == 0){
@@ -93,12 +92,12 @@
 			
 			select.selectedIndex = 0;
 			toppingBox.innerHTML = output;
-			price.innerHTML = (realPrice + toppingPrice) * count.value;
+			price.innerHTML = (realPrice + toppingPrice) * count.value + "원";
 		}
 		
 		
 		count.onchange = function(){
-			price.innerHTML = (realPrice + toppingPrice) * count.value;
+			price.innerHTML = (realPrice + toppingPrice) * count.value + "원";
 		}
 		
 		var form = document.getElementById("submit");
@@ -118,7 +117,6 @@
 	 	       json = json.substring(0, json.length-1);
 	 	       json += ']'
 	 	       
-	 	       alert(json);
 	 	       var data = document.getElementById("hidden");
 	 	       data.setAttribute("value", json);
 	    	}else{
@@ -192,7 +190,7 @@
 							<table class="innerTable">
 								<tr>
 									<td>가격 : </td>
-									<td id="price">${product.price} 원</td>
+									<td id="price">${product.price}원</td>
 								</tr>
 								<tr>
 									<td>칼로리 : </td>

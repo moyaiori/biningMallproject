@@ -69,14 +69,6 @@ public class OrderGetInfoController implements Controller{
 		
 		Member member = service.getInfo(loginId);
 		
-		String phoneNum = member.getPhoneNumber();
-		
-		String phoneResult[] =  phoneNum.split("-");
-
-		member.setPhoneNumber2(phoneResult[1]);
-		member.setPhoneNumber3(phoneResult[2]);
-		member.setPhoneNumber(phoneResult[0]);
-		
 		mav.addObject("cartId", cartId);
 		mav.addObject("member", member);
 		mav.addObject("allData", jsonStore);
