@@ -1,5 +1,26 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!-- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="../js/ajax.js"></script> -->
+<script>
+
+
+	function login_ok(){
+	
+		if (document.getLogin.memberId.value == "") {
+	  		alert("아이디를 입력해주세요.");
+	  		return false;
+		}else if(document.getLogin.passwd.value == "") {
+	  		alert("비밀번호를 입력해주세요.");
+	  		return false;
+	 }
+		document.getLogin.submit(); 
+	} 
+	
+</script>
+
+
+
 <div class="logoRight">
 	<ul>
 		<li><a  href = "../index.bins">Home</a></li>
@@ -48,7 +69,7 @@
 	        </div>
 	      
 		  <div class="modal-body container" style="margin-left:-285;">
-			<form action="../user/loginProc.bins" method="post">
+			<form action="../user/loginProc.bins" method="post" name="getLogin">
 				<div class="container col-md-8 col-md-offset-2">
 			
 						<table class="table">
@@ -64,7 +85,7 @@
 							<tr>
 								<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">비밀번호</td>
 								<td><input type="password" class="form-control" name="passwd"></td>
-								<td><input type="submit" class="btn btn-danger" value="로그인"></td></tr>
+								<td><input type="submit" class="btn btn-danger" value="로그인" onclick="return login_ok()"></td></tr>
 							<tr>
 								<td colspan='2' style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">Bin's회원이 되시면 편리한 이용이 가능 합니다.</td>
 								<td><input onclick="location.href='../user/regist.bins'" type="button" class="btn btn-danger " value="회원가입" ></td>

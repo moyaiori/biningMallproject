@@ -3,7 +3,7 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <script src="../js/ajax.js"></script>
 <script>
-var join= false;
+
 function searchPost() {
     new daum.Postcode({
         oncomplete: function(data) {
