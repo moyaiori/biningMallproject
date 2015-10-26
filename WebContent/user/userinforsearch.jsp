@@ -1,10 +1,4 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css.map">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 <script>
 	window.onload = function(){
 		var searchId = document.getElementById("searchId");
