@@ -47,8 +47,8 @@
                </table>
 
 	  <form class="form-inline" method="post" action="../notice/notice_list.bins" style="width: 100%">
-         <div class="form-group">
-            <select class="form-control" name="searchType" id="">
+         <div class="form-group" style="width: 100%;">
+            <select class="form-control" name="searchType" id="" >
                <option value="subject">제목</option>
                <option value="content">내용</option>
                <option value="member_id">작성자</option>
