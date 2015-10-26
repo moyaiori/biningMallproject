@@ -33,7 +33,7 @@ $(document).ready(function(){
 <div class="logoTop">
 	<a  href = "../index.bins"><img style="width: 800px;" alt="WelCome" src="../images/logo.gif"></a>
 </div>
-<nav class="navbar navbar-custom navbar-static-top" style="margin-bottom: 70px">
+<nav class="navbar navbar-custom navbar-static-top" style="margin-bottom: 30px">
   <div class="container-fluid">
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

@@ -233,8 +233,8 @@ form {
 						<option>019</option>
 						<option>070</option>
 					</select>
-				　-　<input type="text"  size="12" class="form-control" name="phone2">
-				　-　<input type="text"  size="12" class="form-control" name="phone3">
+				　-　<input type="text"  size="8" class="form-control" name="phone2">
+				　-　<input type="text"  size="8" class="form-control" name="phone3">
 				</div>
 				</td>
 			</tr>
