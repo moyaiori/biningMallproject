@@ -6,13 +6,16 @@ package kr.or.kosta.shopping.notice.controller;
 
 
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.or.kosta.shopping.article.domain.Article;
 import kr.or.kosta.shopping.article.service.ArticleService;
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
+import kr.or.kosta.shopping.common.web.page.Pagination;
 
 public class NoticeDeleteController implements Controller {
 
@@ -23,11 +26,30 @@ public class NoticeDeleteController implements Controller {
 		ArticleService service =ArticleService.getInstance();
 		HashMap<String, Object> data = new HashMap<String, Object>();
 		
-		String no = request.getParameter("no");
-		System.out.println("삭제하기 컨트롤러 도착하니?"+no);
-	//	service.modify(data);
-		//mav.addObject("contentFile", "/notice/notice_write.jsp");
+		String articleId = request.getParameter("no");
+		service.delete(articleId);
 
+		List<Article> articleList=service.getAll(1);
+		int listSize=service.getAllCnt(); //검색된 전체 수.
+		String pageValue = "";
+		String pageType = "";
+		int pageNum = 1;
+		Pagination pagination = new Pagination(10, 5, listSize, pageNum);
+		pagination.paginate();
+		String pageNation =pagination.toHtml(pageType, pageValue);
+		mav.addObject("articleList", articleList);
+		mav.addObject("listSize", listSize);
+		mav.addObject("requestP", 1);
+		mav.addObject("pageNation", pageNation);
+		
+		// 나중에 DB에서 게시글 가져옴
+		mav.addObject("contentFile", "../notice/notice_list.jsp");
+		
+		
+		
+		mav.addObject("contentFile", "../notice/notice_list.jsp");
+
+		
 		return mav;
 	}
 

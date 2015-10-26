@@ -149,17 +149,32 @@ public class MybatisArticleDao implements ArticleDao {
 	}
 	
 	@Override
-	public void modify(HashMap<String, Object> data) throws RuntimeException {
+	public void modify(Article article) throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try{
 			ArticleDao dao = (ArticleDao)sqlSession.getMapper(ArticleDao.class);
-			dao.modify(data);
+			dao.modify(article);
 			sqlSession.commit();
 		}catch(Exception e){
 			sqlSession.rollback();
 		}finally{
 			sqlSession.close();
 		}
+	}
+
+	@Override
+	public void delete(String articleId) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try{
+			ArticleDao dao = (ArticleDao)sqlSession.getMapper(ArticleDao.class);
+			dao.delete(articleId);
+			sqlSession.commit();
+		}catch(Exception e){
+			sqlSession.rollback();
+		}finally{
+			sqlSession.close();
+		}
+		
 	}
 
 }

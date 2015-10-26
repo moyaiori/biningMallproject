@@ -127,13 +127,21 @@ public class ArticleService {
 		return articleList;
 	}
 	
-	/*조회수 증가.*/
-	public void modify(HashMap<String, Object> data)throws RuntimeException{
+	/*수정 .*/
+	public void modify(Article article)throws RuntimeException{
 		try {
-			articleDao.modify(data);	
+			articleDao.modify(article);	
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 	}
-
+	
+	/*삭제*/
+	public void delete(String articleId)throws RuntimeException{
+		try {
+			articleDao.delete(articleId);	
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 }
