@@ -18,38 +18,7 @@
 
 			location.href = "../notice/notice_list.bins";
 		}
-		
-/* 		document.getElementById("modify").onclick = function(){
-			
-			var returnValue = confirm("해당 공지사항 글을 수정 하시겠습니까?");
 
-			if (returnValue) {
-				location.href = "../notice/noticeModify.bins?no="+'${article.articleId}';
-				
-				//document.getLogin.submit(); 
-				//alert("삭제 해야됑");
-			} else {
-				//history.back();
-			}
-		
-			console.log("modify");
-			
-		} */
-	/* 	
-		document.getElementById("modify").onclick = function(){
-			function delete_ok() {
-				var returnValue = confirm("해당 공지사항 글을 삭제 하시겠습니까?");
-
-				if (returnValue) {
-					location.href = "";
-					document.getLogin.submit();
-					//alert("삭제 해야됑");
-				} else {
-					//history.back();
-				}
-
-			}
-		} */
 		document.getElementById("modify").onclick = function(){
 			var returnValue = confirm("해당 공지사항 글을 수정 하시겠습니까?");
 
@@ -116,8 +85,7 @@
 							test="${cookie.loginId.value == 'admin'}">
 							<input class="btn btn-danger" type="button" id="modify" value="수정하기">
 							<input class="btn btn-danger" type="submit" id="delete" value="삭제하기">
-						</c:if> <input class="btn btn-danger" type="button" value="돌아가기"
-						id="back"></td>
+						</c:if> <input class="btn btn-danger" type="button" value="돌아가기" id="back"></td>
 				</tr>
 			</table>
 	
