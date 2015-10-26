@@ -31,7 +31,7 @@
 			</tr>
 			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">연락처</td>
-				<td>${member.phoneNumber} ${member.phoneNumber2} ${member.phoneNumber3 }</td>
+				<td>${member.phoneNumber} - ${member.phoneNumber2} - ${member.phoneNumber3 }</td>
 			</tr>
 			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">주소</td>

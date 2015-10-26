@@ -2,8 +2,12 @@
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="../js/ajax.js"></script>
-
 <script>
+
+	function passwd(){
+		alert("야호");
+	}
+	
 	function searchPost() {
 		new daum.Postcode(
 				{
@@ -55,7 +59,7 @@
 		} else if (document.addjoin.passwd.value == "") {
 			alert("비밀번호를 입력 하세요");
 			return false;
-		} else if (document.addjoin.passwd2.value == "") {
+		} else if (document.addjoin.passwdCheck.value == "") {
 			alert("비밀번호확인을 입력 하세요");
 			return false;
 		} else if (document.addjoin.email.value == "") {
@@ -84,11 +88,31 @@
 			return false;
 		}
 	}
+	
+	
 
 	/*   조현빈 자바스크립트 부분 추가    */
 	var checked = false;
 	window.onload = function() {
-		document.getElementsByName("phone")[0].value = '${member.phoneNumber}';
+		
+		document.addjoin.passwd.onkeyup = function(){
+			if (document.addjoin.passwd.value.trim() == "" || document.addjoin.passwd.value == null) {
+				setMessage("비밀번호를 입력해주세요", "passwd", "red");
+			}else{
+				setMessage("사용가능한 비밀번호 입니다.", "passwd", "blue");
+			}
+		}
+		
+		document.addjoin.passwdCheck.onkeyup = function(){
+			if(document.addjoin.passwdCheck.value.trim() == "" || document.addjoin.passwdCheck.value == null){
+				setMessage("비밀번호 확인을 입력해주세요", "passwdCheck", "red");
+			}else if(document.addjoin.passwd.value != document.addjoin.passwdCheck.value){
+				setMessage("입력된 비밀번호가 다릅니다.", "passwdCheck", "red");
+			}else{
+				setMessage("사용가능한 비밀번호 입니다.", "passwdCheck", "blue");
+			}
+		}
+		
 		// 이벤트소스에 이벤트리스너 등록
 		document.addjoin.id.onkeyup = function() {
 			var joinId = document.addjoin.id.value;
@@ -123,13 +147,15 @@
 	    	} 
 	    }
 
-		function setMessage(message, type) {
-			var messageBox = document.getElementById(type + "messageBox");
-			if (messageBox) {
-				messageBox.innerHTML = message;
-			}
-		}
-
+		 function setMessage(message, type, color){
+		    	var messageBox = document.getElementById(type+"messageBox");
+		    	if(messageBox){
+		    		messageBox.innerHTML = message;
+		    	}
+		    	if(color){
+		    		messageBox.style.color = color;
+		    	}
+		    }
 	}
 </script>
 
@@ -171,11 +197,11 @@ form {
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: middle; font-size: 14px; font-weight: bold">비밀번호</td>
-				<td><input type="password" class="form-control" id="passwd" name="passwd" value="111"><span id="passwdmessageBox"></span></td>
+				<td><input type="password" class="form-control" id="passwd" name="passwd"><span id="passwdmessageBox"></span></td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: middle; font-size: 14px; font-weight: bold">비밀번호 확인</td>
-				<td><input type="password" class="form-control"	id="passwdCheck" value="111"><span id="passwdCheckmessageBox"></span></td>
+				<td><input type="password" class="form-control"	id="passwdCheck"><span id="passwdCheckmessageBox"></span></td>
 			</tr>
 			<tr>
 				<td style="text-align: center; vertical-align: middle; font-size: 14px; font-weight: bold">이메일주소</td>
