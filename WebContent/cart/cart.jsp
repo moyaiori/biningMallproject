@@ -136,8 +136,10 @@
     	  json += ']' 
     	  
           var cartOutput = "";
+    	  var checkNum = 0;
    		  for (var i in checkBox){
        		  if(checkBox[i].checked){
+       			  checkNum += 1;
        			  cartOutput += checkBox[i].parentNode.previousSibling.previousSibling.firstChild.nodeValue + ",";
        		  }
        	  }
@@ -145,7 +147,12 @@
     	  
           var data = document.getElementById("hidden");
 	      data.setAttribute("value", json);
-	      document.cartForm.submit();
+	      
+	      if(checkNum == 0){
+	    	  alert("하나 이상 선택하셔야 주문이 가능합니다.");
+	    	  return false;
+	      }
+    	  document.cartForm.submit();
       }
    }
    
@@ -170,6 +177,7 @@
       price = standard.parentNode.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.firstChild.nodeValue;
       return price.trim();
    }
+   
    
    
 </script>

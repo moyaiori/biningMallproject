@@ -26,7 +26,6 @@
       <init-param>
          <param-name>controllerMapping</param-name>
 
-<<<<<<< HEAD
         <!--  <param-value>F:\biningMallproject\WebContent\WEB-INF\controllerMapping.properties</param-value>-->
 
          <!-- 안상이꺼 -->
@@ -48,9 +47,6 @@
           
           <!-- 성후니 -->
 	     <!-- <param-value>C:/Users/KSH/Documents/카카오톡 받은 파일/biningMallProject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
-=======
-        <param-value>C:\Users\kosta3-20\Documents\git\biningMallproject\WebContent\WEB-INF\controllerMapping.properties</param-value>
->>>>>>> d3784e96219ddf095b8fbacf1ac1aa18160ed0c7
 
       </init-param>
    </servlet>

@@ -18,6 +18,7 @@
 			url: "../user/loginProc.bins",
 			data: "memberId="+memberId+"&passwd="+passwd,
 			callback: function(xhr){
+				location.reload();
 			}
 		});
 	} 
