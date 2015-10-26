@@ -42,7 +42,7 @@ public class MemberCheckPasswdController implements Controller{
 		String passwd = request.getParameter("passwd");
 		Member member = service.login(memberId, passwd);
 	
-		System.out.println("MemberCheckPasswdViewController");
+//		System.out.println("MemberCheckPasswdViewController");
 
 		if(member != null){
 			mav.setView("redirect:../user/myEditInfo.bins");

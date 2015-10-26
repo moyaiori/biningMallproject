@@ -138,7 +138,16 @@
 		    	if(toppingName.trim().length == 0){
 		    		toppingName = "없음";
 		    	}
-		    	window.location.href = "../cart/cartInsert.bins?loginId=" + "${cookie.loginId.value}" + "&productId=" + "${product.productId}" + "&price=" + realPrice + "&name=" + "${product.name}" + "&picture=" + "${product.picture}" + "&count=" + count.value + "&toppingPrice=" + toppingPrice + "&toppingName=" + toppingName ;	
+		    	
+		    	var returnValue = confirm("장바구니하면으로 이동하시겠습니까?");
+		    	if (returnValue) {
+		    		alert("장바구니로 이동");
+		    		window.location.href = "../cart/cartInsert.bins?loginId=" + "${cookie.loginId.value}" + "&productId=" + "${product.productId}" + "&price=" + realPrice + "&name=" + "${product.name}" + "&picture=" + "${product.picture}" + "&count=" + count.value + "&toppingPrice=" + toppingPrice + "&toppingName=" + toppingName+ "&result=true"  ;
+		    		
+		    	} else {
+		    		window.location.href = "../cart/cartInsert.bins?loginId=" + "${cookie.loginId.value}" + "&productId=" + "${product.productId}" + "&price=" + realPrice + "&name=" + "${product.name}" + "&picture=" + "${product.picture}" + "&count=" + count.value + "&toppingPrice=" + toppingPrice + "&toppingName=" + toppingName+ "&result=false" ;
+				}
+	    	
 	    	}else{
 	    		alert("로그인 후 이용이 가능합니다.");
 	    		$(function(){
@@ -171,7 +180,7 @@
 	    }
 	}
 </script>
-	<form action="../order/order.bins" id="submit">
+	<form action="../order/order.bins" id="submit" method="">
 	    <input type="hidden" id="hidden" name="json">
 		<div>
 			<div style="padding-top: 5px; padding-bottom: 10px;">

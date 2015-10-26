@@ -30,6 +30,7 @@
 
          <!-- 안상이꺼 -->
 
+<<<<<<< HEAD
            <!--  <param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value>-->
            <!--   <param-value>D:/kosta100/workspace/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value> -->
 
@@ -40,6 +41,13 @@
 
          <!-- 비닝이꺼 -->
    
+=======
+
+         <!-- 비닝이꺼 -->
+   
+   <param-value>C:/Users/JHB-PC/Desktop/KOSTA/project/binningMallProject/WebContent/WEB-INF/controllerMapping.properties</param-value> 
+
+>>>>>>> d00b6f1fd0ed07c4e368bb68fb7e06aadb6c45fe
    <!--
         <param-value>C:/Users/JHB-PC/Desktop/KOSTA/project/biningMallproject/WebContent/WEB-INF/controllerMapping.properties</param-value>
   -->
