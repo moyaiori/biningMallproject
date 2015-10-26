@@ -236,7 +236,7 @@
 	</form>
 	
 	<div class="container" style="width: 70%; font-family: HY강M">
-		<div class="panel panel-danger">
+		<div class="panel panel-danger" style="margin-top: 25px">
 			<div class="panel-heading">메뉴 상세 설명</div>
 			<div class="panel-body">${product.description}</div>
 		</div>
