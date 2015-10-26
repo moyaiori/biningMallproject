@@ -73,10 +73,10 @@
 		       	 <p class="j_p modal-title"> <font class="j_txt">L </font>O G I N</p>
 	        </div>
 	      
-		  <div class="modal-body container" style="margin-left:-285;">
+		  <div class="modal-body container" style="width: 100%;">
 			<form action="../user/loginProc.bins" method="post" name="getLogin">
-				<div class="container col-md-8 col-md-offset-2">
-						<table class="table">
+				<div class="container col-md-6 col-md-offset-3" style="width: 100%; margin: 0px auto;">
+						<table class="table" style="width: 100%; margin: 0px auto;">
 							<colgroup>
 								<col width="200" />
 								<col width="200" />
