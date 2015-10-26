@@ -33,8 +33,9 @@
 		pictureName = pictureName.substring(10, pictureName.length);
 		
 		deleteButton.onclick = function(){
+			
 			toppingPrice -= parseInt(toppingBox.options[toppingBox.selectedIndex].text.split(":")[1].split("원")[0].trim());
-			price.innerHTML = (realPrice + toppingPrice) * count.value;
+			price.innerHTML = (realPrice + toppingPrice) * count.value + "원";
 			if(dupleCheck2(toppingBox.options[toppingBox.selectedIndex].text.split(":")[0])){
 				array.splice(toppingBox.selectedIndex, 1);
 			}
@@ -56,14 +57,26 @@
 			for (var i in array) {
 				output += "<option>" + array[i].name + " : " + array[i].price + " - " + array[i].count +"개</option>";
 			}
+			
+			var calorie = document.getElementById("calorie");
+			var tempCalorie = parseInt(calorie.firstChild.nodeValue.split(" ")[0]);
+			var str = select.options[select.selectedIndex].text;
+			
+			var calorie2 = toppingBox.options[toppingBox.selectedIndex].text.split('\(')[1].split('k')[0];
+			
+			calorie.innerHTML = tempCalorie - calorie2 + " kcal";
+			
 			toppingBox.innerHTML = output;
 		}
 		
-		select.onchange = function(){
+		select.onchange = function(){			
 			var temp = (realPrice + parseInt(this.value)) * count.value;
 			price.innerHTML = temp;
 			var str = select.options[select.selectedIndex].text;
-				
+			var calorie = document.getElementById("calorie");
+			var tempCalorie = parseInt(calorie.firstChild.nodeValue.split(" ")[0]);
+			var calorie2 = parseInt(str.substring(3).trim().split('\(')[1]);
+					
 			if(array.length != 0){
 				if(dupleCheck(str.substring(3).trim().split(":")[0].trim())){
 					array.push({name:str.substring(3).trim().split(":")[0].trim(), price:str.substring(3).trim().split(":")[1].trim(), count:1});
@@ -91,6 +104,7 @@
 			}
 			
 			select.selectedIndex = 0;
+			calorie.innerHTML = (calorie2 + tempCalorie) + " kcal";
 			toppingBox.innerHTML = output;
 			price.innerHTML = (realPrice + toppingPrice) * count.value + "원";
 		}
@@ -178,7 +192,7 @@
 	    }
 	}
 </script>
-	<form action="../order/order.bins" id="submit" method="">
+	<form action="../order/order.bins" id="submit" method="post">
 	    <input type="hidden" id="hidden" name="json">
 		<div>
 			<div style="padding-top: 5px; padding-bottom: 10px;">
@@ -194,7 +208,7 @@
 								</tr>
 								<tr>
 									<td>칼로리 : </td>
-									<td>${product.calorie} kcal</td>
+									<td id="calorie">${product.calorie} kcal</td>
 								</tr>
 								<tr>
 									<td>판매량 : </td>
@@ -214,7 +228,7 @@
 								<select class="form-control" id="select" style="display: inline; width:210px">
 									<option value="">== 토핑 선택 ==
 									<c:forEach items="${toppingList}" var="topping">
-									<option  value="${topping.price}">${topping.toppingId}. ${topping.name} : ${topping.price}원
+										<option  value="${topping.price}">${topping.toppingId}. ${topping.name} : ${topping.price}원 (${topping.calorie}kcal)										
 									</c:forEach>
 	     						 </select>
 								<input type="button" id="delete" class="btn btn-danger" value="삭제" style="display: inline;"/>
