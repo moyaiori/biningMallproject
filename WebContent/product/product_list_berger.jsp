@@ -16,7 +16,7 @@ img{
 
 </style>
  
- <p class="j_p">
+<p class="j_p" style="margin-bottom: 40px">
 				<font class="j_txt">B </font>I N ' S 　B E R G E R </p>
  
 <div>
