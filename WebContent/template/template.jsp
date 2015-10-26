@@ -53,10 +53,6 @@ html {
 
 </style>
 <style type="text/css">
-<<<<<<< HEAD
-=======
-
->>>>>>> 26ed584e1b5c28cdd35a91c7062ef5629ba41575
 .error-header {
 	max-width: 500px;
 	padding: 15px 29px 25px;

@@ -112,10 +112,11 @@
 	 	       if(toppingName.trim().length == 0){
 	 	    	   toppingName = "없음";
 	 	       }
-	 	       json += '{"name":"' + productName +"(토핑 : " + toppingName + ")" + '","price":"'+ price/count.value +'","count":"'+count.value+'","picture":"'+pictureName+'"},';
+	 	       json += '{"name":"' + productName +"(토핑 : " + toppingName + ")" + '","price":"'+ parseInt(price)/parseInt(count.value) +'","count":"'+count.value+'","picture":"'+pictureName+'"},';
 	 	       json = json.substring(0, json.length-1);
 	 	       json += ']'
 	 	       
+	 	       alert(json);
 	 	       var data = document.getElementById("hidden");
 	 	       data.setAttribute("value", json);
 	    	}else{
