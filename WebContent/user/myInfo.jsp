@@ -4,13 +4,10 @@
 <script src="../js/ajax.js"></script>
 
 
-
 <p class="j_p">
 				<font class="j_txt">M </font>Y 　I N F O</p>
 
 <jsp:include page="myPageMenu.jsp"></jsp:include>
-
-
 
 <div class="container col-md-8 col-md-offset-2" >
 		

@@ -25,14 +25,14 @@ window.onload = function(){
 <style>
 
 .btn-group button{
-	width: 240px;
+	width: 270px;
 	height: 40px;
 }
 
 </style>
 
 
-<div class="btn-group" role="group" style="margin-left: 270px">
+<div class="btn-group" role="group" style="margin-left: 230px">
   <button type="button" class="btn btn-danger" id="myInfo">나의 정보</button>
   <button type="button" class="btn btn-danger" id="myEditInfo">정보 수정</button>
   <button type="button" class="btn btn-danger" id="myOrder">주문 내역</button>

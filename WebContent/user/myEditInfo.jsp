@@ -173,7 +173,6 @@ form {
 <jsp:include page="myPageMenu.jsp"></jsp:include>
 
 
-
 <div class="container col-md-8 col-md-offset-2">
 
 	<form action="../user/myEditInfoProc.bins" method="post" name="addjoin">
