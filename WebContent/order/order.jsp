@@ -194,6 +194,9 @@ function check(){
 </head>
 <body>
 
+<p class="j_p">
+				<font class="j_txt">O </font>R D E R</p>
+
 <form action="../order/orderregist.bins" method="post" name="orderForm">
 	<input type="hidden" name="cartCheck" value="${cartId}">
 	<div class="container">
@@ -206,7 +209,7 @@ function check(){
 				<col width="120"/>
 			</colgroup>
 			
-			<tr class="active">
+			<tr class="danger">
 				<th>상품사진</th>
 				<th>상품명</th>
 				<th>판매가</th>
@@ -345,8 +348,8 @@ function check(){
 			</tr>
 		</table>
 		<div style="text-align: center">
-			<input type="button" id="pay" class="btn btn-default" value="결제하기" />
-			<input type="button" id="cancel" class="btn btn-default" value="취소하기" />
+			<input type="button" id="pay" class="btn btn-danger" value="결제하기" />
+			<input type="button" id="cancel" class="btn btn-danger" value="취소하기" />
 		</div>
 	</div>
 		<input type="hidden" id="lastTotalPrice" name="lastTotalPrice">

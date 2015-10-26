@@ -9,7 +9,6 @@ a.disabled {
 <script type="text/javascript">
 if("${result}" == 'false'){
 	$(function(){
-	   //$("#popbutton").click(function(){
 	        $('#loginModal').modal({ keyboard: false }) 
 	        var i = 4;
 	    	setInterval(function(){
@@ -20,7 +19,6 @@ if("${result}" == 'false'){
 	    	setInterval(function(){
 	    		loationHome();
 	    	}, 5000)
-	    //})
 	})	
 }
 function loationHome(){

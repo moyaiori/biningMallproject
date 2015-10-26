@@ -84,7 +84,10 @@
 	}
 </script>
 
-<div class="container">
+<div class="container" style="width: 70%">
+<p class="j_p">
+				<font class="j_txt">N </font>O T I C E</p>
+
 	<div class="col-md-10 col-md-offset-1">
 	
 			<table class="table">
@@ -100,7 +103,7 @@
 				</tr>
 				<tr>
 					<th class="active">조회수</th>
-					<td>${article.hitcount}</td>
+					<td colspan="3">${article.hitcount}</td>
 				</tr>
 
 				<tr>
@@ -111,9 +114,9 @@
 				<tr>
 					<td colspan="4" style="text-align: right;"><c:if
 							test="${cookie.loginId.value == 'admin'}">
-							<input class="btn btn-default" type="button" id="modify" value="수정하기">
-							<input class="btn btn-default" type="submit" id="delete" value="삭제하기">
-						</c:if> <input class="btn btn-default" type="button" value="돌아가기"
+							<input class="btn btn-danger" type="button" id="modify" value="수정하기">
+							<input class="btn btn-danger" type="submit" id="delete" value="삭제하기">
+						</c:if> <input class="btn btn-danger" type="button" value="돌아가기"
 						id="back"></td>
 				</tr>
 			</table>

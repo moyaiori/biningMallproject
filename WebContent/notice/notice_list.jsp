@@ -11,9 +11,8 @@
 
 <p class="j_p" style="margin-bottom: 40px">
 				<font class="j_txt">N </font>O T I C E </p>
-<div class="container" style="margin-left: 220px">
-    
-            <table class="table" style="width: 70%">
+    <div class="container" style="margin:0px auto">
+		<table class="table" style="width: 100%">
                   <colgroup>
                      <col width="75" />
                      <col width="600" />
@@ -47,7 +46,7 @@
 
                </table>
 
-	  <form class="form-inline" method="post" action="../notice/notice_list.bins" style="width: 70%;margin-left: 70px">
+	  <form class="form-inline" method="post" action="../notice/notice_list.bins" style="width: 100%">
          <div class="form-group">
             <select class="form-control" name="searchType" id="">
                <option value="subject">제목</option>
@@ -58,12 +57,12 @@
  			 <input  type="submit" class="btn btn-danger" value="검색"/> 
  		
  			<c:if test="${cookie.loginId.value.equals('admin')}" >
-				<input onclick="location.href='../notice/notice_write.bins'" type="button" class="btn btn-danger" value="글쓰기" style="float: right; margin-left: 105px;" />
+				<input onclick="location.href='../notice/notice_write.bins'" type="button" class="btn btn-danger" value="글쓰기" style="float: right;" />
 			</c:if>
 
          </div>
       </form>
- <div class="text-center" style="padding-right: 370px;">
+ <div class="text-center">
    ${pageNation}
   </div>
   </div>

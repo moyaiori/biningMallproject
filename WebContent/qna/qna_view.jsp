@@ -16,9 +16,9 @@ a.disabled {
 				<font class="j_txt">Q </font>& <font class="j_txt"> A </font></p>
 
 
-<div class="container" style="margin-left: 220px">
+<div class="container" style="margin:0px auto">
 	<div class="content">
-		<table class="table" style="width: 70%">
+		<table class="table" style="width: 100%">
 			<colgroup>
 				<col width="75" />
 				<col width="600" />
@@ -102,9 +102,9 @@ a.disabled {
 		</table>
 
 	</div>
-	<form class="form-inline" method="post" action="../qna/qna_view.bins" style="margin-left: 75; width:800px" >
+	<form class="form-inline" method="post" action="../qna/qna_view.bins" style="margin: 0px auto" >
 	
-		<div class="form-group">
+		<div class="form-group ">
 			<select class="form-control" style="width: 95px;" name="searchType"
 				id="">
 				<option value="subject">제목</option>
@@ -114,12 +114,13 @@ a.disabled {
 			<input type="text" class="form-control" style="width: 200px;"	name="searchValue" required id="stx" /> 
 			<input type="submit"	class="btn btn-danger" value="검색" />
 			<c:if test="${cookie.loginId != null}">
-				<input onclick="location.href='../qna/qna_write.bins'" type="button" class="btn btn-danger" value="글쓰기" style="float: right; margin-left: 100" />
+				<input onclick="location.href='../qna/qna_write.bins'" type="button" class="btn btn-danger text-right" value="글쓰기" style="float: right" />
 			</c:if>
 		</div>
 	</form>
-	 <div class="text-center" style="width: 800px">
-	 
+	
+	
+	 <div class="text-center">
    ${pageNation}
   </div>
 	
