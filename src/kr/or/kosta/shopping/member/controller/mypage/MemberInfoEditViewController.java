@@ -42,15 +42,6 @@ public class MemberInfoEditViewController implements Controller{
 		
 		member = service.getMemberInfo(memberId);
 
-		System.out.println("member : " + member);
-		
-		
-//		String[] phoneNum = member.getPhoneNumber().split("-");
-//		member.setPhoneNumber2(phoneNum[1]);
-//		member.setPhoneNumber3(phoneNum[2]);
-//		member.setPhoneNumber(phoneNum[0]);
-		
-		
 		mav.addObject("member",member);
 		
 		System.out.println("MemberInfoEditViewController");

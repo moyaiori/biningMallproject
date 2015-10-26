@@ -44,17 +44,13 @@ public class MemberInfoEditController implements Controller{
 		member.setName(request.getParameter("name"));
 		member.setPasswd(request.getParameter("passwd"));
 		member.setEmail(request.getParameter("email"));
-		member.setPhoneNumber(request.getParameter("phone") + request.getParameter("phone2") + request.getParameter("phone3"));
+		member.setPhoneNumber(request.getParameter("phone"));
+		member.setPhoneNumber2(request.getParameter("phone2"));
+		member.setPhoneNumber3(request.getParameter("phone3"));
 		member.setAddress(request.getParameter("address"));
 		member.setAddress2(request.getParameter("address2"));
 		
 		service.updateMemberInfo(member);
-		
-//		member.setPhoneNumber(request.getParameter("phone"));
-//		member.setPhoneNumber2(request.getParameter("phone2"));
-//		member.setPhoneNumber3(request.getParameter("phone3"));
-		
-		System.out.println(member);
 
 		mav.addObject("member", member);
 		mav.addObject("contentFile", "/user/myInfo.jsp");

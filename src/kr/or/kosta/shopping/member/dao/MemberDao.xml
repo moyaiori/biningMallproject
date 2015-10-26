@@ -77,7 +77,7 @@
 	
 	<update id="updateMemberInfo" parameterType="kr.or.kosta.shopping.member.domain.Member">
 		UPDATE members
-		SET name = #{name}, passwd = #{passwd}, email = #{email}, phone_number = #{phoneNumber}, address = #{address}, address2 = #{address2}
+		SET name = #{name}, passwd = #{passwd}, email = #{email}, phone_number = #{phoneNumber} ,phone_number = #{phoneNumber} ,phone_number = #{phoneNumber}, address = #{address}, address2 = #{address2}
 		WHERE member_id = #{memberId}
 	</update>
 	
