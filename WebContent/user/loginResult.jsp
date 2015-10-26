@@ -6,14 +6,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="css/bootstrap.css" rel="stylesheet">
-<link href="css/bootswatch.min.css" rel="stylesheet">
 <style type="text/css">
-body {
-	padding-top: 100px;
-	padding-bottom: 40px;
-	background-color: #ecf0f1;
-}
 
 .error-header {
 	max-width: 500px;
@@ -98,9 +91,5 @@ function loationHome(){
 			<p>COPYRIGHT ⓒ 2015 BINS. ALL RIGHT RESERVED.</p>
 		</div>
 	</div>
-
-	<script src="js/jquery-2.1.0.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/bootswatch.js"></script>
 </body>
 </html>
