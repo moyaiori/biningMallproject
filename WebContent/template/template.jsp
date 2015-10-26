@@ -10,6 +10,10 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
+<!-- 충돌 나는 것 같은데 이유를 찾아야 한다. -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <style type="text/css">
 
@@ -51,6 +55,8 @@ html {
     <jsp:include page="../menus/footer.jsp"></jsp:include>
 
 </div>
+
+
 
 </body>
 </html>

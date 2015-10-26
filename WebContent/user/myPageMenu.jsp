@@ -14,7 +14,7 @@ window.onload = function(){
 	
 	document.getElementById("myOrder").onclick = function(){
 		console.log("myOrder");
-		window.location.href = "../user/myOrder.bins";
+		window.location.href = "../user/orderListView.bins";
 	}
 }
 
@@ -35,5 +35,5 @@ window.onload = function(){
 <div class="btn-group col-md-12 col-md-offset-3" role="group">
   <button type="button" class="btn btn-danger" id="myInfo">나의 정보</button>
   <button type="button" class="btn btn-danger" id="myEditInfo">정보 수정</button>
-  <button type="button" class="btn btn-danger" id="myOrder">나의 배송</button>
+  <button type="button" class="btn btn-danger" id="myOrder">주문 내역</button>
 </div>

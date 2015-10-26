@@ -127,8 +127,14 @@ public class MemberService {
 			memberDao.updateMemberInfo(member);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
-		}
-		
+		}	
 	}
-
+	
+	public void updatePoint(HashMap<String, Object> data) throws RuntimeException{
+		try {
+			memberDao.updatePoint(data);
+		} catch (Exception e) {
+			throw new RuntimeException(e.toString());
+		}
+	}
 }

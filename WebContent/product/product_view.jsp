@@ -98,35 +98,45 @@
 		
 		var form = document.getElementById("submit");
 	    form.onsubmit = function(){
-	      	
-	       var json = '[';
-	       var priceE = document.getElementById("price");
-	       var price = priceE.firstChild.nodeValue;
-	       for ( var i in array) {
-				toppingName += (array[i].name + " ");
-			}
-	       var productName = "${product.name}";
-	       if(toppingName.trim().length == 0){
-	    	   toppingName = "없음";
-	       }
-	       json += '{"name":"' + productName +"(토핑 : " + toppingName + ")" + '","price":"'+ price/count.value +'","count":"'+count.value+'","picture":"'+pictureName+'"},';
-	       json = json.substring(0, json.length-1);
-	       json += ']'
-	       
-	       var data = document.getElementById("hidden");
-	       data.setAttribute("value", json);
+	    	if("${cookie.loginId}" != ""){
+	    	   var json = '[';
+	 	       var priceE = document.getElementById("price");
+	 	       var price = priceE.firstChild.nodeValue;
+	 	       for ( var i in array) {
+	 				toppingName += (array[i].name + " ");
+	 			}
+	 	       var productName = "${product.name}";
+	 	       if(toppingName.trim().length == 0){
+	 	    	   toppingName = "없음";
+	 	       }
+	 	       json += '{"name":"' + productName +"(토핑 : " + toppingName + ")" + '","price":"'+ price/count.value +'","count":"'+count.value+'","picture":"'+pictureName+'"},';
+	 	       json = json.substring(0, json.length-1);
+	 	       json += ']'
+	 	       
+	 	       var data = document.getElementById("hidden");
+	 	       data.setAttribute("value", json);
+	    	}else{
+	    		alert("로그인 후 이용이 가능합니다.");
+	    		window.location.href = "../user/login.bins";
+	    		return false;
+	    	}
 	    }
 	    
 	    var addCart = document.getElementById("addCart");
 	    addCart.onclick = function(){
-	    	for ( var i in array) {
-				toppingName += (array[i].name + " ");
-			}
-	    	alert("상품이 추가 되었습니다");
-	    	if(toppingName.trim().length == 0){
-	    		toppingName = "없음";
+	    	if("${cookie.loginId}" != ""){
+	    		for ( var i in array) {
+					toppingName += (array[i].name + " ");
+				}
+		    	alert("상품이 추가 되었습니다");
+		    	if(toppingName.trim().length == 0){
+		    		toppingName = "없음";
+		    	}
+		    	window.location.href = "../cart/cartInsert.bins?loginId=" + "${cookie.loginId.value}" + "&productId=" + "${product.productId}" + "&price=" + realPrice + "&name=" + "${product.name}" + "&picture=" + "${product.picture}" + "&count=" + count.value + "&toppingPrice=" + toppingPrice + "&toppingName=" + toppingName ;	
+	    	}else{
+	    		alert("로그인 후 이용이 가능합니다.");
+	    		window.location.href = "../user/login.bins";
 	    	}
-	    	window.location.href = "../cart/cartInsert.bins?loginId=" + "${cookie.loginId.value}" + "&productId=" + "${product.productId}" + "&price=" + realPrice + "&name=" + "${product.name}" + "&picture=" + "${product.picture}" + "&count=" + count.value + "&toppingPrice=" + toppingPrice + "&toppingName=" + toppingName ;
 	    }
 	}
 </script>

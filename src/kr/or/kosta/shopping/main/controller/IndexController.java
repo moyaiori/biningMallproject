@@ -33,6 +33,9 @@ public class IndexController implements Controller {
 		ProductService productService = ProductService.getInstance();
 		List<Product> expensive = productService.expensive();
 		
+		List<Product> best = productService.best();
+		
+		mav.addObject("best", best);
 		mav.addObject("expensive", expensive);
 		mav.addObject("noticeList", noticeList);
 		mav.addObject("qnaList", qnaList);

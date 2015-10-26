@@ -1,11 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8"%>
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css.map">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
-<%@ page contentType="text/html; charset=utf-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.min.css">
@@ -13,7 +7,6 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <script src="../js/ajax.js"></script>
 <style>
 .table>tbody>tr>td{
@@ -36,81 +29,67 @@ form {
 <div class="container col-md-8 col-md-offset-2">
 		<p class="j_p">
 				<font class="j_txt">M </font>Y 　O R D E R</p>
-	<form action="registProc.bins" method="post" name="addjoin">
-		<table class="table">
-			<colgroup>
-					<col width="100" />
-					<col width="200" />
-				</colgroup>
-			<tr>
-				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">아이디</td>
-				<td><input type="text" class="form-control" name="id"><span id="idmessageBox"></span></td>
-			</tr>
-			<tr>
-				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">비밀번호</td>
-				<td><input type="password" class="form-control" name="passwd"></td>
-			</tr>
-			<tr>
-				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">비밀번호확인</td>
-				<td><input type="password" class="form-control" name="passwd2"></td>
-			</tr>
-			<tr>
-				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">이름</td>
-				<td><input type="text" class="form-control" name="name"></td>
-			</tr>
-			<tr>
-				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">생년월일</td>
-				<td><input type="date" class="form-control" name="birth"></td>
-			</tr>
-			<tr>
-				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">성별</td>
-				<td><select class="form-control" name="gender">
-						<option value="남">남자</option>
-						<option value="여">여자</option>
-				</select></td>
-			</tr>
-			<tr>
-				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">이메일주소</td>
-				<td><input type="text" class="form-control" name="email"><span id="emailmessageBox"></span></td>
-			</tr>
-	
-			<tr>
-				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">연락처</td>
-				<td class="form-inline">
-					<div class="form-group">
-					<select class="form-control" name="phone">
-						<option>010</option>
-						<option>011</option>
-						<option>017</option>
-						<option>019</option>
-						<option>070</option>
-					</select>
-				　-　<input type="text"  size="12" class="form-control" name="phone2">
-				　-　<input type="text"  size="12" class="form-control" name="phone3">
-				</div>
-				</td>
-			</tr>
-	
-			<tr>
-			<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">주소</td>
-			<td><input id="post" name="post" type="text" placeholder="우편번호" class="form-control-post">
-			<input type="button" onclick="searchPost()" value="우편번호 찾기" class="btn btn-danger"></td>
-			</tr>
-			<tr>
-			<td></td>
-			<td><input type="text" id="address"  name="address" size="20px" placeholder="기본주소" class="form-control"></td>
-			</tr>
-			
-			<tr>
-			<td></td>
-			<td><input type="text" id="address2" name="address2" size="20px" placeholder="상세주소" class="form-control"></td>
-			</tr>
-			<tr>
-	
-			<td></td>
-			<td><input type="submit" value="회원가입" class="btn btn-danger" onclick="return check()">
-			<input onclick="location.href='../index.bins'" type="button" value="홈으로" class="btn btn-danger"></td>
-			</tr>
-		</table>
-	</form>
+	<table class="table" id="table">
+   <thead> 
+   <tr class="active">
+      <th>주문 번호</th>
+      <th>상품명</th>
+      <th>주문일</th>
+      <th>총 주문금액</th>
+      <th>상세보기</th>
+      <th></th>
+   </thead>
+   <tbody id="tbody">
+      <c:forEach items="${orderList}" var="data">
+         <tr>
+            <td style="vertical-align: inherit;" class="number"> ${data.orderListNum} </td>
+            	<td style="vertical-align: inherit;">${data.productName }</td>
+            <td style="vertical-align: inherit;"> ${data.orderDate} </td>            
+            <td style="vertical-align: inherit;"> ${data.totalPrice} </td>            
+            <td style="vertical-align: inherit;"><a class="detail" style="cursor:pointer">상세보기</a></td>
+         </tr>
+      </c:forEach>
+   </tbody>
+</table>
 </div>
+<script>
+	window.onload = function(){
+		var nodeList = document.getElementsByClassName("number");
+		var detailBtn = document.getElementsByClassName("detail");
+		
+		for ( var i in detailBtn) {
+			detailBtn[i].onclick = function(){
+				var listNum = this.parentNode.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.firstChild.nodeValue.trim();
+				//window.location = "../order/orderDetail?listNum="+listNum;
+				ajax({
+					method: "post",
+					url: "../order/orderDetail.bins",
+					data: "listNum="+listNum,
+					callback: function(xhr){
+						setView(xhr);
+					}
+				});
+			}
+		}
+		
+		function setView(xhr){
+			var table = document.getElementById("table");
+			table.innerHTML = xhr.responseText;
+		}
+		
+		document.getElementById("myInfo").onclick = function(){
+			console.log("myInfo");
+			window.location.href = "../user/myInfo.bins";
+		}
+		
+		document.getElementById("myEditInfo").onclick = function(){
+			console.log("myEditInfo");
+			window.location.href = "../user/myCheckPasswd.bins";
+		}
+		
+		document.getElementById("myOrder").onclick = function(){
+			console.log("myOrder");
+			window.location.href = "../user/orderListView.bins";
+		}
+	}
+</script>

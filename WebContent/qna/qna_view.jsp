@@ -31,7 +31,6 @@ a.disabled {
 				
 			</tr>
 			
-		
 			<c:if test="${listSize - 1 >= 0}">
 				<c:forEach begin="0" end="${articleList.size()-1}" var="i">
 					<c:set var="j" value="${articleList.get(i).stepNum}"/>
@@ -109,9 +108,10 @@ a.disabled {
 				<option value="member_id">작성자</option>
 			</select> 
 			<input type="text" class="form-control" style="width: 200px;"	name="searchValue" required id="stx" /> 
-			<input type="submit"	class="btn btn-default" value="검색" /> 
-			<input onclick="location.href='../qna/qna_write.bins'" type="button"	class="btn btn-default" value="글쓰기" style="float: right;" />
-
+			<input type="submit"	class="btn btn-default" value="검색" />
+			<c:if test="${cookie.loginId != null}">
+				<input onclick="location.href='../qna/qna_write.bins'" type="button"	class="btn btn-default" value="글쓰기" style="float: right;" />
+			</c:if>
 		</div>
 	</form>
 

@@ -79,6 +79,12 @@
 	
 	</update>
 	
+	<update id="updatePoint" parameterType="java.util.HashMap">
+		UPDATE members
+		SET point = #{point}
+		WHERE member_id = #{memberId}
+	</update>
+	
 	
 	
 </mapper>

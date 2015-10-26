@@ -10,11 +10,12 @@ public class OrderList {
 	private int totalPrice;
 	private String payment;
 	private String recipient;
+	private String productName;
 	
 	public OrderList() {}
 
 	public OrderList(int orderListNum, String memberId, String orderDate, String orderComment, String address,
-			String address2, int totalPrice, String payment, String recipient) {
+			String address2, int totalPrice, String payment, String recipient, String productName) {
 		super();
 		this.orderListNum = orderListNum;
 		this.memberId = memberId;
@@ -25,6 +26,7 @@ public class OrderList {
 		this.totalPrice = totalPrice;
 		this.payment = payment;
 		this.recipient = recipient;
+		this.productName = productName;
 	}
 
 	public int getOrderListNum() {
@@ -99,10 +101,19 @@ public class OrderList {
 		this.recipient = recipient;
 	}
 
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
 	@Override
 	public String toString() {
 		return "OrderList [orderListNum=" + orderListNum + ", memberId=" + memberId + ", orderDate=" + orderDate
 				+ ", orderComment=" + orderComment + ", address=" + address + ", address2=" + address2 + ", totalPrice="
-				+ totalPrice + ", payment=" + payment + ", recipient=" + recipient + "]";
+				+ totalPrice + ", payment=" + payment + ", recipient=" + recipient + ", productName=" + productName
+				+ "]";
 	}
 }

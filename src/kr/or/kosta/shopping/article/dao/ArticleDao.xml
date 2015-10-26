@@ -37,7 +37,6 @@
 					)WHERE request_page = #{value}
 	</select>
 	
-	
 	<!-- 글 상세 보기 시, 조회수 증가.-->
 	<update id="updateHitcount" parameterType="java.lang.Integer" >
 			UPDATE article 
@@ -61,7 +60,6 @@
 					 WHERE request_page = ${searchPage}
 	</select>
 	
-	
 	<!--  검색 카운트  -->
 	 <select id="getAllSearchCnt"  parameterType="java.util.HashMap"  resultType="java.lang.Integer">
 		SELECT Count(article_id) count 
@@ -84,4 +82,11 @@
     		)
  		where board_id= ${value} and  rownum &lt;=5
 	</select>
+	
+	<update id="modify" parameterType="java.util.HashMap">
+		UPDATE article
+		SET subject = '#{subject}', content = '#{content}'
+		WHERE article_id = #{articleId};
+	</update>
+	
 </mapper>

@@ -1,9 +1,5 @@
 package kr.or.kosta.shopping.member.controller.mypage;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
@@ -45,12 +41,10 @@ public class MemberInfoViewController implements Controller{
 		}
 		
 		member = service.getMemberInfo(memberId);
-		System.out.println("member : " + member);
 		
 		mav.addObject("member",member);
 		
 		
-		System.out.println("MemberInfoViewController");
 		mav.addObject("contentFile", "/user/myInfo.jsp");
 		
 		return mav;

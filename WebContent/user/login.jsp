@@ -57,9 +57,7 @@ form {
 				<td></td>
 				<td></td>
 				<td></td>
-				</tr>
-				
-				
+				</tr>	
 			</table>
 	</div>
 

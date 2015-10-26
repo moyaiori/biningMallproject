@@ -6,9 +6,6 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
-
-import com.sun.org.apache.xalan.internal.xsltc.runtime.Hashtable;
-
 import kr.or.kosta.example.Log4JExample;
 import kr.or.kosta.shopping.article.domain.Article;
 
@@ -112,7 +109,6 @@ public class MybatisArticleDao implements ArticleDao {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		int listCount= 0;
 		try{
-		
 			ArticleDao dao = (ArticleDao)sqlSession.getMapper(ArticleDao.class);
 			listCount = dao.getAllSearchCnt(type);
 			logger.debug("DEBUG : 서치잼");
@@ -150,7 +146,20 @@ public class MybatisArticleDao implements ArticleDao {
 			sqlSession.close();
 		}
 		return articleList;
+	}
 	
+	@Override
+	public void modify(HashMap<String, Object> data) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		try{
+			ArticleDao dao = (ArticleDao)sqlSession.getMapper(ArticleDao.class);
+			dao.modify(data);
+			sqlSession.commit();
+		}catch(Exception e){
+			sqlSession.rollback();
+		}finally{
+			sqlSession.close();
+		}
 	}
 
 }

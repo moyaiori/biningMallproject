@@ -29,6 +29,8 @@ public class OrderGetInfoController implements Controller{
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 		
+		String cartId = request.getParameter("cartCheck");
+		
 		String jsonTxt = request.getParameter("json");
 		JSONParser parser = new JSONParser();
 		Object obj = null;
@@ -76,6 +78,7 @@ public class OrderGetInfoController implements Controller{
 		member.setPhoneNumber3(phoneResult[2]);
 		member.setPhoneNumber(phoneResult[0]);
 		
+		mav.addObject("cartId", cartId);
 		mav.addObject("member", member);
 		mav.addObject("allData", jsonStore);
 		mav.addObject("contentFile", "/order/order.jsp");

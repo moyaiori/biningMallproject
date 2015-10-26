@@ -79,7 +79,6 @@ public class ArticleService {
 			articleDao.updateHitcount(aricleId);	
 		} catch (Exception e) {
 			throw new RuntimeException(e);
-			
 		}
 	}
 	
@@ -126,6 +125,15 @@ public class ArticleService {
 			throw new RuntimeException(e);
 		}
 		return articleList;
+	}
+	
+	/*조회수 증가.*/
+	public void modify(HashMap<String, Object> data)throws RuntimeException{
+		try {
+			articleDao.modify(data);	
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 }

@@ -24,7 +24,6 @@ public class MemberOrderViewController implements Controller{
 		MemberService service = MemberService.getInstance();
 		ModelAndView mav = new ModelAndView();
 		
-		System.out.println("MemberOrderViewController");
 		mav.addObject("contentFile", "/user/myOrder.jsp");
 		
 		return mav;

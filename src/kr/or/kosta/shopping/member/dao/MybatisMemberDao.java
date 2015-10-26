@@ -168,7 +168,6 @@ public class MybatisMemberDao implements MemberDao {
 	public Member getMemberInfo(String memberId) throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		Member member = null;
-		
 		try {
 			MemberDao dao = sqlSession.getMapper(MemberDao.class);
 			member = dao.getMemberInfo(memberId);
@@ -183,17 +182,35 @@ public class MybatisMemberDao implements MemberDao {
 
 	@Override
 	public void updateMemberInfo(Member member) throws RuntimeException {
-		
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		
 		try {
 			MemberDao dao = sqlSession.getMapper(MemberDao.class);
 			dao.updateMemberInfo(member);
+			sqlSession.commit();
 		} catch (Exception e) {
+			sqlSession.rollback();
 			e.printStackTrace();
 		} finally {
 			sqlSession.close();
 		}
-		
 	}
+	
+	@Override
+	public void updatePoint(HashMap<String, Object> data) throws RuntimeException {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+			try {
+				MemberDao dao = sqlSession.getMapper(MemberDao.class);
+				dao.updatePoint(data);
+				logger.debug("[DEBUG] : updatePoint()에서 발생");
+				sqlSession.commit();
+			} catch (Exception e) {
+				logger.warn("[WARN] : updatePoint()에서 발생");
+				sqlSession.rollback();
+				e.printStackTrace();
+			} finally {
+				sqlSession.close();
+			}
+		}
+	
 }

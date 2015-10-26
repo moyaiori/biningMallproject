@@ -20,6 +20,10 @@ public interface ProductDao {
 	/** 비싼 밥버거 3개 */
 	public List<Product> expensive() throws Exception;
 	
+	/** BEST 3개 */
+	public List<Product> best() throws Exception;
+	
+	/** 주문을 했을때 해당 상품들의 판매량을 업데이트*/
 	public void updateCount(HashMap<String, Object> data) throws RuntimeException;
 }
 

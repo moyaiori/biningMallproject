@@ -73,15 +73,23 @@ public class MybatisProductDao implements ProductDao {
 	}
 	
 	@Override
+	public List<Product> best() throws Exception {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		List<Product> list = new ArrayList<Product>();
+		try {
+			ProductDao dao = (ProductDao) sqlSession.getMapper(ProductDao.class);
+			logger.debug("[DEBUG] : best()에서 발생");
+			list = dao.best();
+		} finally {
+			sqlSession.close();
+		}
+		return list;
+	}
+	
+	@Override
 	public void updateCount(HashMap<String, Object> data) throws RuntimeException {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		try {
-			/*
-			ProductDao dao = (ProductDao) sqlSession.getMapper(ProductDao.class);
-			logger.debug("[DEBUG] : updateCount()에서 발생");
-			dao.updateCount(data);
-			sqlSession.commit();
-			*/
 			sqlSession.update("kr.or.kosta.shopping.product.dao.ProductDao.updateCount", data);
 			sqlSession.commit();
 		} finally {

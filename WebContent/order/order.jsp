@@ -166,11 +166,36 @@ window.onload = function(){
 		}
 		json = json.substring(0, json.length-1);
   	 	json += ']';
-		
+  	 	var lastPoint = parseInt(nowPoint) - parseInt(document.getElementById("usePoint").value) + point;
+  	 	document.getElementById("lastTotalPoint").setAttribute("value", lastPoint);
 		document.getElementById("json").setAttribute("value", json);
-		
-		document.orderForm.submit();		
+		if(check()){
+			document.orderForm.submit();	
+		}
 	}
+}
+
+function check(){	
+		if(document.orderForm.recipient.value==""){
+			alert("받으실분을 입력 하세요");
+			return false;
+		}else if(document.orderForm.address.value==""){
+			alert("기본주소를 입력 하세요");
+			return false;
+		}else if(document.orderForm.address2.value==""){
+			alert("상세주소를 입력 하세요");
+			return false;
+		}else if(document.orderForm.phone.value==""){
+			alert("전화번호 첫 번째 칸을 입력 하세요");
+			return false;
+		}else if(document.orderForm.phone2.value==""){
+			alert("전화번호 두 번째 칸을 입력 하세요");
+			return false;
+		}else if(document.orderForm.phone3.value==""){
+			alert("전화번호 세 번째 칸을 입력 하세요");
+			return false;
+		}
+		return true
 }
 </script>
 
@@ -178,6 +203,7 @@ window.onload = function(){
 <body>
 
 <form action="../order/orderregist.bins" method="post" name="orderForm">
+	<input type="hidden" name="cartCheck" value="${cartId}">
 	<div class="container">
 		<table class="table info">
 			<colgroup>
@@ -263,9 +289,9 @@ window.onload = function(){
 						<tr>
 							<td class="TagTd">전화번호</td>
 							<td class="inputTd">
-								<input type="text" class="form-control phoneFile"  id="phoneNum1" style="display: inline;"> - 
-								<input type="text" class="form-control phoneFile" id="phoneNum2"> - 
-								<input type="text" class="form-control phoneFile" id="phoneNum3">
+								<input type="text" name="phone" class="form-control phoneFile"  id="phoneNum1" style="display: inline;"> - 
+								<input type="text" name="phone2" class="form-control phoneFile" id="phoneNum2"> - 
+								<input type="text" name="phone3" class="form-control phoneFile" id="phoneNum3">
 							</td>
 						</tr>
 						<tr>
@@ -315,7 +341,7 @@ window.onload = function(){
 						<tr>
 							<td  class="TagTd" style="line-height: 22px;">일반 결제 방법</td>
 							<td>
-								<label class="radio-inline"><input type="radio" name="payment2" value="무통장입금">무통장입금</label>
+								<label class="radio-inline"><input type="radio" name="payment2" value="무통장입금" checked>무통장입금</label>
 								<label class="radio-inline"><input type="radio" name="payment2" value="신용카드">신용카드</label>
 								<label class="radio-inline"><input type="radio" name="payment2" value="계좌이체">계좌이제</label>
 								<label class="radio-inline"><input type="radio" name="payment2" value="가상계좌">가상계좌</label>

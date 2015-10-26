@@ -69,4 +69,14 @@ public class ProductService {
 			throw new RuntimeException(e.toString());
 		}
 	}
+	
+	public List<Product> best() throws RuntimeException{
+		List<Product> list = null;
+		try{
+			list = productDao.best();
+		}catch (Exception e){
+			throw new RuntimeException(e.toString());
+		}
+		return list;
+	}
 }

@@ -11,7 +11,7 @@
 	</insert>
 		
 	<select id="getAll" resultType="kr.or.kosta.shopping.order.domain.Order" parameterType="int">
-		SELECT order_num AS "orderNum", order_list_num AS "orderListNum", product_name AS "productName", product_picture AS "productPicture", order_count AS "orderCount", total_price AS "totalPrice"
+		SELECT order_num AS "orderNum", order_list_num AS "orderListNum", price, product_name AS "productName", product_picture AS "productPicture", order_count AS "orderCount", total_price AS "totalPrice"
 		FROM orders
 		WHERE order_list_num = #{value}
 	</select>

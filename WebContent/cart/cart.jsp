@@ -15,7 +15,6 @@
       var checkBox = document.getElementsByName("check");
       var orderCount = document.getElementsByName("count");
       var cartId = document.getElementsByClassName("cartId");
-      var cartOutput = "";
       
       var viewPrice;
       var count;
@@ -44,7 +43,6 @@
                            if(orderCount[j].parentNode.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.previousSibling.firstChild.checked){
                         	  total = checkSelect(checkBox);
                               //total += parseInt(orderCount[j].parentNode.nextSibling.nextSibling.firstChild.nodeValue.trim());
-                              console.log("들어옴 :" + total);
                            }
                         }
                         
@@ -81,6 +79,7 @@
       selDeleteBtn = document.getElementById("selDelete");
       selDeleteBtn.onclick = function(){
     	  var json = '[';
+    	  var cartOutput = "";
     	  for (var i in checkBox){
     		  if(checkBox[i].checked){
     			  cartOutput += checkBox[i].parentNode.previousSibling.previousSibling.firstChild.nodeValue + ",";
@@ -107,10 +106,19 @@
     	  json = json.substring(0, json.length-1);
     	  json += ']';
     	  
+    	  
+    	  var cartOutput = "";
+    	  for (var i in checkBox){
+    		  if(checkBox[i].constructor == "function HTMLInputElement() { [native code] }"){
+       		  	cartOutput += checkBox[i].parentNode.previousSibling.previousSibling.firstChild.nodeValue + ",";
+    		  }
+       	  }
+    	  document.getElementById("cartCheck").setAttribute("value", cartOutput);
+    	  
     	  var data = document.getElementById("hidden");
 	      data.setAttribute("value", json);
 	      
-	      document.cartForm.submit();
+	     document.cartForm.submit();
       }
       
       selOrderBtn = document.getElementById("selOrder");
@@ -132,6 +140,14 @@
 		  }
     	  json = json.substring(0, json.length-1);
     	  json += ']' 
+    	  
+          var cartOutput = "";
+   		  for (var i in checkBox){
+       		  if(checkBox[i].checked){
+       			  cartOutput += checkBox[i].parentNode.previousSibling.previousSibling.firstChild.nodeValue + ",";
+       		  }
+       	  }
+    	  document.getElementById("cartCheck").setAttribute("value", cartOutput);
     	  
           var data = document.getElementById("hidden");
 	      data.setAttribute("value", json);
@@ -173,6 +189,7 @@
 <div class="container">
 <form name="cartForm" action="../order/order.bins">
 <input type="hidden" name="json" id="hidden">
+<input type="hidden" name="cartCheck" id="cartCheck">
 <h2 align="center">장바구니</h2>
 <div class="text-center">
 <table class="table">

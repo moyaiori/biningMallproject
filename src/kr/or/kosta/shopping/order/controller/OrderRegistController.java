@@ -16,8 +16,10 @@ import org.json.simple.parser.ParseException;
 
 import com.sun.org.apache.xpath.internal.operations.Or;
 
+import kr.or.kosta.shopping.cart.service.CartService;
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
+import kr.or.kosta.shopping.member.service.MemberService;
 import kr.or.kosta.shopping.order.domain.Order;
 import kr.or.kosta.shopping.order.service.OrderService;
 import kr.or.kosta.shopping.orderlist.domain.OrderList;
@@ -36,6 +38,7 @@ public class OrderRegistController implements Controller{
 		
 		ModelAndView mav = new ModelAndView();
 		
+		/* JSON텍스트 형태로 오는 데이터를 파싱 */
 		String jsonTxt = request.getParameter("json");
 		JSONParser parser = new JSONParser();
 		Object obj = null;
@@ -46,6 +49,7 @@ public class OrderRegistController implements Controller{
 			e.printStackTrace();
 		}
 		
+		/* 저장 */
 		StringBuilder nameTemp = new StringBuilder();
 		JSONArray array = (JSONArray) obj;
 		for (int i = 0; i < array.size(); i++) {
@@ -68,7 +72,8 @@ public class OrderRegistController implements Controller{
 		String recipient = request.getParameter("recipient");
 		String orderComment = request.getParameter("orderComment");
 		String totalPrice = request.getParameter("lastTotalPrice");
-		
+		String lastPoint = request.getParameter("lastTotalPoint");
+
 		// 쿠키값 가져오기
 	    Cookie[] cookies = request.getCookies();
 		if(cookies != null){
@@ -82,6 +87,7 @@ public class OrderRegistController implements Controller{
 		
 		OrderListService orderListService = OrderListService.getInstance();
 		
+		/* 오더 리스트 생성 */
 		OrderList orderList = new OrderList();
 		orderList.setMemeberId(loginId);
 		orderList.setAddress(address);
@@ -90,12 +96,15 @@ public class OrderRegistController implements Controller{
 		orderList.setRecipient(recipient);
 		orderList.setOrderComment(orderComment);
 		orderList.setTotalPrice(Integer.parseInt(totalPrice));
+		orderList.setProductName(productName);
 		
 		orderListService.insert(orderList);
-		
+		/* 등록하자마자 오더리스트를 가져온다(오더에 넣어야함) */
 		orderList.setOrderListNum(orderListService.recently(loginId).getOrderListNum());
 		
+		/* 오더리스트 안의 오더 생성*/
 		OrderService orderService = OrderService.getInstance();
+		/* 판매량을 바꾸기 위한 productService 생성 */
 		ProductService productService = ProductService.getInstance();
 		for (HashMap<String, Object> data : jsonStore) {
 			Order order = new Order();
@@ -106,16 +115,37 @@ public class OrderRegistController implements Controller{
 			order.setTotalPrice(Integer.parseInt((String)data.get("price")) * Integer.parseInt((String)data.get("count")));
 			order.setOrderListNum(orderList.getOrderListNum());
 			orderService.insert(order);
-			HashMap<String, Object> temp = new HashMap<String, Object>();
-			temp.put("name", order.getProductName().split("\\(")[0].trim());
-			temp.put("count", order.getOrderCount());
-			productService.updateCount(temp);
+			HashMap<String, Object> countHashMap = new HashMap<String, Object>();
+			countHashMap.put("name", order.getProductName().split("\\(")[0].trim());
+			countHashMap.put("count", order.getOrderCount());
+			/* 판매량 업데이트 */
+			productService.updateCount(countHashMap);
 		}
+		
+		/* 주문한 사람의 포인트를 바꿈 */
+		HashMap<String, Object> pointHashMap = new HashMap<String, Object>();
+		pointHashMap.put("point", lastPoint);
+		pointHashMap.put("memberId", loginId);
+		
+		MemberService memberService = MemberService.getInstance();
+		memberService.updatePoint(pointHashMap);
+		
+		/* 주문한 카트의 상품 삭제 */
+		String cartId = request.getParameter("cartCheck");
+		String[] cartIdList = cartId.split(",");
+		
+		CartService cartService = CartService.getInstance();
+		for (int i = 0; i < cartIdList.length; i++) {
+			HashMap<String, Object> data = new HashMap<String, Object>();
+			data.put("memberId", loginId);
+			data.put("cartId", cartIdList[i]);
+			cartService.delete(data);
+		}
+		
 		
 		mav.addObject("productName", productName);
 		mav.addObject("orderList", orderList);
 		mav.addObject("contentFile", "/order/orderCheck.jsp");
-		
 		return mav;
 	}
 }

@@ -6,22 +6,23 @@
 	
 		<!-- 주문 등록 -->
 	<insert id="insert" parameterType="kr.or.kosta.shopping.orderlist.domain.OrderList">
-		INSERT INTO order_list(order_list_num, member_id, order_comment, address, address2, total_price, payment, recipient)
-		VALUES (order_list_num_seq.NEXTVAL, #{memberId}, #{orderComment}, #{address}, #{address2}, #{totalPrice}, #{payment}, #{recipient}) 
+		INSERT INTO order_list(order_list_num, member_id, order_comment, address, address2, total_price, payment, recipient, product_name)
+		VALUES (order_list_num_seq.NEXTVAL, #{memberId}, #{orderComment}, #{address}, #{address2}, #{totalPrice}, #{payment}, #{recipient}, #{productName}) 
 	</insert>
 	
 	<!-- 전체주문 조회 SQL 매핑 -->
 	<select id="getAll" parameterType="java.lang.String" resultType="kr.or.kosta.shopping.orderlist.domain.OrderList">
-		SELECT order_list_num AS "orderListNum", member_id AS "memberId", order_comment AS "orderComment", address, address2, total_price AS "totalPrice", payment, recipient
+		SELECT order_list_num AS "orderListNum", member_id AS "memberId", TO_CHAR(order_date,'YYYY-MM-DD') AS "orderDate", order_comment AS "orderComment", address, address2, total_price AS "totalPrice", payment, recipient, product_name AS "productName"
 		FROM order_list
 		WHERE member_id = #{memberId}
+		ORDER BY order_list_num DESC
 	</select>
 	
 	
 	<select id="recently" parameterType="java.lang.String" resultType="kr.or.kosta.shopping.orderlist.domain.OrderList">
-			SELECT order_list_num AS "orderListNum", member_id AS "memberId", order_comment AS "orderComment", address, address2, total_price AS "totalPrice", payment, recipient
+			SELECT order_list_num AS "orderListNum", member_id AS "memberId", order_comment AS "orderComment", address, address2, total_price AS "totalPrice", payment, recipient, product_name AS "productName"
 			FROM order_list
 			WHERE member_id = #{memberId} AND rownum = 1
-			ORDER BY order_date DESC
+			ORDER BY order_list_num DESC
 	</select>
 </mapper>
