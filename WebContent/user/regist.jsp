@@ -91,6 +91,24 @@ function searchPost() {
 /*   조현빈 자바스크립트 부분 추가    */
     var checked = false;
     window.onload = function(){
+    	
+    	document.addjoin.passwd.onkeyup = function(){
+			if (document.addjoin.passwd.value.trim() == "" || document.addjoin.passwd.value == null) {
+				setMessage("비밀번호를 입력해주세요", "passwd", "red");
+			}else{
+				setMessage("사용가능한 비밀번호 입니다.", "passwd", "blue");
+			}
+		}
+		
+		document.addjoin.passwd2.onkeyup = function(){
+			if(document.addjoin.passwd2.value.trim() == "" || document.addjoin.passwd2.value == null){
+				setMessage("비밀번호 확인을 입력해주세요", "passwdCheck", "red");
+			}else if(document.addjoin.passwd.value != document.addjoin.passwd2.value){
+				setMessage("입력된 비밀번호가 다릅니다.", "passwdCheck", "red");
+			}else{
+				setMessage("사용가능한 비밀번호 입니다.", "passwdCheck", "blue");
+			}
+		}
     	// 이벤트소스에 이벤트리스너 등록
     	document.addjoin.id.onkeyup = function(){
     		var joinId = document.addjoin.id.value;
@@ -149,7 +167,7 @@ function searchPost() {
     	} 
     }
 
-    function setMessage(message, type){
+    function setMessage(message, type, color){
     	var messageBox = document.getElementById(type+"messageBox");
     	if(messageBox){
     		messageBox.innerHTML = message;
@@ -191,11 +209,11 @@ form {
 			</tr>
 			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">비밀번호</td>
-				<td><input type="password" class="form-control" name="passwd"></td>
+				<td><input type="password" class="form-control" name="passwd"><span id="passwdmessageBox"></span></td>
 			</tr>
 			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">비밀번호확인</td>
-				<td><input type="password" class="form-control" name="passwd2"></td>
+				<td><input type="password" class="form-control" name="passwd2"><span id="passwdCheckmessageBox"></span></td>
 			</tr>
 			<tr>
 				<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">이름</td>
