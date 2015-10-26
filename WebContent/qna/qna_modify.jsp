@@ -7,6 +7,23 @@
 	String articleId = request.getParameter("articleId");
 	String writer = request.getParameter("writer");
 %>
+<script> 
+window.onload = function(){
+   
+   var form = document.getElementById("writeId");
+    form.onclick = function(){
+    	 if(document.getElementById("subject").value==""){
+              alert("제목을 입력해주세요");
+              return false;
+           } 
+    	if(document.getElementById("content").value==""){
+            alert("내용을 입력해주세요");
+            return false;
+         } 
+  }
+}
+</script>
+
 <body>
 
 <p class="j_p" style="margin-bottom: 20px">
@@ -20,7 +37,10 @@
 				<thead>
 					<tr >
 						<th class="col-md-2" style="vertical-align: middle; text-align: center; border-bottom-width: 1px">글제목</th>
-						<td colspan="3"><input class="form-control" type="text"	name="subject" size="30" value="${qna.subject}"/></td>
+						<td colspan="3">
+						<input class="form-control" id="subject" type="text"
+							name="subject" size="30" value="${qna.subject}"/>
+					
 					</tr>
 				</thead>
 					<tr>
@@ -30,14 +50,14 @@
 					</tr>
 					<tr>
 						<td class="cont" colspan="5">
-						<textarea class="form-control" name="content" rows="15" style="resize:none;" >${qna.content}</textarea></td>
+						<textarea class="form-control" id="content" name="content" rows="15" style="resize:none;">${qna.content}</textarea></td>
 					</tr>
 			<tr>
 			<td>
 			<input type="hidden" name="articleId" value=<%=articleId %>>
 			<input type="hidden" name="memberId" value=<%=writer%>>
-			<input class="btn btn-danger" type="submit" value="작성완료" /></td>
-		<td><input class="btn btn-danger" type="button" src="../qna/qna_view.bins" value="목록" style="float: right;" /></td>
+			<input class="btn btn-danger" id="writeId" type="submit" value="작성완료" /></td>
+		<td><input onclick="location.href='../qna/qna_view.bins'" type="button" class="btn btn-danger" value="목록"  style="float: right;"/>
 		</tr>
 		</table>
 		</form>
