@@ -64,6 +64,12 @@ body {
 
 window.onload = function(){
 	
+	setInterval(function(){
+		window.loation.href = "../index.bins";
+	}, 3000)
+}
+
+function loationHome(){
 	window.loation.href = "../index.bins";
 }
 
@@ -84,7 +90,7 @@ window.onload = function(){
 			<p>3초후 메인페이지로 이동합니다.</p>
 
 			<div class="row error-btn">
-				<button class="btn btn-large btn-default">홈으로 이동</button>
+				<button class="btn btn-large btn-default" onclick="loationHome()">홈으로 이동</button>
 			</div>
 		</div>
 		<!-- footer -->
