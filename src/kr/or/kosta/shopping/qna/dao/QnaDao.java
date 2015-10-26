@@ -29,6 +29,9 @@ public interface QnaDao{
 
 	public void insertRe(Qna qna) throws RuntimeException;
 	
+	public void deleteQna(String articleId) throws RuntimeException;
+	
+	public void modifyQna(Article aricle) throws RuntimeException;
 	
 	
 }
