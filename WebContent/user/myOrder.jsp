@@ -17,12 +17,13 @@ form {
 	padding: 20px 130px 130px;
 }
 </style>
+<p class="j_p">
+				<font class="j_txt">M </font>Y 　O R D E R</p>
 
 <jsp:include page="myPageMenu.jsp"></jsp:include>
 
 <div class="container col-md-8 col-md-offset-2">
-		<p class="j_p">
-				<font class="j_txt">M </font>Y 　O R D E R</p>
+		
 	<table class="table" id="table">
    <thead> 
    <tr class="active">
