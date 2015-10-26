@@ -7,6 +7,15 @@
 <link rel="stylesheet" type="text/css" href="../style/product_view.css">
 <script src="../js/ajax2.js"></script>
 
+<style>
+#picture:HOVER{
+   -webkit-transform: scale(1.5);
+   position: relative;
+   top:5px;
+   z-index: 5;
+}
+</style>
+
 <script>
 	window.onload = function(){
 		var toppingPrice = 0;

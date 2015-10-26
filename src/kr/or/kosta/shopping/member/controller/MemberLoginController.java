@@ -39,7 +39,7 @@ public class MemberLoginController implements Controller{
 			mav.addObject("message", "로그인 성공");
 			return mav;
 		}else{
-			mav.setView("redirect:/index.bins");
+			mav.setView("redirect:../user/loginError.bins");
 			mav.addObject("message", "로그인 실패");
 			return mav;
 		}

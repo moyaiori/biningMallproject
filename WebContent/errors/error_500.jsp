@@ -9,6 +9,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>서버 장애</title>
+<link rel="stylesheet" type="text/css"
+	href="../style/bootstrap-theme.css">
+<link rel="stylesheet" type="text/css"
+	href="../style/bootstrap-theme.css.map">
+<link rel="stylesheet" type="text/css"
+	href="../style/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
+<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 <style type="text/css">
 * {margin:0;padding:0;}
 #error_content {margin:0; padding:0;}
@@ -25,13 +34,13 @@
 </style>
 </head>
 <body>
-<div  style="background-color:rgb(198,214,239) " align="center"id="error_content">
+<div  style="background-color:rgb(198,214,239) " align="center" id="error_content">
 		<img src="../images/error_500.jpg">
 	<br/>
 	<br/>
 	<p>
-		<input type="submit" value="이전 페이지" style="padding: 3px; color: #333333; border: 1px solid #ddd; margin: 5px 5px" onclick="history.back();"/>
-		<input type="button" value="홈 페이지" style="padding: 3px; color: #333333; border: 1px solid #ddd;" onclick="location.href='/index.bins'"/>
+		<input type="submit" value="이전 페이지" style="padding: 3px; border: 1px solid #ddd; margin: 5px 5px" onclick="history.back();" class="btn btn-default"/>
+		<input type="button" value="홈 페이지" style="padding: 3px;  border: 1px solid #ddd;" onclick="location.href='/index.bins'" class="btn btn-default"/>
 	</p>
 	
 	 <img src="../images/st_lov.gif"> 

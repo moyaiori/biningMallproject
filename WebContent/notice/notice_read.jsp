@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<<<<<<< HEAD
 <link rel="stylesheet" type="text/css"
 	href="../style/bootstrap-theme.css">
 <link rel="stylesheet" type="text/css"
@@ -9,6 +10,8 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
+=======
+>>>>>>> f8413a2961600767dc8cf5197ab700fef4657adf
 <script>
 	window.onload = function() {
 		document.getElementById("back").onclick = function() {
