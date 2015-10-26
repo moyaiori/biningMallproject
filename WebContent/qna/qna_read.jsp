@@ -7,16 +7,6 @@
 <%
 	String articleId = request.getParameter("articleId");
 %>
-
-<link rel="stylesheet" type="text/css"
-	href="../style/bootstrap-theme.css">
-<link rel="stylesheet" type="text/css"
-	href="../style/bootstrap-theme.css.map">
-<link rel="stylesheet" type="text/css"
-	href="../style/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 <body>
 <div class="container" style="margin-left: 185px">
 	<div class="col-md-10 col-md-offset-1" >

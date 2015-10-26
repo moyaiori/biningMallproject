@@ -10,14 +10,6 @@
 <head>
 <meta charset="utf-8">
 <title>주문페이지</title>
-
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css.map">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
-
 <style type="text/css">
 
 img {

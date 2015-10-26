@@ -4,14 +4,17 @@
  -->
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.css.map">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap-theme.min.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
-<link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="../style/product_view.css">
 <script src="../js/ajax2.js"></script>
+
+<style>
+#picture:HOVER{
+   -webkit-transform: scale(1.5);
+   position: relative;
+   top:5px;
+   z-index: 5;
+}
+</style>
 
 <script>
 	window.onload = function(){
@@ -138,6 +141,29 @@
 	    		window.location.href = "../user/login.bins";
 	    	}
 	    }
+	    
+	    var productView = document.getElementById("productView");
+	    productView.onclick = function(){
+	    	if(productView.firstChild.nodeValue == "상품평 보기"){
+	    		productView.firstChild.nodeValue = "상품평 숨기기";
+	    		var comment = document.getElementsByClassName("comment");
+	    		for ( var i in comment) {
+	    			if(comment[i].constructor == "function HTMLTableRowElement() { [native code] }"){
+	    				comment[i].style.display = "";
+	    			}
+				}
+	    		document.getElementById("write").style.display = "";
+			}else{
+				productView.firstChild.nodeValue = "상품평 보기";
+				var comment = document.getElementsByClassName("comment");
+				for ( var i in comment) {
+					if(comment[i].constructor == "function HTMLTableRowElement() { [native code] }"){
+						comment[i].style.display = "none";
+	    			}
+				}
+				document.getElementById("write").style.display = "none";
+			}
+	    }
 	}
 </script>
 	<form action="../order/order.bins" id="submit">
@@ -201,7 +227,11 @@
 			<div class="panel-body">${product.description}</div>
 		</div>
 	</div>
-
+	
+	<div class="container">
+		<a id="productView" style="cursor:pointer">상품평 보기</a>
+	</div>
+	
 	<div class="reviewDiv">
 		<div class="container">
 			<table class="table">
@@ -219,7 +249,7 @@
 				</tr>
 				<c:if test="${commentList.size()-1 >= 0}">
 					<c:forEach begin="0" end="${commentList.size()-1}" var="i">
-						<tr>
+						<tr class="comment" style="display:none;">
 							<td>${commentList.size()-i}</td>
 							<td>${commentList.get(i).content}</td>
 							<td>${commentList.get(i).memberId}</td>
@@ -237,7 +267,7 @@
 				</c:if>
 			</table>
 			<c:choose>
-				<c:when test="${cookie.loginId != null}"><input onclick="location.href='../product/product_write.bins?productId=${product.productId}'" type="button" class="btn btn-default" value="글쓰기" style="float: right;" /></c:when>
+				<c:when test="${cookie.loginId != null}"><input id="write" onclick="location.href='../product/product_write.bins?productId=${product.productId}'" type="button" class="btn btn-default" value="글쓰기" style="float: right;" /></c:when>
 			</c:choose>
 			
 		</div>
