@@ -4,19 +4,6 @@
 <script src="../js/ajax.js"></script>
 
 <script>
-	function addLoadEvent(func) {
-		var oldonload = window.onload;
-		if (typeof window.onload != 'function') {
-			window.onload = func;
-		} else {
-			window.onload = function() {
-				oldonload();
-				func();
-			};
-		}
-
-	}
-
 	function searchPost() {
 		new daum.Postcode(
 				{
@@ -62,12 +49,8 @@
 	}
 
 	function check() {
-
 		if (document.addjoin.name.value == "") {
 			alert("이름을 입력 하세요");
-			return false;
-		} else if (document.addjoin.id.value == "") {
-			alert("아이디를 입력 하세요");
 			return false;
 		} else if (document.addjoin.passwd.value == "") {
 			alert("비밀번호를 입력 하세요");
@@ -100,17 +83,17 @@
 			alert("생년월일을 입력하세요.");
 			return false;
 		}
-
 	}
 
 	/*   조현빈 자바스크립트 부분 추가    */
 	var checked = false;
-	
 	window.onload = function() {
+		document.getElementsByName("phone")[0].value = '${member.phoneNumber}';
 		// 이벤트소스에 이벤트리스너 등록
 		document.addjoin.id.onkeyup = function() {
 			var joinId = document.addjoin.id.value;
 		}
+		
 
 		document.getElementById("email").onkeyup = function() {
 			var joinEmail = document.addjoin.email.value;
@@ -121,7 +104,6 @@
 					url : "../user/MemberJoinEmailChk.bins",
 					data : "joinEmail=" + joinEmail,
 					callback : function(xhr) {
-						//alert(xhr.responseText);
 						onMessage(xhr, "email");
 					}
 				});
@@ -130,23 +112,24 @@
 				setMessage("이메일 형식에 맞게 입력해주세요. ex)________@____.__.__", "email");
 			}
 		}
+		
+		function onMessage(xhr, type){
+	    	console.log(xhr.responseText);
+	    	var result = xhr.responseText;
+	    	if(result.trim() == "true"){//아이디 중복 === : 타입까지 비교!!
+	    		setMessage("사용가능합니다.",type);
+	    	}else{
+	    		setMessage("중복된 내역 입니다.",type);
+	    	} 
+	    }
 
 		function setMessage(message, type) {
 			var messageBox = document.getElementById(type + "messageBox");
 			if (messageBox) {
 				messageBox.innerHTML = message;
 			}
-			if (color) {
-				messageBox.style.color = color;
-			}
 		}
 
-	}
-</script>
-
-<script type="text/javascript">
-	window.onload = function() {
-		document.getElementsByName("phone")[0].value = '${member.phoneNumber}';
 	}
 </script>
 
@@ -182,29 +165,21 @@ form {
 				<col width="200" />
 			</colgroup>
 			<tr>
-				<td
-					style="text-align: center; vertical-align: middle; font-size: 14px; font-weight: bold">이름</td>
+				<td style="text-align: center; vertical-align: middle; font-size: 14px; font-weight: bold">이름</td>
 				<td><input type="text" class="form-control" id='name'
 					name="name" value="${member.name }"></td>
 			</tr>
 			<tr>
-				<td
-					style="text-align: center; vertical-align: middle; font-size: 14px; font-weight: bold">비밀번호</td>
-				<td><input type="password" class="form-control" id="passwd"
-					name="passwd"></td>
+				<td style="text-align: center; vertical-align: middle; font-size: 14px; font-weight: bold">비밀번호</td>
+				<td><input type="password" class="form-control" id="passwd" name="passwd" value="111"><span id="passwdmessageBox"></span></td>
 			</tr>
 			<tr>
-				<td
-					style="text-align: center; vertical-align: middle; font-size: 14px; font-weight: bold">비밀번호
-					확인</td>
-				<td><input type="password" class="form-control"
-					id="passwdCheck"></td>
+				<td style="text-align: center; vertical-align: middle; font-size: 14px; font-weight: bold">비밀번호 확인</td>
+				<td><input type="password" class="form-control"	id="passwdCheck" value="111"><span id="passwdCheckmessageBox"></span></td>
 			</tr>
 			<tr>
-				<td
-					style="text-align: center; vertical-align: middle; font-size: 14px; font-weight: bold">이메일주소</td>
-				<td><input type="text" class="form-control" name="email"
-					id="email" value="${member.email }"></td>
+				<td style="text-align: center; vertical-align: middle; font-size: 14px; font-weight: bold">이메일주소</td>
+				<td><input type="text" class="form-control" name="email" id="email" value="${member.email }"><span id="emailmessageBox"></span></td>
 			</tr>
 			<tr>
 				<td
@@ -217,39 +192,33 @@ form {
 							<option>017</option>
 							<option>019</option>
 							<option>070</option>
-						</select> - <input type="text" size="12" class="form-control" name="phone2"
-							value="${member.phoneNumber2}"> - <input type="text"
-							size="12" class="form-control" name="phone3"
-							value="${member.phoneNumber3}">
+						</select> - 
+						<input type="text" size="12" class="form-control" name="phone2"	value="${member.phoneNumber2}"> - 
+						<input type="text" size="12" class="form-control" name="phone3" value="${member.phoneNumber3}">
 					</div>
 				</td>
 			</tr>
 
 			<tr>
-				<td
-					style="text-align: center; vertical-align: middle; font-size: 14px; font-weight: bold">주소</td>
-				<td><input id="post" name="post" id="post" type="text"
-					placeholder="우편번호" class="form-control-post"> <input
-					type="button" onclick="searchPost()" value="우편번호 찾기"
-					class="btn btn-danger"></td>
+				<td style="text-align: center; vertical-align: middle; font-size: 14px; font-weight: bold">주소</td>
+				<td>
+					<input id="post" name="post" id="post" type="text" placeholder="우편번호" class="form-control-post">
+					<input type="button" onclick="searchPost()" value="우편번호 찾기" class="btn btn-danger">
+				</td>
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="text" id="address" name="address" size="20px"
-					placeholder="기본주소" class="form-control" value="${member.address }"></td>
+				<td><input type="text" id="address" name="address" size="20px" placeholder="기본주소" class="form-control" value="${member.address }"></td>
 			</tr>
 
 			<tr>
 				<td></td>
-				<td><input type="text" id="address2" name="address2"
-					size="20px" placeholder="상세주소" class="form-control"
-					value="${member.address2 }"></td>
+				<td><input type="text" id="address2" name="address2" size="20px" placeholder="상세주소" class="form-control" value="${member.address2 }"></td>
 			</tr>
 			<tr>
 
 				<td><input type="hidden" name="" value=""></td>
-				<td><input type="submit" value="정보 수정" class="btn btn-danger"
-					onclick="return check()">
+				<td><input type="submit" value="정보 수정" class="btn btn-danger" onclick="return check()">
 			</tr>
 		</table>
 	</form>
