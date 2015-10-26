@@ -6,26 +6,6 @@ a.disabled {
    cursor: default;
 }
 </style>
-<script type="text/javascript">
-if("${result}" == 'false'){
-	$(function(){
-	        $('#loginModal').modal({ keyboard: false }) 
-	        var i = 4;
-	    	setInterval(function(){
-	    		document.getElementById("move").innerHTML = i + "초후 메인페이지로 이동합니다.";
-	    		i--;
-	    	}, 1000)
-	    	
-	    	setInterval(function(){
-	    		loationHome();
-	    	}, 5000)
-	})	
-}
-function loationHome(){
-	window.location.href = "../index.bins";
-}
-</script>
-
 	<div class="news_div" style="float: left; width: 30%; margin-left: 230px">
 		<table class="n_h_table" style="font-family:hy강m; font-size: 12pt; font-weight: bold;" >
 			<tr>
@@ -118,29 +98,3 @@ function loationHome(){
 	</tr>
 	
 	</table>
-	
-<div class="container">
-	<div class="modal fade" id="loginModal" role="dialog">
-	  <div class="modal-dialog" role="document">
-			<!-- header -->
-			
-			<!-- body -->
-			<div class="modal-body container" style="margin-left:-285;">
-				<div class="error-header">
-					<h2 class="error-heading">로그인 실패</h2>
-				</div>
-				<div class="error-body">
-		
-					<h3>로그인에 실패하였습니다.</h3>
-					<p>아이디 혹은 비밀번호를 확인해주세요</p>
-					<p id="move">3초후 메인페이지로 이동합니다.</p>
-		
-					<div class="row error-btn">
-						<button class="btn btn-large btn-default" onclick="loationHome()">홈으로 이동</button>
-					</div>
-				</div>
-			</div>
-			<!-- footer -->
-    </div>
-  </div>
-</div>

@@ -9,6 +9,14 @@
 			return false;
 		}
 	}
+    
+    window.onload = function() {
+		document.getElementById("back").onclick = function() {
+			/* 	history.back(); */
+
+			location.href = "../notice/notice_list.bins";
+		}
+    }
 </script>
 
 
@@ -20,9 +28,9 @@
 			</tr>
 			<input type="hidden" value="${article.articleId}" name="articleId">
 			<tr>
-				<td class="col-md-2">글제목</td>
-				<td><input class="form-control" type="text" name="subject" size="30" value="${article.subject}"/></td>
-				<td class="col-md-2"></td>
+				<td >글제목</td>
+				<td  colspan="4"><input class="form-control" type="text" name="subject" size="30" value="${article.subject}"/></td>
+			
 			</tr>
 			<tr>
 				<td>작성자</td>
@@ -34,10 +42,11 @@
 				<td colspan="3"><textarea class="form-control" name="content" rows="15" style="resize:none;" >${article.content}</textarea></td>
 			</tr>
 			<tr>
-				<td colspan="4">
-			
-					<input type="submit" value="수정완료" class="btn btn-default col-md-2 col-md-offset-10" onclick="return check()">
-				</td>
+				<tr>
+					<td colspan="4" style="text-align: right;">
+						<input type="submit" value="수정완료" class="btn btn-danger" onclick="return check()">
+						 <input class="btn btn-danger" type="button" value="돌아가기" id="back"></td>
+				</tr>
 			</tr>
 		</table>
 	</form>

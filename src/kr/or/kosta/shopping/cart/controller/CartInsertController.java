@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kr.or.kosta.shopping.cart.domain.Cart;
 import kr.or.kosta.shopping.cart.service.CartService;
 import kr.or.kosta.shopping.comment.domain.Comment;
 import kr.or.kosta.shopping.comment.service.CommentService;
@@ -28,6 +29,7 @@ public class CartInsertController implements Controller{
 		String orderCount = request.getParameter("count");
 		String toppingPrice = request.getParameter("toppingPrice");
 		String toppingName = request.getParameter("toppingName");
+		String result = request.getParameter("result");
 		
 		Product product = new Product();
 		product.setProductId(Integer.parseInt(productId));
@@ -59,7 +61,13 @@ public class CartInsertController implements Controller{
 		mav.addObject("commentList", commentList);
 		mav.addObject("toppingList", toppingList);
 		mav.addObject("product", viewProduct);
-		mav.addObject("contentFile", "../product/product_view.jsp");
+		if(result.equals("true")){
+			List<Cart> list = service.getAll(loginId);
+			mav.addObject("cartList", list);
+			mav.addObject("contentFile", "../cart/cart.jsp");
+		}else{
+			mav.addObject("contentFile", "../product/product_view.jsp");
+		}
 		return mav;
 	}
 }

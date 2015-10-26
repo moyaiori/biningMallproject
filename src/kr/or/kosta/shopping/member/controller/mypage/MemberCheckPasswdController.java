@@ -42,15 +42,12 @@ public class MemberCheckPasswdController implements Controller{
 		String passwd = request.getParameter("passwd");
 		Member member = service.login(memberId, passwd);
 	
-		System.out.println("MemberCheckPasswdViewController");
 
 		if(member != null){
 			mav.setView("redirect:../user/myEditInfo.bins");
-			mav.addObject("message", "로그인 성공");
 			return mav;
 		}else{
-			mav.setView("redirect:/user/myCheckPasswd.bins");
-			mav.addObject("message", "로그인 실패");
+			mav.setView("redirect:../user/myCheckPasswd.bins");
 			return mav;
 		}
 		
