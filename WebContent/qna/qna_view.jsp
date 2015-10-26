@@ -120,7 +120,7 @@ a.disabled {
 	</form>
 	
 	
-	 <div class="text-center" style="width: 800px">
+	 <div class="text-center">
    ${pageNation}
   </div>
 	
