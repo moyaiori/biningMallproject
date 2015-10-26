@@ -112,7 +112,7 @@
     	  var data = document.getElementById("hidden");
 	      data.setAttribute("value", json);
 	      
-	     document.cartForm.submit();
+	      document.cartForm.submit();
       }
       
       selOrderBtn = document.getElementById("selOrder");
@@ -145,7 +145,6 @@
     	  
           var data = document.getElementById("hidden");
 	      data.setAttribute("value", json);
-	      
 	      document.cartForm.submit();
       }
    }
@@ -181,7 +180,7 @@
  -->
  
 <div class="container">
-<form name="cartForm" action="../order/order.bins">
+<form name="cartForm" action="../order/order.bins" method="post">
 <input type="hidden" name="json" id="hidden">
 <input type="hidden" name="cartCheck" id="cartCheck">
 
