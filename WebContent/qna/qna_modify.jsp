@@ -56,7 +56,7 @@ window.onload = function(){
 			<td>
 			<input type="hidden" name="articleId" value=<%=articleId %>>
 			<input type="hidden" name="memberId" value=<%=writer%>>
-			<input class="btn btn-danger" type="submit" value="작성완료" /></td>
+			<input class="btn btn-danger" id="writeId" type="submit" value="작성완료" /></td>
 		<td><input onclick="location.href='../qna/qna_view.bins'" type="button" class="btn btn-danger" value="목록"  style="float: right;"/>
 		</tr>
 		</table>
