@@ -1,25 +1,5 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<link rel="stylesheet" type="text/css" href="../style/header.css">
-<!-- 충돌 나는 것 같은데 이유를 찾아야 한다. -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<style>
-.table>tbody>tr>td{
-	vertical-align: middle;
-	font-family:hy강m;
-	font-size: 12;
-}
-
-form {
-	vertical-align: middle;
-	margin: 0px auto;
-	font-family:hy강m;
-	font-size: 20;
-	padding: 20px 130px 13px;
-}
-</style>
 <div class="logoRight">
 	<ul>
 		<li><a  href = "../index.bins">Home</a></li>
@@ -39,7 +19,7 @@ form {
 	</ul>
 </div>
 <div class="logoTop">
-	<a  href = "../index.bins"><img style="width: 800px;" alt="WelCome" src="../images/mainlogo.jpg"></a>
+	<a  href = "../index.bins"><img style="width: 800px;" alt="WelCome" src="../images/logo.gif"></a>
 </div>
 <nav class="navbar navbar-custom navbar-static-top" style="margin-bottom: 70px">
   <div class="container-fluid">
@@ -57,7 +37,7 @@ form {
   </div><!-- /.container-fluid -->
 </nav>
 
-	<div class="container">
+<div class="container">
 	<div class="modal fade" id="myModal" role="dialog">
 	  <div class="modal-dialog" role="document">
 	  
@@ -67,7 +47,7 @@ form {
 		       	 <p class="j_p modal-title"> <font class="j_txt">L </font>O G I N</p>
 	        </div>
 	      
-		  <div class="modal-body">
+		  <div class="modal-body container" style="margin-left:-285;">
 			<form action="../user/loginProc.bins" method="post">
 				<div class="container col-md-8 col-md-offset-2">
 			
@@ -110,48 +90,4 @@ form {
 	  </div>
 	</div>
 	</div>
-	
-	<!-- 
-<div class="container">
-  <h2>Modal Login Example</h2>
-  Trigger the modal with a button
-  <button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button>
-
-  Modal
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      Modal content
-      <div class="modal-content">
-        <div class="modal-header" style="padding:35px 50px;">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
-        </div>
-        <div class="modal-body" style="padding:40px 50px;">
-          <form role="form">
-            <div class="form-group">
-              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="psw" placeholder="Enter password">
-            </div>
-            <div class="checkbox">
-              <label><input type="checkbox" value="" checked>Remember me</label>
-            </div>
-              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-          <p>Not a member? <a href="#">Sign Up</a></p>
-          <p>Forgot <a href="#">Password?</a></p>
-        </div>
-      </div>
-      
-    </div>
-  </div> 
-</div>
-  -->
 	
