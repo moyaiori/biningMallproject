@@ -9,9 +9,9 @@ a.disabled {
 <script type="text/javascript">
 if("${result}" == 'false'){
 	$(function(){
-	   $("#popbutton").click(function(){
-	        $('loginModal').modal();
-	        var i = 2;
+	   //$("#popbutton").click(function(){
+	        $('#loginModal').modal({ keyboard: false }) 
+	        var i = 4;
 	    	setInterval(function(){
 	    		document.getElementById("move").innerHTML = i + "초후 메인페이지로 이동합니다.";
 	    		i--;
@@ -19,8 +19,8 @@ if("${result}" == 'false'){
 	    	
 	    	setInterval(function(){
 	    		loationHome();
-	    	}, 3000)
-	    })
+	    	}, 5000)
+	    //})
 	})	
 }
 function loationHome(){
@@ -124,27 +124,25 @@ function loationHome(){
 <div class="container">
 	<div class="modal fade" id="loginModal" role="dialog">
 	  <div class="modal-dialog" role="document">
-	    <div class="container">
 			<!-- header -->
-			<div class="error-header">
-				<h2 class="error-heading">로그인 실패</h2>
-			</div>
+			
 			<!-- body -->
-			<div class="error-body">
-	
-				<h3>로그인에 실패하였습니다.</h3>
-				<p>아이디 혹은 비밀번호를 확인해주세요</p>
-				<p id="move">3초후 메인페이지로 이동합니다.</p>
-	
-				<div class="row error-btn">
-					<button class="btn btn-large btn-default" onclick="loationHome()">홈으로 이동</button>
+			<div class="modal-body container" style="margin-left:-285;">
+				<div class="error-header">
+					<h2 class="error-heading">로그인 실패</h2>
+				</div>
+				<div class="error-body">
+		
+					<h3>로그인에 실패하였습니다.</h3>
+					<p>아이디 혹은 비밀번호를 확인해주세요</p>
+					<p id="move">3초후 메인페이지로 이동합니다.</p>
+		
+					<div class="row error-btn">
+						<button class="btn btn-large btn-default" onclick="loationHome()">홈으로 이동</button>
+					</div>
 				</div>
 			</div>
 			<!-- footer -->
-			<div class="error-footer">
-				<p>COPYRIGHT ⓒ 2015 BINS. ALL RIGHT RESERVED.</p>
-			</div>
-	  </div>
     </div>
   </div>
 </div>
