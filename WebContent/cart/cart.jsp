@@ -111,8 +111,12 @@
     	  
     	  var data = document.getElementById("hidden");
 	      data.setAttribute("value", json);
-	      
-	      document.cartForm.submit();
+	      if(json == "]"){
+	    	  alert("주문 상품이 존재하지 않습니다.");
+	    	  return false;
+	      }else{
+	    	  document.cartForm.submit();  
+	      }
       }
       
       selOrderBtn = document.getElementById("selOrder");

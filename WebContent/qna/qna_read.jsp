@@ -15,9 +15,18 @@
 				<th class="active">제목</th>
 				<td colspan="3">${qna.subject}</td>
 			</tr>
+			
 			<tr>
 				<th class="active">작성자</th>
-				<td>${qna.memberId}</td>
+				<c:choose>
+				<c:when test="${qna.stepNum == '2'}">
+					<td>admin</td>
+				</c:when>
+				<c:otherwise>
+					<td>${qna.memberId}</td>
+				</c:otherwise>
+			</c:choose>
+				
 				<th class="active">작성일</th>
 				<td>${qna.regdate}</td>
 			</tr>
@@ -34,14 +43,27 @@
 			<tr><td colspan="3" style="padding: 0 0 0 0"></td></tr>
 			
 	</table>
-	<input onclick="location.href='../qna/qna_view.bins" type="button" class="btn btn-danger" value="목록" />
-	<c:if test="${cookie.loginId.value == admin}" >
-		<input onclick="location.href='../qna/qna_write.bins?articleId=<%=articleId%>&writer=${qna.memberId}'" type="button" class="btn btn-danger" value="답글쓰기"  />
+	<input onclick="location.href='../qna/qna_view.bins'" type="button" class="btn btn-danger" value="목록" />
+	<c:if test="${qna.stepNum==0}">
+		<c:if test="${cookie.loginId.value == 'admin'}" >
+			<input onclick="location.href='../qna/qna_write.bins?articleId=<%=articleId%>&writer=${qna.memberId}'" type="button" class="btn btn-danger" value="답글쓰기"  />
+		</c:if>
 	</c:if>
-	<c:if test="${cookie.loginId.value == qna.memberId}" >
-		<input onclick="location.href='../qna/qna_modify.bins?articleId=<%=articleId%>'" type="button" class="btn btn-danger" value="수정하기"  />
-		<input onclick="location.href='../qna/qna_delete.bins?articleId=<%=articleId%>'" class="btn btn-default" type="button" id="delete" value="삭제하기">
-	</c:if>
+	<c:choose>
+		<c:when test="${qna.stepNum ==2}">
+			<c:if test="${cookie.loginId.value == 'admin'}" >
+				<input onclick="location.href='../qna/qna_modify.bins?articleId=<%=articleId%>'" type="button" class="btn btn-danger" value="수정하기"  />
+				<input onclick="location.href='../qna/qna_delete.bins?articleId=<%=articleId%>'" class="btn btn-danger" type="button" id="delete" value="삭제하기">
+			</c:if>
+		</c:when>
+		<c:when test="${qna.stepNum == 0}">
+			<c:if test="${cookie.loginId.value == qna.memberId}" >
+				<input onclick="location.href='../qna/qna_modify.bins?articleId=<%=articleId%>'" type="button" class="btn btn-danger" value="수정하기"  />
+				<input onclick="location.href='../qna/qna_delete.bins?articleId=<%=articleId%>'" class="btn btn-danger" type="button" id="delete" value="삭제하기">
+			</c:if>
+		</c:when>
+		
+	</c:choose>
 	</div>
 </div>
 </body>
