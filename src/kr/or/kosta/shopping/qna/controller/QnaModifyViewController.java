@@ -15,7 +15,7 @@ import kr.or.kosta.shopping.common.controller.ModelAndView;
 import kr.or.kosta.shopping.qna.domain.Qna;
 import kr.or.kosta.shopping.qna.service.QnaService;
 
-public class QnaReadController implements Controller {
+public class QnaModifyViewController implements Controller {
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response){
@@ -28,7 +28,7 @@ public class QnaReadController implements Controller {
 		service.updateHitcount(Integer.parseInt(articleId));
 		
 		mav.addObject("qna", article);
-		mav.addObject("contentFile", "/qna/qna_read.jsp");
+		mav.addObject("contentFile", "/qna/qna_modify.jsp");
 
 		return mav;
 	}
