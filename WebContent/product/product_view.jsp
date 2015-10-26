@@ -90,6 +90,8 @@
 			for (var i in array) {
 				output += "<option>" + array[i].name + " : " + array[i].price + " - " + array[i].count +"개</option>";
 			}
+			
+			select.selectedIndex = 0;
 			toppingBox.innerHTML = output;
 			price.innerHTML = (realPrice + toppingPrice) * count.value;
 		}
@@ -141,9 +143,7 @@
 		    	
 		    	var returnValue = confirm("장바구니하면으로 이동하시겠습니까?");
 		    	if (returnValue) {
-		    		alert("장바구니로 이동");
 		    		window.location.href = "../cart/cartInsert.bins?loginId=" + "${cookie.loginId.value}" + "&productId=" + "${product.productId}" + "&price=" + realPrice + "&name=" + "${product.name}" + "&picture=" + "${product.picture}" + "&count=" + count.value + "&toppingPrice=" + toppingPrice + "&toppingName=" + toppingName+ "&result=true"  ;
-		    		
 		    	} else {
 		    		window.location.href = "../cart/cartInsert.bins?loginId=" + "${cookie.loginId.value}" + "&productId=" + "${product.productId}" + "&price=" + realPrice + "&name=" + "${product.name}" + "&picture=" + "${product.picture}" + "&count=" + count.value + "&toppingPrice=" + toppingPrice + "&toppingName=" + toppingName+ "&result=false" ;
 				}
@@ -216,7 +216,7 @@
 								<select class="form-control" id="select" style="display: inline; width:210px">
 									<option value="">== 토핑 선택 ==
 									<c:forEach items="${toppingList}" var="topping">
-									<option value="${topping.price}">${topping.toppingId}. ${topping.name} : ${topping.price}원
+									<option  value="${topping.price}">${topping.toppingId}. ${topping.name} : ${topping.price}원
 									</c:forEach>
 	     						 </select>
 								<input type="button" id="delete" class="btn btn-danger" value="삭제" style="display: inline;"/>

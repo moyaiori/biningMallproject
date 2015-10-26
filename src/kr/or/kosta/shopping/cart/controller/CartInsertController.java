@@ -62,11 +62,11 @@ public class CartInsertController implements Controller{
 		mav.addObject("toppingList", toppingList);
 		mav.addObject("product", viewProduct);
 		if(result.equals("true")){
-			mav.addObject("contentFile", "../product/product_view.jsp");
-		}else{
 			List<Cart> list = service.getAll(loginId);
 			mav.addObject("cartList", list);
 			mav.addObject("contentFile", "../cart/cart.jsp");
+		}else{
+			mav.addObject("contentFile", "../product/product_view.jsp");
 		}
 		return mav;
 	}
