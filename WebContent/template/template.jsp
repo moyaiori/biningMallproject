@@ -10,11 +10,25 @@
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.css.map">
 <link rel="stylesheet" type="text/css" href="../style/bootstrap.min.css">
-<!-- 충돌 나는 것 같은데 이유를 찾아야 한다. -->
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="../style/header.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+.table>tbody>tr>td{
+	vertical-align: middle;
+	font-family:hy강m;
+	font-size: 12;
+}
 
+form {
+	vertical-align: middle;
+	margin: 0px auto;
+	font-family:hy강m;
+	font-size: 20;
+	padding: 20px 130px 13px;
+}
+</style>
 <style type="text/css">
 
 html {
@@ -43,14 +57,18 @@ html {
 
 <body>
 
+
+	
+
 <div>
 	<%--header include --%>
 	<jsp:include page="../menus/header.jsp"></jsp:include>
-
+	
     <section>
     	<jsp:include page="${contentFile}" flush="false"/>
     </section>
-    
+     
+     
     <%-- footer inclue --%>
     <jsp:include page="../menus/footer.jsp"></jsp:include>
 
