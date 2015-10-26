@@ -83,10 +83,14 @@
  		where board_id= ${value} and  rownum &lt;=5
 	</select>
 	
-	<update id="modify" parameterType="java.util.HashMap">
+	<update id="modify" parameterType="kr.or.kosta.shopping.article.domain.Article">
 		UPDATE article
-		SET subject = '#{subject}', content = '#{content}'
-		WHERE article_id = #{articleId};
+		SET subject = #{subject}, content = #{content}
+		WHERE article_id = #{articleId}
 	</update>
-	
+
+	<delete id="delete" parameterType="java.lang.String" >
+		delete from article
+			where article_id = #{articleId}
+	</delete>
 </mapper>

@@ -29,11 +29,12 @@
                      <th>조회수</th>
                   </tr>
                   
-                  
+              
                   <c:if test="${listSize - 1 >= 0}">
                    <c:forEach  begin="0" end="${articleList.size()-1}" var="i">
    						<tr>
-   						  <td>${listSize-i}</td>
+   						 <%--  <td>${listSize-i}</td> --%>
+   						  <td>${listSize - ((pageNum - 1) *10) - i}</td>
    						    <td class="">
                     		    <a href="../notice/notice_read.bins?articleId=${articleList.get(i).articleId}">${articleList.get(i).subject}</a>
                    		  </td>

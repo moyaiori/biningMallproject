@@ -29,8 +29,9 @@ public interface ArticleDao{
 	
 	public List<Article> getIndexArticle(int boardId) throws RuntimeException;
 	
-	public void modify(HashMap<String, Object> data) throws RuntimeException;
-
+	public void modify(Article article) throws RuntimeException;
+	
+	public void delete(String articleId) throws RuntimeException;
 	
 }
 

@@ -53,11 +53,13 @@ public class NoticeListController implements Controller {
 			articleList=service.getAll(pageNum);
 			listSize=service.getAllCnt(); //검색된 전체 수.
 		}
+
 		requestP = Integer.parseInt(rp);
 		
 		Pagination pagination = new Pagination(10, 5, listSize, pageNum);
 		pagination.paginate();
 		String pageNation =pagination.toHtml(pageType, pageValue);
+		mav.addObject("pageNum", pageNum);
 		mav.addObject("articleList", articleList);
 		mav.addObject("listSize", listSize);
 		mav.addObject("requestP", requestP);

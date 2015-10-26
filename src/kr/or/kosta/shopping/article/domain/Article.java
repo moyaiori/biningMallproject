@@ -45,7 +45,13 @@ public class Article {
 		this.subject = subject;
 		this.content = content;
 	}
-	
+	public Article(int boardId,int articleId,String memberId, String subject, String content){
+		this.boardId = boardId;
+		this.articleId =articleId;
+		this.memberId= memberId;
+		this.subject = subject;
+		this.content = content;
+	}
 	/** setter, getter */
 	public int getArticleId() {
 		return articleId;

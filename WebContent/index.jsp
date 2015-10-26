@@ -124,10 +124,8 @@ function loationHome(){
 <div class="container">
 	<div class="modal fade" id="loginModal" role="dialog">
 	  <div class="modal-dialog" role="document">
-	    <div class="container">
 			<!-- header -->
-			<div class="modal-header">
-			</div>
+			
 			<!-- body -->
 			<div class="modal-body container" style="margin-left:-285;">
 				<div class="error-header">
@@ -145,12 +143,6 @@ function loationHome(){
 				</div>
 			</div>
 			<!-- footer -->
-			
-			<div class="error-footer">
-				<p>COPYRIGHT ⓒ 2015 BINS. ALL RIGHT RESERVED.</p>
-			</div>
-			<div class="modal-footer"></div>
-	  </div>
     </div>
   </div>
 </div>

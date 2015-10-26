@@ -15,7 +15,7 @@ import kr.or.kosta.shopping.article.service.ArticleService;
 import kr.or.kosta.shopping.common.controller.Controller;
 import kr.or.kosta.shopping.common.controller.ModelAndView;
 
-public class NoticeModifyController implements Controller {
+public class NoticeModifyProcController implements Controller {
 
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response){
@@ -23,14 +23,19 @@ public class NoticeModifyController implements Controller {
 		ModelAndView mav = new ModelAndView();
 		ArticleService service =ArticleService.getInstance();
 		HashMap<String, Object> data = new HashMap<String, Object>();
+
 		
-		String articleId = request.getParameter("no");
-		Article article  =service.get(Integer.parseInt(articleId));
-
-/*		service.modify(data);*/
-		mav.addObject("article", article);
-		mav.addObject("contentFile", "/notice/notice_modify.jsp");
-
+		String memberId = request.getParameter("memberId");
+		int articleId =Integer.valueOf(request.getParameter("articleId"));
+		String content = request.getParameter("content");
+		String title = request.getParameter("subject");
+		Article article = new Article(1,articleId,memberId,title,content);
+		
+		service.modify(article);
+	
+		
+		mav.addObject("article", service.get(articleId));
+		mav.addObject("contentFile", "/notice/notice_read.jsp");
 		return mav;
 	}
 

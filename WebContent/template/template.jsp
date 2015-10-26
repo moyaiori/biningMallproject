@@ -53,7 +53,6 @@ html {
 
 </style>
 <style type="text/css">
-
 .error-header {
 	max-width: 500px;
 	padding: 15px 29px 25px;
