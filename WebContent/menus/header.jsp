@@ -1,12 +1,9 @@
 <%@ page contentType="text/html; charset=utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!-- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="../js/ajax.js"></script> -->
+<!-- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script> -->
+<script src="../js/ajax.js"></script>
 <script>
-
-
 	function login_ok(){
-	
 		if (document.getLogin.memberId.value == "") {
 	  		alert("아이디를 입력해주세요.");
 	  		return false;
@@ -14,9 +11,16 @@
 	  		alert("비밀번호를 입력해주세요.");
 	  		return false;
 	 }
-		document.getLogin.submit(); 
+		var memberId = document.getLogin.memberId.value;
+		var passwd = document.getLogin.passwd.value;
+		ajax({
+			method: "post",
+			url: "../user/loginProc.bins",
+			data: "memberId="+memberId+"&passwd="+passwd,
+			callback: function(xhr){
+			}
+		});
 	} 
-	
 </script>
 
 
@@ -39,6 +43,7 @@
 		</c:if>
 	</ul>
 </div>
+
 <div class="logoTop">
 	<a  href = "../index.bins"><img style="width: 800px;" alt="WelCome" src="../images/logo.gif"></a>
 </div>
@@ -60,8 +65,7 @@
 
 <div class="container">
 	<div class="modal fade" id="myModal" role="dialog">
-	  <div class="modal-dialog" role="document">
-	  
+	  <div class="modal-dialog" role="document">  
 		<div class="modal-content">
 			<div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -71,7 +75,6 @@
 		  <div class="modal-body container" style="margin-left:-285;">
 			<form action="../user/loginProc.bins" method="post" name="getLogin">
 				<div class="container col-md-8 col-md-offset-2">
-			
 						<table class="table">
 							<colgroup>
 								<col width="200" />
@@ -80,11 +83,11 @@
 							</colgroup>
 							<tr>
 								<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">아이디</td>
-								<td><input type="text" class="form-control" name="memberId"></td>
+								<td><input type="text" class="form-control" name="memberId" id="memberId"></td>
 								<td></td>
 							<tr>
 								<td style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">비밀번호</td>
-								<td><input type="password" class="form-control" name="passwd"></td>
+								<td><input type="password" class="form-control" name="passwd" id="passwd"></td>
 								<td><input type="submit" class="btn btn-danger" value="로그인" onclick="return login_ok()"></td></tr>
 							<tr>
 								<td colspan='2' style="text-align:center; vertical-align: middle; font-size: 14px; font-weight:bold">Bin's회원이 되시면 편리한 이용이 가능 합니다.</td>
