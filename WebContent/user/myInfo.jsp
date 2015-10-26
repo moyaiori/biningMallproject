@@ -20,11 +20,15 @@ form {
 }
 </style>
 
+<p class="j_p">
+				<font class="j_txt">M </font>Y 　I N F O</p>
+
 <jsp:include page="myPageMenu.jsp"></jsp:include>
 
+
+
 <div class="container col-md-8 col-md-offset-2">
-		<p class="j_p">
-				<font class="j_txt">M </font>Y 　I N F O</p>
+		
 	<form action="registProc.bins" method="post" name="addjoin">
 		<table class="table">
 			<colgroup>

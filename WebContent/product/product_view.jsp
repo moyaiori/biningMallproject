@@ -209,7 +209,7 @@
 								<input type="button" id="delete" class="btn btn-danger" value="삭제" style="display: inline;"/>
 							</div>
 	
-							<div class="orderBtnSet">
+							<div class="orderBtnSet" style="width: 208px">
 								<input id="addCart" type="button" class="btn btn-danger" value="장바구니 추가"/>
 								<input id="buyButton" type="submit" class="btn btn-danger" value="바로 구매"/>
 							</div>
@@ -242,7 +242,7 @@
 					<col width="130" />
 					<col width="130" />
 				</colgroup>
-				<tr class="active" style="font-family: hy강M">
+				<tr class="danger" style="font-family: hy강M">
 					<th>번호</th>
 					<th>상품평</th>
 					<th>작성자</th>

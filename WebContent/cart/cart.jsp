@@ -184,11 +184,13 @@
 <form name="cartForm" action="../order/order.bins">
 <input type="hidden" name="json" id="hidden">
 <input type="hidden" name="cartCheck" id="cartCheck">
-<h2 align="center">장바구니</h2>
+
+<p class="j_p">
+				<font class="j_txt">C </font>A R T</p>
 <div class="text-center">
-<table class="table">
+<table class="table" style="font-family: hy강m; font-size: 15pt ">
    <thead> 
-   <tr class="active">
+   <tr class="danger">
       <th>선택</th>
       <th>사진</th>
       <th>상품명</th>
@@ -215,11 +217,11 @@
       <table style="display:block;float:right;">
          <tbody><tr>
             <td align="right">상품합계금액</td>
-            <td align="right" style="font-weight:bold; padding-left:30px"><span id="totalPrice">0</span>원&nbsp;</td>         
+            <td align="right" style="font-weight:bold; padding-left:30px"><span id="totalPrice">0</span>원　</td>         
             <td align="right">받으실적립금</td>
-            <td align="right" style="font-weight:bold;padding-left:25px"><span id="point">0</span>원&nbsp;</td>
-            <td align="right">&nbsp;&nbsp;&nbsp;<input type="button" id="selDelete" value="선택삭제"></td>
-            <td align="right">&nbsp;&nbsp;&nbsp;<input type="button" id="allDelete" value="전체삭제"></td>
+            <td align="right" style="font-weight:bold;padding-left:25px"><span id="point">0</span>원　</td>
+            <td align="right">　　<input type="button" id="selDelete"  class="btn btn-danger" value="선택삭제"></td>
+            <td align="right">　　<input type="button" id="allDelete" class="btn btn-danger" value="전체삭제"></td>
          </tr>
          </tbody>
       </table>
@@ -228,9 +230,9 @@
    </tfoot>
 </table>
 <br>
-<input type="button" value="선택주문" id="selOrder">
+<input type="button" value="선택주문" id="selOrder" class="btn btn-danger btn-lg">
 
-<input type="button" value="전체주문" id="allOrder">
+<input type="button" value="전체주문" id="allOrder" class="btn btn-danger btn-lg">
 </div>
 </form>
 </div>
