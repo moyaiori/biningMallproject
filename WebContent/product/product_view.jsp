@@ -243,7 +243,7 @@
 	</div>
 	
 	<div class="container" style="width: 70%; font-family: HY강">
-		<a id="productView" style="cursor:pointer">상품평 보기</a>
+		<a id="productView" style="cursor:pointer; margin-bottom: 5px" class="btn btn-danger" >상품평 보기</a>
 	</div>
 	
 	<div class="reviewDiv">
