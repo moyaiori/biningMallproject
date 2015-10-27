@@ -214,4 +214,22 @@ public class MybatisMemberDao implements MemberDao {
 			}
 		}
 	
+	public int getMemberPoint(String memberId) throws RuntimeException{
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int point = 0;
+		try {
+			MemberDao dao = sqlSession.getMapper(MemberDao.class);
+			point = dao.getMemberPoint(memberId);
+			logger.debug("[DEBUG] : updatePoint()에서 발생");
+			sqlSession.commit();
+		} catch (Exception e) {
+			logger.warn("[WARN] : updatePoint()에서 발생");
+			sqlSession.rollback();
+			e.printStackTrace();
+		} finally {
+			sqlSession.close();
+		}
+		return point;
+	}
+	
 }

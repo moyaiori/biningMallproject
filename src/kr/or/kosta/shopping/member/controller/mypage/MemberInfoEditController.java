@@ -53,6 +53,7 @@ public class MemberInfoEditController implements Controller{
 		System.out.println("MemberInfoEditController - member : " + member);
 		
 		service.updateMemberInfo(member);
+		member.setPoint(service.getMemberPoint(memberId));
 
 		mav.addObject("member", member);
 		mav.addObject("contentFile", "/user/myInfo.jsp");

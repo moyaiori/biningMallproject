@@ -137,4 +137,14 @@ public class MemberService {
 			throw new RuntimeException(e.toString());
 		}
 	}
+	
+	public int getMemberPoint(String memberId) throws RuntimeException{
+		int point;
+		try {
+			point = memberDao.getMemberPoint(memberId);
+		} catch (Exception e) {
+			throw new RuntimeException(e.toString());
+		}
+		return point;
+	}
 }

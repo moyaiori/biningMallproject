@@ -94,4 +94,10 @@
 		WHERE member_id = #{memberId}
 	</update>
 	
+	<select id="getMemberPoint" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select point as "point"
+		from	members
+		where	member_Id = #{memberId}
+	</select>
+	
 </mapper>

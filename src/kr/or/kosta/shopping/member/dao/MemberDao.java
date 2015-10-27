@@ -49,6 +49,8 @@ public interface MemberDao {
 	
 	/* 주문시 회원의 포인트 변경*/
 	public void updatePoint(HashMap<String, Object> data) throws RuntimeException;
+	
+	public int getMemberPoint(String memberId) throws RuntimeException;
 }
 
 
