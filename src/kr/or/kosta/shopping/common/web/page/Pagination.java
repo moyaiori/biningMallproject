@@ -259,20 +259,6 @@ public class Pagination {
 	}
 	
 	
-	/** 테스트을 위한 main */
-	public static void main(String[] args) {
-		/** 페이지에서 보여질 행의 수, 페이지 수 */
-		Pagination pagination = new Pagination(10, 5, 56, 2);
-		pagination.paginate();
-		System.out.println("검색된 행수: " + pagination.getTotalRowCount());
-		System.out.println("요청페이지: " + pagination.getRequestPage());
-		System.out.println("전체페이지수: " + pagination.getTotalPageCount());
-		System.out.println("현재목록의 시작페이지: " + pagination.beginNoOfCurrentList);
-		System.out.println("현재목록의 끝페이지: " + pagination.endNoOfCurrentList );
-		
-		System.out.println(pagination.toHtml("", ""));//전체검색
-		//System.out.println(pagination.toHtml("writer", "bangry"));//작성자로검색
-		
-	}
+
 }
 
