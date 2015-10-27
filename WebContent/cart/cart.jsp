@@ -201,7 +201,7 @@
 <div class="text-center">
 <table class="table" style="font-family: hy강m; font-size: 15pt ">
    <thead> 
-   <tr class="danger">
+   <tr class="active">
       <th>선택</th>
       <th>사진</th>
       <th>상품명</th>

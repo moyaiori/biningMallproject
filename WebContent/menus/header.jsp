@@ -33,7 +33,7 @@ function login_ok(){
 			<li><a href = "../user/regist.bins">Join</a></li>
 		</c:if>
 		<li><a href="../notice/notice_list.bins" >공지사항</a></li>
-		<li><a href= "../qna/qna_view.bins">QnA</a></li>
+		<li><a href= "../qna/qna_view.bins">Q&A</a></li>
 		<c:if test="${cookie.loginId != null}">
 			<li><a href= "../cart/cartView.bins?loginId=${cookie.loginId.value}">Cart</a></li>
 			<li><a href= "../user/myInfo.bins?loginId=${cookie.loginId.value}">MyPage</a></li>

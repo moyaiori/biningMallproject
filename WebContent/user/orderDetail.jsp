@@ -5,7 +5,7 @@
 
 <table class="table">
    <thead> 
-   <tr class="danger">
+   <tr class="active">
       <th>사진</th>
       <th>상품명</th>
       <th>개당 가격</th>

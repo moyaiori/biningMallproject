@@ -267,7 +267,7 @@
 					<col width="130" />
 					<col width="130" />
 				</colgroup>
-				<tr class="danger" style="font-family: hy강M">
+				<tr class="active" style="font-family: hy강M">
 					<th>번호</th>
 					<th>상품평</th>
 					<th>작성자</th>

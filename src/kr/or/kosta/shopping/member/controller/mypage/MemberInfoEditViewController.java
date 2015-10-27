@@ -44,7 +44,6 @@ public class MemberInfoEditViewController implements Controller{
 		}
 		
 		member = service.getMemberInfo(memberId);
-		System.out.println("member : " + member);
 
 		mav.addObject("member",member);
 		
