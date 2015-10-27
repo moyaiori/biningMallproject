@@ -41,7 +41,6 @@ public class MemberInfoViewController implements Controller{
 		}
 		
 		member = service.getMemberInfo(memberId);
-
 		
 		mav.addObject("member",member);
 		mav.addObject("contentFile", "/user/myInfo.jsp");

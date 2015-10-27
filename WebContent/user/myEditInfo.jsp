@@ -95,6 +95,8 @@
 	var checked = false;
 	window.onload = function() {
 		
+		document.addjoin.phone.value = ${member.phoneNumber};
+		
 		document.addjoin.passwd.onkeyup = function(){
 			if (document.addjoin.passwd.value.trim() == "" || document.addjoin.passwd.value == null) {
 				setMessage("비밀번호를 입력해주세요", "passwd", "red");
