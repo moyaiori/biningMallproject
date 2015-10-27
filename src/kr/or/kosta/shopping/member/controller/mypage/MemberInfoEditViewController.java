@@ -18,9 +18,12 @@ import kr.or.kosta.shopping.member.service.MemberService;
  * @author 이광용
  */
 public class MemberInfoEditViewController implements Controller{
+	
+	Logger logger = Logger.getLogger(Log4JExample.class);
+	
 	@Override
 	public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-		Logger logger = Logger.getLogger(Log4JExample.class);
+		
 		logger.debug("[debug] : MemberInfoEditViewController");
 
 		MemberService service = MemberService.getInstance();

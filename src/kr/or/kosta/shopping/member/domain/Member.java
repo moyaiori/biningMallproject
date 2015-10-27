@@ -84,7 +84,7 @@ public class Member {
 	}
 
 	public String getPhoneNumber3() {
-		return phoneNumber2;
+		return phoneNumber3;
 	}
 
 	public void setPhoneNumber3(String phoneNumber3) {
