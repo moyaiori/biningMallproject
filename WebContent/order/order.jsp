@@ -209,7 +209,7 @@ function check(){
 				<col width="120"/>
 			</colgroup>
 			
-			<tr class="danger">
+			<tr class="active">
 				<th>상품사진</th>
 				<th>상품명</th>
 				<th>판매가</th>
